@@ -21,7 +21,7 @@ namespace GIM
         {
             DBlayer dba = new GIM.DBlayer();
 
-            DataSet dsSeverity = dba.GetSeverity();
+            DataSet dsSeverity = dba.GetTable("GIMSeverity");
             //DataRow rCT = dsSeverity.Tables[0].NewRow();
             //rCT["ID"] = 0;
             //rCT["SeverityName"] = "";

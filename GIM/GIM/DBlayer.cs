@@ -60,6 +60,36 @@ namespace GIM
             return ds;
         }
 
+        public DataSet GetFunctions()
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = "Select * from GIMfunc";
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
+        public DataSet GetTable(string TableName)
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = "Select * from " + TableName;
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
         #endregion
 
         #region Insert data
