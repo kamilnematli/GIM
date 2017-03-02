@@ -48,6 +48,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,7 +66,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddIssue.Designer.cs">
+      <DependentUpon>AddIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLog.Designer.cs">
+      <DependentUpon>AddLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBlayer.cs" />
+    <Compile Include="EditIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditIssue.Designer.cs">
+      <DependentUpon>EditIssue.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +93,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddIssue.resx">
+      <DependentUpon>AddIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddLog.resx">
+      <DependentUpon>AddLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditIssue.resx">
+      <DependentUpon>EditIssue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +114,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

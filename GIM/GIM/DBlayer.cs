@@ -75,19 +75,19 @@ namespace GIM
                           " ,[Creator])" +
                           "  VALUES " +
                           " (" + Type +
-                          " ," + Title +
-                          " ," + IssueStatus +
+                          ",'" + Title +
+                          "'," + IssueStatus +
                           " ," + IssueSeverity +
                           " ," + RaisedBy +
-                          " ," + Desc +
-                          " ," + LeadFunction +
-                          " ," + ImpactedFuncs +
-                          " ," + Location +
-                          " ," + ImpactedVenues +
-                          " ," + DateOccurence +
-                          " ," + DateActualEnd +
-                          " ," + DateUpdated +
-                          " ," + Reportable +
+                          ",'" + Desc +
+                          "'," + LeadFunction +
+                          ",'" + ImpactedFuncs +
+                          "'," + Location +
+                          ",'" + ImpactedVenues +
+                          "','" + DateOccurence +
+                          "','" + DateActualEnd +
+                          "','" + DateUpdated +
+                          "'," + Reportable +
                           " ," + Dashboard +
                           " ," + Creator + ")";
 
@@ -96,7 +96,7 @@ namespace GIM
             conn.Close();
         }
 
-        public void InsertUpdate(int UpdatedBy, string Creator, string UpdateText, string UpdateType, string DateUpdate)
+        public void InsertUpdate(int UpdatedBy, string Creator, string UpdateText, string UpdateType, string DateUpdate, string FileUploaded)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -105,15 +105,17 @@ namespace GIM
             string _sql = "INSERT INTO [dbo].[GIMupdateLog] " +
                           " ([UpdatedBy]" +
                           " ,[Creator]" +
-                          " ,[UpdateText]" +
+                          " ,[UpdateContext]" +
                           " ,[UpdateType]" +
-                          " ,[DateUpdate])" +
+                          " ,[DateUpdate]" +
+                          " ,[FileUploaded])" +
                           " VALUES" +
                           " (" + UpdatedBy +
-                          " ," + Creator +
-                          " ," + UpdateText +
-                          " ," + UpdateType +
-                          " ," + DateUpdate + ")";
+                          ",'" + Creator +
+                          "','" + UpdateText +
+                          "','" + UpdateType +
+                          "','" + DateUpdate + 
+                          "','" + FileUploaded + "')";
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();
