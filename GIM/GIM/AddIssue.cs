@@ -16,5 +16,10 @@ namespace GIM
         {
             InitializeComponent();
         }
+
+        private void AddIssue_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
