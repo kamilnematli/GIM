@@ -17,6 +17,19 @@ namespace GIM
             InitializeComponent();
         }
 
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void LoadIssueList()
+        {
+            DBlayer dba = new DBlayer();
+            DataSet dsIssues = dba.GetIssues();
+            DataView dvIssues = dsIssues.Tables[0].DefaultView;
+            gvIssues.DataSource = dvIssues;
+        }
+
         private void AddIssue_Click(object sender, EventArgs e)
         {
             AddIssue frm = new AddIssue();

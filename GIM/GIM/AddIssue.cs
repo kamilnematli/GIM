@@ -26,8 +26,8 @@ namespace GIM
             //rCT["ID"] = 0;
             //rCT["SeverityName"] = "";
             //dsSeverity.Tables[0].Rows.Add(rCT);
-            DataView dv = new DataView(dsSeverity.Tables[0], "", "ID", DataViewRowState.CurrentRows);
-            cbSeverity.DataSource = dv;
+            DataView dvSeverity = new DataView(dsSeverity.Tables[0], "", "ID", DataViewRowState.CurrentRows);
+            cbSeverity.DataSource = dvSeverity;
             cbSeverity.DisplayMember = "SeverityName";
             cbSeverity.ValueMember = "ID";
         }
