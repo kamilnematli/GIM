@@ -45,6 +45,21 @@ namespace GIM
             return ds;
         }
 
+        public DataSet GetSeverity()
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = "Select * from GIMseverity";
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
         #endregion
 
         #region Insert data

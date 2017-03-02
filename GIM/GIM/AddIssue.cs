@@ -19,7 +19,17 @@ namespace GIM
 
         private void AddIssue_Load(object sender, EventArgs e)
         {
+            DBlayer dba = new GIM.DBlayer();
 
+            DataSet dsSeverity = dba.GetSeverity();
+            //DataRow rCT = dsSeverity.Tables[0].NewRow();
+            //rCT["ID"] = 0;
+            //rCT["SeverityName"] = "";
+            //dsSeverity.Tables[0].Rows.Add(rCT);
+            DataView dv = new DataView(dsSeverity.Tables[0], "", "ID", DataViewRowState.CurrentRows);
+            cbSeverity.DataSource = dv;
+            cbSeverity.DisplayMember = "SeverityName";
+            cbSeverity.ValueMember = "ID";
         }
     }
 }
