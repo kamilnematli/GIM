@@ -24,10 +24,10 @@ namespace GIM
 
         private void LoadIssueList()
         {
-            DBlayer dba = new DBlayer();
-            DataSet dsIssues = dba.GetIssues();
-            DataView dvIssues = dsIssues.Tables[0].DefaultView;
-            gvIssues.DataSource = dvIssues;
+            //DBlayer dba = new DBlayer();
+            //DataSet dsIssues = dba.GetIssues();
+            //DataView dvIssues = dsIssues.Tables[0].DefaultView;
+            //gvIssues.DataSource = dvIssues;
         }
 
         private void AddIssue_Click(object sender, EventArgs e)

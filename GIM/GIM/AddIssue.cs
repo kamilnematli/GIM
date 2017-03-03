@@ -30,6 +30,24 @@ namespace GIM
             cbSeverity.DataSource = dvSeverity;
             cbSeverity.DisplayMember = "SeverityName";
             cbSeverity.ValueMember = "ID";
+
+            DataSet dsFuncs = dba.GetTable("GIMfunc");
+            DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+            clbImpactedFuncs.DataSource = dvFuncs;
+            clbImpactedFuncs.DisplayMember = "FuncCode";
+            clbImpactedFuncs.ValueMember = "ID";
+
+            DataSet dsLead = dba.GetTable("GIMfunc");
+            DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+            cbLeadFunc.DataSource = dvLead;
+            cbLeadFunc.DisplayMember = "FuncCode";
+            cbLeadFunc.ValueMember = "ID";
+
+            DataSet dsVenues = dba.GetTable("GIMvenue");
+            DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+            clbImpactedVenues.DataSource = dvVenues;
+            clbImpactedVenues.DisplayMember = "VenueCode";
+            clbImpactedVenues.ValueMember = "ID";
         }
     }
 }
