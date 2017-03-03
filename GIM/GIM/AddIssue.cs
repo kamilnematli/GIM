@@ -57,7 +57,16 @@ namespace GIM
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            DBlayer dba = new GIM.DBlayer();
 
+            try
+            {
+                //dba.InsertIssue(1, tbTitle.Text, Convert.ToInt32(cbStatus.SelectedIndex), Convert.ToInt32());
+            }
+            catch
+            {
+
+            }
         }
     }
 }

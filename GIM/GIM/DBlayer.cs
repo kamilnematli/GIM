@@ -12,6 +12,27 @@ namespace GIM
     {
         string connectionString = "server=pmsasql01.database.windows.net;database=GamesModelDB02;uid=SQLAdmin01;pwd=UD6JvqIY9iLlX57PT3U1";
 
+        public bool CheckPassword(int FuncID, string pass)
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = "select UserPass from GIMfunc where ID = " + FuncID;
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+
+            if(ds.Tables[0].Rows[0]["UserPass"].ToString() == pass)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public bool IsServerConnected()
         {
             using (var l_oConnection = new SqlConnection(connectionString))
