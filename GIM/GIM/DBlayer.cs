@@ -14,6 +14,8 @@ namespace GIM
 
         public bool CheckPassword(int FuncID, string pass)
         {
+            if (FuncID < 1) return false;
+
             string _sql = "";
             DataSet ds = new DataSet();
 
@@ -86,7 +88,7 @@ namespace GIM
         #region Insert data
 
         public void InsertIssue(int Type, string Title, int IssueStatus, int IssueSeverity, int RaisedBy, string Desc, int LeadFunction, string ImpactedFuncs, int Location,
-            string ImpactedVenues, string DateOccurence, string DateActualEnd, string DateUpdated, int Reportable, int Dashboard, string Creator)
+            string ImpactedVenues, string DateOccurence, string DateActualEnd, string DateUpdated, int Reportable, int Dashboard, string Creator, string Attch)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -108,7 +110,8 @@ namespace GIM
                           " ,[DateUpdated]" +
                           " ,[Reportable]" +
                           " ,[Dashboard]" +
-                          " ,[Creator])" +
+                          " ,[Creator]" + 
+                          " ,[Attachment])" +
                           "  VALUES " +
                           " (" + Type +
                           ",'" + Title +
@@ -125,7 +128,8 @@ namespace GIM
                           "','" + DateUpdated +
                           "'," + Reportable +
                           " ," + Dashboard +
-                          " ," + Creator + ")";
+                          " ,'" + Creator + 
+                          "','" + Attch + "')";
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();

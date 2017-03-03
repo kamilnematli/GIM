@@ -43,12 +43,12 @@ namespace GIM
 
             if (dba.CheckPassword(Convert.ToInt32(cbFuncs.SelectedIndex), tbPass.Text))
             {
-                MainWindow frm = new MainWindow();
+                MainWindow frm = new MainWindow(Convert.ToInt32(cbFuncs.SelectedIndex));
                 frm.ShowDialog();
             }
             else
             {
-                MessageBox.Show("The password is not correct!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The inputed information is not correct!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

@@ -12,9 +12,12 @@ namespace GIM
 {
     public partial class AddIssue : Form
     {
-        public AddIssue()
+        public int FuncID;
+
+        public AddIssue(int _id)
         {
             InitializeComponent();
+            FuncID = _id;
         }
 
         private void AddIssue_Load(object sender, EventArgs e)
@@ -59,14 +62,25 @@ namespace GIM
         {
             DBlayer dba = new GIM.DBlayer();
 
+            string ImpactedFuncs = "";
+            string ImpactedVenues = "";
+
             try
             {
-                //dba.InsertIssue(1, tbTitle.Text, Convert.ToInt32(cbStatus.SelectedIndex), Convert.ToInt32());
+                dba.InsertIssue(1, tbTitle.Text, Convert.ToInt32(cbStatus.SelectedIndex), Convert.ToInt32(cbSeverity.SelectedIndex), FuncID, tbDesc.Text, Convert.ToInt32(cbLeadFunc.SelectedIndex),
+                    ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedIndex), ImpactedVenues, dtOccurence.Text, "", "", 0, 0, Environment.UserName, tbAttachment.Text);
             }
             catch
             {
 
             }
+        }
+
+        private void btBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+            tbAttachment.Text = ofd.FileName;
         }
     }
 }

@@ -12,9 +12,12 @@ namespace GIM
 {
     public partial class MainWindow : Form
     {
-        public MainWindow()
+        private int FuncID;
+
+        public MainWindow(int _id)
         {
             InitializeComponent();
+            FuncID = _id;
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -32,14 +35,16 @@ namespace GIM
 
         private void AddIssue_Click(object sender, EventArgs e)
         {
-            AddIssue frm = new AddIssue();
+            AddIssue frm = new AddIssue(FuncID);
             frm.ShowDialog();
+            LoadIssueList();
         }
 
         private void AddLog_Click(object sender, EventArgs e)
         {
             AddLog frm = new GIM.AddLog();
             frm.ShowDialog();
+            LoadIssueList();
         }
 
         private void btExport_Click(object sender, EventArgs e)
