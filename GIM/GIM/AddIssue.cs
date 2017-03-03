@@ -49,5 +49,15 @@ namespace GIM
             clbImpactedVenues.DisplayMember = "VenueCode";
             clbImpactedVenues.ValueMember = "ID";
         }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -214,6 +214,7 @@
             this.btCancel.TabIndex = 24;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // btSave
             // 
@@ -223,6 +224,7 @@
             this.btSave.TabIndex = 23;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // AddIssue
             // 
