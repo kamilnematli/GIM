@@ -16,9 +16,13 @@ namespace GIM
         {
             InitializeComponent();
         }
+        
+        private void btSave_Click(object sender, EventArgs e)
+        {
 
-        private void addLog_load(object sender, EventArgs e)
+        }
 
+        private void AddLog_Load(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
 
@@ -29,14 +33,25 @@ namespace GIM
             //dsSeverity.Tables[0].Rows.Add(rCT);
             DataView dv = new DataView(dsFunc.Tables[0], "", "ID", DataViewRowState.CurrentRows);
             cbFunctions.DataSource = dv;
-            cbFunctions.DisplayMember = "FuncName";
+            cbFunctions.DisplayMember = "FuncCode";
             cbFunctions.ValueMember = "ID";
 
-        }
-        
-        private void btSave_Click(object sender, EventArgs e)
-        {
+            DataSet dsFuncs = dba.GetTable("GIMfunc");
+            DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+            clbImpFunctions.DataSource = dvFuncs;
+            clbImpFunctions.DisplayMember = "FuncCode";
+            clbImpFunctions.ValueMember = "ID";
 
+            DataSet dsLead = dba.GetTable("GIMvenue");
+            DataView dvLead = new DataView(dsLead.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+            clbImpVenues.DataSource = dvLead;
+            clbImpVenues.DisplayMember = "VenueCode";
+            clbImpVenues.ValueMember = "ID";
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
