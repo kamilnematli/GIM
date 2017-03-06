@@ -33,39 +33,48 @@
             this.btAddLog = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.OpenIssue = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.chIssue = new System.Windows.Forms.CheckBox();
+            this.chLog = new System.Windows.Forms.CheckBox();
+            this.chLow = new System.Windows.Forms.CheckBox();
+            this.chMedium = new System.Windows.Forms.CheckBox();
+            this.chHigh = new System.Windows.Forms.CheckBox();
+            this.chClosed = new System.Windows.Forms.CheckBox();
+            this.chInprogress = new System.Windows.Forms.CheckBox();
+            this.chNew = new System.Windows.Forms.CheckBox();
+            this.chOnhold = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btExport = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chDashboard = new System.Windows.Forms.CheckBox();
+            this.chReportable = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // gvIssues
             // 
+            this.gvIssues.AllowUserToAddRows = false;
+            this.gvIssues.AllowUserToDeleteRows = false;
             this.gvIssues.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gvIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvIssues.Location = new System.Drawing.Point(12, 109);
+            this.gvIssues.Location = new System.Drawing.Point(12, 129);
             this.gvIssues.Name = "gvIssues";
-            this.gvIssues.Size = new System.Drawing.Size(995, 415);
+            this.gvIssues.Size = new System.Drawing.Size(995, 448);
             this.gvIssues.TabIndex = 0;
             // 
             // btAddIssue
             // 
-            this.btAddIssue.Location = new System.Drawing.Point(12, 12);
+            this.btAddIssue.Location = new System.Drawing.Point(12, 33);
             this.btAddIssue.Name = "btAddIssue";
             this.btAddIssue.Size = new System.Drawing.Size(112, 23);
             this.btAddIssue.TabIndex = 1;
@@ -75,7 +84,7 @@
             // 
             // btAddLog
             // 
-            this.btAddLog.Location = new System.Drawing.Point(130, 12);
+            this.btAddLog.Location = new System.Drawing.Point(130, 33);
             this.btAddLog.Name = "btAddLog";
             this.btAddLog.Size = new System.Drawing.Size(112, 23);
             this.btAddLog.TabIndex = 2;
@@ -86,7 +95,7 @@
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(826, 14);
+            this.textBox1.Location = new System.Drawing.Point(826, 35);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(117, 20);
             this.textBox1.TabIndex = 3;
@@ -94,109 +103,118 @@
             // OpenIssue
             // 
             this.OpenIssue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenIssue.Location = new System.Drawing.Point(949, 12);
+            this.OpenIssue.Location = new System.Drawing.Point(949, 33);
             this.OpenIssue.Name = "OpenIssue";
             this.OpenIssue.Size = new System.Drawing.Size(58, 23);
             this.OpenIssue.TabIndex = 4;
             this.OpenIssue.Text = "Open";
             this.OpenIssue.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chIssue
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(13, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(56, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Issues";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chIssue.AutoSize = true;
+            this.chIssue.Location = new System.Drawing.Point(13, 21);
+            this.chIssue.Name = "chIssue";
+            this.chIssue.Size = new System.Drawing.Size(56, 17);
+            this.chIssue.TabIndex = 5;
+            this.chIssue.Text = "Issues";
+            this.chIssue.UseVisualStyleBackColor = true;
+            this.chIssue.CheckedChanged += new System.EventHandler(this.chIssue_CheckedChanged);
             // 
-            // checkBox2
+            // chLog
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(75, 21);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(49, 17);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "Logs";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chLog.AutoSize = true;
+            this.chLog.Location = new System.Drawing.Point(75, 21);
+            this.chLog.Name = "chLog";
+            this.chLog.Size = new System.Drawing.Size(49, 17);
+            this.chLog.TabIndex = 6;
+            this.chLog.Text = "Logs";
+            this.chLog.UseVisualStyleBackColor = true;
+            this.chLog.CheckedChanged += new System.EventHandler(this.chLog_CheckedChanged);
             // 
-            // checkBox3
+            // chLow
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(11, 21);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(46, 17);
-            this.checkBox3.TabIndex = 7;
-            this.checkBox3.Text = "Low";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chLow.AutoSize = true;
+            this.chLow.Location = new System.Drawing.Point(11, 21);
+            this.chLow.Name = "chLow";
+            this.chLow.Size = new System.Drawing.Size(46, 17);
+            this.chLow.TabIndex = 7;
+            this.chLow.Text = "Low";
+            this.chLow.UseVisualStyleBackColor = true;
+            this.chLow.CheckedChanged += new System.EventHandler(this.chLow_CheckedChanged);
             // 
-            // checkBox4
+            // chMedium
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(63, 21);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(63, 17);
-            this.checkBox4.TabIndex = 8;
-            this.checkBox4.Text = "Medium";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chMedium.AutoSize = true;
+            this.chMedium.Location = new System.Drawing.Point(63, 21);
+            this.chMedium.Name = "chMedium";
+            this.chMedium.Size = new System.Drawing.Size(63, 17);
+            this.chMedium.TabIndex = 8;
+            this.chMedium.Text = "Medium";
+            this.chMedium.UseVisualStyleBackColor = true;
+            this.chMedium.CheckedChanged += new System.EventHandler(this.chMedium_CheckedChanged);
             // 
-            // checkBox5
+            // chHigh
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(130, 21);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(48, 17);
-            this.checkBox5.TabIndex = 9;
-            this.checkBox5.Text = "High";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chHigh.AutoSize = true;
+            this.chHigh.Location = new System.Drawing.Point(130, 21);
+            this.chHigh.Name = "chHigh";
+            this.chHigh.Size = new System.Drawing.Size(48, 17);
+            this.chHigh.TabIndex = 9;
+            this.chHigh.Text = "High";
+            this.chHigh.UseVisualStyleBackColor = true;
+            this.chHigh.CheckedChanged += new System.EventHandler(this.chHigh_CheckedChanged);
             // 
-            // checkBox6
+            // chClosed
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(222, 21);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(58, 17);
-            this.checkBox6.TabIndex = 12;
-            this.checkBox6.Text = "Closed";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.chClosed.AutoSize = true;
+            this.chClosed.Location = new System.Drawing.Point(222, 21);
+            this.chClosed.Name = "chClosed";
+            this.chClosed.Size = new System.Drawing.Size(58, 17);
+            this.chClosed.TabIndex = 12;
+            this.chClosed.Text = "Closed";
+            this.chClosed.UseVisualStyleBackColor = true;
+            this.chClosed.CheckedChanged += new System.EventHandler(this.chClosed_CheckedChanged);
             // 
-            // checkBox7
+            // chInprogress
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(69, 21);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(78, 17);
-            this.checkBox7.TabIndex = 11;
-            this.checkBox7.Text = "In progress";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.chInprogress.AutoSize = true;
+            this.chInprogress.Location = new System.Drawing.Point(69, 21);
+            this.chInprogress.Name = "chInprogress";
+            this.chInprogress.Size = new System.Drawing.Size(78, 17);
+            this.chInprogress.TabIndex = 11;
+            this.chInprogress.Text = "In progress";
+            this.chInprogress.UseVisualStyleBackColor = true;
+            this.chInprogress.CheckedChanged += new System.EventHandler(this.chInprogress_CheckedChanged);
             // 
-            // checkBox8
+            // chNew
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(15, 21);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(48, 17);
-            this.checkBox8.TabIndex = 10;
-            this.checkBox8.Text = "New";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.chNew.AutoSize = true;
+            this.chNew.Location = new System.Drawing.Point(15, 21);
+            this.chNew.Name = "chNew";
+            this.chNew.Size = new System.Drawing.Size(48, 17);
+            this.chNew.TabIndex = 10;
+            this.chNew.Text = "New";
+            this.chNew.UseVisualStyleBackColor = true;
+            this.chNew.CheckedChanged += new System.EventHandler(this.chNew_CheckedChanged);
             // 
-            // checkBox9
+            // chOnhold
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(153, 21);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(63, 17);
-            this.checkBox9.TabIndex = 13;
-            this.checkBox9.Text = "On hold";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.chOnhold.AutoSize = true;
+            this.chOnhold.Location = new System.Drawing.Point(153, 21);
+            this.chOnhold.Name = "chOnhold";
+            this.chOnhold.Size = new System.Drawing.Size(63, 17);
+            this.chOnhold.TabIndex = 13;
+            this.chOnhold.Text = "On hold";
+            this.chOnhold.UseVisualStyleBackColor = true;
+            this.chOnhold.CheckedChanged += new System.EventHandler(this.chOnhold_CheckedChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Location = new System.Drawing.Point(160, 52);
+            this.groupBox1.Controls.Add(this.chLow);
+            this.groupBox1.Controls.Add(this.chMedium);
+            this.groupBox1.Controls.Add(this.chHigh);
+            this.groupBox1.Location = new System.Drawing.Point(160, 73);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(184, 50);
             this.groupBox1.TabIndex = 14;
@@ -205,11 +223,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBox8);
-            this.groupBox2.Controls.Add(this.checkBox7);
-            this.groupBox2.Controls.Add(this.checkBox9);
-            this.groupBox2.Controls.Add(this.checkBox6);
-            this.groupBox2.Location = new System.Drawing.Point(363, 52);
+            this.groupBox2.Controls.Add(this.chNew);
+            this.groupBox2.Controls.Add(this.chInprogress);
+            this.groupBox2.Controls.Add(this.chOnhold);
+            this.groupBox2.Controls.Add(this.chClosed);
+            this.groupBox2.Location = new System.Drawing.Point(363, 73);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(289, 51);
             this.groupBox2.TabIndex = 15;
@@ -218,9 +236,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Location = new System.Drawing.Point(12, 52);
+            this.groupBox3.Controls.Add(this.chIssue);
+            this.groupBox3.Controls.Add(this.chLog);
+            this.groupBox3.Location = new System.Drawing.Point(12, 73);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(129, 51);
             this.groupBox3.TabIndex = 16;
@@ -229,7 +247,7 @@
             // 
             // btExport
             // 
-            this.btExport.Location = new System.Drawing.Point(248, 12);
+            this.btExport.Location = new System.Drawing.Point(248, 33);
             this.btExport.Name = "btExport";
             this.btExport.Size = new System.Drawing.Size(112, 23);
             this.btExport.TabIndex = 17;
@@ -237,11 +255,69 @@
             this.btExport.UseVisualStyleBackColor = true;
             this.btExport.Click += new System.EventHandler(this.btExport_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Lime;
+            this.panel1.Controls.Add(this.lbUsername);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1017, 26);
+            this.panel1.TabIndex = 18;
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.Location = new System.Drawing.Point(929, 6);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(63, 13);
+            this.lbUsername.TabIndex = 0;
+            this.lbUsername.Text = "Username";
+            this.lbUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.chDashboard);
+            this.groupBox4.Controls.Add(this.chReportable);
+            this.groupBox4.Location = new System.Drawing.Point(670, 73);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(245, 51);
+            this.groupBox4.TabIndex = 17;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Flagged issues";
+            // 
+            // chDashboard
+            // 
+            this.chDashboard.AutoSize = true;
+            this.chDashboard.Location = new System.Drawing.Point(13, 21);
+            this.chDashboard.Name = "chDashboard";
+            this.chDashboard.Size = new System.Drawing.Size(110, 17);
+            this.chDashboard.TabIndex = 5;
+            this.chDashboard.Text = "Dashboard issues";
+            this.chDashboard.UseVisualStyleBackColor = true;
+            this.chDashboard.CheckedChanged += new System.EventHandler(this.chDashboard_CheckedChanged);
+            // 
+            // chReportable
+            // 
+            this.chReportable.AutoSize = true;
+            this.chReportable.Location = new System.Drawing.Point(130, 21);
+            this.chReportable.Name = "chReportable";
+            this.chReportable.Size = new System.Drawing.Size(110, 17);
+            this.chReportable.TabIndex = 6;
+            this.chReportable.Text = "Reportable issues";
+            this.chReportable.UseVisualStyleBackColor = true;
+            this.chReportable.CheckedChanged += new System.EventHandler(this.chReportable_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 536);
+            this.ClientSize = new System.Drawing.Size(1019, 589);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btExport);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -253,7 +329,7 @@
             this.Controls.Add(this.gvIssues);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Main Window";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).EndInit();
@@ -263,6 +339,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,19 +355,24 @@
         private System.Windows.Forms.Button btAddLog;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button OpenIssue;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox chIssue;
+        private System.Windows.Forms.CheckBox chLog;
+        private System.Windows.Forms.CheckBox chLow;
+        private System.Windows.Forms.CheckBox chMedium;
+        private System.Windows.Forms.CheckBox chHigh;
+        private System.Windows.Forms.CheckBox chClosed;
+        private System.Windows.Forms.CheckBox chInprogress;
+        private System.Windows.Forms.CheckBox chNew;
+        private System.Windows.Forms.CheckBox chOnhold;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btExport;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox chDashboard;
+        private System.Windows.Forms.CheckBox chReportable;
     }
 }
 

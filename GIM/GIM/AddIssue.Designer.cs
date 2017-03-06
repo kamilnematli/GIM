@@ -241,7 +241,6 @@
             // 
             this.cbHour.FormattingEnabled = true;
             this.cbHour.Items.AddRange(new object[] {
-            "",
             "00",
             "01",
             "02",
@@ -274,7 +273,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(219, 367);
+            this.label10.Location = new System.Drawing.Point(219, 365);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(10, 13);
             this.label10.TabIndex = 26;
@@ -284,16 +283,16 @@
             // 
             this.cbMins.FormattingEnabled = true;
             this.cbMins.Items.AddRange(new object[] {
-            "",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
             "10",
             "11",
             "12",

@@ -22,15 +22,16 @@ namespace GIM
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            lbUsername.Text = Environment.UserName;
             LoadIssueList();
         }
 
         private void LoadIssueList()
         {
-            //DBlayer dba = new DBlayer();
-            //DataSet dsIssues = dba.GetIssues();
-            //DataView dvIssues = dsIssues.Tables[0].DefaultView;
-            //gvIssues.DataSource = dvIssues;
+            DBlayer dba = new DBlayer();
+            DataSet dsIssues = dba.GetIssues(chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chOnhold.Checked, chClosed.Checked, chDashboard.Checked, chReportable.Checked);
+            DataView dvIssues = dsIssues.Tables[0].DefaultView;
+            gvIssues.DataSource = dvIssues;
         }
 
         private void AddIssue_Click(object sender, EventArgs e)
@@ -76,6 +77,61 @@ namespace GIM
             {
 
             }
+        }
+
+        private void chIssue_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chLog_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chLow_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chMedium_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chHigh_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chNew_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chInprogress_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chOnhold_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chClosed_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chDashboard_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chReportable_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
         }
     }
 }
