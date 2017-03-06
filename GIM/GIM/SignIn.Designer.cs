@@ -34,14 +34,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.tbEnter = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(181, 350);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(364, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 0;
@@ -50,15 +49,16 @@
             // cbFuncs
             // 
             this.cbFuncs.FormattingEnabled = true;
-            this.cbFuncs.Location = new System.Drawing.Point(184, 366);
+            this.cbFuncs.Location = new System.Drawing.Point(367, 154);
             this.cbFuncs.Name = "cbFuncs";
-            this.cbFuncs.Size = new System.Drawing.Size(184, 21);
+            this.cbFuncs.Size = new System.Drawing.Size(133, 21);
             this.cbFuncs.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(181, 403);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(364, 183);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
@@ -66,52 +66,41 @@
             // 
             // tbPass
             // 
-            this.tbPass.Location = new System.Drawing.Point(184, 419);
+            this.tbPass.Location = new System.Drawing.Point(367, 199);
             this.tbPass.Name = "tbPass";
             this.tbPass.PasswordChar = '*';
-            this.tbPass.Size = new System.Drawing.Size(184, 20);
+            this.tbPass.Size = new System.Drawing.Size(133, 20);
             this.tbPass.TabIndex = 3;
             // 
             // tbEnter
             // 
-            this.tbEnter.Location = new System.Drawing.Point(184, 461);
+            this.tbEnter.Location = new System.Drawing.Point(367, 225);
             this.tbEnter.Name = "tbEnter";
-            this.tbEnter.Size = new System.Drawing.Size(184, 23);
+            this.tbEnter.Size = new System.Drawing.Size(133, 23);
             this.tbEnter.TabIndex = 4;
             this.tbEnter.Text = "Enter";
             this.tbEnter.UseVisualStyleBackColor = true;
             this.tbEnter.Click += new System.EventHandler(this.tbEnter_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(-14, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(532, 447);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(589, 509);
+            this.ClientSize = new System.Drawing.Size(705, 396);
             this.Controls.Add(this.tbEnter);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbFuncs);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign In";
             this.Load += new System.EventHandler(this.SignIn_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,6 +113,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.Button tbEnter;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
