@@ -133,5 +133,11 @@ namespace GIM
         {
             LoadIssueList();
         }
+
+        private void gvIssues_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditIssue frm = new GIM.EditIssue();
+            frm.Show();
+        }
     }
 }

@@ -69,8 +69,10 @@
             this.gvIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvIssues.Location = new System.Drawing.Point(12, 129);
             this.gvIssues.Name = "gvIssues";
+            this.gvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvIssues.Size = new System.Drawing.Size(995, 448);
             this.gvIssues.TabIndex = 0;
+            this.gvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIssues_CellDoubleClick);
             // 
             // btAddIssue
             // 
