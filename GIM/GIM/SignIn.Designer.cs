@@ -74,7 +74,7 @@
             // 
             // tbEnter
             // 
-            this.tbEnter.Location = new System.Drawing.Point(367, 225);
+            this.tbEnter.Location = new System.Drawing.Point(367, 236);
             this.tbEnter.Name = "tbEnter";
             this.tbEnter.Size = new System.Drawing.Size(133, 23);
             this.tbEnter.TabIndex = 4;
@@ -99,7 +99,7 @@
             this.MinimizeBox = false;
             this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sign In";
+            this.Text = "Games Issue Management - Sign In";
             this.Load += new System.EventHandler(this.SignIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -126,7 +126,7 @@ namespace GIM
         #region Insert data
 
         public void InsertIssue(int Type, string Title, int IssueStatus, int IssueSeverity, int RaisedBy, string Desc, int LeadFunction, string ImpactedFuncs, int Location,
-            string ImpactedVenues, string DateOccurence, string DateActualEnd, string DateUpdated, int Reportable, int Dashboard, string Creator, string Attch)
+            string ImpactedVenues, string DateOccurence, string DateActualEnd, string DateUpdated, int Reportable, int Dashboard, string Creator, string Attch, string LocDesc)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -140,16 +140,15 @@ namespace GIM
                           " ,[RaisedBy]" +
                           " ,[Description]" +
                           " ,[LeadFunction]" +
-                          " ,[ImpactedFunctions]" +
                           " ,[Location]" +
-                          " ,[ImpactedVenues]" +
                           " ,[DateOccurence]" +
                           " ,[DateActualEnd]" +
                           " ,[DateUpdated]" +
                           " ,[Reportable]" +
                           " ,[Dashboard]" +
                           " ,[Creator]" + 
-                          " ,[Attachment])" +
+                          " ,[Attachment]" +
+                          " ,[LocationDesc])" +
                           "  VALUES " +
                           " (" + Type +
                           ",'" + Title +
@@ -158,19 +157,39 @@ namespace GIM
                           " ," + RaisedBy +
                           ",'" + Desc +
                           "'," + LeadFunction +
-                          ",'" + ImpactedFuncs +
-                          "'," + Location +
-                          ",'" + ImpactedVenues +
-                          "',CONVERT(datetime,'" + DateOccurence +
+                          "," + Location +
+                          ",CONVERT(datetime,'" + DateOccurence +
                           "'), null" +
                           ",'" + DateTime.Now +
                           "'," + Reportable +
                           " ," + Dashboard +
                           " ,'" + Creator + 
-                          "','" + Attch + "')";
+                          "','" + Attch + 
+                          "','" + LocDesc + "')";
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();
+
+            string[] funcs = ImpactedFuncs.Split(',');
+            string[] venues = ImpactedVenues.Split(',');
+
+            _sql = " Declare @lRow as int; " +
+                   " set @lRow = dbo.GetIssueLastRow(); ";
+
+            int i = 0;
+            for ( ; i < funcs.Length - 1; i++)
+            {
+                _sql += " INSERT INTO [dbo].[GIMimpactedFuncs] ([Issue], [Func]) VALUES (@lRow, " + funcs[i] + "); ";
+            }
+
+            for (i = 0; i < venues.Length - 1; i++)
+            {
+                _sql += " INSERT INTO [dbo].[GIMimpactedVenues] ([Issue], [Venue]) VALUES (@lRow, " + venues[i] + "); ";
+            }
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+
             conn.Close();
         }
 
