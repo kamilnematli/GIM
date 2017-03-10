@@ -59,7 +59,7 @@ namespace GIM
             DataSet ds = new DataSet();
 
             _sql = " Select dbo.GIMissue.[ID], [DateUpdated], case when [Type] = 1 then 'Issue' when [Type] = 2 then 'Log' end as [Type], dbo.GIMStatus.StatusName as [Status], " +
-                   " dbo.GIMseverity.SeverityName as [Severity], [Title], dbo.GIMfunc.FuncName as [Lead function], case when [Reportable] = 1 then 'Yes' else 'No' end as [Reportable], " +
+                   " dbo.GIMseverity.SeverityName as [Severity], [Title], dbo.GIMfunc.FuncCode as [Lead function], case when [Reportable] = 1 then 'Yes' else 'No' end as [Reportable], " +
                    " case when [Dashboard] = 1 then 'Yes' else 'No' end as [Dashboard] " +
                     " FROM dbo.GIMissue LEFT OUTER JOIN " +
                     " dbo.GIMseverity ON dbo.GIMissue.IssueSeverity = dbo.GIMseverity.ID LEFT OUTER JOIN " +

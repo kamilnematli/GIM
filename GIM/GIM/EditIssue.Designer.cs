@@ -45,14 +45,12 @@
             this.cbMins = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.clbImpactedVenues = new System.Windows.Forms.CheckedListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbHour = new System.Windows.Forms.ComboBox();
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbDesc = new System.Windows.Forms.TextBox();
-            this.clbImpactedFuncs = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,6 +59,8 @@
             this.cbLeadFunc = new System.Windows.Forms.ComboBox();
             this.btCancel = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,6 +102,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.tbLocationDesc);
             this.groupBox1.Controls.Add(this.label12);
@@ -114,21 +116,19 @@
             this.groupBox1.Controls.Add(this.cbMins);
             this.groupBox1.Controls.Add(this.cbStatus);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.clbImpactedVenues);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbHour);
             this.groupBox1.Controls.Add(this.tbTitle);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbDesc);
-            this.groupBox1.Controls.Add(this.clbImpactedFuncs);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.dtOccurence);
             this.groupBox1.Controls.Add(this.cbLeadFunc);
-            this.groupBox1.Location = new System.Drawing.Point(12, 65);
+            this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(447, 557);
             this.groupBox1.TabIndex = 29;
@@ -138,7 +138,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 214);
+            this.label13.Location = new System.Drawing.Point(16, 212);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(102, 13);
             this.label13.TabIndex = 33;
@@ -146,7 +146,7 @@
             // 
             // tbLocationDesc
             // 
-            this.tbLocationDesc.Location = new System.Drawing.Point(19, 230);
+            this.tbLocationDesc.Location = new System.Drawing.Point(19, 228);
             this.tbLocationDesc.Name = "tbLocationDesc";
             this.tbLocationDesc.Size = new System.Drawing.Size(409, 20);
             this.tbLocationDesc.TabIndex = 32;
@@ -154,7 +154,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 169);
+            this.label12.Location = new System.Drawing.Point(16, 167);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 13);
             this.label12.TabIndex = 31;
@@ -163,7 +163,7 @@
             // cbLocation
             // 
             this.cbLocation.FormattingEnabled = true;
-            this.cbLocation.Location = new System.Drawing.Point(19, 184);
+            this.cbLocation.Location = new System.Drawing.Point(19, 182);
             this.cbLocation.Name = "cbLocation";
             this.cbLocation.Size = new System.Drawing.Size(197, 21);
             this.cbLocation.TabIndex = 30;
@@ -187,7 +187,7 @@
             // cbSeverity
             // 
             this.cbSeverity.FormattingEnabled = true;
-            this.cbSeverity.Location = new System.Drawing.Point(231, 184);
+            this.cbSeverity.Location = new System.Drawing.Point(231, 182);
             this.cbSeverity.Name = "cbSeverity";
             this.cbSeverity.Size = new System.Drawing.Size(197, 21);
             this.cbSeverity.TabIndex = 3;
@@ -195,7 +195,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(228, 168);
+            this.label3.Location = new System.Drawing.Point(228, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 4;
@@ -221,7 +221,7 @@
             // cbStatus
             // 
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(231, 274);
+            this.cbStatus.Location = new System.Drawing.Point(231, 272);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(197, 21);
             this.cbStatus.TabIndex = 5;
@@ -229,20 +229,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(228, 258);
+            this.label4.Location = new System.Drawing.Point(228, 256);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Status";
-            // 
-            // clbImpactedVenues
-            // 
-            this.clbImpactedVenues.FormattingEnabled = true;
-            this.clbImpactedVenues.Location = new System.Drawing.Point(231, 319);
-            this.clbImpactedVenues.MultiColumn = true;
-            this.clbImpactedVenues.Name = "clbImpactedVenues";
-            this.clbImpactedVenues.Size = new System.Drawing.Size(197, 139);
-            this.clbImpactedVenues.TabIndex = 7;
             // 
             // label10
             // 
@@ -294,19 +285,10 @@
             this.tbDesc.Size = new System.Drawing.Size(409, 79);
             this.tbDesc.TabIndex = 2;
             // 
-            // clbImpactedFuncs
-            // 
-            this.clbImpactedFuncs.FormattingEnabled = true;
-            this.clbImpactedFuncs.Location = new System.Drawing.Point(19, 319);
-            this.clbImpactedFuncs.MultiColumn = true;
-            this.clbImpactedFuncs.Name = "clbImpactedFuncs";
-            this.clbImpactedFuncs.Size = new System.Drawing.Size(197, 139);
-            this.clbImpactedFuncs.TabIndex = 6;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 258);
+            this.label5.Location = new System.Drawing.Point(16, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 6;
@@ -315,7 +297,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(228, 303);
+            this.label9.Location = new System.Drawing.Point(16, 384);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 13);
             this.label9.TabIndex = 15;
@@ -333,7 +315,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 303);
+            this.label8.Location = new System.Drawing.Point(16, 301);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 13);
             this.label8.TabIndex = 14;
@@ -350,7 +332,7 @@
             // cbLeadFunc
             // 
             this.cbLeadFunc.FormattingEnabled = true;
-            this.cbLeadFunc.Location = new System.Drawing.Point(19, 274);
+            this.cbLeadFunc.Location = new System.Drawing.Point(19, 272);
             this.cbLeadFunc.Name = "cbLeadFunc";
             this.cbLeadFunc.Size = new System.Drawing.Size(197, 21);
             this.cbLeadFunc.TabIndex = 4;
@@ -372,6 +354,22 @@
             this.btSave.TabIndex = 30;
             this.btSave.Text = " Save";
             this.btSave.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(19, 317);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(409, 61);
+            this.textBox1.TabIndex = 34;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(19, 400);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(409, 61);
+            this.textBox2.TabIndex = 35;
             // 
             // EditIssue
             // 
@@ -415,14 +413,12 @@
         private System.Windows.Forms.ComboBox cbMins;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckedListBox clbImpactedVenues;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbHour;
         private System.Windows.Forms.TextBox tbTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbDesc;
-        private System.Windows.Forms.CheckedListBox clbImpactedFuncs;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
@@ -431,5 +427,7 @@
         private System.Windows.Forms.ComboBox cbLeadFunc;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
