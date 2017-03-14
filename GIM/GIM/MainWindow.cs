@@ -34,6 +34,17 @@ namespace GIM
             cbFunc.DataSource = dvFunc;
             cbFunc.DisplayMember = "FuncCode";
             cbFunc.ValueMember = "ID";
+            //cbFunc.SelectedValue = 0;
+
+            DataSet dsLead = dba.GetTable("GIMfunc", 0);
+            DataRow rLead = dsLead.Tables[0].NewRow();
+            rLead["ID"] = 0;
+            rLead["FuncCode"] = "";
+            dsLead.Tables[0].Rows.Add(rLead);
+            DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+            cbLead.DataSource = dvLead;
+            cbLead.DisplayMember = "FuncCode";
+            cbLead.ValueMember = "ID";
 
             DataSet dsVenues = dba.GetTable("GIMvenue", 0);
             DataRow rVenue = dsVenues.Tables[0].NewRow();
@@ -44,6 +55,7 @@ namespace GIM
             cbVenue.DataSource = dvVenues;
             cbVenue.DisplayMember = "VenueCode";
             cbVenue.ValueMember = "ID";
+            //cbVenue.SelectedValue = 0;
 
             LoadIssueList();
         }
@@ -51,8 +63,19 @@ namespace GIM
         private void LoadIssueList()
         {
             DBlayer dba = new DBlayer();
-            DataSet dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chOnhold.Checked, 
-                chClosed.Checked, chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue));
+            DataSet dsIssues = new DataSet();
+
+            try
+            {
+                dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chOnhold.Checked,
+                chClosed.Checked, chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue), Convert.ToInt32(cbLead.SelectedValue));
+            }
+            catch
+            {
+                dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chOnhold.Checked,
+                chClosed.Checked, chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, -1, -1, -1);
+            }
+
             DataView dvIssues = dsIssues.Tables[0].DefaultView;
             gvIssues.DataSource = dvIssues;
         }
@@ -173,10 +196,12 @@ namespace GIM
             if(chAll.Checked)
             {
                 groupBox6.Enabled = true;
+                groupBox7.Enabled = true;
             }
             else
             {
                 groupBox6.Enabled = false;
+                groupBox7.Enabled = false;
             }
 
             LoadIssueList();
@@ -188,6 +213,11 @@ namespace GIM
         }
 
         private void cbVenue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void cbLead_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadIssueList();
         }

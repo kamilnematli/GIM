@@ -54,7 +54,7 @@ namespace GIM
         #region Get data
 
         public DataSet GetIssues(int FuncID, bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _OnHold, bool _Closed, bool _Dashboard, bool _Reportable, 
-            bool _MyList, bool _All, int ImpFunc, int ImpVenue)
+            bool _MyList, bool _All, int ImpFunc, int ImpVenue, int LeadFunc)
         {
             string _sql = "";
             DataSet ds = new DataSet();
@@ -88,12 +88,17 @@ namespace GIM
             {
                 if (ImpVenue > 0)
                 {
-                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + ImpFunc + ") ";
+                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + ImpVenue + ") ";
                 }
 
                 if(ImpFunc > 0)
                 {
-                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + FuncID + ") ";
+                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + ImpFunc + ") ";
+                }
+                
+                if(LeadFunc > 0)
+                {
+                    filt += "and dbo.GIMissue.LeadFunction = " + LeadFunc + " ";
                 }                            
             }
 
