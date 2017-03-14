@@ -55,10 +55,10 @@
             this.chMyList = new System.Windows.Forms.CheckBox();
             this.chAll = new System.Windows.Forms.CheckBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.cbFunc = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbVenue = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbFunc = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -363,29 +363,13 @@
             this.groupBox6.Controls.Add(this.label2);
             this.groupBox6.Controls.Add(this.cbFunc);
             this.groupBox6.Controls.Add(this.label1);
+            this.groupBox6.Enabled = false;
             this.groupBox6.Location = new System.Drawing.Point(959, 72);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(240, 51);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Impacted";
-            // 
-            // cbFunc
-            // 
-            this.cbFunc.FormattingEnabled = true;
-            this.cbFunc.Location = new System.Drawing.Point(64, 18);
-            this.cbFunc.Name = "cbFunc";
-            this.cbFunc.Size = new System.Drawing.Size(51, 21);
-            this.cbFunc.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Function";
             // 
             // cbVenue
             // 
@@ -394,6 +378,7 @@
             this.cbVenue.Name = "cbVenue";
             this.cbVenue.Size = new System.Drawing.Size(51, 21);
             this.cbVenue.TabIndex = 21;
+            this.cbVenue.SelectedIndexChanged += new System.EventHandler(this.cbVenue_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -403,6 +388,24 @@
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Venue";
+            // 
+            // cbFunc
+            // 
+            this.cbFunc.FormattingEnabled = true;
+            this.cbFunc.Location = new System.Drawing.Point(64, 18);
+            this.cbFunc.Name = "cbFunc";
+            this.cbFunc.Size = new System.Drawing.Size(51, 21);
+            this.cbFunc.TabIndex = 19;
+            this.cbFunc.SelectedIndexChanged += new System.EventHandler(this.cbFunc_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Function";
             // 
             // MainWindow
             // 

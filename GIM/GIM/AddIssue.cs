@@ -24,37 +24,37 @@ namespace GIM
         {
             DBlayer dba = new GIM.DBlayer();
 
-            DataSet dsSeverity = dba.GetTable("GIMSeverity");
+            DataSet dsSeverity = dba.GetTable("GIMSeverity", 0);
             DataView dvSeverity = new DataView(dsSeverity.Tables[0], "", "ID", DataViewRowState.CurrentRows);
             cbSeverity.DataSource = dvSeverity;
             cbSeverity.DisplayMember = "SeverityName";
             cbSeverity.ValueMember = "ID";
 
-            DataSet dsStatus = dba.GetTable("GIMStatus");
+            DataSet dsStatus = dba.GetTable("GIMStatus", 0);
             DataView dvStatus = new DataView(dsStatus.Tables[0], "", "ID", DataViewRowState.CurrentRows);
             cbStatus.DataSource = dvStatus;
             cbStatus.DisplayMember = "StatusName";
             cbStatus.ValueMember = "ID";
 
-            DataSet dsFuncs = dba.GetTable("GIMfunc");
+            DataSet dsFuncs = dba.GetTable("GIMfunc", 0);
             DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
             clbImpactedFuncs.DataSource = dvFuncs;
             clbImpactedFuncs.DisplayMember = "FuncCode";
             clbImpactedFuncs.ValueMember = "ID";
 
-            DataSet dsLead = dba.GetTable("GIMfunc");
+            DataSet dsLead = dba.GetTable("GIMfunc", 0);
             DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
             cbLeadFunc.DataSource = dvLead;
             cbLeadFunc.DisplayMember = "FuncCode";
             cbLeadFunc.ValueMember = "ID";
 
-            DataSet dsVenues = dba.GetTable("GIMvenue");
+            DataSet dsVenues = dba.GetTable("GIMvenue", 0);
             DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
             clbImpactedVenues.DataSource = dvVenues;
             clbImpactedVenues.DisplayMember = "VenueCode";
             clbImpactedVenues.ValueMember = "ID";
 
-            DataSet dsLocation = dba.GetTable("GIMvenue");
+            DataSet dsLocation = dba.GetTable("GIMvenue", 0);
             DataRow rCT = dsLocation.Tables[0].NewRow();
             rCT["ID"] = 0;
             rCT["VenueCode"] = "";

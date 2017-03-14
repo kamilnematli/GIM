@@ -20,7 +20,7 @@ namespace GIM
         private void SignIn_Load(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-            DataSet dsFunc = dba.GetTable("GIMfunc");
+            DataSet dsFunc = dba.GetTable("GIMfunc", 0);
 
             DataRow rCT = dsFunc.Tables[0].NewRow();
             rCT["ID"] = 0;

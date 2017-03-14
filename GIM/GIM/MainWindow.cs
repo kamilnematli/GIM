@@ -23,6 +23,28 @@ namespace GIM
         private void MainWindow_Load(object sender, EventArgs e)
         {
             lbUsername.Text = Environment.UserName;
+            DBlayer dba = new DBlayer();
+
+            DataSet dsFunc = dba.GetTable("GIMfunc", 0);
+            DataRow rFunc = dsFunc.Tables[0].NewRow();
+            rFunc["ID"] = 0;
+            rFunc["FuncCode"] = "";
+            dsFunc.Tables[0].Rows.Add(rFunc);
+            DataView dvFunc = new DataView(dsFunc.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+            cbFunc.DataSource = dvFunc;
+            cbFunc.DisplayMember = "FuncCode";
+            cbFunc.ValueMember = "ID";
+
+            DataSet dsVenues = dba.GetTable("GIMvenue", 0);
+            DataRow rVenue = dsVenues.Tables[0].NewRow();
+            rVenue["ID"] = 0;
+            rVenue["VenueCode"] = "";
+            dsVenues.Tables[0].Rows.Add(rVenue);
+            DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+            cbVenue.DataSource = dvVenues;
+            cbVenue.DisplayMember = "VenueCode";
+            cbVenue.ValueMember = "ID";
+
             LoadIssueList();
         }
 
@@ -137,7 +159,7 @@ namespace GIM
 
         private void gvIssues_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditIssue frm = new GIM.EditIssue();
+            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), FuncID);
             frm.Show();
         }
 
@@ -147,6 +169,25 @@ namespace GIM
         }
 
         private void chAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chAll.Checked)
+            {
+                groupBox6.Enabled = true;
+            }
+            else
+            {
+                groupBox6.Enabled = false;
+            }
+
+            LoadIssueList();
+        }
+
+        private void cbFunc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void cbVenue_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadIssueList();
         }

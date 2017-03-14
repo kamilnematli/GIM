@@ -69,21 +69,33 @@ namespace GIM
 
             string filt = "";
 
+            if (_Issues == true && _Logs == false) filt += "Type = 1 ";
+            if (_Issues == false && _Logs == true) filt += "Type = 2 ";
+
             if (!_All)
             {
                 if (_MyList)
                 {
-                    filt += "and dbo.GIMissue.RaisedBy = " + FuncID;
+                    filt += "and dbo.GIMissue.RaisedBy = " + FuncID + " ";
                 }
                 else
                 {
-                    filt += "AND (dbo.GIMissue.LeadFunction = " + FuncID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where[Venue] = " + FuncID + ")" +
-                            " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + FuncID + "))";
+                    filt += "and (dbo.GIMissue.LeadFunction = " + FuncID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + FuncID + ")" +
+                            " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + FuncID + ")) ";
                 }
             }
+            else
+            {
+                if (ImpVenue > 0)
+                {
+                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + ImpFunc + ") ";
+                }
 
-            if (_Issues == true && _Logs == false) filt += "Type = 1 ";
-            if (_Issues == false && _Logs == true) filt += "Type = 2 ";
+                if(ImpFunc > 0)
+                {
+                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + FuncID + ") ";
+                }                            
+            }
 
             if (_Dashboard == true) filt += "and Dashboard = 1 ";
             if (_Reportable == true) filt += "and Reportable = 1 ";
@@ -120,12 +132,57 @@ namespace GIM
             return ds;
         }
 
-        public DataSet GetTable(string TableName)
+        public DataSet GetTable(string TableName, int _id)
         {
             string _sql = "";
             DataSet ds = new DataSet();
 
             _sql = "Select * from " + TableName;
+
+            if (_id > 0)
+            {
+                _sql += " where [ID] = " + _id; 
+            }
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
+        public DataSet GetIssueImpcFuncs(int _id)
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+            
+            _sql = "SELECT dbo.GIMimpactedFuncs.[ID], [Issue], dbo.GIMfunc.FuncCode FROM [dbo].[GIMimpactedFuncs] inner join dbo.GIMfunc ON dbo.GIMimpactedFuncs.Func = dbo.GIMfunc.ID";
+
+            if (_id > 0)
+            {
+                _sql += " where [Issue] = " + _id;
+            }
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
+        public DataSet GetIssueImpcVenues(int _id)
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = "SELECT dbo.GIMimpactedVenues.[ID], [Issue], dbo.GIMvenue.VenueCode FROM [dbo].[GIMimpactedVenues] inner join dbo.GIMvenue ON dbo.GIMimpactedVenues.Venue = dbo.GIMvenue.ID";
+
+            if (_id > 0)
+            {
+                _sql += " where [Issue] = " + _id;
+            }
 
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();

@@ -44,8 +44,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.clbImpactedFuncs = new System.Windows.Forms.CheckedListBox();
             this.clbImpactedVenues = new System.Windows.Forms.CheckedListBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btCancel = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.cbHour = new System.Windows.Forms.ComboBox();
@@ -59,7 +57,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tbLocationDesc = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,7 +123,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 466);
+            this.label6.Location = new System.Drawing.Point(16, 523);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 13);
             this.label6.TabIndex = 7;
@@ -135,7 +132,7 @@
             // dtOccurence
             // 
             this.dtOccurence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtOccurence.Location = new System.Drawing.Point(19, 482);
+            this.dtOccurence.Location = new System.Drawing.Point(19, 539);
             this.dtOccurence.Name = "dtOccurence";
             this.dtOccurence.Size = new System.Drawing.Size(136, 20);
             this.dtOccurence.TabIndex = 8;
@@ -188,7 +185,7 @@
             this.clbImpactedFuncs.Location = new System.Drawing.Point(19, 319);
             this.clbImpactedFuncs.MultiColumn = true;
             this.clbImpactedFuncs.Name = "clbImpactedFuncs";
-            this.clbImpactedFuncs.Size = new System.Drawing.Size(197, 139);
+            this.clbImpactedFuncs.Size = new System.Drawing.Size(197, 199);
             this.clbImpactedFuncs.TabIndex = 6;
             // 
             // clbImpactedVenues
@@ -197,33 +194,13 @@
             this.clbImpactedVenues.Location = new System.Drawing.Point(231, 319);
             this.clbImpactedVenues.MultiColumn = true;
             this.clbImpactedVenues.Name = "clbImpactedVenues";
-            this.clbImpactedVenues.Size = new System.Drawing.Size(197, 139);
+            this.clbImpactedVenues.Size = new System.Drawing.Size(197, 199);
             this.clbImpactedVenues.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(11, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(342, 20);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Please fill the fields below to create a new issue";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Lime;
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(473, 39);
-            this.panel1.TabIndex = 19;
             // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(353, 620);
+            this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btCancel.Location = new System.Drawing.Point(352, 626);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 12;
@@ -233,7 +210,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(236, 620);
+            this.btSave.Location = new System.Drawing.Point(235, 626);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 11;
@@ -269,7 +246,7 @@
             "21",
             "22",
             "23"});
-            this.cbHour.Location = new System.Drawing.Point(170, 482);
+            this.cbHour.Location = new System.Drawing.Point(170, 539);
             this.cbHour.Name = "cbHour";
             this.cbHour.Size = new System.Drawing.Size(46, 21);
             this.cbHour.TabIndex = 9;
@@ -277,7 +254,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(219, 485);
+            this.label10.Location = new System.Drawing.Point(219, 542);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(10, 13);
             this.label10.TabIndex = 26;
@@ -347,7 +324,7 @@
             "57",
             "58",
             "59"});
-            this.cbMins.Location = new System.Drawing.Point(231, 482);
+            this.cbMins.Location = new System.Drawing.Point(231, 539);
             this.cbMins.Name = "cbMins";
             this.cbMins.Size = new System.Drawing.Size(46, 21);
             this.cbMins.TabIndex = 10;
@@ -380,9 +357,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.dtOccurence);
             this.groupBox1.Controls.Add(this.cbLeadFunc);
-            this.groupBox1.Location = new System.Drawing.Point(12, 57);
+            this.groupBox1.Location = new System.Drawing.Point(14, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 557);
+            this.groupBox1.Size = new System.Drawing.Size(447, 608);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New";
@@ -406,7 +383,7 @@
             // 
             // btBrowse
             // 
-            this.btBrowse.Location = new System.Drawing.Point(372, 523);
+            this.btBrowse.Location = new System.Drawing.Point(372, 580);
             this.btBrowse.Name = "btBrowse";
             this.btBrowse.Size = new System.Drawing.Size(56, 23);
             this.btBrowse.TabIndex = 29;
@@ -416,7 +393,7 @@
             // 
             // tbAttachment
             // 
-            this.tbAttachment.Location = new System.Drawing.Point(19, 525);
+            this.tbAttachment.Location = new System.Drawing.Point(19, 582);
             this.tbAttachment.Name = "tbAttachment";
             this.tbAttachment.Size = new System.Drawing.Size(347, 20);
             this.tbAttachment.TabIndex = 28;
@@ -424,7 +401,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 509);
+            this.label11.Location = new System.Drawing.Point(16, 566);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 27;
@@ -451,19 +428,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btCancel;
-            this.ClientSize = new System.Drawing.Size(473, 652);
+            this.ClientSize = new System.Drawing.Size(474, 661);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btSave);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(490, 700);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(490, 700);
             this.Name = "AddIssue";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Issue";
             this.Load += new System.EventHandler(this.AddIssue_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -488,8 +465,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckedListBox clbImpactedFuncs;
         private System.Windows.Forms.CheckedListBox clbImpactedVenues;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.ComboBox cbHour;

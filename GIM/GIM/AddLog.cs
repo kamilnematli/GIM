@@ -26,7 +26,7 @@ namespace GIM
         {
             DBlayer dba = new GIM.DBlayer();
 
-            DataSet dsFunc = dba.GetTable("GIMFunc");
+            DataSet dsFunc = dba.GetTable("GIMFunc", 0);
             //DataRow rCT = dsSeverity.Tables[0].NewRow();
             //rCT["ID"] = 0;
             //rCT["SeverityName"] = "";
@@ -36,13 +36,13 @@ namespace GIM
             cbFunctions.DisplayMember = "FuncCode";
             cbFunctions.ValueMember = "ID";
 
-            DataSet dsFuncs = dba.GetTable("GIMfunc");
+            DataSet dsFuncs = dba.GetTable("GIMfunc", 0);
             DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
             clbImpFunctions.DataSource = dvFuncs;
             clbImpFunctions.DisplayMember = "FuncCode";
             clbImpFunctions.ValueMember = "ID";
 
-            DataSet dsLead = dba.GetTable("GIMvenue");
+            DataSet dsLead = dba.GetTable("GIMvenue", 0);
             DataView dvLead = new DataView(dsLead.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
             clbImpVenues.DataSource = dvLead;
             clbImpVenues.DisplayMember = "VenueCode";
