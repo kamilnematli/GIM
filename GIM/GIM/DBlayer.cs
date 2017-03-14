@@ -53,7 +53,8 @@ namespace GIM
 
         #region Get data
 
-        public DataSet GetIssues(bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _OnHold, bool _Closed, bool _Dashboard, bool _Reportable)
+        public DataSet GetIssues(int FuncID, bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _OnHold, bool _Closed, bool _Dashboard, bool _Reportable, 
+            bool _MyList, bool _All, int ImpFunc, int ImpVenue)
         {
             string _sql = "";
             DataSet ds = new DataSet();
@@ -67,6 +68,19 @@ namespace GIM
                     " dbo.GIMfunc ON dbo.GIMissue.LeadFunction = dbo.GIMfunc.ID";
 
             string filt = "";
+
+            if (!_All)
+            {
+                if (_MyList)
+                {
+                    filt += "and dbo.GIMissue.RaisedBy = " + FuncID;
+                }
+                else
+                {
+                    filt += "AND (dbo.GIMissue.LeadFunction = " + FuncID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where[Venue] = " + FuncID + ")" +
+                            " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + FuncID + "))";
+                }
+            }
 
             if (_Issues == true && _Logs == false) filt += "Type = 1 ";
             if (_Issues == false && _Logs == true) filt += "Type = 2 ";

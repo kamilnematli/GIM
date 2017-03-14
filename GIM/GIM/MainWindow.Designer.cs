@@ -52,12 +52,12 @@
             this.chDashboard = new System.Windows.Forms.CheckBox();
             this.chReportable = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chMyList = new System.Windows.Forms.CheckBox();
+            this.chAll = new System.Windows.Forms.CheckBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbFunc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbVenue = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -326,8 +326,8 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.checkBox1);
-            this.groupBox5.Controls.Add(this.checkBox2);
+            this.groupBox5.Controls.Add(this.chMyList);
+            this.groupBox5.Controls.Add(this.chAll);
             this.groupBox5.Location = new System.Drawing.Point(12, 72);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(132, 51);
@@ -335,31 +335,33 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Filter";
             // 
-            // checkBox1
+            // chMyList
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(13, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "My list";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chMyList.AutoSize = true;
+            this.chMyList.Location = new System.Drawing.Point(13, 21);
+            this.chMyList.Name = "chMyList";
+            this.chMyList.Size = new System.Drawing.Size(55, 17);
+            this.chMyList.TabIndex = 5;
+            this.chMyList.Text = "My list";
+            this.chMyList.UseVisualStyleBackColor = true;
+            this.chMyList.CheckedChanged += new System.EventHandler(this.chMyList_CheckedChanged);
             // 
-            // checkBox2
+            // chAll
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(74, 21);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(52, 17);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "All list";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chAll.AutoSize = true;
+            this.chAll.Location = new System.Drawing.Point(74, 21);
+            this.chAll.Name = "chAll";
+            this.chAll.Size = new System.Drawing.Size(52, 17);
+            this.chAll.TabIndex = 6;
+            this.chAll.Text = "All list";
+            this.chAll.UseVisualStyleBackColor = true;
+            this.chAll.CheckedChanged += new System.EventHandler(this.chAll_CheckedChanged);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.comboBox2);
+            this.groupBox6.Controls.Add(this.cbVenue);
             this.groupBox6.Controls.Add(this.label2);
-            this.groupBox6.Controls.Add(this.comboBox1);
+            this.groupBox6.Controls.Add(this.cbFunc);
             this.groupBox6.Controls.Add(this.label1);
             this.groupBox6.Location = new System.Drawing.Point(959, 72);
             this.groupBox6.Name = "groupBox6";
@@ -368,13 +370,13 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Impacted";
             // 
-            // comboBox1
+            // cbFunc
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(64, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(51, 21);
-            this.comboBox1.TabIndex = 19;
+            this.cbFunc.FormattingEnabled = true;
+            this.cbFunc.Location = new System.Drawing.Point(64, 18);
+            this.cbFunc.Name = "cbFunc";
+            this.cbFunc.Size = new System.Drawing.Size(51, 21);
+            this.cbFunc.TabIndex = 19;
             // 
             // label1
             // 
@@ -385,13 +387,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Function";
             // 
-            // comboBox2
+            // cbVenue
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(172, 17);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(51, 21);
-            this.comboBox2.TabIndex = 21;
+            this.cbVenue.FormattingEnabled = true;
+            this.cbVenue.Location = new System.Drawing.Point(172, 17);
+            this.cbVenue.Name = "cbVenue";
+            this.cbVenue.Size = new System.Drawing.Size(51, 21);
+            this.cbVenue.TabIndex = 21;
             // 
             // label2
             // 
@@ -471,12 +473,12 @@
         private System.Windows.Forms.CheckBox chDashboard;
         private System.Windows.Forms.CheckBox chReportable;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chMyList;
+        private System.Windows.Forms.CheckBox chAll;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbVenue;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbFunc;
         private System.Windows.Forms.Label label1;
     }
 }

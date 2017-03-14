@@ -29,7 +29,8 @@ namespace GIM
         private void LoadIssueList()
         {
             DBlayer dba = new DBlayer();
-            DataSet dsIssues = dba.GetIssues(chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chOnhold.Checked, chClosed.Checked, chDashboard.Checked, chReportable.Checked);
+            DataSet dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chOnhold.Checked, 
+                chClosed.Checked, chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue));
             DataView dvIssues = dsIssues.Tables[0].DefaultView;
             gvIssues.DataSource = dvIssues;
         }
@@ -138,6 +139,16 @@ namespace GIM
         {
             EditIssue frm = new GIM.EditIssue();
             frm.Show();
+        }
+
+        private void chMyList_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void chAll_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
         }
     }
 }
