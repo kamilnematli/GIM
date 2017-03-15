@@ -20,16 +20,15 @@ namespace GIM
         private void SignIn_Load(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-            DataSet dsFunc = dba.GetTable("GIMfunc", 0);
-
-            DataRow rCT = dsFunc.Tables[0].NewRow();
+            DataSet dsUser = dba.GetUsers();
+            DataRow rCT = dsUser.Tables[0].NewRow();
             rCT["ID"] = 0;
-            rCT["FuncName"] = "Select";
-            dsFunc.Tables[0].Rows.Add(rCT);
-            DataView dvFunc = new DataView(dsFunc.Tables[0], "", "ID", DataViewRowState.CurrentRows);
-            cbFuncs.DataSource = dvFunc;
-            cbFuncs.DisplayMember = "FuncCode";
-            cbFuncs.ValueMember = "ID";
+            rCT["UserName"] = "Select";
+            dsUser.Tables[0].Rows.Add(rCT);
+            DataView dvFunc = new DataView(dsUser.Tables[0], "", "ID", DataViewRowState.CurrentRows);
+            cbUsers.DataSource = dvFunc;
+            cbUsers.DisplayMember = "UserName";
+            cbUsers.ValueMember = "ID";
         }
 
         private void tbEnter_Click(object sender, EventArgs e)
@@ -41,9 +40,9 @@ namespace GIM
                 return;
             }
 
-            if (dba.CheckPassword(Convert.ToInt32(cbFuncs.SelectedIndex), tbPass.Text))
+            if (dba.CheckPassword(Convert.ToInt32(cbUsers.SelectedIndex), tbPass.Text))
             {
-                MainWindow frm = new MainWindow(Convert.ToInt32(cbFuncs.SelectedIndex));
+                MainWindow frm = new MainWindow(Convert.ToInt32(cbUsers.SelectedIndex));
                 frm.ShowDialog();
             }
             else

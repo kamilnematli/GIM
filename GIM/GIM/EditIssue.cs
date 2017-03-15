@@ -68,15 +68,20 @@ namespace GIM
             cbHour.Text = dtOcc.Hour.ToString();
             cbMins.Text = dtOcc.Minute.ToString();
 
+            DateTime dtUpd = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateUpdated"].ToString());
+            dtUpdated.Value = dtUpd.Date;
+            cbHour2.Text = dtUpd.Hour.ToString();
+            cbMin2.Text = dtUpd.Minute.ToString();
+
             DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
             string impactedFuncs = "";
             for (int i = 0; i < impFuncs.Tables[0].Rows.Count; i++)
             {
-                impactedFuncs += impFuncs.Tables[0].Rows[i]["FuncCode"].ToString() + ",";
+                impactedFuncs += impFuncs.Tables[0].Rows[i]["FuncCode"].ToString() + ", ";
             }
             if (impactedFuncs != "")
             {
-                impactedFuncs = impactedFuncs.Substring(0, impactedFuncs.Length - 1);
+                impactedFuncs = impactedFuncs.Substring(0, impactedFuncs.Length - 2);
             }
             tbImpactedFuncs.Text = impactedFuncs;
 
@@ -84,11 +89,11 @@ namespace GIM
             string impactedVenues = "";
             for (int i = 0; i < impVenues.Tables[0].Rows.Count; i++)
             {
-                impactedVenues += impVenues.Tables[0].Rows[i]["VenueCode"].ToString() + ",";
+                impactedVenues += impVenues.Tables[0].Rows[i]["VenueCode"].ToString() + ", ";
             }
             if (impactedVenues != "")
             {
-                impactedVenues = impactedVenues.Substring(0, impactedVenues.Length - 1);
+                impactedVenues = impactedVenues.Substring(0, impactedVenues.Length - 2);
             }
             tbImpactedVenues.Text = impactedVenues;
         }

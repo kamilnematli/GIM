@@ -39,10 +39,10 @@
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbMin2 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbHour2 = new System.Windows.Forms.ComboBox();
+            this.dtUpdated = new System.Windows.Forms.DateTimePicker();
             this.tbImpactedVenues = new System.Windows.Forms.TextBox();
             this.tbImpactedFuncs = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -116,13 +116,13 @@
             this.groupBox1.Controls.Add(this.comboBox4);
             this.groupBox1.Controls.Add(this.dateTimePicker3);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbMin2);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbHour2);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtUpdated);
             this.groupBox1.Controls.Add(this.tbImpactedVenues);
             this.groupBox1.Controls.Add(this.tbImpactedFuncs);
             this.groupBox1.Controls.Add(this.label13);
@@ -213,13 +213,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(784, 463);
             this.dataGridView1.TabIndex = 40;
             // 
-            // comboBox1
+            // cbMin2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(231, 523);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(46, 21);
-            this.comboBox1.TabIndex = 38;
+            this.cbMin2.FormattingEnabled = true;
+            this.cbMin2.Location = new System.Drawing.Point(231, 523);
+            this.cbMin2.Name = "cbMin2";
+            this.cbMin2.Size = new System.Drawing.Size(46, 21);
+            this.cbMin2.TabIndex = 38;
             // 
             // label14
             // 
@@ -230,21 +230,21 @@
             this.label14.TabIndex = 39;
             this.label14.Text = ":";
             // 
-            // comboBox2
+            // cbHour2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(170, 523);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(46, 21);
-            this.comboBox2.TabIndex = 37;
+            this.cbHour2.FormattingEnabled = true;
+            this.cbHour2.Location = new System.Drawing.Point(170, 523);
+            this.cbHour2.Name = "cbHour2";
+            this.cbHour2.Size = new System.Drawing.Size(46, 21);
+            this.cbHour2.TabIndex = 37;
             // 
-            // dateTimePicker1
+            // dtUpdated
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(19, 523);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(136, 20);
-            this.dateTimePicker1.TabIndex = 36;
+            this.dtUpdated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtUpdated.Location = new System.Drawing.Point(19, 523);
+            this.dtUpdated.Name = "dtUpdated";
+            this.dtUpdated.Size = new System.Drawing.Size(136, 20);
+            this.dtUpdated.TabIndex = 36;
             // 
             // tbImpactedVenues
             // 
@@ -554,10 +554,10 @@
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbMin2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cbHour2;
+        private System.Windows.Forms.DateTimePicker dtUpdated;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btDoc;
         private System.Windows.Forms.Label lblDoc;

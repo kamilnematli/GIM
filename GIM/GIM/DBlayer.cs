@@ -12,14 +12,14 @@ namespace GIM
     {
         string connectionString = "server=pmsasql01.database.windows.net;database=GamesModelDB02;uid=SQLAdmin01;pwd=UD6JvqIY9iLlX57PT3U1";
 
-        public bool CheckPassword(int FuncID, string pass)
+        public bool CheckPassword(int UserID, string pass)
         {
-            if (FuncID < 1) return false;
+            if (UserID < 1) return false;
 
             string _sql = "";
             DataSet ds = new DataSet();
 
-            _sql = "select UserPass from GIMfunc where ID = " + FuncID;
+            _sql = "select UserPass from GIMusers where ID = " + UserID;
 
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -148,6 +148,22 @@ namespace GIM
             {
                 _sql += " where [ID] = " + _id; 
             }
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
+        public DataSet GetUsers()
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = " SELECT [dbo].[GIMusers].[ID], case when GIMfunc.FuncCode is null then GIMvenue.VenueCode else GIMfunc.FuncCode end as UserName, [UserRole], [UserPass] " +
+                   " FROM[dbo].[GIMusers] left outer join dbo.GIMfunc on dbo.GIMusers.Func = dbo.GIMfunc.ID left outer join dbo.GIMvenue on dbo.GIMusers.Venue = dbo.GIMvenue.ID";
 
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();

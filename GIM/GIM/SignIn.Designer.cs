@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignIn));
             this.label1 = new System.Windows.Forms.Label();
-            this.cbFuncs = new System.Windows.Forms.ComboBox();
+            this.cbUsers = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.tbEnter = new System.Windows.Forms.Button();
@@ -42,17 +42,17 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(364, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Function";
+            this.label1.Text = "User";
             // 
-            // cbFuncs
+            // cbUsers
             // 
-            this.cbFuncs.FormattingEnabled = true;
-            this.cbFuncs.Location = new System.Drawing.Point(367, 154);
-            this.cbFuncs.Name = "cbFuncs";
-            this.cbFuncs.Size = new System.Drawing.Size(133, 21);
-            this.cbFuncs.TabIndex = 1;
+            this.cbUsers.FormattingEnabled = true;
+            this.cbUsers.Location = new System.Drawing.Point(367, 154);
+            this.cbUsers.Name = "cbUsers";
+            this.cbUsers.Size = new System.Drawing.Size(133, 21);
+            this.cbUsers.TabIndex = 1;
             // 
             // label2
             // 
@@ -93,7 +93,7 @@
             this.Controls.Add(this.tbEnter);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbFuncs);
+            this.Controls.Add(this.cbUsers);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -109,7 +109,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbFuncs;
+        private System.Windows.Forms.ComboBox cbUsers;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.Button tbEnter;
