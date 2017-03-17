@@ -178,11 +178,12 @@ namespace GIM
             string _sql = "";
             DataSet ds = new DataSet();
             
-            _sql = "SELECT dbo.GIMimpactedFuncs.[ID], [Issue], dbo.GIMfunc.FuncCode FROM [dbo].[GIMimpactedFuncs] inner join dbo.GIMfunc ON dbo.GIMimpactedFuncs.Func = dbo.GIMfunc.ID";
+            _sql = " SELECT dbo.GIMfunc.[ID], [FuncCode], [FuncName], [FuncEmail] " +
+                   " FROM [dbo].[GIMimpactedFuncs] inner join dbo.GIMfunc ON dbo.GIMimpactedFuncs.Func = dbo.GIMfunc.ID";
 
             if (_id > 0)
             {
-                _sql += " where [Issue] = " + _id;
+                _sql += " where [dbo].[GIMimpactedFuncs].[Issue] = " + _id;
             }
 
             SqlConnection conn = new SqlConnection(@connectionString);
@@ -198,7 +199,7 @@ namespace GIM
             string _sql = "";
             DataSet ds = new DataSet();
 
-            _sql = "SELECT dbo.GIMimpactedVenues.[ID], [Issue], dbo.GIMvenue.VenueCode FROM [dbo].[GIMimpactedVenues] inner join dbo.GIMvenue ON dbo.GIMimpactedVenues.Venue = dbo.GIMvenue.ID";
+            _sql = "SELECT dbo.GIMimpactedVenues.[ID], [Issue], dbo.GIMimpactedVenues.Venue as VenueID, dbo.GIMvenue.VenueCode FROM [dbo].[GIMimpactedVenues] inner join dbo.GIMvenue ON dbo.GIMimpactedVenues.Venue = dbo.GIMvenue.ID";
 
             if (_id > 0)
             {
@@ -314,6 +315,53 @@ namespace GIM
         #endregion
 
         #region Update data
+
+        public void UpdateIssue(int IssueID, int Type, string Title, int IssueStatus, int IssueSeverity, int RaisedBy, string Desc, int LeadFunction, string ImpactedFuncs, int Location,
+            string ImpactedVenues, string DateOccurence, string DateActualEnd, string DateUpdated, int Reportable, int Dashboard, string Creator, string Attch, string LocDesc)
+        {
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+
+            string _sql = " UPDATE [dbo].[GIMissue] SET " +
+                          " [Type] = " + Type +
+                          " ,[Title] = '" + Title + "'" +
+                          " ,[IssueStatus] = " + IssueStatus +
+                          " ,[IssueSeverity] = " + IssueSeverity +
+                          " ,[Description] = '" + Desc + "'" +
+                          " ,[LeadFunction] = " + LeadFunction +
+                          " ,[Location] = " + Location +
+                          " ,[DateOccurence] = CONVERT(datetime, '" + DateOccurence + "')" +
+                          " ,[DateUpdated] = '" + DateTime.Now + "'" +
+                          " ,[Creator] = " + Creator +
+                          " ,[Attachment] = '" + Attch + "'" +
+                          " ,[LocationDesc] = '" + LocDesc + "' where ID = " + IssueID;
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+
+            string[] funcs = ImpactedFuncs.Split(',');
+            string[] venues = ImpactedVenues.Split(',');
+
+            _sql = " Declare @lRow as int; " +
+                   " set @lRow = dbo.GetIssueLastRow(); ";
+
+            int i = 0;
+            for (; i < funcs.Length - 1; i++)
+            {
+                _sql += " INSERT INTO [dbo].[GIMimpactedFuncs] ([Issue], [Func]) VALUES (@lRow, " + funcs[i] + "); ";
+            }
+
+            for (i = 0; i < venues.Length - 1; i++)
+            {
+                _sql += " INSERT INTO [dbo].[GIMimpactedVenues] ([Issue], [Venue]) VALUES (@lRow, " + venues[i] + "); ";
+            }
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
 
         #endregion
 

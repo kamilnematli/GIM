@@ -116,5 +116,11 @@ namespace GIM
                 MessageBox.Show("Could not open the document. Possible reasons are: 1- the attachment has been removed after uploading, 2- the current user doesn't have access to the attachment. Please contact with RDY team to resolve the issue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void tbEdit_Click(object sender, EventArgs e)
+        {
+            AddIssue frm = new GIM.AddIssue(IssueID, FuncID);
+            frm.Show();
+        }
     }
 }

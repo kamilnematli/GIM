@@ -31,8 +31,8 @@
             this.gvIssues = new System.Windows.Forms.DataGridView();
             this.btAddIssue = new System.Windows.Forms.Button();
             this.btAddLog = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.OpenIssue = new System.Windows.Forms.Button();
+            this.tbIssueID = new System.Windows.Forms.TextBox();
+            this.btOpenIssue = new System.Windows.Forms.Button();
             this.chIssue = new System.Windows.Forms.CheckBox();
             this.chLog = new System.Windows.Forms.CheckBox();
             this.chLow = new System.Windows.Forms.CheckBox();
@@ -108,23 +108,24 @@
             this.btAddLog.UseVisualStyleBackColor = true;
             this.btAddLog.Click += new System.EventHandler(this.AddLog_Click);
             // 
-            // textBox1
+            // tbIssueID
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(1157, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(117, 20);
-            this.textBox1.TabIndex = 3;
+            this.tbIssueID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbIssueID.Location = new System.Drawing.Point(1157, 35);
+            this.tbIssueID.Name = "tbIssueID";
+            this.tbIssueID.Size = new System.Drawing.Size(117, 20);
+            this.tbIssueID.TabIndex = 3;
             // 
-            // OpenIssue
+            // btOpenIssue
             // 
-            this.OpenIssue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenIssue.Location = new System.Drawing.Point(1280, 33);
-            this.OpenIssue.Name = "OpenIssue";
-            this.OpenIssue.Size = new System.Drawing.Size(58, 23);
-            this.OpenIssue.TabIndex = 4;
-            this.OpenIssue.Text = "Open";
-            this.OpenIssue.UseVisualStyleBackColor = true;
+            this.btOpenIssue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btOpenIssue.Location = new System.Drawing.Point(1280, 33);
+            this.btOpenIssue.Name = "btOpenIssue";
+            this.btOpenIssue.Size = new System.Drawing.Size(58, 23);
+            this.btOpenIssue.TabIndex = 4;
+            this.btOpenIssue.Text = "Open";
+            this.btOpenIssue.UseVisualStyleBackColor = true;
+            this.btOpenIssue.Click += new System.EventHandler(this.btOpenIssue_Click);
             // 
             // chIssue
             // 
@@ -455,8 +456,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.OpenIssue);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btOpenIssue);
+            this.Controls.Add(this.tbIssueID);
             this.Controls.Add(this.btAddLog);
             this.Controls.Add(this.btAddIssue);
             this.Controls.Add(this.gvIssues);
@@ -492,8 +493,8 @@
         private System.Windows.Forms.DataGridView gvIssues;
         private System.Windows.Forms.Button btAddIssue;
         private System.Windows.Forms.Button btAddLog;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button OpenIssue;
+        private System.Windows.Forms.TextBox tbIssueID;
+        private System.Windows.Forms.Button btOpenIssue;
         private System.Windows.Forms.CheckBox chIssue;
         private System.Windows.Forms.CheckBox chLog;
         private System.Windows.Forms.CheckBox chLow;

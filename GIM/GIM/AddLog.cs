@@ -26,16 +26,6 @@ namespace GIM
         {
             DBlayer dba = new GIM.DBlayer();
 
-            DataSet dsFunc = dba.GetTable("GIMFunc", 0);
-            //DataRow rCT = dsSeverity.Tables[0].NewRow();
-            //rCT["ID"] = 0;
-            //rCT["SeverityName"] = "";
-            //dsSeverity.Tables[0].Rows.Add(rCT);
-            DataView dv = new DataView(dsFunc.Tables[0], "", "ID", DataViewRowState.CurrentRows);
-            cbFunctions.DataSource = dv;
-            cbFunctions.DisplayMember = "FuncCode";
-            cbFunctions.ValueMember = "ID";
-
             DataSet dsFuncs = dba.GetTable("GIMfunc", 0);
             DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
             clbImpFunctions.DataSource = dvFuncs;

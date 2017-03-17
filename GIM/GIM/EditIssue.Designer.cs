@@ -34,10 +34,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbMin3 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.cbHour3 = new System.Windows.Forms.ComboBox();
+            this.dtActualEnd = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cbMin2 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             this.cbLeadFunc = new System.Windows.Forms.ComboBox();
             this.btCancel = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbEdit = new System.Windows.Forms.Button();
             this.btDoc = new System.Windows.Forms.Button();
             this.lblDoc = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -111,10 +111,10 @@
             this.groupBox1.Controls.Add(this.btDoc);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cbMin3);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.dateTimePicker3);
+            this.groupBox1.Controls.Add(this.cbHour3);
+            this.groupBox1.Controls.Add(this.dtActualEnd);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.cbMin2);
             this.groupBox1.Controls.Add(this.label14);
@@ -172,13 +172,13 @@
             this.label16.TabIndex = 45;
             this.label16.Text = "Updates/Comments";
             // 
-            // comboBox3
+            // cbMin3
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(672, 38);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(46, 21);
-            this.comboBox3.TabIndex = 43;
+            this.cbMin3.FormattingEnabled = true;
+            this.cbMin3.Location = new System.Drawing.Point(672, 38);
+            this.cbMin3.Name = "cbMin3";
+            this.cbMin3.Size = new System.Drawing.Size(46, 21);
+            this.cbMin3.TabIndex = 43;
             // 
             // label15
             // 
@@ -189,21 +189,21 @@
             this.label15.TabIndex = 44;
             this.label15.Text = ":";
             // 
-            // comboBox4
+            // cbHour3
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(611, 38);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(46, 21);
-            this.comboBox4.TabIndex = 42;
+            this.cbHour3.FormattingEnabled = true;
+            this.cbHour3.Location = new System.Drawing.Point(611, 38);
+            this.cbHour3.Name = "cbHour3";
+            this.cbHour3.Size = new System.Drawing.Size(46, 21);
+            this.cbHour3.TabIndex = 42;
             // 
-            // dateTimePicker3
+            // dtActualEnd
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(460, 38);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(136, 20);
-            this.dateTimePicker3.TabIndex = 41;
+            this.dtActualEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtActualEnd.Location = new System.Drawing.Point(460, 38);
+            this.dtActualEnd.Name = "dtActualEnd";
+            this.dtActualEnd.Size = new System.Drawing.Size(136, 20);
+            this.dtActualEnd.TabIndex = 41;
             // 
             // dataGridView1
             // 
@@ -468,14 +468,15 @@
             this.btSave.Text = " Save";
             this.btSave.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // tbEdit
             // 
-            this.button1.Location = new System.Drawing.Point(1163, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Edit issue";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tbEdit.Location = new System.Drawing.Point(1163, 12);
+            this.tbEdit.Name = "tbEdit";
+            this.tbEdit.Size = new System.Drawing.Size(109, 23);
+            this.tbEdit.TabIndex = 32;
+            this.tbEdit.Text = "Edit issue";
+            this.tbEdit.UseVisualStyleBackColor = true;
+            this.tbEdit.Click += new System.EventHandler(this.tbEdit_Click);
             // 
             // btDoc
             // 
@@ -501,7 +502,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 661);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tbEdit);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.groupBox1);
@@ -549,16 +550,16 @@
         private System.Windows.Forms.TextBox tbImpactedFuncs;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbMin3;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.ComboBox cbHour3;
+        private System.Windows.Forms.DateTimePicker dtActualEnd;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cbMin2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cbHour2;
         private System.Windows.Forms.DateTimePicker dtUpdated;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button tbEdit;
         private System.Windows.Forms.Button btDoc;
         private System.Windows.Forms.Label lblDoc;
     }

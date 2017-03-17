@@ -82,7 +82,7 @@ namespace GIM
 
         private void AddIssue_Click(object sender, EventArgs e)
         {
-            AddIssue frm = new AddIssue(FuncID);
+            AddIssue frm = new AddIssue(0, FuncID);
             frm.ShowDialog();
             LoadIssueList();
         }
@@ -220,6 +220,12 @@ namespace GIM
         private void cbLead_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadIssueList();
+        }
+
+        private void btOpenIssue_Click(object sender, EventArgs e)
+        {
+            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), FuncID);
+            frm.Show();
         }
     }
 }
