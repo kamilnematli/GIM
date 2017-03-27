@@ -28,65 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbLogName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.cbHour = new System.Windows.Forms.ComboBox();
+            this.cbMins = new System.Windows.Forms.ComboBox();
+            this.dtOccurence = new System.Windows.Forms.DateTimePicker();
+            this.tbLocDesc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
             this.clbImpVenues = new System.Windows.Forms.CheckedListBox();
             this.clbImpFunctions = new System.Windows.Forms.CheckedListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbLogDesc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbLocation = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbLeadFunc = new System.Windows.Forms.ComboBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Location = new System.Drawing.Point(12, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(354, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Log details";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox2.Location = new System.Drawing.Point(467, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(354, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Log description";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 51);
+            this.label3.Location = new System.Drawing.Point(15, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Title";
             // 
-            // textBox4
+            // tbLogName
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox4.Location = new System.Drawing.Point(12, 76);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(354, 20);
-            this.textBox4.TabIndex = 7;
+            this.tbLogName.BackColor = System.Drawing.SystemColors.Info;
+            this.tbLogName.Location = new System.Drawing.Point(18, 42);
+            this.tbLogName.Name = "tbLogName";
+            this.tbLogName.Size = new System.Drawing.Size(398, 20);
+            this.tbLogName.TabIndex = 7;
+            this.tbLogName.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(238, 108);
+            this.label4.Location = new System.Drawing.Point(228, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 13);
             this.label4.TabIndex = 9;
@@ -95,7 +83,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 110);
+            this.label5.Location = new System.Drawing.Point(15, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 8;
@@ -104,64 +92,48 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 225);
+            this.label6.Location = new System.Drawing.Point(15, 505);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Date/time of occurence";
             // 
-            // comboBox4
+            // cbHour
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(252, 251);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(50, 21);
-            this.comboBox4.TabIndex = 14;
+            this.cbHour.FormattingEnabled = true;
+            this.cbHour.Location = new System.Drawing.Point(150, 526);
+            this.cbHour.Name = "cbHour";
+            this.cbHour.Size = new System.Drawing.Size(50, 21);
+            this.cbHour.TabIndex = 14;
             // 
-            // comboBox5
+            // cbMins
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(318, 252);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(51, 21);
-            this.comboBox5.TabIndex = 15;
+            this.cbMins.FormattingEnabled = true;
+            this.cbMins.Location = new System.Drawing.Point(220, 526);
+            this.cbMins.Name = "cbMins";
+            this.cbMins.Size = new System.Drawing.Size(51, 21);
+            this.cbMins.TabIndex = 15;
             // 
-            // textBox6
+            // dtOccurence
             // 
-            this.textBox6.Location = new System.Drawing.Point(467, 57);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(354, 263);
-            this.textBox6.TabIndex = 16;
+            this.dtOccurence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtOccurence.Location = new System.Drawing.Point(15, 526);
+            this.dtOccurence.Name = "dtOccurence";
+            this.dtOccurence.Size = new System.Drawing.Size(120, 20);
+            this.dtOccurence.TabIndex = 17;
             // 
-            // dateTimePicker1
+            // tbLocDesc
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 253);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(203, 20);
-            this.dateTimePicker1.TabIndex = 17;
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox5.Location = new System.Drawing.Point(12, 302);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(354, 20);
-            this.textBox5.TabIndex = 18;
-            this.textBox5.Text = "Log details";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(12, 371);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(354, 52);
-            this.textBox7.TabIndex = 19;
+            this.tbLocDesc.Location = new System.Drawing.Point(17, 455);
+            this.tbLocDesc.Multiline = true;
+            this.tbLocDesc.Name = "tbLocDesc";
+            this.tbLocDesc.Size = new System.Drawing.Size(399, 38);
+            this.tbLocDesc.TabIndex = 19;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 346);
+            this.label7.Location = new System.Drawing.Point(14, 439);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 13);
             this.label7.TabIndex = 20;
@@ -169,9 +141,9 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(596, 436);
+            this.btSave.Location = new System.Drawing.Point(231, 591);
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(109, 35);
+            this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 21;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
@@ -179,9 +151,9 @@
             // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(712, 436);
+            this.btCancel.Location = new System.Drawing.Point(346, 591);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(109, 35);
+            this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 22;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
@@ -190,70 +162,148 @@
             // clbImpVenues
             // 
             this.clbImpVenues.FormattingEnabled = true;
-            this.clbImpVenues.Location = new System.Drawing.Point(241, 142);
+            this.clbImpVenues.Location = new System.Drawing.Point(231, 194);
             this.clbImpVenues.Name = "clbImpVenues";
-            this.clbImpVenues.Size = new System.Drawing.Size(125, 79);
+            this.clbImpVenues.Size = new System.Drawing.Size(185, 184);
             this.clbImpVenues.TabIndex = 24;
             // 
             // clbImpFunctions
             // 
             this.clbImpFunctions.FormattingEnabled = true;
-            this.clbImpFunctions.Location = new System.Drawing.Point(12, 142);
+            this.clbImpFunctions.Location = new System.Drawing.Point(18, 194);
             this.clbImpFunctions.Name = "clbImpFunctions";
-            this.clbImpFunctions.Size = new System.Drawing.Size(125, 79);
+            this.clbImpFunctions.Size = new System.Drawing.Size(184, 184);
             this.clbImpFunctions.TabIndex = 25;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbLeadFunc);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cbLocation);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.tbLogDesc);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.clbImpFunctions);
+            this.groupBox1.Controls.Add(this.clbImpVenues);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.tbLocDesc);
+            this.groupBox1.Controls.Add(this.dtOccurence);
+            this.groupBox1.Controls.Add(this.cbMins);
+            this.groupBox1.Controls.Add(this.cbHour);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.tbLogName);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(18, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(437, 566);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "New";
+            // 
+            // tbLogDesc
+            // 
+            this.tbLogDesc.BackColor = System.Drawing.SystemColors.Info;
+            this.tbLogDesc.Location = new System.Drawing.Point(18, 86);
+            this.tbLogDesc.Multiline = true;
+            this.tbLogDesc.Name = "tbLogDesc";
+            this.tbLogDesc.Size = new System.Drawing.Size(398, 82);
+            this.tbLogDesc.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Description";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(206, 530);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.TabIndex = 28;
+            this.label2.Text = ":";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(227, 391);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "Location";
+            // 
+            // cbLocation
+            // 
+            this.cbLocation.FormattingEnabled = true;
+            this.cbLocation.Location = new System.Drawing.Point(230, 407);
+            this.cbLocation.Name = "cbLocation";
+            this.cbLocation.Size = new System.Drawing.Size(186, 21);
+            this.cbLocation.TabIndex = 30;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 389);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Lead Function";
+            // 
+            // cbLeadFunc
+            // 
+            this.cbLeadFunc.FormattingEnabled = true;
+            this.cbLeadFunc.Location = new System.Drawing.Point(17, 407);
+            this.cbLeadFunc.Name = "cbLeadFunc";
+            this.cbLeadFunc.Size = new System.Drawing.Size(185, 21);
+            this.cbLeadFunc.TabIndex = 32;
             // 
             // AddLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 481);
-            this.Controls.Add(this.clbImpFunctions);
-            this.Controls.Add(this.clbImpVenues);
-            this.Controls.Add(this.btCancel);
+            this.ClientSize = new System.Drawing.Size(474, 621);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btSave);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btCancel);
             this.Name = "AddLog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Log";
             this.Load += new System.EventHandler(this.AddLog_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbLogName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox cbHour;
+        private System.Windows.Forms.ComboBox cbMins;
+        private System.Windows.Forms.DateTimePicker dtOccurence;
+        private System.Windows.Forms.TextBox tbLocDesc;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.CheckedListBox clbImpVenues;
         private System.Windows.Forms.CheckedListBox clbImpFunctions;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox tbLogDesc;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbLeadFunc;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbLocation;
     }
 }
