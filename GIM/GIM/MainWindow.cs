@@ -67,13 +67,13 @@ namespace GIM
 
             try
             {
-                dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chOnhold.Checked,
-                chClosed.Checked, chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue), Convert.ToInt32(cbLead.SelectedValue));
+                dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
+                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue), Convert.ToInt32(cbLead.SelectedValue));
             }
             catch
             {
-                dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chOnhold.Checked,
-                chClosed.Checked, chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, -1, -1, -1);
+                dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
+                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, -1, -1, -1);
             }
 
             DataView dvIssues = dsIssues.Tables[0].DefaultView;
@@ -156,11 +156,6 @@ namespace GIM
         }
 
         private void chInprogress_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chOnhold_CheckedChanged(object sender, EventArgs e)
         {
             LoadIssueList();
         }

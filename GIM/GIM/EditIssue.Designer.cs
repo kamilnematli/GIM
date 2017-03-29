@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.label7 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chReportable = new System.Windows.Forms.CheckBox();
+            this.chDashboard = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblDoc = new System.Windows.Forms.Label();
+            this.btDoc = new System.Windows.Forms.Button();
+            this.btAddUpdate = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.cbMin3 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -70,8 +72,6 @@
             this.btCancel = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.tbEdit = new System.Windows.Forms.Button();
-            this.btDoc = new System.Windows.Forms.Button();
-            this.lblDoc = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -85,31 +85,31 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Actual end date/time";
             // 
-            // checkBox2
+            // chReportable
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(838, 41);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(78, 17);
-            this.checkBox2.TabIndex = 21;
-            this.checkBox2.Text = "Reportable";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chReportable.AutoSize = true;
+            this.chReportable.Location = new System.Drawing.Point(838, 41);
+            this.chReportable.Name = "chReportable";
+            this.chReportable.Size = new System.Drawing.Size(78, 17);
+            this.chReportable.TabIndex = 21;
+            this.chReportable.Text = "Reportable";
+            this.chReportable.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chDashboard
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(754, 41);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(78, 17);
-            this.checkBox1.TabIndex = 20;
-            this.checkBox1.Text = "Dashboard";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chDashboard.AutoSize = true;
+            this.chDashboard.Location = new System.Drawing.Point(754, 41);
+            this.chDashboard.Name = "chDashboard";
+            this.chDashboard.Size = new System.Drawing.Size(78, 17);
+            this.chDashboard.TabIndex = 20;
+            this.chDashboard.Text = "Dashboard";
+            this.chDashboard.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblDoc);
             this.groupBox1.Controls.Add(this.btDoc);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btAddUpdate);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.cbMin3);
             this.groupBox1.Controls.Add(this.label15);
@@ -120,8 +120,8 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.cbHour2);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.chReportable);
+            this.groupBox1.Controls.Add(this.chDashboard);
             this.groupBox1.Controls.Add(this.dtUpdated);
             this.groupBox1.Controls.Add(this.tbImpactedVenues);
             this.groupBox1.Controls.Add(this.tbImpactedFuncs);
@@ -154,14 +154,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Issue details";
             // 
-            // button2
+            // lblDoc
             // 
-            this.button2.Location = new System.Drawing.Point(460, 550);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 23);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Add update/comment";
-            this.button2.UseVisualStyleBackColor = true;
+            this.lblDoc.AutoSize = true;
+            this.lblDoc.Location = new System.Drawing.Point(175, 554);
+            this.lblDoc.Name = "lblDoc";
+            this.lblDoc.Size = new System.Drawing.Size(0, 13);
+            this.lblDoc.TabIndex = 47;
+            this.lblDoc.Visible = false;
+            // 
+            // btDoc
+            // 
+            this.btDoc.Location = new System.Drawing.Point(19, 549);
+            this.btDoc.Name = "btDoc";
+            this.btDoc.Size = new System.Drawing.Size(136, 23);
+            this.btDoc.TabIndex = 46;
+            this.btDoc.Text = "Open attachment";
+            this.btDoc.UseVisualStyleBackColor = true;
+            this.btDoc.Click += new System.EventHandler(this.btDoc_Click);
+            // 
+            // btAddUpdate
+            // 
+            this.btAddUpdate.Location = new System.Drawing.Point(460, 550);
+            this.btAddUpdate.Name = "btAddUpdate";
+            this.btAddUpdate.Size = new System.Drawing.Size(169, 23);
+            this.btAddUpdate.TabIndex = 33;
+            this.btAddUpdate.Text = "Add update/comment";
+            this.btAddUpdate.UseVisualStyleBackColor = true;
+            this.btAddUpdate.Click += new System.EventHandler(this.btAddUpdate_Click);
             // 
             // label16
             // 
@@ -467,6 +487,7 @@
             this.btSave.TabIndex = 30;
             this.btSave.Text = " Save";
             this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // tbEdit
             // 
@@ -477,25 +498,6 @@
             this.tbEdit.Text = "Edit issue";
             this.tbEdit.UseVisualStyleBackColor = true;
             this.tbEdit.Click += new System.EventHandler(this.tbEdit_Click);
-            // 
-            // btDoc
-            // 
-            this.btDoc.Location = new System.Drawing.Point(19, 549);
-            this.btDoc.Name = "btDoc";
-            this.btDoc.Size = new System.Drawing.Size(136, 23);
-            this.btDoc.TabIndex = 46;
-            this.btDoc.Text = "Open attachment";
-            this.btDoc.UseVisualStyleBackColor = true;
-            this.btDoc.Click += new System.EventHandler(this.btDoc_Click);
-            // 
-            // lblDoc
-            // 
-            this.lblDoc.AutoSize = true;
-            this.lblDoc.Location = new System.Drawing.Point(175, 554);
-            this.lblDoc.Name = "lblDoc";
-            this.lblDoc.Size = new System.Drawing.Size(0, 13);
-            this.lblDoc.TabIndex = 47;
-            this.lblDoc.Visible = false;
             // 
             // EditIssue
             // 
@@ -519,8 +521,8 @@
 
         #endregion
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chReportable;
+        private System.Windows.Forms.CheckBox chDashboard;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbLocationDesc;
@@ -548,7 +550,7 @@
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.TextBox tbImpactedVenues;
         private System.Windows.Forms.TextBox tbImpactedFuncs;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btAddUpdate;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cbMin3;
         private System.Windows.Forms.Label label15;

@@ -41,7 +41,6 @@
             this.chClosed = new System.Windows.Forms.CheckBox();
             this.chInprogress = new System.Windows.Forms.CheckBox();
             this.chNew = new System.Windows.Forms.CheckBox();
-            this.chOnhold = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -185,7 +184,7 @@
             // chClosed
             // 
             this.chClosed.AutoSize = true;
-            this.chClosed.Location = new System.Drawing.Point(222, 21);
+            this.chClosed.Location = new System.Drawing.Point(153, 21);
             this.chClosed.Name = "chClosed";
             this.chClosed.Size = new System.Drawing.Size(58, 17);
             this.chClosed.TabIndex = 12;
@@ -215,17 +214,6 @@
             this.chNew.UseVisualStyleBackColor = true;
             this.chNew.CheckedChanged += new System.EventHandler(this.chNew_CheckedChanged);
             // 
-            // chOnhold
-            // 
-            this.chOnhold.AutoSize = true;
-            this.chOnhold.Location = new System.Drawing.Point(153, 21);
-            this.chOnhold.Name = "chOnhold";
-            this.chOnhold.Size = new System.Drawing.Size(63, 17);
-            this.chOnhold.TabIndex = 13;
-            this.chOnhold.Text = "On hold";
-            this.chOnhold.UseVisualStyleBackColor = true;
-            this.chOnhold.CheckedChanged += new System.EventHandler(this.chOnhold_CheckedChanged);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.chLow);
@@ -242,11 +230,10 @@
             // 
             this.groupBox2.Controls.Add(this.chNew);
             this.groupBox2.Controls.Add(this.chInprogress);
-            this.groupBox2.Controls.Add(this.chOnhold);
             this.groupBox2.Controls.Add(this.chClosed);
             this.groupBox2.Location = new System.Drawing.Point(475, 72);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(289, 51);
+            this.groupBox2.Size = new System.Drawing.Size(219, 51);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Status";
@@ -300,7 +287,7 @@
             // 
             this.groupBox4.Controls.Add(this.chDashboard);
             this.groupBox4.Controls.Add(this.chReportable);
-            this.groupBox4.Location = new System.Drawing.Point(770, 72);
+            this.groupBox4.Location = new System.Drawing.Point(700, 72);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(186, 51);
             this.groupBox4.TabIndex = 17;
@@ -369,7 +356,7 @@
             this.groupBox6.Controls.Add(this.cbFunc);
             this.groupBox6.Controls.Add(this.label1);
             this.groupBox6.Enabled = false;
-            this.groupBox6.Location = new System.Drawing.Point(962, 72);
+            this.groupBox6.Location = new System.Drawing.Point(892, 72);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(240, 51);
             this.groupBox6.TabIndex = 18;
@@ -417,7 +404,7 @@
             this.groupBox7.Controls.Add(this.cbLead);
             this.groupBox7.Controls.Add(this.label4);
             this.groupBox7.Enabled = false;
-            this.groupBox7.Location = new System.Drawing.Point(1208, 72);
+            this.groupBox7.Location = new System.Drawing.Point(1138, 72);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(130, 51);
             this.groupBox7.TabIndex = 22;
@@ -503,7 +490,6 @@
         private System.Windows.Forms.CheckBox chClosed;
         private System.Windows.Forms.CheckBox chInprogress;
         private System.Windows.Forms.CheckBox chNew;
-        private System.Windows.Forms.CheckBox chOnhold;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;

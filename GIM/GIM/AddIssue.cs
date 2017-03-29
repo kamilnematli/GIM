@@ -87,7 +87,7 @@ namespace GIM
 
                 DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
 
-                int index = -1, i = 0, j = 0;
+                int i = 0, j = 0;
 
                 for ( ; i < clbImpactedFuncs.Items.Count; i++)
                 {
@@ -175,10 +175,10 @@ namespace GIM
 
                 try
                 {
-                    dba.UpdateIssue(IssueID, 1, tbTitle.Text, Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text, Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", "", 0, 0, Environment.UserName, tbAttachment.Text, tbLocationDesc.Text);
+                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text, Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text, Convert.ToInt32(cbLeadFunc.SelectedValue),
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, tbAttachment.Text, tbLocationDesc.Text);
 
-                    MessageBox.Show("You have successfully created an issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
                 }
                 catch

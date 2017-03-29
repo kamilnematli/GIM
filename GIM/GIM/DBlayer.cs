@@ -53,7 +53,7 @@ namespace GIM
 
         #region Get data
 
-        public DataSet GetIssues(int FuncID, bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _OnHold, bool _Closed, bool _Dashboard, bool _Reportable, 
+        public DataSet GetIssues(int FuncID, bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _Closed, bool _Dashboard, bool _Reportable, 
             bool _MyList, bool _All, int ImpFunc, int ImpVenue, int LeadFunc)
         {
             string _sql = "";
@@ -116,7 +116,6 @@ namespace GIM
             string FiltStatus = "";
             if (_New == true) FiltStatus += "IssueStatus = 1 ";
             if (_InProgress == true) FiltStatus += "or IssueStatus = 2 ";
-            if (_OnHold == true) FiltStatus += "or IssueStatus = 3 ";
             if (_Closed == true) FiltStatus += "or IssueStatus = 4 ";
 
             if (FiltStatus != "" && FiltStatus.Substring(0, 2) == "or") FiltStatus = FiltStatus.Substring(2);
@@ -163,7 +162,7 @@ namespace GIM
             DataSet ds = new DataSet();
 
             _sql = " SELECT [dbo].[GIMusers].[ID], case when GIMfunc.FuncCode is null then GIMvenue.VenueCode else GIMfunc.FuncCode end as UserName, [UserRole], [UserPass] " +
-                   " FROM[dbo].[GIMusers] left outer join dbo.GIMfunc on dbo.GIMusers.Func = dbo.GIMfunc.ID left outer join dbo.GIMvenue on dbo.GIMusers.Venue = dbo.GIMvenue.ID";
+                   " FROM [dbo].[GIMusers] left outer join dbo.GIMfunc on dbo.GIMusers.Func = dbo.GIMfunc.ID left outer join dbo.GIMvenue on dbo.GIMusers.Venue = dbo.GIMvenue.ID";
 
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -316,8 +315,8 @@ namespace GIM
 
         #region Update data
 
-        public void UpdateIssue(int IssueID, int Type, string Title, int IssueStatus, int IssueSeverity, int RaisedBy, string Desc, int LeadFunction, string ImpactedFuncs, int Location,
-            string ImpactedVenues, string DateOccurence, string DateActualEnd, string DateUpdated, int Reportable, int Dashboard, string Creator, string Attch, string LocDesc)
+        public void UpdateIssueDetails(int IssueID, int Type, string Title, int IssueStatus, int IssueSeverity, int RaisedBy, string Desc, int LeadFunction, string ImpactedFuncs, int Location,
+            string ImpactedVenues, string DateOccurence, string Attch, string LocDesc)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -333,10 +332,17 @@ namespace GIM
                           " ,[Location] = " + Location +
                           " ,[DateOccurence] = CONVERT(datetime, '" + DateOccurence + "')" +
                           " ,[DateUpdated] = '" + DateTime.Now + "'" +
-                          " ,[Creator] = " + Creator +
                           " ,[Attachment] = '" + Attch + "'" +
                           " ,[LocationDesc] = '" + LocDesc + "' where ID = " + IssueID;
 
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+
+            _sql = "delete from dbo.GIMimpactedFuncs where Issue = " + IssueID;
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+
+            _sql = "delete from dbo.GIMimpactedVenues where Issue = " + IssueID;
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();
 
@@ -360,6 +366,23 @@ namespace GIM
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();
 
+            conn.Close();
+        }
+
+        public void UpdateIssue(int IssueID, int IssueStatus, int Dashboard, int Reportable, string DateActualEnd)
+        {
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+
+            string _sql = " UPDATE [dbo].[GIMissue] SET " +
+                          " [IssueStatus] = " + IssueStatus +
+                          " ,[Reportable] = " + Reportable +
+                          " ,[Dashboard] = " + Dashboard + 
+                          " ,[DateActualEnd] = CONVERT(datetime, '" + DateActualEnd + "')" + " where ID = " + IssueID;
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
             conn.Close();
         }
 

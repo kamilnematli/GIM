@@ -54,6 +54,12 @@ namespace GIM
             cbLocation.DisplayMember = "VenueCode";
             cbLocation.ValueMember = "ID";
 
+            LoadEditIssue();    
+        }
+
+        private void LoadEditIssue()
+        {
+            DBlayer dba = new DBlayer();
             DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
             tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
             tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
@@ -120,7 +126,38 @@ namespace GIM
         private void tbEdit_Click(object sender, EventArgs e)
         {
             AddIssue frm = new GIM.AddIssue(IssueID, FuncID);
-            frm.Show();
+            frm.ShowDialog();
+            LoadEditIssue();
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            DBlayer dba = new DBlayer();
+            string DateActualEnd = "";
+            DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
+            DateActualEnd = DateActualEnd + " " + cbHour3.Text + ":" + cbMin3.Text;
+
+            int Dashboard = 0;
+            int Reportable = 0;
+            if (chReportable.Checked) Reportable = 1;
+            if (chDashboard.Checked) Dashboard = 1;
+
+            try
+            {
+                dba.UpdateIssue(IssueID, Convert.ToInt32(cbStatus.SelectedValue), Dashboard, Reportable, DateActualEnd);
+
+                MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong. Please check the data that you have inserted, if everything seems ok please check your network connection!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btAddUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
