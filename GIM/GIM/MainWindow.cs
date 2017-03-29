@@ -89,7 +89,7 @@ namespace GIM
 
         private void AddLog_Click(object sender, EventArgs e)
         {
-            AddLog frm = new GIM.AddLog();
+            AddLog frm = new GIM.AddLog(0,FuncID);
             frm.ShowDialog();
             LoadIssueList();
         }
