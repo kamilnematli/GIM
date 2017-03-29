@@ -102,6 +102,10 @@ namespace GIM
                 impactedVenues = impactedVenues.Substring(0, impactedVenues.Length - 2);
             }
             tbImpactedVenues.Text = impactedVenues;
+
+            DataSet dsUpdates = dba.GetTable("GIMupdateLog", 0);
+            DataView dvUpdates = dsUpdates.Tables[0].DefaultView;
+            gvUpdates.DataSource = dvUpdates;
         }
 
         private void btDoc_Click(object sender, EventArgs e)
@@ -157,7 +161,9 @@ namespace GIM
 
         private void btAddUpdate_Click(object sender, EventArgs e)
         {
-
+            IssueUpdate iu = new GIM.IssueUpdate(IssueID, FuncID);
+            iu.ShowDialog();
+            LoadEditIssue();
         }
     }
 }

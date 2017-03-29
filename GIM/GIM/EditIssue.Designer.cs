@@ -40,7 +40,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.cbHour3 = new System.Windows.Forms.ComboBox();
             this.dtActualEnd = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gvUpdates = new System.Windows.Forms.DataGridView();
             this.cbMin2 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.cbHour2 = new System.Windows.Forms.ComboBox();
@@ -73,7 +73,7 @@
             this.btSave = new System.Windows.Forms.Button();
             this.tbEdit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUpdates)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -115,7 +115,7 @@
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.cbHour3);
             this.groupBox1.Controls.Add(this.dtActualEnd);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.gvUpdates);
             this.groupBox1.Controls.Add(this.cbMin2);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.cbHour2);
@@ -147,7 +147,7 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.dtOccurence);
             this.groupBox1.Controls.Add(this.cbLeadFunc);
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1260, 579);
             this.groupBox1.TabIndex = 29;
@@ -225,13 +225,17 @@
             this.dtActualEnd.Size = new System.Drawing.Size(136, 20);
             this.dtActualEnd.TabIndex = 41;
             // 
-            // dataGridView1
+            // gvUpdates
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(460, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(784, 463);
-            this.dataGridView1.TabIndex = 40;
+            this.gvUpdates.AllowUserToAddRows = false;
+            this.gvUpdates.AllowUserToDeleteRows = false;
+            this.gvUpdates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvUpdates.Location = new System.Drawing.Point(460, 81);
+            this.gvUpdates.MultiSelect = false;
+            this.gvUpdates.Name = "gvUpdates";
+            this.gvUpdates.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvUpdates.Size = new System.Drawing.Size(784, 463);
+            this.gvUpdates.TabIndex = 40;
             // 
             // cbMin2
             // 
@@ -471,7 +475,7 @@
             // btCancel
             // 
             this.btCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCancel.Location = new System.Drawing.Point(1163, 626);
+            this.btCancel.Location = new System.Drawing.Point(1163, 619);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 31;
@@ -481,7 +485,7 @@
             // btSave
             // 
             this.btSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSave.Location = new System.Drawing.Point(1046, 626);
+            this.btSave.Location = new System.Drawing.Point(1046, 619);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 30;
@@ -503,7 +507,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.ClientSize = new System.Drawing.Size(1284, 652);
             this.Controls.Add(this.tbEdit);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btSave);
@@ -514,7 +518,7 @@
             this.Load += new System.EventHandler(this.EditIssue_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUpdates)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,7 +560,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbHour3;
         private System.Windows.Forms.DateTimePicker dtActualEnd;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gvUpdates;
         private System.Windows.Forms.ComboBox cbMin2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cbHour2;

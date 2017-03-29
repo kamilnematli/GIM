@@ -285,7 +285,7 @@ namespace GIM
             conn.Close();
         }
 
-        public void InsertUpdate(int UpdatedBy, string Creator, string UpdateText, string UpdateType, string DateUpdate, string FileUploaded)
+        public void InsertUpdate(int UpdatedBy, string Creator, string UpdateText, string UpdateType, string FileUploaded)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -303,7 +303,7 @@ namespace GIM
                           ",'" + Creator +
                           "','" + UpdateText +
                           "','" + UpdateType +
-                          "','" + DateUpdate + 
+                          "','" + DateTime.Now + 
                           "','" + FileUploaded + "')";
 
             cmd.CommandText = _sql;
