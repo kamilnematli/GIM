@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
             this.btAddIssue = new System.Windows.Forms.Button();
             this.btAddLog = new System.Windows.Forms.Button();
@@ -61,6 +62,15 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cbLead = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Severity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeadFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reportable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dashboard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -80,12 +90,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gvIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvIssues.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Updated,
+            this.IssueType,
+            this.Status,
+            this.Severity,
+            this.Title,
+            this.LeadFunc,
+            this.Reportable,
+            this.Dashboard});
             this.gvIssues.Location = new System.Drawing.Point(12, 129);
             this.gvIssues.Name = "gvIssues";
             this.gvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvIssues.Size = new System.Drawing.Size(1326, 520);
             this.gvIssues.TabIndex = 0;
             this.gvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIssues_CellDoubleClick);
+            this.gvIssues.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvIssues_CellFormatting);
             // 
             // btAddIssue
             // 
@@ -429,6 +450,71 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Function";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 50;
+            // 
+            // Updated
+            // 
+            this.Updated.DataPropertyName = "DateUpdated";
+            dataGridViewCellStyle2.Format = "d MMMM H:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Updated.HeaderText = "Updated";
+            this.Updated.Name = "Updated";
+            this.Updated.Width = 90;
+            // 
+            // IssueType
+            // 
+            this.IssueType.DataPropertyName = "Type";
+            this.IssueType.HeaderText = "Type";
+            this.IssueType.Name = "IssueType";
+            this.IssueType.Width = 80;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.Width = 75;
+            // 
+            // Severity
+            // 
+            this.Severity.DataPropertyName = "Severity";
+            this.Severity.HeaderText = "Severity";
+            this.Severity.Name = "Severity";
+            this.Severity.Width = 75;
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            this.Title.Width = 550;
+            // 
+            // LeadFunc
+            // 
+            this.LeadFunc.DataPropertyName = "Lead function";
+            this.LeadFunc.HeaderText = "Lead Function";
+            this.LeadFunc.Name = "LeadFunc";
+            // 
+            // Reportable
+            // 
+            this.Reportable.DataPropertyName = "Reportable";
+            this.Reportable.HeaderText = "Reportable";
+            this.Reportable.Name = "Reportable";
+            this.Reportable.Width = 80;
+            // 
+            // Dashboard
+            // 
+            this.Dashboard.DataPropertyName = "Dashboard";
+            this.Dashboard.HeaderText = "Dashboard";
+            this.Dashboard.Name = "Dashboard";
+            this.Dashboard.Width = 80;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,6 +596,15 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ComboBox cbLead;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Updated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IssueType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Severity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LeadFunc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reportable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dashboard;
     }
 }
 

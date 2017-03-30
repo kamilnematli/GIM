@@ -222,5 +222,24 @@ namespace GIM
             EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), FuncID);
             frm.Show();
         }
+
+        private void gvIssues_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.gvIssues.Columns[e.ColumnIndex].Name == "Severity")
+            {
+                if (e.Value.ToString() == "High")
+                {
+                    e.CellStyle.BackColor = Color.Red;
+                }
+                else if (e.Value.ToString() == "Medium")
+                {
+                    e.CellStyle.BackColor = Color.Orange;
+                }
+                else if (e.Value.ToString() == "Low")
+                {
+                    e.CellStyle.BackColor = Color.Yellow;
+                }
+            }
+        }
     }
 }
