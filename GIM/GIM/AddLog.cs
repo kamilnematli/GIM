@@ -10,16 +10,22 @@ using System.Windows.Forms;
 
 namespace GIM
 {
+
     public partial class AddLog : Form
     {
-        public AddLog()
+        private int IssueID;
+        private int FuncID;
+
+        public AddLog(int _logid, int _funcid)
         {
             InitializeComponent();
+            IssueID = _logid;
+            FuncID = _funcid;
         }
         
         private void btSave_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void AddLog_Load(object sender, EventArgs e)

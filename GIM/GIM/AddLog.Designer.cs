@@ -43,13 +43,13 @@
             this.clbImpVenues = new System.Windows.Forms.CheckedListBox();
             this.clbImpFunctions = new System.Windows.Forms.CheckedListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbLeadFunc = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbLocation = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbLogDesc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbLocation = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbLeadFunc = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,6 +101,31 @@
             // cbHour
             // 
             this.cbHour.FormattingEnabled = true;
+            this.cbHour.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
             this.cbHour.Location = new System.Drawing.Point(150, 526);
             this.cbHour.Name = "cbHour";
             this.cbHour.Size = new System.Drawing.Size(50, 21);
@@ -109,6 +134,67 @@
             // cbMins
             // 
             this.cbMins.FormattingEnabled = true;
+            this.cbMins.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
             this.cbMins.Location = new System.Drawing.Point(220, 526);
             this.cbMins.Name = "cbMins";
             this.cbMins.Size = new System.Drawing.Size(51, 21);
@@ -203,6 +289,49 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New";
             // 
+            // cbLeadFunc
+            // 
+            this.cbLeadFunc.FormattingEnabled = true;
+            this.cbLeadFunc.Location = new System.Drawing.Point(17, 407);
+            this.cbLeadFunc.Name = "cbLeadFunc";
+            this.cbLeadFunc.Size = new System.Drawing.Size(185, 21);
+            this.cbLeadFunc.TabIndex = 32;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 389);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Lead Function";
+            // 
+            // cbLocation
+            // 
+            this.cbLocation.FormattingEnabled = true;
+            this.cbLocation.Location = new System.Drawing.Point(230, 407);
+            this.cbLocation.Name = "cbLocation";
+            this.cbLocation.Size = new System.Drawing.Size(186, 21);
+            this.cbLocation.TabIndex = 30;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(227, 391);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "Location";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(206, 530);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.TabIndex = 28;
+            this.label2.Text = ":";
+            // 
             // tbLogDesc
             // 
             this.tbLogDesc.BackColor = System.Drawing.SystemColors.Info;
@@ -220,49 +349,6 @@
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 26;
             this.label1.Text = "Description";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(206, 530);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
-            this.label2.TabIndex = 28;
-            this.label2.Text = ":";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(227, 391);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 13);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "Location";
-            // 
-            // cbLocation
-            // 
-            this.cbLocation.FormattingEnabled = true;
-            this.cbLocation.Location = new System.Drawing.Point(230, 407);
-            this.cbLocation.Name = "cbLocation";
-            this.cbLocation.Size = new System.Drawing.Size(186, 21);
-            this.cbLocation.TabIndex = 30;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 389);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 13);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "Lead Function";
-            // 
-            // cbLeadFunc
-            // 
-            this.cbLeadFunc.FormattingEnabled = true;
-            this.cbLeadFunc.Location = new System.Drawing.Point(17, 407);
-            this.cbLeadFunc.Name = "cbLeadFunc";
-            this.cbLeadFunc.Size = new System.Drawing.Size(185, 21);
-            this.cbLeadFunc.TabIndex = 32;
             // 
             // AddLog
             // 
