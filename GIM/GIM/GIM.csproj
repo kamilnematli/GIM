@@ -85,12 +85,6 @@
     <Compile Include="EditIssue.Designer.cs">
       <DependentUpon>EditIssue.cs</DependentUpon>
     </Compile>
-    <Compile Include="IssueUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IssueUpdate.Designer.cs">
-      <DependentUpon>IssueUpdate.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,9 +112,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditIssue.resx">
       <DependentUpon>EditIssue.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IssueUpdate.resx">
-      <DependentUpon>IssueUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

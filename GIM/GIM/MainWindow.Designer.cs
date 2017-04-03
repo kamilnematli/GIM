@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
             this.btAddIssue = new System.Windows.Forms.Button();
@@ -89,6 +90,7 @@
             this.gvIssues.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gvIssues.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gvIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvIssues.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -102,6 +104,7 @@
             this.Dashboard});
             this.gvIssues.Location = new System.Drawing.Point(12, 129);
             this.gvIssues.Name = "gvIssues";
+            this.gvIssues.RowHeadersVisible = false;
             this.gvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvIssues.Size = new System.Drawing.Size(1326, 520);
             this.gvIssues.TabIndex = 0;
@@ -460,9 +463,9 @@
             // Updated
             // 
             this.Updated.DataPropertyName = "DateUpdated";
-            dataGridViewCellStyle2.Format = "d MMMM H:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Updated.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "d MMMM H:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle1;
             this.Updated.HeaderText = "Updated";
             this.Updated.Name = "Updated";
             this.Updated.Width = 90;
@@ -491,6 +494,8 @@
             // Title
             // 
             this.Title.DataPropertyName = "Title";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle2;
             this.Title.HeaderText = "Title";
             this.Title.Name = "Title";
             this.Title.Width = 550;

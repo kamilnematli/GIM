@@ -50,13 +50,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbMins = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbLocationDesc = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cbLocation = new System.Windows.Forms.ComboBox();
-            this.btBrowse = new System.Windows.Forms.Button();
             this.tbAttachment = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.tbLocationDesc = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -335,7 +334,6 @@
             this.groupBox1.Controls.Add(this.tbLocationDesc);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.cbLocation);
-            this.groupBox1.Controls.Add(this.btBrowse);
             this.groupBox1.Controls.Add(this.tbAttachment);
             this.groupBox1.Controls.Add(this.cbSeverity);
             this.groupBox1.Controls.Add(this.label3);
@@ -364,6 +362,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(16, 214);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 13);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Location description";
+            // 
+            // tbLocationDesc
+            // 
+            this.tbLocationDesc.Location = new System.Drawing.Point(19, 230);
+            this.tbLocationDesc.Name = "tbLocationDesc";
+            this.tbLocationDesc.Size = new System.Drawing.Size(409, 20);
+            this.tbLocationDesc.TabIndex = 32;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -381,21 +395,11 @@
             this.cbLocation.Size = new System.Drawing.Size(197, 21);
             this.cbLocation.TabIndex = 30;
             // 
-            // btBrowse
-            // 
-            this.btBrowse.Location = new System.Drawing.Point(372, 580);
-            this.btBrowse.Name = "btBrowse";
-            this.btBrowse.Size = new System.Drawing.Size(56, 23);
-            this.btBrowse.TabIndex = 29;
-            this.btBrowse.Text = "Browse";
-            this.btBrowse.UseVisualStyleBackColor = true;
-            this.btBrowse.Click += new System.EventHandler(this.btBrowse_Click);
-            // 
             // tbAttachment
             // 
             this.tbAttachment.Location = new System.Drawing.Point(19, 582);
             this.tbAttachment.Name = "tbAttachment";
-            this.tbAttachment.Size = new System.Drawing.Size(347, 20);
+            this.tbAttachment.Size = new System.Drawing.Size(409, 20);
             this.tbAttachment.TabIndex = 28;
             // 
             // label11
@@ -406,22 +410,6 @@
             this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 27;
             this.label11.Text = "Attachment";
-            // 
-            // tbLocationDesc
-            // 
-            this.tbLocationDesc.Location = new System.Drawing.Point(19, 230);
-            this.tbLocationDesc.Name = "tbLocationDesc";
-            this.tbLocationDesc.Size = new System.Drawing.Size(409, 20);
-            this.tbLocationDesc.TabIndex = 32;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 214);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 13);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "Location description";
             // 
             // AddIssue
             // 
@@ -471,7 +459,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbMins;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btBrowse;
         private System.Windows.Forms.TextBox tbAttachment;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;

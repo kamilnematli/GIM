@@ -103,7 +103,7 @@ namespace GIM
             }
             tbImpactedVenues.Text = impactedVenues;
 
-            DataSet dsUpdates = dba.GetTable("GIMupdateLog", 0);
+            DataSet dsUpdates = dba.GetUpdates(IssueID);
             DataView dvUpdates = dsUpdates.Tables[0].DefaultView;
             gvUpdates.DataSource = dvUpdates;
         }
@@ -159,11 +159,31 @@ namespace GIM
             }
         }
 
-        private void btAddUpdate_Click(object sender, EventArgs e)
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IssueUpdate iu = new GIM.IssueUpdate(IssueID, FuncID);
-            iu.ShowDialog();
-            LoadEditIssue();
+            if (cbStatus.Text == "Closed")
+            {
+                dtActualEnd.Enabled = true;
+                cbHour3.Enabled = true;
+                cbMin3.Enabled = true;
+            }
+            else
+            {
+                dtActualEnd.Enabled = false;
+                cbHour3.Enabled = false;
+                cbMin3.Enabled = false;
+            }
+        }
+
+        private void btSubmitUpdate_Click(object sender, EventArgs e)
+        {
+            DBlayer dba = new GIM.DBlayer();
+            dba.InsertUpdate(IssueID, FuncID, Environment.UserName, tbUpdate.Text, "", tbAttachment.Text);
+            this.Close();
+
+            DataSet dsUpdates = dba.GetUpdates(IssueID);
+            DataView dvUpdates = dsUpdates.Tables[0].DefaultView;
+            gvUpdates.DataSource = dvUpdates;
         }
     }
 }

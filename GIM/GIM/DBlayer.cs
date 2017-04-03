@@ -213,6 +213,26 @@ namespace GIM
             return ds;
         }
 
+        public DataSet GetUpdates(int IssueID)
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = " SELECT dbo.GIMupdateLog.ID, (case when GIMfunc.FuncCode is null then GIMvenue.VenueCode else GIMfunc.FuncCode end) + ' (' + dbo.GIMupdateLog.Creator + ')' as UpdatedBy, " +
+                   " UpdateContext, UpdateType, DateUpdate, FileUploaded " +
+                   " FROM dbo.GIMupdateLog inner join dbo.GIMissue on dbo.GIMupdateLog.Issue = dbo.GIMissue.ID inner join  " +
+                   " ([dbo].[GIMusers] left outer join dbo.GIMfunc on dbo.GIMusers.Func = dbo.GIMfunc.ID left outer join dbo.GIMvenue on dbo.GIMusers.Venue = dbo.GIMvenue.ID) " +
+                   " on dbo.GIMupdateLog.UpdatedBy = dbo.GIMusers.ID " +
+                   " WHERE dbo.GIMupdateLog.Issue = " + IssueID;
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
         #endregion
 
         #region Insert data
@@ -285,21 +305,23 @@ namespace GIM
             conn.Close();
         }
 
-        public void InsertUpdate(int UpdatedBy, string Creator, string UpdateText, string UpdateType, string FileUploaded)
+        public void InsertUpdate(int IssueID, int UpdatedBy, string Creator, string UpdateText, string UpdateType, string FileUploaded)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
 
             string _sql = "INSERT INTO [dbo].[GIMupdateLog] " +
-                          " ([UpdatedBy]" +
+                          " ([Issue]" +
+                          " ,[UpdatedBy]" +
                           " ,[Creator]" +
                           " ,[UpdateContext]" +
                           " ,[UpdateType]" +
                           " ,[DateUpdate]" +
                           " ,[FileUploaded])" +
                           " VALUES" +
-                          " (" + UpdatedBy +
+                          " (" + IssueID +
+                          "," + UpdatedBy +
                           ",'" + Creator +
                           "','" + UpdateText +
                           "','" + UpdateType +
