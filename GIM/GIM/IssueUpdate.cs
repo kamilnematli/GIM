@@ -12,18 +12,18 @@ namespace GIM
 {
     public partial class IssueUpdate : Form
     {
-        private int IssueID;
         private int UserID;
+        private int UpdateID;
         private string UpdatedBy;
         private string UpdateDate;
         private string UpdateText;
         private string Attchment;
 
-        public IssueUpdate(int _userid, int _issueid, string _updatedby, string _updatedate, string _updatetext, string _attch)
+        public IssueUpdate(int _userid, int _updateid, string _updatedby, string _updatedate, string _updatetext, string _attch)
         {
             InitializeComponent();
             UserID = _userid;
-            IssueID = _issueid;
+            UpdateID = _updateid;
             UpdatedBy = _updatedby;
             UpdateDate = _updatedate;
             UpdateText = _updatetext;
@@ -32,8 +32,8 @@ namespace GIM
 
         private void IssueUpdate_Load(object sender, EventArgs e)
         {
-            lbUpdateDate.Text += UpdateDate;
-            lbUpdatedBy.Text += UpdatedBy;
+            lbUpdateDate.Text += " " + UpdateDate;
+            lbUpdatedBy.Text += " " + UpdatedBy;
             tbUpdate.Text = UpdateText;
             tbAttachment.Text = Attchment;
         }
@@ -64,12 +64,16 @@ namespace GIM
 
         private void btSave_Click(object sender, EventArgs e)
         {
-
+            DBlayer dba = new GIM.DBlayer();
+            dba.UpdateComment(UpdateID, tbUpdate.Text, tbAttachment.Text);
+            this.Close();
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-
+            DBlayer dba = new GIM.DBlayer();
+            dba.DeleteComment(UpdateID);
+            this.Close();
         }
     }
 }

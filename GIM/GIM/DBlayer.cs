@@ -425,9 +425,39 @@ namespace GIM
             conn.Close();
         }
 
+        public void UpdateComment(int UpdateID, string UpdateContext, string FileUploaded)
+        {
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+
+            string _sql = " UPDATE [dbo].[GIMupdateLog] SET " +
+                          " [UpdateContext] = '" + UpdateContext + "'" +
+                          ",[DateUpdate] = '" + DateTime.Now + "'" + 
+                          ",[FileUploaded] = '" + FileUploaded + "' where ID = " + UpdateID;
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
         #endregion
 
         #region Delete data
+
+        public void DeleteComment(int UpdateID)
+        {
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+
+            string _sql = " DELETE FROM [dbo].[GIMupdateLog] WHERE ID = " + UpdateID;
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        
 
         #endregion
     }

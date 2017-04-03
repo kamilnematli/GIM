@@ -139,8 +139,16 @@ namespace GIM
             DBlayer dba = new DBlayer();
             string DateActualEnd = "";
             DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
-            DateActualEnd = DateActualEnd + " " + cbHour3.Text + ":" + cbMin3.Text;
 
+            if(cbHour3.Text == "" || cbMin3.Text == "")
+            {
+                DateActualEnd = DateActualEnd + " 00:01";
+            }
+            else
+            {
+                DateActualEnd = DateActualEnd + " " + cbHour3.Text + ":" + cbMin3.Text;
+            }
+            
             int Dashboard = 0;
             int Reportable = 0;
             if (chReportable.Checked) Reportable = 1;
@@ -189,9 +197,14 @@ namespace GIM
 
         private void gvUpdates_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            IssueUpdate frm = new IssueUpdate(FuncID, Convert.ToInt32(gvUpdates.SelectedRows[0].Cells["ID"].Value), gvUpdates.SelectedRows[0].Cells["UpdatedBy"].Value.ToString(), 
-                gvUpdates.SelectedRows[0].Cells["DateUpdate"].Value.ToString(), gvUpdates.SelectedRows[0].Cells["UpdateContext"].Value.ToString(), gvUpdates.SelectedRows[0].Cells["FileUploaded"].Value.ToString());
-            frm.Show();
+            IssueUpdate frm = new IssueUpdate(FuncID, Convert.ToInt32(gvUpdates.SelectedRows[0].Cells[0].Value), gvUpdates.SelectedRows[0].Cells["UpdatedBy"].Value.ToString(), 
+                gvUpdates.SelectedRows[0].Cells[4].Value.ToString(), gvUpdates.SelectedRows[0].Cells[2].Value.ToString(), gvUpdates.SelectedRows[0].Cells["FileUploaded"].Value.ToString());
+            frm.ShowDialog();
+
+            DBlayer dba = new GIM.DBlayer();
+            DataSet dsUpdates = dba.GetUpdates(IssueID);
+            DataView dvUpdates = dsUpdates.Tables[0].DefaultView;
+            gvUpdates.DataSource = dvUpdates;
         }
     }
 }

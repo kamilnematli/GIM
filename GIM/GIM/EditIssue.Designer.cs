@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btDoc = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
@@ -569,9 +569,9 @@
             // UpdateDate
             // 
             this.UpdateDate.DataPropertyName = "DateUpdate";
-            dataGridViewCellStyle5.Format = "d MMMM H:mm";
-            dataGridViewCellStyle5.NullValue = null;
-            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "d MMMM H:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle1;
             this.UpdateDate.HeaderText = "Update date";
             this.UpdateDate.Name = "UpdateDate";
             this.UpdateDate.Width = 90;
@@ -607,11 +607,11 @@
             // UpdateText
             // 
             this.UpdateText.DataPropertyName = "UpdateContext";
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle2;
             this.UpdateText.HeaderText = "Update description";
             this.UpdateText.Name = "UpdateText";
-            this.UpdateText.Width = 500;
+            this.UpdateText.Width = 550;
             // 
             // EditIssue
             // 

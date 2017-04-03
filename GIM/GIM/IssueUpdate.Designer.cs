@@ -44,7 +44,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(12, 291);
+            this.btSave.Location = new System.Drawing.Point(12, 274);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 62;
@@ -54,7 +54,7 @@
             // 
             // btDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(126, 291);
+            this.btDelete.Location = new System.Drawing.Point(126, 274);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(109, 23);
             this.btDelete.TabIndex = 63;
@@ -64,7 +64,7 @@
             // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(241, 291);
+            this.btCancel.Location = new System.Drawing.Point(241, 274);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 65;
@@ -75,7 +75,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 41);
+            this.label17.Location = new System.Drawing.Point(14, 16);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(62, 13);
             this.label17.TabIndex = 54;
@@ -84,7 +84,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(14, 220);
+            this.label18.Location = new System.Drawing.Point(14, 195);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(61, 13);
             this.label18.TabIndex = 61;
@@ -92,7 +92,7 @@
             // 
             // btAttachment
             // 
-            this.btAttachment.Location = new System.Drawing.Point(486, 234);
+            this.btAttachment.Location = new System.Drawing.Point(486, 209);
             this.btAttachment.Name = "btAttachment";
             this.btAttachment.Size = new System.Drawing.Size(109, 23);
             this.btAttachment.TabIndex = 57;
@@ -102,7 +102,7 @@
             // 
             // tbAttachment
             // 
-            this.tbAttachment.Location = new System.Drawing.Point(17, 236);
+            this.tbAttachment.Location = new System.Drawing.Point(17, 211);
             this.tbAttachment.Name = "tbAttachment";
             this.tbAttachment.Size = new System.Drawing.Size(463, 20);
             this.tbAttachment.TabIndex = 60;
@@ -110,7 +110,7 @@
             // lbUpdateDate
             // 
             this.lbUpdateDate.AutoSize = true;
-            this.lbUpdateDate.Location = new System.Drawing.Point(405, 18);
+            this.lbUpdateDate.Location = new System.Drawing.Point(426, 9);
             this.lbUpdateDate.Name = "lbUpdateDate";
             this.lbUpdateDate.Size = new System.Drawing.Size(75, 13);
             this.lbUpdateDate.TabIndex = 59;
@@ -118,7 +118,7 @@
             // 
             // tbUpdate
             // 
-            this.tbUpdate.Location = new System.Drawing.Point(17, 57);
+            this.tbUpdate.Location = new System.Drawing.Point(17, 32);
             this.tbUpdate.Multiline = true;
             this.tbUpdate.Name = "tbUpdate";
             this.tbUpdate.Size = new System.Drawing.Size(578, 153);
@@ -127,7 +127,7 @@
             // lbUpdatedBy
             // 
             this.lbUpdatedBy.AutoSize = true;
-            this.lbUpdatedBy.Location = new System.Drawing.Point(14, 18);
+            this.lbUpdatedBy.Location = new System.Drawing.Point(9, 9);
             this.lbUpdatedBy.Name = "lbUpdatedBy";
             this.lbUpdatedBy.Size = new System.Drawing.Size(65, 13);
             this.lbUpdatedBy.TabIndex = 58;
@@ -136,15 +136,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbUpdate);
-            this.groupBox1.Controls.Add(this.lbUpdatedBy);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btAttachment);
-            this.groupBox1.Controls.Add(this.lbUpdateDate);
             this.groupBox1.Controls.Add(this.tbAttachment);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(614, 273);
+            this.groupBox1.Size = new System.Drawing.Size(614, 243);
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             // 
@@ -152,19 +150,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 323);
+            this.ClientSize = new System.Drawing.Size(640, 305);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lbUpdatedBy);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btDelete);
+            this.Controls.Add(this.lbUpdateDate);
             this.Controls.Add(this.btSave);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "IssueUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Details";
             this.Load += new System.EventHandler(this.IssueUpdate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
