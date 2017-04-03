@@ -179,11 +179,19 @@ namespace GIM
         {
             DBlayer dba = new GIM.DBlayer();
             dba.InsertUpdate(IssueID, FuncID, Environment.UserName, tbUpdate.Text, "", tbAttachment.Text);
-            this.Close();
+            tbUpdate.Text = "";
+            tbAttachment.Text = "";
 
             DataSet dsUpdates = dba.GetUpdates(IssueID);
             DataView dvUpdates = dsUpdates.Tables[0].DefaultView;
             gvUpdates.DataSource = dvUpdates;
+        }
+
+        private void gvUpdates_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            IssueUpdate frm = new IssueUpdate(FuncID, Convert.ToInt32(gvUpdates.SelectedRows[0].Cells["ID"].Value), gvUpdates.SelectedRows[0].Cells["UpdatedBy"].Value.ToString(), 
+                gvUpdates.SelectedRows[0].Cells["DateUpdate"].Value.ToString(), gvUpdates.SelectedRows[0].Cells["UpdateContext"].Value.ToString(), gvUpdates.SelectedRows[0].Cells["FileUploaded"].Value.ToString());
+            frm.Show();
         }
     }
 }
