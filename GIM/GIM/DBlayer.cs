@@ -258,26 +258,43 @@ namespace GIM
                           " ,[DateUpdated]" +
                           " ,[Reportable]" +
                           " ,[Dashboard]" +
-                          " ,[Creator]" + 
+                          " ,[Creator]" +
                           " ,[Attachment]" +
                           " ,[LocationDesc])" +
                           "  VALUES " +
                           " (" + Type +
-                          ",'" + Title +
-                          "'," + IssueStatus +
-                          " ," + IssueSeverity +
-                          " ," + RaisedBy +
-                          ",'" + Desc +
-                          "'," + LeadFunction +
-                          "," + Location +
-                          ",CONVERT(datetime,'" + DateOccurence +
-                          "'), null" +
-                          ",'" + DateTime.Now +
-                          "'," + Reportable +
-                          " ," + Dashboard +
-                          " ,'" + Creator + 
-                          "','" + Attch + 
-                          "','" + LocDesc + "')";
+                          ",'" + Title + "'";
+
+            if ( IssueStatus == -1)
+            {
+                _sql += ", null";
+            }
+            else
+            {
+                _sql += "," + IssueStatus;
+            }
+
+            if (IssueSeverity == -1)
+            {
+                _sql += ", null";
+            }
+            else
+            {
+                _sql += "," + IssueSeverity;
+            }
+
+            _sql += " ," + RaisedBy +
+                    ",'" + Desc +
+                    "'," + LeadFunction +
+                    "," + Location +
+                    ",CONVERT(datetime,'" + DateOccurence +
+                    "'), null" +
+                    ",'" + DateTime.Now +
+                    "'," + Reportable +
+                    " ," + Dashboard +
+                    " ,'" + Creator + 
+                    "','" + Attch + 
+                    "','" + LocDesc + "')";
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();
