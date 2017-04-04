@@ -56,6 +56,13 @@
             this.cbLocation = new System.Windows.Forms.ComboBox();
             this.tbAttachment = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.cbMin3 = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbHour3 = new System.Windows.Forms.ComboBox();
+            this.dtActualEnd = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.chReportable = new System.Windows.Forms.CheckBox();
+            this.chDashboard = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,7 +129,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 523);
+            this.label6.Location = new System.Drawing.Point(16, 483);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 13);
             this.label6.TabIndex = 7;
@@ -131,7 +138,7 @@
             // dtOccurence
             // 
             this.dtOccurence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtOccurence.Location = new System.Drawing.Point(19, 539);
+            this.dtOccurence.Location = new System.Drawing.Point(19, 499);
             this.dtOccurence.Name = "dtOccurence";
             this.dtOccurence.Size = new System.Drawing.Size(136, 20);
             this.dtOccurence.TabIndex = 8;
@@ -184,7 +191,7 @@
             this.clbImpactedFuncs.Location = new System.Drawing.Point(19, 319);
             this.clbImpactedFuncs.MultiColumn = true;
             this.clbImpactedFuncs.Name = "clbImpactedFuncs";
-            this.clbImpactedFuncs.Size = new System.Drawing.Size(197, 199);
+            this.clbImpactedFuncs.Size = new System.Drawing.Size(197, 154);
             this.clbImpactedFuncs.TabIndex = 6;
             // 
             // clbImpactedVenues
@@ -193,13 +200,13 @@
             this.clbImpactedVenues.Location = new System.Drawing.Point(231, 319);
             this.clbImpactedVenues.MultiColumn = true;
             this.clbImpactedVenues.Name = "clbImpactedVenues";
-            this.clbImpactedVenues.Size = new System.Drawing.Size(197, 199);
+            this.clbImpactedVenues.Size = new System.Drawing.Size(197, 154);
             this.clbImpactedVenues.TabIndex = 7;
             // 
             // btCancel
             // 
             this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(352, 626);
+            this.btCancel.Location = new System.Drawing.Point(352, 632);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 12;
@@ -209,7 +216,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(235, 626);
+            this.btSave.Location = new System.Drawing.Point(235, 632);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 11;
@@ -245,7 +252,7 @@
             "21",
             "22",
             "23"});
-            this.cbHour.Location = new System.Drawing.Point(170, 539);
+            this.cbHour.Location = new System.Drawing.Point(170, 499);
             this.cbHour.Name = "cbHour";
             this.cbHour.Size = new System.Drawing.Size(46, 21);
             this.cbHour.TabIndex = 9;
@@ -253,7 +260,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(219, 542);
+            this.label10.Location = new System.Drawing.Point(219, 502);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(10, 13);
             this.label10.TabIndex = 26;
@@ -323,13 +330,20 @@
             "57",
             "58",
             "59"});
-            this.cbMins.Location = new System.Drawing.Point(231, 539);
+            this.cbMins.Location = new System.Drawing.Point(231, 499);
             this.cbMins.Name = "cbMins";
             this.cbMins.Size = new System.Drawing.Size(46, 21);
             this.cbMins.TabIndex = 10;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chReportable);
+            this.groupBox1.Controls.Add(this.chDashboard);
+            this.groupBox1.Controls.Add(this.cbMin3);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.cbHour3);
+            this.groupBox1.Controls.Add(this.dtActualEnd);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.tbLocationDesc);
             this.groupBox1.Controls.Add(this.label12);
@@ -357,7 +371,7 @@
             this.groupBox1.Controls.Add(this.cbLeadFunc);
             this.groupBox1.Location = new System.Drawing.Point(14, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 608);
+            this.groupBox1.Size = new System.Drawing.Size(447, 614);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New";
@@ -410,6 +424,72 @@
             this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 27;
             this.label11.Text = "Attachment";
+            // 
+            // cbMin3
+            // 
+            this.cbMin3.Enabled = false;
+            this.cbMin3.FormattingEnabled = true;
+            this.cbMin3.Location = new System.Drawing.Point(231, 539);
+            this.cbMin3.Name = "cbMin3";
+            this.cbMin3.Size = new System.Drawing.Size(46, 21);
+            this.cbMin3.TabIndex = 48;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Enabled = false;
+            this.label15.Location = new System.Drawing.Point(219, 542);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(10, 13);
+            this.label15.TabIndex = 49;
+            this.label15.Text = ":";
+            // 
+            // cbHour3
+            // 
+            this.cbHour3.Enabled = false;
+            this.cbHour3.FormattingEnabled = true;
+            this.cbHour3.Location = new System.Drawing.Point(170, 539);
+            this.cbHour3.Name = "cbHour3";
+            this.cbHour3.Size = new System.Drawing.Size(46, 21);
+            this.cbHour3.TabIndex = 47;
+            // 
+            // dtActualEnd
+            // 
+            this.dtActualEnd.Enabled = false;
+            this.dtActualEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtActualEnd.Location = new System.Drawing.Point(19, 540);
+            this.dtActualEnd.Name = "dtActualEnd";
+            this.dtActualEnd.Size = new System.Drawing.Size(136, 20);
+            this.dtActualEnd.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 523);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 13);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "Actual end date/time";
+            // 
+            // chReportable
+            // 
+            this.chReportable.AutoSize = true;
+            this.chReportable.Location = new System.Drawing.Point(338, 541);
+            this.chReportable.Name = "chReportable";
+            this.chReportable.Size = new System.Drawing.Size(78, 17);
+            this.chReportable.TabIndex = 51;
+            this.chReportable.Text = "Reportable";
+            this.chReportable.UseVisualStyleBackColor = true;
+            // 
+            // chDashboard
+            // 
+            this.chDashboard.AutoSize = true;
+            this.chDashboard.Location = new System.Drawing.Point(338, 504);
+            this.chDashboard.Name = "chDashboard";
+            this.chDashboard.Size = new System.Drawing.Size(78, 17);
+            this.chDashboard.TabIndex = 50;
+            this.chDashboard.Text = "Dashboard";
+            this.chDashboard.UseVisualStyleBackColor = true;
             // 
             // AddIssue
             // 
@@ -465,5 +545,12 @@
         private System.Windows.Forms.ComboBox cbLocation;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbLocationDesc;
+        private System.Windows.Forms.ComboBox cbMin3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbHour3;
+        private System.Windows.Forms.DateTimePicker dtActualEnd;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox chReportable;
+        private System.Windows.Forms.CheckBox chDashboard;
     }
 }

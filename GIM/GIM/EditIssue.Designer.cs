@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btDoc = new System.Windows.Forms.Button();
-            this.btCancel = new System.Windows.Forms.Button();
-            this.btSave = new System.Windows.Forms.Button();
             this.tbEdit = new System.Windows.Forms.Button();
             this.cbLeadFunc = new System.Windows.Forms.ComboBox();
             this.dtOccurence = new System.Windows.Forms.DateTimePicker();
@@ -98,27 +96,6 @@
             this.btDoc.UseVisualStyleBackColor = true;
             this.btDoc.Click += new System.EventHandler(this.btDoc_Click);
             // 
-            // btCancel
-            // 
-            this.btCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCancel.Location = new System.Drawing.Point(154, 605);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(135, 23);
-            this.btCancel.TabIndex = 31;
-            this.btCancel.Text = "Cancel";
-            this.btCancel.UseVisualStyleBackColor = true;
-            // 
-            // btSave
-            // 
-            this.btSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSave.Location = new System.Drawing.Point(12, 605);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(136, 23);
-            this.btSave.TabIndex = 30;
-            this.btSave.Text = " Save";
-            this.btSave.UseVisualStyleBackColor = true;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
             // tbEdit
             // 
             this.tbEdit.Location = new System.Drawing.Point(153, 12);
@@ -140,7 +117,7 @@
             // dtOccurence
             // 
             this.dtOccurence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtOccurence.Location = new System.Drawing.Point(19, 482);
+            this.dtOccurence.Location = new System.Drawing.Point(19, 487);
             this.dtOccurence.Name = "dtOccurence";
             this.dtOccurence.Size = new System.Drawing.Size(136, 20);
             this.dtOccurence.TabIndex = 8;
@@ -148,7 +125,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 334);
+            this.label8.Location = new System.Drawing.Point(16, 336);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 13);
             this.label8.TabIndex = 14;
@@ -157,7 +134,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 466);
+            this.label6.Location = new System.Drawing.Point(16, 471);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 13);
             this.label6.TabIndex = 7;
@@ -166,7 +143,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 399);
+            this.label9.Location = new System.Drawing.Point(16, 403);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 13);
             this.label9.TabIndex = 15;
@@ -183,7 +160,7 @@
             // 
             // tbDesc
             // 
-            this.tbDesc.Location = new System.Drawing.Point(19, 133);
+            this.tbDesc.Location = new System.Drawing.Point(19, 121);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(409, 79);
@@ -192,7 +169,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 117);
+            this.label2.Location = new System.Drawing.Point(16, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 2;
@@ -203,13 +180,13 @@
             this.tbTitle.Location = new System.Drawing.Point(19, 38);
             this.tbTitle.Multiline = true;
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(409, 76);
+            this.tbTitle.Size = new System.Drawing.Size(409, 63);
             this.tbTitle.TabIndex = 1;
             // 
             // cbHour
             // 
             this.cbHour.FormattingEnabled = true;
-            this.cbHour.Location = new System.Drawing.Point(170, 482);
+            this.cbHour.Location = new System.Drawing.Point(170, 487);
             this.cbHour.Name = "cbHour";
             this.cbHour.Size = new System.Drawing.Size(46, 21);
             this.cbHour.TabIndex = 9;
@@ -226,7 +203,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(219, 485);
+            this.label10.Location = new System.Drawing.Point(219, 490);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(10, 13);
             this.label10.TabIndex = 26;
@@ -235,7 +212,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(817, 21);
+            this.label4.Location = new System.Drawing.Point(228, 294);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 5;
@@ -244,16 +221,16 @@
             // cbStatus
             // 
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(820, 37);
+            this.cbStatus.Location = new System.Drawing.Point(231, 310);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(138, 21);
+            this.cbStatus.Size = new System.Drawing.Size(197, 21);
             this.cbStatus.TabIndex = 5;
             this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // cbMins
             // 
             this.cbMins.FormattingEnabled = true;
-            this.cbMins.Location = new System.Drawing.Point(231, 482);
+            this.cbMins.Location = new System.Drawing.Point(231, 487);
             this.cbMins.Name = "cbMins";
             this.cbMins.Size = new System.Drawing.Size(46, 21);
             this.cbMins.TabIndex = 10;
@@ -261,7 +238,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 509);
+            this.label11.Location = new System.Drawing.Point(16, 518);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 13);
             this.label11.TabIndex = 27;
@@ -270,7 +247,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(228, 215);
+            this.label3.Location = new System.Drawing.Point(228, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 4;
@@ -279,7 +256,7 @@
             // cbSeverity
             // 
             this.cbSeverity.FormattingEnabled = true;
-            this.cbSeverity.Location = new System.Drawing.Point(231, 231);
+            this.cbSeverity.Location = new System.Drawing.Point(231, 223);
             this.cbSeverity.Name = "cbSeverity";
             this.cbSeverity.Size = new System.Drawing.Size(197, 21);
             this.cbSeverity.TabIndex = 3;
@@ -287,7 +264,7 @@
             // cbLocation
             // 
             this.cbLocation.FormattingEnabled = true;
-            this.cbLocation.Location = new System.Drawing.Point(19, 231);
+            this.cbLocation.Location = new System.Drawing.Point(19, 223);
             this.cbLocation.Name = "cbLocation";
             this.cbLocation.Size = new System.Drawing.Size(197, 21);
             this.cbLocation.TabIndex = 30;
@@ -295,7 +272,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 215);
+            this.label12.Location = new System.Drawing.Point(16, 207);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 13);
             this.label12.TabIndex = 31;
@@ -303,7 +280,7 @@
             // 
             // tbLocationDesc
             // 
-            this.tbLocationDesc.Location = new System.Drawing.Point(19, 271);
+            this.tbLocationDesc.Location = new System.Drawing.Point(19, 267);
             this.tbLocationDesc.Name = "tbLocationDesc";
             this.tbLocationDesc.Size = new System.Drawing.Size(409, 20);
             this.tbLocationDesc.TabIndex = 32;
@@ -311,7 +288,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 255);
+            this.label13.Location = new System.Drawing.Point(16, 251);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(102, 13);
             this.label13.TabIndex = 33;
@@ -319,7 +296,7 @@
             // 
             // tbImpactedFuncs
             // 
-            this.tbImpactedFuncs.Location = new System.Drawing.Point(19, 350);
+            this.tbImpactedFuncs.Location = new System.Drawing.Point(19, 352);
             this.tbImpactedFuncs.Multiline = true;
             this.tbImpactedFuncs.Name = "tbImpactedFuncs";
             this.tbImpactedFuncs.Size = new System.Drawing.Size(409, 46);
@@ -327,7 +304,7 @@
             // 
             // tbImpactedVenues
             // 
-            this.tbImpactedVenues.Location = new System.Drawing.Point(19, 415);
+            this.tbImpactedVenues.Location = new System.Drawing.Point(19, 419);
             this.tbImpactedVenues.Multiline = true;
             this.tbImpactedVenues.Name = "tbImpactedVenues";
             this.tbImpactedVenues.Size = new System.Drawing.Size(409, 46);
@@ -336,7 +313,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(983, 22);
+            this.label7.Location = new System.Drawing.Point(16, 561);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 13);
             this.label7.TabIndex = 11;
@@ -345,7 +322,7 @@
             // dtUpdated
             // 
             this.dtUpdated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtUpdated.Location = new System.Drawing.Point(19, 523);
+            this.dtUpdated.Location = new System.Drawing.Point(19, 532);
             this.dtUpdated.Name = "dtUpdated";
             this.dtUpdated.Size = new System.Drawing.Size(136, 20);
             this.dtUpdated.TabIndex = 36;
@@ -354,7 +331,7 @@
             // 
             this.dtActualEnd.Enabled = false;
             this.dtActualEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtActualEnd.Location = new System.Drawing.Point(986, 38);
+            this.dtActualEnd.Location = new System.Drawing.Point(19, 577);
             this.dtActualEnd.Name = "dtActualEnd";
             this.dtActualEnd.Size = new System.Drawing.Size(136, 20);
             this.dtActualEnd.TabIndex = 41;
@@ -362,7 +339,7 @@
             // chDashboard
             // 
             this.chDashboard.AutoSize = true;
-            this.chDashboard.Location = new System.Drawing.Point(460, 38);
+            this.chDashboard.Location = new System.Drawing.Point(350, 491);
             this.chDashboard.Name = "chDashboard";
             this.chDashboard.Size = new System.Drawing.Size(78, 17);
             this.chDashboard.TabIndex = 20;
@@ -372,7 +349,7 @@
             // chReportable
             // 
             this.chReportable.AutoSize = true;
-            this.chReportable.Location = new System.Drawing.Point(544, 38);
+            this.chReportable.Location = new System.Drawing.Point(350, 534);
             this.chReportable.Name = "chReportable";
             this.chReportable.Size = new System.Drawing.Size(78, 17);
             this.chReportable.TabIndex = 21;
@@ -383,7 +360,7 @@
             // 
             this.cbHour3.Enabled = false;
             this.cbHour3.FormattingEnabled = true;
-            this.cbHour3.Location = new System.Drawing.Point(1137, 38);
+            this.cbHour3.Location = new System.Drawing.Point(170, 577);
             this.cbHour3.Name = "cbHour3";
             this.cbHour3.Size = new System.Drawing.Size(46, 21);
             this.cbHour3.TabIndex = 42;
@@ -391,7 +368,7 @@
             // cbHour2
             // 
             this.cbHour2.FormattingEnabled = true;
-            this.cbHour2.Location = new System.Drawing.Point(170, 523);
+            this.cbHour2.Location = new System.Drawing.Point(170, 532);
             this.cbHour2.Name = "cbHour2";
             this.cbHour2.Size = new System.Drawing.Size(46, 21);
             this.cbHour2.TabIndex = 37;
@@ -399,7 +376,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(219, 526);
+            this.label14.Location = new System.Drawing.Point(219, 535);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(10, 13);
             this.label14.TabIndex = 39;
@@ -409,7 +386,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Enabled = false;
-            this.label15.Location = new System.Drawing.Point(1186, 41);
+            this.label15.Location = new System.Drawing.Point(219, 580);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(10, 13);
             this.label15.TabIndex = 44;
@@ -418,7 +395,7 @@
             // cbMin2
             // 
             this.cbMin2.FormattingEnabled = true;
-            this.cbMin2.Location = new System.Drawing.Point(231, 523);
+            this.cbMin2.Location = new System.Drawing.Point(231, 532);
             this.cbMin2.Name = "cbMin2";
             this.cbMin2.Size = new System.Drawing.Size(46, 21);
             this.cbMin2.TabIndex = 38;
@@ -436,12 +413,12 @@
             this.FileUploaded,
             this.UpdatedBy,
             this.UpdateText});
-            this.gvUpdates.Location = new System.Drawing.Point(460, 81);
+            this.gvUpdates.Location = new System.Drawing.Point(460, 38);
             this.gvUpdates.MultiSelect = false;
             this.gvUpdates.Name = "gvUpdates";
             this.gvUpdates.RowHeadersVisible = false;
             this.gvUpdates.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvUpdates.Size = new System.Drawing.Size(784, 315);
+            this.gvUpdates.Size = new System.Drawing.Size(784, 413);
             this.gvUpdates.TabIndex = 40;
             this.gvUpdates.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvUpdates_CellDoubleClick);
             // 
@@ -449,7 +426,7 @@
             // 
             this.cbMin3.Enabled = false;
             this.cbMin3.FormattingEnabled = true;
-            this.cbMin3.Location = new System.Drawing.Point(1198, 38);
+            this.cbMin3.Location = new System.Drawing.Point(231, 577);
             this.cbMin3.Name = "cbMin3";
             this.cbMin3.Size = new System.Drawing.Size(46, 21);
             this.cbMin3.TabIndex = 43;
@@ -457,7 +434,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(457, 65);
+            this.label16.Location = new System.Drawing.Point(457, 22);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(101, 13);
             this.label16.TabIndex = 45;
@@ -466,7 +443,7 @@
             // lblDoc
             // 
             this.lblDoc.AutoSize = true;
-            this.lblDoc.Location = new System.Drawing.Point(175, 554);
+            this.lblDoc.Location = new System.Drawing.Point(175, 571);
             this.lblDoc.Name = "lblDoc";
             this.lblDoc.Size = new System.Drawing.Size(0, 13);
             this.lblDoc.TabIndex = 47;
@@ -474,7 +451,7 @@
             // 
             // tbUpdate
             // 
-            this.tbUpdate.Location = new System.Drawing.Point(460, 423);
+            this.tbUpdate.Location = new System.Drawing.Point(460, 478);
             this.tbUpdate.Multiline = true;
             this.tbUpdate.Name = "tbUpdate";
             this.tbUpdate.Size = new System.Drawing.Size(784, 80);
@@ -483,7 +460,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(457, 407);
+            this.label17.Location = new System.Drawing.Point(457, 462);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(64, 13);
             this.label17.TabIndex = 49;
@@ -492,7 +469,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(457, 509);
+            this.label18.Location = new System.Drawing.Point(457, 564);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(61, 13);
             this.label18.TabIndex = 50;
@@ -500,7 +477,7 @@
             // 
             // tbAttachment
             // 
-            this.tbAttachment.Location = new System.Drawing.Point(460, 523);
+            this.tbAttachment.Location = new System.Drawing.Point(460, 578);
             this.tbAttachment.Name = "tbAttachment";
             this.tbAttachment.Size = new System.Drawing.Size(662, 20);
             this.tbAttachment.TabIndex = 51;
@@ -552,13 +529,13 @@
             this.groupBox1.Controls.Add(this.cbLeadFunc);
             this.groupBox1.Location = new System.Drawing.Point(12, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1260, 558);
+            this.groupBox1.Size = new System.Drawing.Size(1260, 608);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             // 
             // btSubmitUpdate
             // 
-            this.btSubmitUpdate.Location = new System.Drawing.Point(1135, 521);
+            this.btSubmitUpdate.Location = new System.Drawing.Point(1135, 576);
             this.btSubmitUpdate.Name = "btSubmitUpdate";
             this.btSubmitUpdate.Size = new System.Drawing.Size(109, 23);
             this.btSubmitUpdate.TabIndex = 52;
@@ -569,9 +546,9 @@
             // UpdateDate
             // 
             this.UpdateDate.DataPropertyName = "DateUpdate";
-            dataGridViewCellStyle1.Format = "d MMMM H:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Format = "d MMMM H:mm";
+            dataGridViewCellStyle13.NullValue = null;
+            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle13;
             this.UpdateDate.HeaderText = "Update date";
             this.UpdateDate.Name = "UpdateDate";
             this.UpdateDate.Width = 90;
@@ -607,8 +584,8 @@
             // UpdateText
             // 
             this.UpdateText.DataPropertyName = "UpdateContext";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle14;
             this.UpdateText.HeaderText = "Update description";
             this.UpdateText.Name = "UpdateText";
             this.UpdateText.Width = 550;
@@ -617,12 +594,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 634);
+            this.ClientSize = new System.Drawing.Size(1284, 661);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbEdit);
             this.Controls.Add(this.btDoc);
-            this.Controls.Add(this.btCancel);
-            this.Controls.Add(this.btSave);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditIssue";
@@ -637,8 +612,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btCancel;
-        private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Button tbEdit;
         private System.Windows.Forms.Button btDoc;
         private System.Windows.Forms.ComboBox cbLeadFunc;

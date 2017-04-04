@@ -79,6 +79,17 @@ namespace GIM
             cbHour2.Text = dtUpd.Hour.ToString();
             cbMin2.Text = dtUpd.Minute.ToString();
 
+            if (dsIssue.Tables[0].Rows[0]["DateActualEnd"].ToString() != "")
+            {
+                DateTime dtActEnd = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateActualEnd"].ToString());
+                dtActualEnd.Value = dtActEnd.Date;
+                cbHour3.Text = dtActEnd.Hour.ToString();
+                cbMin3.Text = dtActEnd.Minute.ToString();
+            }
+
+            if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1) chDashboard.Checked = true;
+            if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
+
             DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
             string impactedFuncs = "";
             for (int i = 0; i < impFuncs.Tables[0].Rows.Count; i++)

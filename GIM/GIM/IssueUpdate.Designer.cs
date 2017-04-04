@@ -112,9 +112,9 @@
             this.lbUpdateDate.AutoSize = true;
             this.lbUpdateDate.Location = new System.Drawing.Point(426, 9);
             this.lbUpdateDate.Name = "lbUpdateDate";
-            this.lbUpdateDate.Size = new System.Drawing.Size(75, 13);
+            this.lbUpdateDate.Size = new System.Drawing.Size(69, 13);
             this.lbUpdateDate.TabIndex = 59;
-            this.lbUpdateDate.Text = "Updated date:";
+            this.lbUpdateDate.Text = "Update date:";
             // 
             // tbUpdate
             // 

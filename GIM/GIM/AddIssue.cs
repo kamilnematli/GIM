@@ -173,10 +173,27 @@ namespace GIM
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
                 DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
 
+                string DateActualEnd = "";
+                DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
+
+                if (cbHour3.Text == "" || cbMin3.Text == "")
+                {
+                    DateActualEnd = DateActualEnd + " 00:01";
+                }
+                else
+                {
+                    DateActualEnd = DateActualEnd + " " + cbHour3.Text + ":" + cbMin3.Text;
+                }
+
+                int Dashboard = 0;
+                int Reportable = 0;
+                if (chReportable.Checked) Reportable = 1;
+                if (chDashboard.Checked) Dashboard = 1;
+
                 try
                 {
                     dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text, Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text, Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, tbAttachment.Text, tbLocationDesc.Text);
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, tbAttachment.Text, tbLocationDesc.Text, Dashboard, Reportable, DateActualEnd);
 
                     MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();

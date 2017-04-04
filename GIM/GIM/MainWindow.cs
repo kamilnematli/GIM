@@ -12,12 +12,14 @@ namespace GIM
 {
     public partial class MainWindow : Form
     {
-        private int FuncID;
+        private int UserID;
+        private int UserType;
 
-        public MainWindow(int _id)
+        public MainWindow(int _id, int _usertype)
         {
             InitializeComponent();
-            FuncID = _id;
+            UserID = _id;
+            UserType = _usertype;
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -67,12 +69,12 @@ namespace GIM
 
             try
             {
-                dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
+                dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
                     chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue), Convert.ToInt32(cbLead.SelectedValue));
             }
             catch
             {
-                dsIssues = dba.GetIssues(FuncID, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
+                dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
                     chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, -1, -1, -1);
             }
 
@@ -82,14 +84,14 @@ namespace GIM
 
         private void AddIssue_Click(object sender, EventArgs e)
         {
-            AddIssue frm = new AddIssue(0, FuncID);
+            AddIssue frm = new AddIssue(0, UserID);
             frm.ShowDialog();
             LoadIssueList();
         }
 
         private void AddLog_Click(object sender, EventArgs e)
         {
-            AddLog frm = new GIM.AddLog(0,FuncID);
+            AddLog frm = new GIM.AddLog(0,UserID);
             frm.ShowDialog();
             LoadIssueList();
         }
@@ -177,7 +179,7 @@ namespace GIM
 
         private void gvIssues_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), FuncID);
+            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), UserID);
             frm.Show();
         }
 
@@ -219,7 +221,7 @@ namespace GIM
 
         private void btOpenIssue_Click(object sender, EventArgs e)
         {
-            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), FuncID);
+            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), UserID);
             frm.Show();
         }
 
@@ -240,6 +242,11 @@ namespace GIM
                     e.CellStyle.BackColor = Color.Yellow;
                 }
             }
+        }
+
+        private void btRefresh_Click(object sender, EventArgs e)
+        {
+            LoadIssueList();
         }
     }
 }

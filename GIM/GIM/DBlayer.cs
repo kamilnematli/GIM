@@ -53,7 +53,7 @@ namespace GIM
 
         #region Get data
 
-        public DataSet GetIssues(int FuncID, bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _Closed, bool _Dashboard, bool _Reportable, 
+        public DataSet GetIssues(int UserID, int UserType, bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _Closed, bool _Dashboard, bool _Reportable, 
             bool _MyList, bool _All, int ImpFunc, int ImpVenue, int LeadFunc)
         {
             string _sql = "";
@@ -76,12 +76,18 @@ namespace GIM
             {
                 if (_MyList)
                 {
-                    filt += "and dbo.GIMissue.RaisedBy = " + FuncID + " ";
+                    filt += "and dbo.GIMissue.RaisedBy = " + UserID + " ";
                 }
                 else
                 {
-                    filt += "and (dbo.GIMissue.LeadFunction = " + FuncID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + FuncID + ")" +
-                            " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + FuncID + ")) ";
+                    if(UserType == 1)
+                    {
+                        filt += "and (dbo.GIMissue.LeadFunction = " + UserID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + UserID + ")) ";
+                    }
+                    else if(UserType == 2)
+                    {
+                        filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + UserID + ")";
+                    }
                 }
             }
             else
@@ -128,6 +134,8 @@ namespace GIM
 
             if (filt != "") _sql += " where " + filt;
 
+            _sql += " order by DateUpdated desc";
+
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
@@ -156,13 +164,18 @@ namespace GIM
             return ds;
         }
 
-        public DataSet GetUsers()
+        public DataSet GetUsers(int _userid)
         {
             string _sql = "";
             DataSet ds = new DataSet();
 
-            _sql = " SELECT [dbo].[GIMusers].[ID], case when GIMfunc.FuncCode is null then GIMvenue.VenueCode else GIMfunc.FuncCode end as UserName, [UserRole], [UserPass] " +
+            _sql = " SELECT [dbo].[GIMusers].[ID], case when GIMfunc.FuncCode is null then GIMvenue.VenueCode else GIMfunc.FuncCode end as UserName, [UserRole], [UserPass], case when GIMfunc.FuncCode is null then 2 else 1 end as UserType " +
                    " FROM [dbo].[GIMusers] left outer join dbo.GIMfunc on dbo.GIMusers.Func = dbo.GIMfunc.ID left outer join dbo.GIMvenue on dbo.GIMusers.Venue = dbo.GIMvenue.ID";
+
+            if(_userid > 0)
+            {
+                _sql += " where [dbo].[GIMusers].[ID] = " + _userid;
+            }
 
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -224,6 +237,8 @@ namespace GIM
                    " ([dbo].[GIMusers] left outer join dbo.GIMfunc on dbo.GIMusers.Func = dbo.GIMfunc.ID left outer join dbo.GIMvenue on dbo.GIMusers.Venue = dbo.GIMvenue.ID) " +
                    " on dbo.GIMupdateLog.UpdatedBy = dbo.GIMusers.ID " +
                    " WHERE dbo.GIMupdateLog.Issue = " + IssueID;
+
+            _sql += " order by DateUpdate desc";
 
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -355,7 +370,7 @@ namespace GIM
         #region Update data
 
         public void UpdateIssueDetails(int IssueID, int Type, string Title, int IssueStatus, int IssueSeverity, int RaisedBy, string Desc, int LeadFunction, string ImpactedFuncs, int Location,
-            string ImpactedVenues, string DateOccurence, string Attch, string LocDesc)
+            string ImpactedVenues, string DateOccurence, string Attch, string LocDesc, int Dashboard, int Reportable, string DateActualEnd)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -372,6 +387,9 @@ namespace GIM
                           " ,[DateOccurence] = CONVERT(datetime, '" + DateOccurence + "')" +
                           " ,[DateUpdated] = '" + DateTime.Now + "'" +
                           " ,[Attachment] = '" + Attch + "'" +
+                          " ,[Reportable] = " + Reportable +
+                          " ,[Dashboard] = " + Dashboard +
+                          " ,[DateActualEnd] = CONVERT(datetime, '" + DateActualEnd + "')" +
                           " ,[LocationDesc] = '" + LocDesc + "' where ID = " + IssueID;
 
             cmd.CommandText = _sql;
