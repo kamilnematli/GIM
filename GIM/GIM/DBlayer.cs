@@ -377,8 +377,28 @@ namespace GIM
 
             string _sql = " UPDATE [dbo].[GIMissue] SET " +
                           " [Type] = " + Type +
-                          " ,[Title] = '" + Title + "'" +
-                          " ,[IssueStatus] = " + IssueStatus +
+                          " ,[Title] = '" + Title + "'";
+
+            if (IssueStatus == -1)
+            {
+                _sql += ",[IssueStatus] = null";
+            }
+            else
+            {
+                _sql += ",[IssueStatus]" + IssueStatus;
+            }
+
+            if (IssueSeverity == -1)
+            {
+                _sql += ",[IssueSeverity] = null";
+            }
+            else
+            {
+                _sql += ",[IssueSeverity] = " + IssueSeverity;
+            }
+
+
+                  _sql += " ,[IssueStatus] = " + IssueStatus +
                           " ,[IssueSeverity] = " + IssueSeverity +
                           " ,[Description] = '" + Desc + "'" +
                           " ,[LeadFunction] = " + LeadFunction +
