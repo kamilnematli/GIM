@@ -23,11 +23,11 @@ namespace GIM
             DataSet dsUser = dba.GetUsers(0);
             DataRow rCT = dsUser.Tables[0].NewRow();
             rCT["ID"] = 0;
-            rCT["UserName"] = "Select";
+            rCT["Ucode"] = "Select";
             dsUser.Tables[0].Rows.Add(rCT);
             DataView dvFunc = new DataView(dsUser.Tables[0], "", "ID", DataViewRowState.CurrentRows);
             cbUsers.DataSource = dvFunc;
-            cbUsers.DisplayMember = "UserName";
+            cbUsers.DisplayMember = "Ucode";
             cbUsers.ValueMember = "ID";
         }
 

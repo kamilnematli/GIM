@@ -182,7 +182,7 @@ namespace GIM
         private void btSubmitUpdate_Click(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-            dba.InsertUpdate(IssueID, FuncID, Environment.UserName, tbUpdate.Text, "", tbAttachment.Text);
+            dba.InsertUpdate(IssueID, FuncID, Environment.UserName, tbUpdate.Text.Replace("'", "''"), "", tbAttachment.Text);
             tbUpdate.Text = "";
             tbAttachment.Text = "";
 

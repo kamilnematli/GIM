@@ -169,8 +169,7 @@ namespace GIM
             string _sql = "";
             DataSet ds = new DataSet();
 
-            _sql = " SELECT [dbo].[GIMusers].[ID], case when GIMfunc.FuncCode is null then GIMvenue.VenueCode else GIMfunc.FuncCode end as UserName, [UserRole], [UserPass], case when GIMfunc.FuncCode is null then 2 else 1 end as UserType " +
-                   " FROM [dbo].[GIMusers] left outer join dbo.GIMfunc on dbo.GIMusers.Func = dbo.GIMfunc.ID left outer join dbo.GIMvenue on dbo.GIMusers.Venue = dbo.GIMvenue.ID";
+            _sql = " SELECT * FROM [dbo].[GIMusers]";
 
             if(_userid > 0)
             {

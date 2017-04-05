@@ -148,8 +148,8 @@ namespace GIM
 
                 try
                 {
-                    dba.InsertIssue(1, tbTitle.Text, Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text, Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", "", 0, 0, Environment.UserName, tbAttachment.Text, tbLocationDesc.Text);
+                    dba.InsertIssue(1, tbTitle.Text.Replace("'", "''"), Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", "", 0, 0, Environment.UserName.Replace("'", "''"), tbAttachment.Text, tbLocationDesc.Text.Replace("'", "''"));
 
                     MessageBox.Show("You have successfully created an issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
@@ -179,11 +179,7 @@ namespace GIM
                 string DateActualEnd = "";
                 DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
 
-                if (cbHour3.Text == "" || cbMin3.Text == "")
-                {
-                    DateActualEnd = DateActualEnd + " 00:01";
-                }
-                else
+                if (cbHour3.Text != "" || cbMin3.Text != "")
                 {
                     DateActualEnd = DateActualEnd + " " + cbHour3.Text + ":" + cbMin3.Text;
                 }
@@ -195,8 +191,8 @@ namespace GIM
 
                 try
                 {
-                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text, Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text, Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, tbAttachment.Text, tbLocationDesc.Text, Dashboard, Reportable, DateActualEnd);
+                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text.Replace("'", "''"), Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, tbAttachment.Text, tbLocationDesc.Text.Replace("'", "''"), Dashboard, Reportable, DateActualEnd);
 
                     MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
