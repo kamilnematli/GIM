@@ -553,7 +553,7 @@
             this.Controls.Add(this.gvIssues);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main Window";
+            this.Text = "Games Issue Management System - Main window";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).EndInit();
