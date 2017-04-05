@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btDoc = new System.Windows.Forms.Button();
             this.tbEdit = new System.Windows.Forms.Button();
             this.cbLeadFunc = new System.Windows.Forms.ComboBox();
@@ -67,6 +67,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.cbMin2 = new System.Windows.Forms.ComboBox();
             this.gvUpdates = new System.Windows.Forms.DataGridView();
+            this.UpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdateType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileUploaded = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdateText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbMin3 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.lblDoc = new System.Windows.Forms.Label();
@@ -76,12 +82,6 @@
             this.tbAttachment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btSubmitUpdate = new System.Windows.Forms.Button();
-            this.UpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdateType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileUploaded = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdateText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvUpdates)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -225,7 +225,6 @@
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(197, 21);
             this.cbStatus.TabIndex = 5;
-            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // cbMins
             // 
@@ -329,7 +328,6 @@
             // 
             // dtActualEnd
             // 
-            this.dtActualEnd.Enabled = false;
             this.dtActualEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtActualEnd.Location = new System.Drawing.Point(19, 577);
             this.dtActualEnd.Name = "dtActualEnd";
@@ -358,7 +356,6 @@
             // 
             // cbHour3
             // 
-            this.cbHour3.Enabled = false;
             this.cbHour3.FormattingEnabled = true;
             this.cbHour3.Location = new System.Drawing.Point(170, 577);
             this.cbHour3.Name = "cbHour3";
@@ -385,7 +382,6 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Enabled = false;
             this.label15.Location = new System.Drawing.Point(219, 580);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(10, 13);
@@ -422,9 +418,55 @@
             this.gvUpdates.TabIndex = 40;
             this.gvUpdates.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvUpdates_CellDoubleClick);
             // 
+            // UpdateDate
+            // 
+            this.UpdateDate.DataPropertyName = "DateUpdate";
+            dataGridViewCellStyle1.Format = "d MMMM H:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.UpdateDate.HeaderText = "Update date";
+            this.UpdateDate.Name = "UpdateDate";
+            this.UpdateDate.Width = 90;
+            // 
+            // updateId
+            // 
+            this.updateId.DataPropertyName = "ID";
+            this.updateId.HeaderText = "ID";
+            this.updateId.Name = "updateId";
+            this.updateId.Visible = false;
+            // 
+            // UpdateType
+            // 
+            this.UpdateType.DataPropertyName = "UpdateType";
+            this.UpdateType.HeaderText = "UpdateType";
+            this.UpdateType.Name = "UpdateType";
+            this.UpdateType.Visible = false;
+            // 
+            // FileUploaded
+            // 
+            this.FileUploaded.DataPropertyName = "FileUploaded";
+            this.FileUploaded.HeaderText = "FileUploaded";
+            this.FileUploaded.Name = "FileUploaded";
+            this.FileUploaded.Visible = false;
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.DataPropertyName = "UpdatedBy";
+            this.UpdatedBy.HeaderText = "Updated by";
+            this.UpdatedBy.Name = "UpdatedBy";
+            this.UpdatedBy.Width = 120;
+            // 
+            // UpdateText
+            // 
+            this.UpdateText.DataPropertyName = "UpdateContext";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle2;
+            this.UpdateText.HeaderText = "Update description";
+            this.UpdateText.Name = "UpdateText";
+            this.UpdateText.Width = 550;
+            // 
             // cbMin3
             // 
-            this.cbMin3.Enabled = false;
             this.cbMin3.FormattingEnabled = true;
             this.cbMin3.Location = new System.Drawing.Point(231, 577);
             this.cbMin3.Name = "cbMin3";
@@ -542,53 +584,6 @@
             this.btSubmitUpdate.Text = "Submit";
             this.btSubmitUpdate.UseVisualStyleBackColor = true;
             this.btSubmitUpdate.Click += new System.EventHandler(this.btSubmitUpdate_Click);
-            // 
-            // UpdateDate
-            // 
-            this.UpdateDate.DataPropertyName = "DateUpdate";
-            dataGridViewCellStyle13.Format = "d MMMM H:mm";
-            dataGridViewCellStyle13.NullValue = null;
-            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle13;
-            this.UpdateDate.HeaderText = "Update date";
-            this.UpdateDate.Name = "UpdateDate";
-            this.UpdateDate.Width = 90;
-            // 
-            // updateId
-            // 
-            this.updateId.DataPropertyName = "ID";
-            this.updateId.HeaderText = "ID";
-            this.updateId.Name = "updateId";
-            this.updateId.Visible = false;
-            // 
-            // UpdateType
-            // 
-            this.UpdateType.DataPropertyName = "UpdateType";
-            this.UpdateType.HeaderText = "UpdateType";
-            this.UpdateType.Name = "UpdateType";
-            this.UpdateType.Visible = false;
-            // 
-            // FileUploaded
-            // 
-            this.FileUploaded.DataPropertyName = "FileUploaded";
-            this.FileUploaded.HeaderText = "FileUploaded";
-            this.FileUploaded.Name = "FileUploaded";
-            this.FileUploaded.Visible = false;
-            // 
-            // UpdatedBy
-            // 
-            this.UpdatedBy.DataPropertyName = "UpdatedBy";
-            this.UpdatedBy.HeaderText = "Updated by";
-            this.UpdatedBy.Name = "UpdatedBy";
-            this.UpdatedBy.Width = 120;
-            // 
-            // UpdateText
-            // 
-            this.UpdateText.DataPropertyName = "UpdateContext";
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle14;
-            this.UpdateText.HeaderText = "Update description";
-            this.UpdateText.Name = "UpdateText";
-            this.UpdateText.Width = 550;
             // 
             // EditIssue
             // 

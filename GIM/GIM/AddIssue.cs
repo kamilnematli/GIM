@@ -76,9 +76,12 @@ namespace GIM
                 tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
                 cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
                 cbSeverity.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueSeverity"];
+                cbStatus.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueStatus"];
                 tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
                 cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
                 tbAttachment.Text = dsIssue.Tables[0].Rows[0]["Attachment"].ToString();
+                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1) chDashboard.Checked = true;
+                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
 
                 DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
                 dtOccurence.Value = dtOcc.Date;
@@ -210,6 +213,22 @@ namespace GIM
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
             tbAttachment.Text = ofd.FileName;
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbStatus.Text == "Closed")
+            {
+                dtActualEnd.Enabled = true;
+                cbHour3.Enabled = true;
+                cbMin3.Enabled = true;
+            }
+            else
+            {
+                dtActualEnd.Enabled = false;
+                cbHour3.Enabled = false;
+                cbMin3.Enabled = false;
+            }
         }
     }
 }

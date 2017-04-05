@@ -158,6 +158,7 @@
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(197, 21);
             this.cbStatus.TabIndex = 5;
+            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // cbSeverity
             // 
@@ -429,6 +430,67 @@
             // 
             this.cbMin3.Enabled = false;
             this.cbMin3.FormattingEnabled = true;
+            this.cbMin3.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
             this.cbMin3.Location = new System.Drawing.Point(231, 539);
             this.cbMin3.Name = "cbMin3";
             this.cbMin3.Size = new System.Drawing.Size(46, 21);
@@ -448,6 +510,31 @@
             // 
             this.cbHour3.Enabled = false;
             this.cbHour3.FormattingEnabled = true;
+            this.cbHour3.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
             this.cbHour3.Location = new System.Drawing.Point(170, 539);
             this.cbHour3.Name = "cbHour3";
             this.cbHour3.Size = new System.Drawing.Size(46, 21);

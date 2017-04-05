@@ -64,6 +64,7 @@ namespace GIM
             tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
             tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
             cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
+            cbStatus.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueStatus"];
             cbSeverity.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueSeverity"];
             tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
             cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
@@ -175,22 +176,6 @@ namespace GIM
             catch
             {
                 MessageBox.Show("Something went wrong. Please check the data that you have inserted, if everything seems ok please check your network connection!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbStatus.Text == "Closed")
-            {
-                dtActualEnd.Enabled = true;
-                cbHour3.Enabled = true;
-                cbMin3.Enabled = true;
-            }
-            else
-            {
-                dtActualEnd.Enabled = false;
-                cbHour3.Enabled = false;
-                cbMin3.Enabled = false;
             }
         }
 
