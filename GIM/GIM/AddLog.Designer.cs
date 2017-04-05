@@ -249,6 +249,7 @@
             // 
             this.clbImpactedVenues.FormattingEnabled = true;
             this.clbImpactedVenues.Location = new System.Drawing.Point(231, 194);
+            this.clbImpactedVenues.MultiColumn = true;
             this.clbImpactedVenues.Name = "clbImpactedVenues";
             this.clbImpactedVenues.Size = new System.Drawing.Size(185, 184);
             this.clbImpactedVenues.TabIndex = 24;
@@ -257,6 +258,7 @@
             // 
             this.clbImpactedFuncs.FormattingEnabled = true;
             this.clbImpactedFuncs.Location = new System.Drawing.Point(18, 194);
+            this.clbImpactedFuncs.MultiColumn = true;
             this.clbImpactedFuncs.Name = "clbImpactedFuncs";
             this.clbImpactedFuncs.Size = new System.Drawing.Size(184, 184);
             this.clbImpactedFuncs.TabIndex = 25;
