@@ -91,7 +91,7 @@ namespace GIM
 
         private void AddLog_Click(object sender, EventArgs e)
         {
-            AddLog frm = new GIM.AddLog(0,UserID);
+            AddLog frm = new GIM.AddLog(0, UserID);
             frm.ShowDialog();
             LoadIssueList();
         }
@@ -179,8 +179,16 @@ namespace GIM
 
         private void gvIssues_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), UserID);
-            frm.Show();
+            if (gvIssues.SelectedRows[0].Cells[2].Value == "Issue")
+            {
+                EditIssue frm = new GIM.EditIssue(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), UserID);
+                frm.Show();
+            }
+            else
+            {
+                AddLog lfrm = new AddLog(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), UserID);
+                lfrm.ShowDialog();
+            }
         }
 
         private void chMyList_CheckedChanged(object sender, EventArgs e)

@@ -60,6 +60,10 @@ namespace GIM
                 }
 
             }
+            else if (IssueID>0)
+            {
+
+            }
 
         }
 
