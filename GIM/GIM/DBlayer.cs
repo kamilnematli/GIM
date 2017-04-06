@@ -225,11 +225,10 @@ namespace GIM
             string _sql = "";
             DataSet ds = new DataSet();
 
-            _sql = " SELECT dbo.GIMupdateLog.ID, (case when GIMfunc.FuncCode is null then GIMvenue.VenueCode else GIMfunc.FuncCode end) + ' (' + dbo.GIMupdateLog.Creator + ')' as UpdatedBy, " +
+            _sql = " SELECT dbo.GIMupdateLog.ID, dbo.GIMusers.Ucode + ' (' + dbo.GIMupdateLog.Creator + ')' as UpdatedBy, " +
                    " UpdateContext, UpdateType, DateUpdate, FileUploaded " +
                    " FROM dbo.GIMupdateLog inner join dbo.GIMissue on dbo.GIMupdateLog.Issue = dbo.GIMissue.ID inner join  " +
-                   " ([dbo].[GIMusers] left outer join dbo.GIMfunc on dbo.GIMusers.Func = dbo.GIMfunc.ID left outer join dbo.GIMvenue on dbo.GIMusers.Venue = dbo.GIMvenue.ID) " +
-                   " on dbo.GIMupdateLog.UpdatedBy = dbo.GIMusers.ID " +
+                   " [dbo].[GIMusers] on dbo.GIMupdateLog.UpdatedBy = dbo.GIMusers.ID " +
                    " WHERE dbo.GIMupdateLog.Issue = " + IssueID;
 
             _sql += " order by DateUpdate desc";

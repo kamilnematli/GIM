@@ -23,7 +23,7 @@ namespace GIM
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
-        {
+        {           
             //lbUsername.Text = Environment.UserName;
             DBlayer dba = new DBlayer();
 
