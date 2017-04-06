@@ -184,7 +184,7 @@ namespace GIM
             string _sql = "";
             DataSet ds = new DataSet();
             
-            _sql = " SELECT dbo.GIMfunc.[ID], [FuncCode], [FuncName], [FuncEmail] " +
+            _sql = " SELECT dbo.GIMfunc.[ID], [FuncCode], [FuncName] " +
                    " FROM [dbo].[GIMimpactedFuncs] inner join dbo.GIMfunc ON dbo.GIMimpactedFuncs.Func = dbo.GIMfunc.ID";
 
             if (_id > 0)
@@ -372,8 +372,28 @@ namespace GIM
 
             string _sql = " UPDATE [dbo].[GIMissue] SET " +
                           " [Type] = " + Type +
-                          " ,[Title] = '" + Title + "'" +
-                          " ,[IssueStatus] = " + IssueStatus +
+                          " ,[Title] = '" + Title + "'";
+
+            if (IssueStatus == -1)
+            {
+                _sql += ",[IssueStatus] = null";
+            }
+            else
+            {
+                _sql += ",[IssueStatus]" + IssueStatus;
+            }
+
+            if (IssueSeverity == -1)
+            {
+                _sql += ",[IssueSeverity] = null";
+            }
+            else
+            {
+                _sql += ",[IssueSeverity] = " + IssueSeverity;
+            }
+
+
+                  _sql += " ,[IssueStatus] = " + IssueStatus +
                           " ,[IssueSeverity] = " + IssueSeverity +
                           " ,[Description] = '" + Desc + "'" +
                           " ,[LeadFunction] = " + LeadFunction +

@@ -62,10 +62,37 @@ namespace GIM
             }
             else if (IssueID>0)
             {
+                foreach (object itemChecked in clbImpactedFuncs.CheckedItems)
+                {
+                    DataRowView castedItem = itemChecked as DataRowView;
+                    ImpactedFuncs += castedItem["ID"].ToString() + ",";
+                }
 
+                foreach (object itemChecked in clbImpactedVenues.CheckedItems)
+                {
+                    DataRowView castedItem = itemChecked as DataRowView;
+                    ImpactedVenues += castedItem["ID"].ToString() + ",";
+                }
+
+                DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
+                DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+
+
+                try
+                {
+                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text.Replace("'", "''"), -1, -1, FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), -1, -1, "");
+
+                    MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Something went wrong. Please check the data that you have inserted, if everything seems ok please check your network connection!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
         }
+
 
         private void AddLog_Load(object sender, EventArgs e)
         {
@@ -90,6 +117,51 @@ namespace GIM
             cbLocation.DataSource = dvLead;
             cbLocation.DisplayMember = "VenueCode";
             cbLocation.ValueMember = "ID";
+
+            if (IssueID > 0)
+            {
+                this.Text = "Edit Issue";
+                groupBox1.Text = "Edit";
+
+                DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
+                tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
+                tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
+                cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
+                tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
+                cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
+
+                DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
+                dtOccurence.Value = dtOcc.Date;
+                cbHour.Text = dtOcc.Hour.ToString();
+                cbMins.Text = dtOcc.Minute.ToString();
+
+                DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
+
+                int i = 0, j = 0;
+
+                for (; i < clbImpactedFuncs.Items.Count; i++)
+                {
+                    for (j = 0; j < impFuncs.Tables[0].Rows.Count; j++)
+                    {
+                        if (((System.Data.DataRowView)(clbImpactedFuncs.Items[i])).Row.ItemArray[0].ToString() == impFuncs.Tables[0].Rows[j]["ID"].ToString())
+                        {
+                            clbImpactedFuncs.SetItemCheckState(i, CheckState.Checked);
+                        }
+                    }
+                }
+
+                DataSet impVenues = dba.GetIssueImpcVenues(IssueID);
+                for (i = 0; i < clbImpactedVenues.Items.Count; i++)
+                {
+                    for (j = 0; j < impVenues.Tables[0].Rows.Count; j++)
+                    {
+                        if (((System.Data.DataRowView)(clbImpactedVenues.Items[i])).Row.ItemArray[0].ToString() == impVenues.Tables[0].Rows[j]["VenueID"].ToString())
+                        {
+                            clbImpactedVenues.SetItemCheckState(i, CheckState.Checked);
+                        }
+                    }
+                }
+            }
 
         }
 
