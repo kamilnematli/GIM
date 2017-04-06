@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,41 +44,44 @@
             this.btAddLog = new System.Windows.Forms.Button();
             this.tbIssueID = new System.Windows.Forms.TextBox();
             this.btOpenIssue = new System.Windows.Forms.Button();
+            this.btExport = new System.Windows.Forms.Button();
+            this.btRefresh = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chMyList = new System.Windows.Forms.CheckBox();
+            this.btApplyFilter = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chIssue = new System.Windows.Forms.CheckBox();
             this.chLog = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chLow = new System.Windows.Forms.CheckBox();
             this.chMedium = new System.Windows.Forms.CheckBox();
             this.chHigh = new System.Windows.Forms.CheckBox();
-            this.chClosed = new System.Windows.Forms.CheckBox();
-            this.chInprogress = new System.Windows.Forms.CheckBox();
-            this.chNew = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btExport = new System.Windows.Forms.Button();
+            this.chNew = new System.Windows.Forms.CheckBox();
+            this.chInprogress = new System.Windows.Forms.CheckBox();
+            this.chClosed = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chDashboard = new System.Windows.Forms.CheckBox();
             this.chReportable = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.chMyList = new System.Windows.Forms.CheckBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cbLead = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btRefresh = new System.Windows.Forms.Button();
-            this.btApplyFilter = new System.Windows.Forms.Button();
-            this.cbFunc = new System.Windows.Forms.CheckedListBox();
-            this.cbVenue = new System.Windows.Forms.CheckedListBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.clbImpactedVenues = new System.Windows.Forms.CheckedListBox();
+            this.clbImpactedFuncs = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
+            this.groupBox8.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // gvIssues
@@ -100,11 +103,11 @@
             this.LeadFunc,
             this.Reportable,
             this.Dashboard});
-            this.gvIssues.Location = new System.Drawing.Point(12, 98);
+            this.gvIssues.Location = new System.Drawing.Point(270, 49);
             this.gvIssues.Name = "gvIssues";
             this.gvIssues.RowHeadersVisible = false;
             this.gvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvIssues.Size = new System.Drawing.Size(1326, 551);
+            this.gvIssues.Size = new System.Drawing.Size(1068, 639);
             this.gvIssues.TabIndex = 0;
             this.gvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIssues_CellDoubleClick);
             this.gvIssues.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvIssues_CellFormatting);
@@ -119,9 +122,9 @@
             // Updated
             // 
             this.Updated.DataPropertyName = "DateUpdated";
-            dataGridViewCellStyle15.Format = "d MMMM H:mm";
-            dataGridViewCellStyle15.NullValue = null;
-            this.Updated.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle19.Format = "d MMMM H:mm";
+            dataGridViewCellStyle19.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle19;
             this.Updated.HeaderText = "Updated";
             this.Updated.Name = "Updated";
             this.Updated.Width = 90;
@@ -150,11 +153,11 @@
             // Title
             // 
             this.Title.DataPropertyName = "Title";
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Title.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle20;
             this.Title.HeaderText = "Title";
             this.Title.Name = "Title";
-            this.Title.Width = 550;
+            this.Title.Width = 450;
             // 
             // LeadFunc
             // 
@@ -178,7 +181,7 @@
             // 
             // btAddIssue
             // 
-            this.btAddIssue.Location = new System.Drawing.Point(12, 12);
+            this.btAddIssue.Location = new System.Drawing.Point(270, 12);
             this.btAddIssue.Name = "btAddIssue";
             this.btAddIssue.Size = new System.Drawing.Size(111, 23);
             this.btAddIssue.TabIndex = 1;
@@ -188,7 +191,7 @@
             // 
             // btAddLog
             // 
-            this.btAddLog.Location = new System.Drawing.Point(129, 12);
+            this.btAddLog.Location = new System.Drawing.Point(386, 12);
             this.btAddLog.Name = "btAddLog";
             this.btAddLog.Size = new System.Drawing.Size(111, 23);
             this.btAddLog.TabIndex = 2;
@@ -215,6 +218,95 @@
             this.btOpenIssue.UseVisualStyleBackColor = true;
             this.btOpenIssue.Click += new System.EventHandler(this.btOpenIssue_Click);
             // 
+            // btExport
+            // 
+            this.btExport.Location = new System.Drawing.Point(621, 12);
+            this.btExport.Name = "btExport";
+            this.btExport.Size = new System.Drawing.Size(112, 23);
+            this.btExport.TabIndex = 17;
+            this.btExport.Text = "Export to Excel";
+            this.btExport.UseVisualStyleBackColor = true;
+            this.btExport.Click += new System.EventHandler(this.btExport_Click);
+            // 
+            // btRefresh
+            // 
+            this.btRefresh.Location = new System.Drawing.Point(503, 12);
+            this.btRefresh.Name = "btRefresh";
+            this.btRefresh.Size = new System.Drawing.Size(112, 23);
+            this.btRefresh.TabIndex = 23;
+            this.btRefresh.Text = "Refresh the list";
+            this.btRefresh.UseVisualStyleBackColor = true;
+            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
+            // 
+            // splitter1
+            // 
+            this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(264, 701);
+            this.splitter1.TabIndex = 26;
+            this.splitter1.TabStop = false;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.groupBox5);
+            this.groupBox8.Controls.Add(this.btApplyFilter);
+            this.groupBox8.Controls.Add(this.groupBox3);
+            this.groupBox8.Controls.Add(this.groupBox1);
+            this.groupBox8.Controls.Add(this.groupBox2);
+            this.groupBox8.Controls.Add(this.groupBox4);
+            this.groupBox8.Controls.Add(this.groupBox7);
+            this.groupBox8.Controls.Add(this.groupBox6);
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(11, 7);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(243, 681);
+            this.groupBox8.TabIndex = 27;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Filter";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.chMyList);
+            this.groupBox5.Location = new System.Drawing.Point(6, 19);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(111, 51);
+            this.groupBox5.TabIndex = 17;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Creator";
+            // 
+            // chMyList
+            // 
+            this.chMyList.AutoSize = true;
+            this.chMyList.Location = new System.Drawing.Point(13, 21);
+            this.chMyList.Name = "chMyList";
+            this.chMyList.Size = new System.Drawing.Size(90, 17);
+            this.chMyList.TabIndex = 5;
+            this.chMyList.Text = "Raised by me";
+            this.chMyList.UseVisualStyleBackColor = true;
+            this.chMyList.CheckedChanged += new System.EventHandler(this.chMyList_CheckedChanged);
+            // 
+            // btApplyFilter
+            // 
+            this.btApplyFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btApplyFilter.Location = new System.Drawing.Point(6, 654);
+            this.btApplyFilter.Name = "btApplyFilter";
+            this.btApplyFilter.Size = new System.Drawing.Size(228, 21);
+            this.btApplyFilter.TabIndex = 24;
+            this.btApplyFilter.Text = "Apply";
+            this.btApplyFilter.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chIssue);
+            this.groupBox3.Controls.Add(this.chLog);
+            this.groupBox3.Location = new System.Drawing.Point(6, 76);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(129, 51);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Type";
+            // 
             // chIssue
             // 
             this.chIssue.AutoSize = true;
@@ -236,6 +328,18 @@
             this.chLog.Text = "Logs";
             this.chLog.UseVisualStyleBackColor = true;
             this.chLog.CheckedChanged += new System.EventHandler(this.chLog_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chLow);
+            this.groupBox1.Controls.Add(this.chMedium);
+            this.groupBox1.Controls.Add(this.chHigh);
+            this.groupBox1.Location = new System.Drawing.Point(6, 133);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(184, 51);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Severity";
             // 
             // chLow
             // 
@@ -270,27 +374,17 @@
             this.chHigh.UseVisualStyleBackColor = true;
             this.chHigh.CheckedChanged += new System.EventHandler(this.chHigh_CheckedChanged);
             // 
-            // chClosed
+            // groupBox2
             // 
-            this.chClosed.AutoSize = true;
-            this.chClosed.Location = new System.Drawing.Point(153, 21);
-            this.chClosed.Name = "chClosed";
-            this.chClosed.Size = new System.Drawing.Size(58, 17);
-            this.chClosed.TabIndex = 12;
-            this.chClosed.Text = "Closed";
-            this.chClosed.UseVisualStyleBackColor = true;
-            this.chClosed.CheckedChanged += new System.EventHandler(this.chClosed_CheckedChanged);
-            // 
-            // chInprogress
-            // 
-            this.chInprogress.AutoSize = true;
-            this.chInprogress.Location = new System.Drawing.Point(69, 21);
-            this.chInprogress.Name = "chInprogress";
-            this.chInprogress.Size = new System.Drawing.Size(78, 17);
-            this.chInprogress.TabIndex = 11;
-            this.chInprogress.Text = "In progress";
-            this.chInprogress.UseVisualStyleBackColor = true;
-            this.chInprogress.CheckedChanged += new System.EventHandler(this.chInprogress_CheckedChanged);
+            this.groupBox2.Controls.Add(this.chNew);
+            this.groupBox2.Controls.Add(this.chInprogress);
+            this.groupBox2.Controls.Add(this.chClosed);
+            this.groupBox2.Location = new System.Drawing.Point(6, 190);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(219, 51);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Status";
             // 
             // chNew
             // 
@@ -303,56 +397,33 @@
             this.chNew.UseVisualStyleBackColor = true;
             this.chNew.CheckedChanged += new System.EventHandler(this.chNew_CheckedChanged);
             // 
-            // groupBox1
+            // chInprogress
             // 
-            this.groupBox1.Controls.Add(this.chLow);
-            this.groupBox1.Controls.Add(this.chMedium);
-            this.groupBox1.Controls.Add(this.chHigh);
-            this.groupBox1.Location = new System.Drawing.Point(264, 41);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(184, 51);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Severity";
+            this.chInprogress.AutoSize = true;
+            this.chInprogress.Location = new System.Drawing.Point(69, 21);
+            this.chInprogress.Name = "chInprogress";
+            this.chInprogress.Size = new System.Drawing.Size(78, 17);
+            this.chInprogress.TabIndex = 11;
+            this.chInprogress.Text = "In progress";
+            this.chInprogress.UseVisualStyleBackColor = true;
+            this.chInprogress.CheckedChanged += new System.EventHandler(this.chInprogress_CheckedChanged);
             // 
-            // groupBox2
+            // chClosed
             // 
-            this.groupBox2.Controls.Add(this.chNew);
-            this.groupBox2.Controls.Add(this.chInprogress);
-            this.groupBox2.Controls.Add(this.chClosed);
-            this.groupBox2.Location = new System.Drawing.Point(454, 41);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(219, 51);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Status";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.chIssue);
-            this.groupBox3.Controls.Add(this.chLog);
-            this.groupBox3.Location = new System.Drawing.Point(129, 41);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(129, 51);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Type";
-            // 
-            // btExport
-            // 
-            this.btExport.Location = new System.Drawing.Point(364, 12);
-            this.btExport.Name = "btExport";
-            this.btExport.Size = new System.Drawing.Size(112, 23);
-            this.btExport.TabIndex = 17;
-            this.btExport.Text = "Export to Excel";
-            this.btExport.UseVisualStyleBackColor = true;
-            this.btExport.Click += new System.EventHandler(this.btExport_Click);
+            this.chClosed.AutoSize = true;
+            this.chClosed.Location = new System.Drawing.Point(153, 21);
+            this.chClosed.Name = "chClosed";
+            this.chClosed.Size = new System.Drawing.Size(58, 17);
+            this.chClosed.TabIndex = 12;
+            this.chClosed.Text = "Closed";
+            this.chClosed.UseVisualStyleBackColor = true;
+            this.chClosed.CheckedChanged += new System.EventHandler(this.chClosed_CheckedChanged);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.chDashboard);
             this.groupBox4.Controls.Add(this.chReportable);
-            this.groupBox4.Location = new System.Drawing.Point(679, 41);
+            this.groupBox4.Location = new System.Drawing.Point(6, 247);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(186, 51);
             this.groupBox4.TabIndex = 17;
@@ -381,66 +452,13 @@
             this.chReportable.UseVisualStyleBackColor = true;
             this.chReportable.CheckedChanged += new System.EventHandler(this.chReportable_CheckedChanged);
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.chMyList);
-            this.groupBox5.Location = new System.Drawing.Point(12, 41);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(111, 51);
-            this.groupBox5.TabIndex = 17;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Filter";
-            // 
-            // chMyList
-            // 
-            this.chMyList.AutoSize = true;
-            this.chMyList.Location = new System.Drawing.Point(13, 21);
-            this.chMyList.Name = "chMyList";
-            this.chMyList.Size = new System.Drawing.Size(90, 17);
-            this.chMyList.TabIndex = 5;
-            this.chMyList.Text = "Raised by me";
-            this.chMyList.UseVisualStyleBackColor = true;
-            this.chMyList.CheckedChanged += new System.EventHandler(this.chMyList_CheckedChanged);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.cbVenue);
-            this.groupBox6.Controls.Add(this.cbFunc);
-            this.groupBox6.Controls.Add(this.label2);
-            this.groupBox6.Controls.Add(this.label1);
-            this.groupBox6.Location = new System.Drawing.Point(869, 41);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(269, 51);
-            this.groupBox6.TabIndex = 18;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Impacted";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(147, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Venue";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Function";
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.cbLead);
             this.groupBox7.Controls.Add(this.label4);
-            this.groupBox7.Enabled = false;
-            this.groupBox7.Location = new System.Drawing.Point(1144, 41);
+            this.groupBox7.Location = new System.Drawing.Point(123, 19);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(130, 51);
+            this.groupBox7.Size = new System.Drawing.Size(111, 51);
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Lead";
@@ -448,7 +466,7 @@
             // cbLead
             // 
             this.cbLead.FormattingEnabled = true;
-            this.cbLead.Location = new System.Drawing.Point(66, 17);
+            this.cbLead.Location = new System.Drawing.Point(54, 17);
             this.cbLead.Name = "cbLead";
             this.cbLead.Size = new System.Drawing.Size(51, 21);
             this.cbLead.TabIndex = 19;
@@ -457,68 +475,73 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 22);
+            this.label4.Location = new System.Drawing.Point(6, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Function";
             // 
-            // btRefresh
+            // groupBox6
             // 
-            this.btRefresh.Location = new System.Drawing.Point(246, 12);
-            this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(112, 23);
-            this.btRefresh.TabIndex = 23;
-            this.btRefresh.Text = "Refresh the list";
-            this.btRefresh.UseVisualStyleBackColor = true;
-            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
+            this.groupBox6.Controls.Add(this.clbImpactedVenues);
+            this.groupBox6.Controls.Add(this.clbImpactedFuncs);
+            this.groupBox6.Controls.Add(this.label2);
+            this.groupBox6.Controls.Add(this.label1);
+            this.groupBox6.Location = new System.Drawing.Point(6, 305);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(228, 343);
+            this.groupBox6.TabIndex = 18;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Impacted";
             // 
-            // btApplyFilter
+            // clbImpactedVenues
             // 
-            this.btApplyFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btApplyFilter.Location = new System.Drawing.Point(1280, 45);
-            this.btApplyFilter.Name = "btApplyFilter";
-            this.btApplyFilter.Size = new System.Drawing.Size(58, 48);
-            this.btApplyFilter.TabIndex = 24;
-            this.btApplyFilter.Text = "Apply";
-            this.btApplyFilter.UseVisualStyleBackColor = true;
-            this.btApplyFilter.Click += new System.EventHandler(this.btApplyFilter_Click);
+            this.clbImpactedVenues.CheckOnClick = true;
+            this.clbImpactedVenues.FormattingEnabled = true;
+            this.clbImpactedVenues.Location = new System.Drawing.Point(126, 37);
+            this.clbImpactedVenues.Name = "clbImpactedVenues";
+            this.clbImpactedVenues.Size = new System.Drawing.Size(92, 289);
+            this.clbImpactedVenues.TabIndex = 26;
             // 
-            // cbFunc
+            // clbImpactedFuncs
             // 
-            this.cbFunc.AllowDrop = true;
-            this.cbFunc.CheckOnClick = true;
-            this.cbFunc.FormattingEnabled = true;
-            this.cbFunc.Location = new System.Drawing.Point(63, 19);
-            this.cbFunc.Name = "cbFunc";
-            this.cbFunc.Size = new System.Drawing.Size(73, 19);
-            this.cbFunc.TabIndex = 25;
+            this.clbImpactedFuncs.CheckOnClick = true;
+            this.clbImpactedFuncs.FormattingEnabled = true;
+            this.clbImpactedFuncs.Location = new System.Drawing.Point(11, 37);
+            this.clbImpactedFuncs.Name = "clbImpactedFuncs";
+            this.clbImpactedFuncs.Size = new System.Drawing.Size(92, 289);
+            this.clbImpactedFuncs.TabIndex = 25;
+            this.clbImpactedFuncs.SelectedIndexChanged += new System.EventHandler(this.clbImpactedFuncs_SelectedIndexChanged);
             // 
-            // cbVenue
+            // label2
             // 
-            this.cbVenue.FormattingEnabled = true;
-            this.cbVenue.Location = new System.Drawing.Point(188, 19);
-            this.cbVenue.Name = "cbVenue";
-            this.cbVenue.Size = new System.Drawing.Size(73, 19);
-            this.cbVenue.TabIndex = 26;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(123, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Venues";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Functions";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 661);
-            this.Controls.Add(this.btApplyFilter);
+            this.ClientSize = new System.Drawing.Size(1350, 701);
+            this.Controls.Add(this.groupBox8);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.btAddIssue);
             this.Controls.Add(this.btAddLog);
             this.Controls.Add(this.btRefresh);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btExport);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btOpenIssue);
             this.Controls.Add(this.tbIssueID);
             this.Controls.Add(this.gvIssues);
@@ -528,20 +551,21 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).EndInit();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -554,29 +578,8 @@
         private System.Windows.Forms.Button btAddLog;
         private System.Windows.Forms.TextBox tbIssueID;
         private System.Windows.Forms.Button btOpenIssue;
-        private System.Windows.Forms.CheckBox chIssue;
-        private System.Windows.Forms.CheckBox chLog;
-        private System.Windows.Forms.CheckBox chLow;
-        private System.Windows.Forms.CheckBox chMedium;
-        private System.Windows.Forms.CheckBox chHigh;
-        private System.Windows.Forms.CheckBox chClosed;
-        private System.Windows.Forms.CheckBox chInprogress;
-        private System.Windows.Forms.CheckBox chNew;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btExport;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox chDashboard;
-        private System.Windows.Forms.CheckBox chReportable;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox chMyList;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ComboBox cbLead;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Updated;
         private System.Windows.Forms.DataGridViewTextBoxColumn IssueType;
@@ -586,10 +589,33 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LeadFunc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reportable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dashboard;
-        private System.Windows.Forms.Button btRefresh;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox chMyList;
         private System.Windows.Forms.Button btApplyFilter;
-        private System.Windows.Forms.CheckedListBox cbFunc;
-        private System.Windows.Forms.CheckedListBox cbVenue;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox chIssue;
+        private System.Windows.Forms.CheckBox chLog;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chLow;
+        private System.Windows.Forms.CheckBox chMedium;
+        private System.Windows.Forms.CheckBox chHigh;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox chNew;
+        private System.Windows.Forms.CheckBox chInprogress;
+        private System.Windows.Forms.CheckBox chClosed;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox chDashboard;
+        private System.Windows.Forms.CheckBox chReportable;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.ComboBox cbLead;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckedListBox clbImpactedVenues;
+        private System.Windows.Forms.CheckedListBox clbImpactedFuncs;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

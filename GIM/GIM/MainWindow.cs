@@ -28,15 +28,10 @@ namespace GIM
             DBlayer dba = new DBlayer();
 
             DataSet dsFunc = dba.GetTable("GIMfunc", 0);
-            DataRow rFunc = dsFunc.Tables[0].NewRow();
-            rFunc["ID"] = 0;
-            rFunc["FuncCode"] = "";
-            dsFunc.Tables[0].Rows.Add(rFunc);
             DataView dvFunc = new DataView(dsFunc.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
-            cbFunc.DataSource = dvFunc;
-            cbFunc.DisplayMember = "FuncCode";
-            cbFunc.ValueMember = "ID";
-            //cbFunc.SelectedValue = 0;
+            clbImpactedFuncs.DataSource = dvFunc;
+            clbImpactedFuncs.DisplayMember = "FuncCode";
+            clbImpactedFuncs.ValueMember = "ID";
 
             DataSet dsLead = dba.GetTable("GIMfunc", 0);
             DataRow rLead = dsLead.Tables[0].NewRow();
@@ -49,15 +44,10 @@ namespace GIM
             cbLead.ValueMember = "ID";
 
             DataSet dsVenues = dba.GetTable("GIMvenue", 0);
-            DataRow rVenue = dsVenues.Tables[0].NewRow();
-            rVenue["ID"] = 0;
-            rVenue["VenueCode"] = "";
-            dsVenues.Tables[0].Rows.Add(rVenue);
             DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
-            cbVenue.DataSource = dvVenues;
-            cbVenue.DisplayMember = "VenueCode";
-            cbVenue.ValueMember = "ID";
-            //cbVenue.SelectedValue = 0;
+            clbImpactedVenues.DataSource = dvVenues;
+            clbImpactedVenues.DisplayMember = "VenueCode";
+            clbImpactedVenues.ValueMember = "ID";
 
             LoadIssueList();
         }
@@ -66,16 +56,32 @@ namespace GIM
         {
             DBlayer dba = new DBlayer();
             DataSet dsIssues = new DataSet();
+            string ImpactedFuncs = "";
+            string ImpactedVenues = "";
+
+            foreach (object itemChecked in clbImpactedFuncs.CheckedItems)
+            {
+                DataRowView castedItem = itemChecked as DataRowView;
+                ImpactedFuncs += castedItem["ID"].ToString() + ",";
+            }
+            if (ImpactedFuncs != "")  ImpactedFuncs = ImpactedFuncs.Substring(0, ImpactedFuncs.Length - 1);
+
+            foreach (object itemChecked in clbImpactedVenues.CheckedItems)
+            {
+                DataRowView castedItem = itemChecked as DataRowView;
+                ImpactedVenues += castedItem["ID"].ToString() + ",";
+            }
+            if(ImpactedVenues != "") ImpactedVenues = ImpactedVenues.Substring(0, ImpactedVenues.Length - 1);
 
             try
             {
                 dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
-                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue), Convert.ToInt32(cbLead.SelectedValue));
+                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, ImpactedFuncs, ImpactedVenues, Convert.ToInt32(cbLead.SelectedValue));
             }
             catch
             {
                 dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
-                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, -1, -1, -1);
+                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, "", "", -1);
             }
 
             DataView dvIssues = dsIssues.Tables[0].DefaultView;
@@ -125,6 +131,65 @@ namespace GIM
             {
 
             }
+        }
+
+        private void gvIssues_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gvIssues.SelectedRows[0].Cells[2].Value.ToString() == "Issue")
+            {
+                EditIssue frm = new GIM.EditIssue(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), UserID);
+                frm.Show();
+            }
+            else
+            {
+                AddLog lfrm = new AddLog(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), UserID);
+                lfrm.ShowDialog();
+            }
+        }
+
+        private void btOpenIssue_Click(object sender, EventArgs e)
+        {
+            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), UserID);
+            frm.Show();
+        }
+
+        private void gvIssues_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.gvIssues.Columns[e.ColumnIndex].Name == "Severity")
+            {
+                if (e.Value.ToString() == "High")
+                {
+                    e.CellStyle.BackColor = Color.Red;
+                }
+                else if (e.Value.ToString() == "Medium")
+                {
+                    e.CellStyle.BackColor = Color.Orange;
+                }
+                else if (e.Value.ToString() == "Low")
+                {
+                    e.CellStyle.BackColor = Color.Yellow;
+                }
+            }
+        }
+
+        private void btRefresh_Click(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void btApplyFilter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chMyList_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void cbLead_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
         }
 
         private void chIssue_CheckedChanged(object sender, EventArgs e)
@@ -177,73 +242,9 @@ namespace GIM
             LoadIssueList();
         }
 
-        private void gvIssues_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (gvIssues.SelectedRows[0].Cells[2].Value == "Issue")
-            {
-                EditIssue frm = new GIM.EditIssue(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), UserID);
-                frm.Show();
-            }
-            else
-            {
-                AddLog lfrm = new AddLog(Convert.ToInt32(gvIssues.SelectedRows[0].Cells[0].Value), UserID);
-                lfrm.ShowDialog();
-            }
-        }
-
-        private void chMyList_CheckedChanged(object sender, EventArgs e)
+        private void clbImpactedFuncs_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadIssueList();
-        }
-
-        private void cbFunc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void cbVenue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void cbLead_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void btOpenIssue_Click(object sender, EventArgs e)
-        {
-            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), UserID);
-            frm.Show();
-        }
-
-        private void gvIssues_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (this.gvIssues.Columns[e.ColumnIndex].Name == "Severity")
-            {
-                if (e.Value.ToString() == "High")
-                {
-                    e.CellStyle.BackColor = Color.Red;
-                }
-                else if (e.Value.ToString() == "Medium")
-                {
-                    e.CellStyle.BackColor = Color.Orange;
-                }
-                else if (e.Value.ToString() == "Low")
-                {
-                    e.CellStyle.BackColor = Color.Yellow;
-                }
-            }
-        }
-
-        private void btRefresh_Click(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void btApplyFilter_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

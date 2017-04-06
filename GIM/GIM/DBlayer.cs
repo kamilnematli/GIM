@@ -54,7 +54,7 @@ namespace GIM
         #region Get data
 
         public DataSet GetIssues(int UserID, int UserType, bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _Closed, bool _Dashboard, bool _Reportable, 
-            bool _MyList, int ImpFunc, int ImpVenue, int LeadFunc)
+            bool _MyList, string ImpFunc, string ImpVenue, int LeadFunc)
         {
             string _sql = "";
             DataSet ds = new DataSet();
@@ -76,26 +76,26 @@ namespace GIM
             {
                 filt += "and dbo.GIMissue.RaisedBy = " + UserID + " ";
             }
-            else
+            //else
+            //{
+            //    if (UserType == 1)
+            //    {
+            //        filt += "and (dbo.GIMissue.LeadFunction = " + UserID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + UserID + ")) ";
+            //    }
+            //    else if (UserType == 2)
+            //    {
+            //        filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + UserID + ")";
+            //    }
+            //}
+
+            if (ImpVenue != "")
             {
-                if (UserType == 1)
-                {
-                    filt += "and (dbo.GIMissue.LeadFunction = " + UserID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + UserID + ")) ";
-                }
-                else if (UserType == 2)
-                {
-                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + UserID + ")";
-                }
+                filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] IN (" + ImpVenue + ")) ";
             }
 
-            if (ImpVenue > 0)
+            if (ImpFunc != "")
             {
-                filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + ImpVenue + ") ";
-            }
-
-            if (ImpFunc > 0)
-            {
-                filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + ImpFunc + ") ";
+                filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] IN (" + ImpFunc + ")) ";
             }
 
             if (LeadFunc > 0)
