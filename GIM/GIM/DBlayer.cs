@@ -371,39 +371,37 @@ namespace GIM
 
             string _sql = " UPDATE [dbo].[GIMissue] SET " +
                           " [Type] = " + Type +
-                          " ,[Title] = '" + Title + "'";
+                          ",[Title] = '" + Title + "'";
 
             if (IssueStatus == -1)
             {
-                _sql += ",[IssueStatus] = null";
+                _sql += ", [IssueStatus] = null";
             }
             else
             {
-                _sql += ",[IssueStatus]" + IssueStatus;
+                _sql += ", [IssueStatus] = " + IssueStatus;
             }
 
             if (IssueSeverity == -1)
             {
-                _sql += ",[IssueSeverity] = null";
+                _sql += ", [IssueSeverity] = null";
             }
             else
             {
-                _sql += ",[IssueSeverity] = " + IssueSeverity;
+                _sql += ", [IssueSeverity] = " + IssueSeverity;
             }
 
 
-                  _sql += " ,[IssueStatus] = " + IssueStatus +
-                          " ,[IssueSeverity] = " + IssueSeverity +
-                          " ,[Description] = '" + Desc + "'" +
-                          " ,[LeadFunction] = " + LeadFunction +
-                          " ,[Location] = " + Location +
-                          " ,[DateOccurence] = CONVERT(datetime, '" + DateOccurence + "')" +
-                          " ,[DateUpdated] = '" + DateTime.Now + "'" +
-                          " ,[Attachment] = '" + Attch + "'" +
-                          " ,[Reportable] = " + Reportable +
-                          " ,[Dashboard] = " + Dashboard +
-                          " ,[DateActualEnd] = CONVERT(datetime, '" + DateActualEnd + "')" +
-                          " ,[LocationDesc] = '" + LocDesc + "' where ID = " + IssueID;
+            _sql += " ,[Description] = '" + Desc + "'" +
+                    " ,[LeadFunction] = " + LeadFunction +
+                    " ,[Location] = " + Location +
+                    " ,[DateOccurence] = CONVERT(datetime, '" + DateOccurence + "')" +
+                    " ,[DateUpdated] = '" + DateTime.Now + "'" +
+                    " ,[Attachment] = '" + Attch + "'" +
+                    " ,[Reportable] = " + Reportable +
+                    " ,[Dashboard] = " + Dashboard +
+                    " ,[DateActualEnd] = CONVERT(datetime, '" + DateActualEnd + "')" +
+                    " ,[LocationDesc] = '" + LocDesc + "' where ID = " + IssueID;
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();
@@ -466,6 +464,20 @@ namespace GIM
                           " [UpdateContext] = '" + UpdateContext + "'" +
                           ",[DateUpdate] = '" + DateTime.Now + "'" + 
                           ",[FileUploaded] = '" + FileUploaded + "' where ID = " + UpdateID;
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void UpdateUserPassword(int UserID, string newPass)
+        {
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+
+            string _sql = " UPDATE [dbo].[GIMusers] SET " +
+                          " [UserPass] = '" + newPass + "' where ID = " + UserID;
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +73,7 @@
             this.clbImpactedFuncs = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -122,9 +123,9 @@
             // Updated
             // 
             this.Updated.DataPropertyName = "DateUpdated";
-            dataGridViewCellStyle19.Format = "d MMMM H:mm";
-            dataGridViewCellStyle19.NullValue = null;
-            this.Updated.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Format = "d MMMM H:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle1;
             this.Updated.HeaderText = "Updated";
             this.Updated.Name = "Updated";
             this.Updated.Width = 90;
@@ -153,8 +154,8 @@
             // Title
             // 
             this.Title.DataPropertyName = "Title";
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Title.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle2;
             this.Title.HeaderText = "Title";
             this.Title.Name = "Title";
             this.Title.Width = 450;
@@ -201,16 +202,14 @@
             // 
             // tbIssueID
             // 
-            this.tbIssueID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbIssueID.Location = new System.Drawing.Point(1157, 15);
+            this.tbIssueID.Location = new System.Drawing.Point(969, 14);
             this.tbIssueID.Name = "tbIssueID";
             this.tbIssueID.Size = new System.Drawing.Size(117, 20);
             this.tbIssueID.TabIndex = 3;
             // 
             // btOpenIssue
             // 
-            this.btOpenIssue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btOpenIssue.Location = new System.Drawing.Point(1280, 13);
+            this.btOpenIssue.Location = new System.Drawing.Point(1092, 12);
             this.btOpenIssue.Name = "btOpenIssue";
             this.btOpenIssue.Size = new System.Drawing.Size(58, 23);
             this.btOpenIssue.TabIndex = 4;
@@ -531,11 +530,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Functions";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(1246, 7);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(92, 13);
+            this.linkLabel1.TabIndex = 28;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Change password";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 701);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.btAddIssue);
@@ -616,6 +628,7 @@
         private System.Windows.Forms.CheckedListBox clbImpactedFuncs;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

@@ -246,5 +246,11 @@ namespace GIM
         {
             LoadIssueList();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ChangePass fcp = new ChangePass(UserID);
+            fcp.ShowDialog();
+        }
     }
 }
