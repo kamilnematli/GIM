@@ -54,7 +54,7 @@ namespace GIM
         #region Get data
 
         public DataSet GetIssues(int UserID, int UserType, bool _Issues, bool _Logs, bool _Low, bool _Medium, bool _High, bool _New, bool _InProgress, bool _Closed, bool _Dashboard, bool _Reportable, 
-            bool _MyList, bool _All, int ImpFunc, int ImpVenue, int LeadFunc)
+            bool _MyList, int ImpFunc, int ImpVenue, int LeadFunc)
         {
             string _sql = "";
             DataSet ds = new DataSet();
@@ -72,40 +72,35 @@ namespace GIM
             if (_Issues == true && _Logs == false) filt += "Type = 1 ";
             if (_Issues == false && _Logs == true) filt += "Type = 2 ";
 
-            if (!_All)
+            if (_MyList)
             {
-                if (_MyList)
-                {
-                    filt += "and dbo.GIMissue.RaisedBy = " + UserID + " ";
-                }
-                else
-                {
-                    if(UserType == 1)
-                    {
-                        filt += "and (dbo.GIMissue.LeadFunction = " + UserID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + UserID + ")) ";
-                    }
-                    else if(UserType == 2)
-                    {
-                        filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + UserID + ")";
-                    }
-                }
+                filt += "and dbo.GIMissue.RaisedBy = " + UserID + " ";
             }
             else
             {
-                if (ImpVenue > 0)
+                if (UserType == 1)
                 {
-                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + ImpVenue + ") ";
+                    filt += "and (dbo.GIMissue.LeadFunction = " + UserID + " OR dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + UserID + ")) ";
                 }
+                else if (UserType == 2)
+                {
+                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + UserID + ")";
+                }
+            }
 
-                if(ImpFunc > 0)
-                {
-                    filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + ImpFunc + ") ";
-                }
-                
-                if(LeadFunc > 0)
-                {
-                    filt += "and dbo.GIMissue.LeadFunction = " + LeadFunc + " ";
-                }                            
+            if (ImpVenue > 0)
+            {
+                filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedVenues] where [Venue] = " + ImpVenue + ") ";
+            }
+
+            if (ImpFunc > 0)
+            {
+                filt += "and dbo.GIMissue.[ID] in (SELECT [Issue] FROM [dbo].[GIMimpactedFuncs] where [Func] = " + ImpFunc + ") ";
+            }
+
+            if (LeadFunc > 0)
+            {
+                filt += "and dbo.GIMissue.LeadFunction = " + LeadFunc + " ";
             }
 
             if (_Dashboard == true) filt += "and Dashboard = 1 ";

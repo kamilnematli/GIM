@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,28 +56,25 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btExport = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbUsername = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chDashboard = new System.Windows.Forms.CheckBox();
             this.chReportable = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.chMyList = new System.Windows.Forms.CheckBox();
-            this.chAll = new System.Windows.Forms.CheckBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.cbVenue = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbFunc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cbLead = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btRefresh = new System.Windows.Forms.Button();
+            this.btApplyFilter = new System.Windows.Forms.Button();
+            this.cbFunc = new System.Windows.Forms.CheckedListBox();
+            this.cbVenue = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -103,11 +100,11 @@
             this.LeadFunc,
             this.Reportable,
             this.Dashboard});
-            this.gvIssues.Location = new System.Drawing.Point(12, 129);
+            this.gvIssues.Location = new System.Drawing.Point(12, 98);
             this.gvIssues.Name = "gvIssues";
             this.gvIssues.RowHeadersVisible = false;
             this.gvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvIssues.Size = new System.Drawing.Size(1326, 520);
+            this.gvIssues.Size = new System.Drawing.Size(1326, 551);
             this.gvIssues.TabIndex = 0;
             this.gvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIssues_CellDoubleClick);
             this.gvIssues.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvIssues_CellFormatting);
@@ -122,9 +119,9 @@
             // Updated
             // 
             this.Updated.DataPropertyName = "DateUpdated";
-            dataGridViewCellStyle1.Format = "d MMMM H:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Updated.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Format = "d MMMM H:mm";
+            dataGridViewCellStyle15.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle15;
             this.Updated.HeaderText = "Updated";
             this.Updated.Name = "Updated";
             this.Updated.Width = 90;
@@ -153,8 +150,8 @@
             // Title
             // 
             this.Title.DataPropertyName = "Title";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Title.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle16;
             this.Title.HeaderText = "Title";
             this.Title.Name = "Title";
             this.Title.Width = 550;
@@ -181,9 +178,9 @@
             // 
             // btAddIssue
             // 
-            this.btAddIssue.Location = new System.Drawing.Point(12, 33);
+            this.btAddIssue.Location = new System.Drawing.Point(12, 12);
             this.btAddIssue.Name = "btAddIssue";
-            this.btAddIssue.Size = new System.Drawing.Size(112, 23);
+            this.btAddIssue.Size = new System.Drawing.Size(111, 23);
             this.btAddIssue.TabIndex = 1;
             this.btAddIssue.Text = "Create Issue";
             this.btAddIssue.UseVisualStyleBackColor = true;
@@ -191,9 +188,9 @@
             // 
             // btAddLog
             // 
-            this.btAddLog.Location = new System.Drawing.Point(130, 33);
+            this.btAddLog.Location = new System.Drawing.Point(129, 12);
             this.btAddLog.Name = "btAddLog";
-            this.btAddLog.Size = new System.Drawing.Size(112, 23);
+            this.btAddLog.Size = new System.Drawing.Size(111, 23);
             this.btAddLog.TabIndex = 2;
             this.btAddLog.Text = "Create Log";
             this.btAddLog.UseVisualStyleBackColor = true;
@@ -202,7 +199,7 @@
             // tbIssueID
             // 
             this.tbIssueID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbIssueID.Location = new System.Drawing.Point(1157, 35);
+            this.tbIssueID.Location = new System.Drawing.Point(1157, 15);
             this.tbIssueID.Name = "tbIssueID";
             this.tbIssueID.Size = new System.Drawing.Size(117, 20);
             this.tbIssueID.TabIndex = 3;
@@ -210,7 +207,7 @@
             // btOpenIssue
             // 
             this.btOpenIssue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btOpenIssue.Location = new System.Drawing.Point(1280, 33);
+            this.btOpenIssue.Location = new System.Drawing.Point(1280, 13);
             this.btOpenIssue.Name = "btOpenIssue";
             this.btOpenIssue.Size = new System.Drawing.Size(58, 23);
             this.btOpenIssue.TabIndex = 4;
@@ -311,9 +308,9 @@
             this.groupBox1.Controls.Add(this.chLow);
             this.groupBox1.Controls.Add(this.chMedium);
             this.groupBox1.Controls.Add(this.chHigh);
-            this.groupBox1.Location = new System.Drawing.Point(285, 72);
+            this.groupBox1.Location = new System.Drawing.Point(264, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(184, 50);
+            this.groupBox1.Size = new System.Drawing.Size(184, 51);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Severity";
@@ -323,7 +320,7 @@
             this.groupBox2.Controls.Add(this.chNew);
             this.groupBox2.Controls.Add(this.chInprogress);
             this.groupBox2.Controls.Add(this.chClosed);
-            this.groupBox2.Location = new System.Drawing.Point(475, 72);
+            this.groupBox2.Location = new System.Drawing.Point(454, 41);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(219, 51);
             this.groupBox2.TabIndex = 15;
@@ -334,7 +331,7 @@
             // 
             this.groupBox3.Controls.Add(this.chIssue);
             this.groupBox3.Controls.Add(this.chLog);
-            this.groupBox3.Location = new System.Drawing.Point(150, 72);
+            this.groupBox3.Location = new System.Drawing.Point(129, 41);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(129, 51);
             this.groupBox3.TabIndex = 16;
@@ -343,7 +340,7 @@
             // 
             // btExport
             // 
-            this.btExport.Location = new System.Drawing.Point(366, 33);
+            this.btExport.Location = new System.Drawing.Point(364, 12);
             this.btExport.Name = "btExport";
             this.btExport.Size = new System.Drawing.Size(112, 23);
             this.btExport.TabIndex = 17;
@@ -351,35 +348,11 @@
             this.btExport.UseVisualStyleBackColor = true;
             this.btExport.Click += new System.EventHandler(this.btExport_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Lime;
-            this.panel1.Controls.Add(this.lbUsername);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1348, 26);
-            this.panel1.TabIndex = 18;
-            // 
-            // lbUsername
-            // 
-            this.lbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsername.Location = new System.Drawing.Point(1234, 8);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbUsername.Size = new System.Drawing.Size(63, 13);
-            this.lbUsername.TabIndex = 0;
-            this.lbUsername.Text = "Username";
-            this.lbUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.chDashboard);
             this.groupBox4.Controls.Add(this.chReportable);
-            this.groupBox4.Location = new System.Drawing.Point(700, 72);
+            this.groupBox4.Location = new System.Drawing.Point(679, 41);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(186, 51);
             this.groupBox4.TabIndex = 17;
@@ -411,10 +384,9 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.chMyList);
-            this.groupBox5.Controls.Add(this.chAll);
-            this.groupBox5.Location = new System.Drawing.Point(12, 72);
+            this.groupBox5.Location = new System.Drawing.Point(12, 41);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(132, 51);
+            this.groupBox5.Size = new System.Drawing.Size(111, 51);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Filter";
@@ -424,63 +396,33 @@
             this.chMyList.AutoSize = true;
             this.chMyList.Location = new System.Drawing.Point(13, 21);
             this.chMyList.Name = "chMyList";
-            this.chMyList.Size = new System.Drawing.Size(55, 17);
+            this.chMyList.Size = new System.Drawing.Size(90, 17);
             this.chMyList.TabIndex = 5;
-            this.chMyList.Text = "My list";
+            this.chMyList.Text = "Raised by me";
             this.chMyList.UseVisualStyleBackColor = true;
             this.chMyList.CheckedChanged += new System.EventHandler(this.chMyList_CheckedChanged);
-            // 
-            // chAll
-            // 
-            this.chAll.AutoSize = true;
-            this.chAll.Location = new System.Drawing.Point(74, 21);
-            this.chAll.Name = "chAll";
-            this.chAll.Size = new System.Drawing.Size(52, 17);
-            this.chAll.TabIndex = 6;
-            this.chAll.Text = "All list";
-            this.chAll.UseVisualStyleBackColor = true;
-            this.chAll.CheckedChanged += new System.EventHandler(this.chAll_CheckedChanged);
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.cbVenue);
-            this.groupBox6.Controls.Add(this.label2);
             this.groupBox6.Controls.Add(this.cbFunc);
+            this.groupBox6.Controls.Add(this.label2);
             this.groupBox6.Controls.Add(this.label1);
-            this.groupBox6.Enabled = false;
-            this.groupBox6.Location = new System.Drawing.Point(892, 72);
+            this.groupBox6.Location = new System.Drawing.Point(869, 41);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(240, 51);
+            this.groupBox6.Size = new System.Drawing.Size(269, 51);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Impacted";
             // 
-            // cbVenue
-            // 
-            this.cbVenue.FormattingEnabled = true;
-            this.cbVenue.Location = new System.Drawing.Point(173, 17);
-            this.cbVenue.Name = "cbVenue";
-            this.cbVenue.Size = new System.Drawing.Size(51, 21);
-            this.cbVenue.TabIndex = 21;
-            this.cbVenue.SelectedIndexChanged += new System.EventHandler(this.cbVenue_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(129, 20);
+            this.label2.Location = new System.Drawing.Point(147, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Venue";
-            // 
-            // cbFunc
-            // 
-            this.cbFunc.FormattingEnabled = true;
-            this.cbFunc.Location = new System.Drawing.Point(66, 18);
-            this.cbFunc.Name = "cbFunc";
-            this.cbFunc.Size = new System.Drawing.Size(51, 21);
-            this.cbFunc.TabIndex = 19;
-            this.cbFunc.SelectedIndexChanged += new System.EventHandler(this.cbFunc_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -496,7 +438,7 @@
             this.groupBox7.Controls.Add(this.cbLead);
             this.groupBox7.Controls.Add(this.label4);
             this.groupBox7.Enabled = false;
-            this.groupBox7.Location = new System.Drawing.Point(1138, 72);
+            this.groupBox7.Location = new System.Drawing.Point(1144, 41);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(130, 51);
             this.groupBox7.TabIndex = 22;
@@ -523,7 +465,7 @@
             // 
             // btRefresh
             // 
-            this.btRefresh.Location = new System.Drawing.Point(248, 33);
+            this.btRefresh.Location = new System.Drawing.Point(246, 12);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(112, 23);
             this.btRefresh.TabIndex = 23;
@@ -531,25 +473,54 @@
             this.btRefresh.UseVisualStyleBackColor = true;
             this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
+            // btApplyFilter
+            // 
+            this.btApplyFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btApplyFilter.Location = new System.Drawing.Point(1280, 45);
+            this.btApplyFilter.Name = "btApplyFilter";
+            this.btApplyFilter.Size = new System.Drawing.Size(58, 48);
+            this.btApplyFilter.TabIndex = 24;
+            this.btApplyFilter.Text = "Apply";
+            this.btApplyFilter.UseVisualStyleBackColor = true;
+            this.btApplyFilter.Click += new System.EventHandler(this.btApplyFilter_Click);
+            // 
+            // cbFunc
+            // 
+            this.cbFunc.AllowDrop = true;
+            this.cbFunc.CheckOnClick = true;
+            this.cbFunc.FormattingEnabled = true;
+            this.cbFunc.Location = new System.Drawing.Point(63, 19);
+            this.cbFunc.Name = "cbFunc";
+            this.cbFunc.Size = new System.Drawing.Size(73, 19);
+            this.cbFunc.TabIndex = 25;
+            // 
+            // cbVenue
+            // 
+            this.cbVenue.FormattingEnabled = true;
+            this.cbVenue.Location = new System.Drawing.Point(188, 19);
+            this.cbVenue.Name = "cbVenue";
+            this.cbVenue.Size = new System.Drawing.Size(73, 19);
+            this.cbVenue.TabIndex = 26;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 661);
+            this.Controls.Add(this.btApplyFilter);
+            this.Controls.Add(this.btAddIssue);
+            this.Controls.Add(this.btAddLog);
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btExport);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btOpenIssue);
             this.Controls.Add(this.tbIssueID);
-            this.Controls.Add(this.btAddLog);
-            this.Controls.Add(this.btAddIssue);
             this.Controls.Add(this.gvIssues);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -563,8 +534,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -597,18 +566,13 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btExport;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox chDashboard;
         private System.Windows.Forms.CheckBox chReportable;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox chMyList;
-        private System.Windows.Forms.CheckBox chAll;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ComboBox cbVenue;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbFunc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ComboBox cbLead;
@@ -623,6 +587,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Reportable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dashboard;
         private System.Windows.Forms.Button btRefresh;
+        private System.Windows.Forms.Button btApplyFilter;
+        private System.Windows.Forms.CheckedListBox cbFunc;
+        private System.Windows.Forms.CheckedListBox cbVenue;
     }
 }
 

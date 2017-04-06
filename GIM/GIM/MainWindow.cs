@@ -24,7 +24,7 @@ namespace GIM
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            lbUsername.Text = Environment.UserName;
+            //lbUsername.Text = Environment.UserName;
             DBlayer dba = new DBlayer();
 
             DataSet dsFunc = dba.GetTable("GIMfunc", 0);
@@ -70,12 +70,12 @@ namespace GIM
             try
             {
                 dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
-                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue), Convert.ToInt32(cbLead.SelectedValue));
+                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, Convert.ToInt32(cbFunc.SelectedValue), Convert.ToInt32(cbVenue.SelectedValue), Convert.ToInt32(cbLead.SelectedValue));
             }
             catch
             {
                 dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
-                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, chAll.Checked, -1, -1, -1);
+                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, -1, -1, -1);
             }
 
             DataView dvIssues = dsIssues.Tables[0].DefaultView;
@@ -196,22 +196,6 @@ namespace GIM
             LoadIssueList();
         }
 
-        private void chAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if(chAll.Checked)
-            {
-                groupBox6.Enabled = true;
-                groupBox7.Enabled = true;
-            }
-            else
-            {
-                groupBox6.Enabled = false;
-                groupBox7.Enabled = false;
-            }
-
-            LoadIssueList();
-        }
-
         private void cbFunc_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadIssueList();
@@ -255,6 +239,11 @@ namespace GIM
         private void btRefresh_Click(object sender, EventArgs e)
         {
             LoadIssueList();
+        }
+
+        private void btApplyFilter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

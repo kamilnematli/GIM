@@ -188,6 +188,7 @@
             // 
             // clbImpactedFuncs
             // 
+            this.clbImpactedFuncs.CheckOnClick = true;
             this.clbImpactedFuncs.FormattingEnabled = true;
             this.clbImpactedFuncs.Location = new System.Drawing.Point(19, 319);
             this.clbImpactedFuncs.MultiColumn = true;
@@ -197,6 +198,7 @@
             // 
             // clbImpactedVenues
             // 
+            this.clbImpactedVenues.CheckOnClick = true;
             this.clbImpactedVenues.FormattingEnabled = true;
             this.clbImpactedVenues.Location = new System.Drawing.Point(231, 319);
             this.clbImpactedVenues.MultiColumn = true;
