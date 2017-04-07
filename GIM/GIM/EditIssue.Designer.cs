@@ -163,6 +163,7 @@
             this.tbDesc.Location = new System.Drawing.Point(19, 121);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
+            this.tbDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbDesc.Size = new System.Drawing.Size(409, 79);
             this.tbDesc.TabIndex = 2;
             // 
@@ -180,6 +181,7 @@
             this.tbTitle.Location = new System.Drawing.Point(19, 38);
             this.tbTitle.Multiline = true;
             this.tbTitle.Name = "tbTitle";
+            this.tbTitle.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbTitle.Size = new System.Drawing.Size(409, 63);
             this.tbTitle.TabIndex = 1;
             // 
@@ -496,6 +498,7 @@
             this.tbUpdate.Location = new System.Drawing.Point(460, 478);
             this.tbUpdate.Multiline = true;
             this.tbUpdate.Name = "tbUpdate";
+            this.tbUpdate.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbUpdate.Size = new System.Drawing.Size(784, 80);
             this.tbUpdate.TabIndex = 48;
             // 

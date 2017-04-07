@@ -56,7 +56,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 26);
+            this.label3.Location = new System.Drawing.Point(12, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 6;
@@ -65,15 +65,15 @@
             // tbTitle
             // 
             this.tbTitle.BackColor = System.Drawing.SystemColors.Info;
-            this.tbTitle.Location = new System.Drawing.Point(18, 42);
+            this.tbTitle.Location = new System.Drawing.Point(15, 42);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(398, 20);
+            this.tbTitle.Size = new System.Drawing.Size(389, 20);
             this.tbTitle.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(228, 178);
+            this.label4.Location = new System.Drawing.Point(216, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 13);
             this.label4.TabIndex = 9;
@@ -82,7 +82,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 178);
+            this.label5.Location = new System.Drawing.Point(12, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 8;
@@ -91,7 +91,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 505);
+            this.label6.Location = new System.Drawing.Point(12, 506);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 13);
             this.label6.TabIndex = 12;
@@ -125,7 +125,7 @@
             "21",
             "22",
             "23"});
-            this.cbHour.Location = new System.Drawing.Point(150, 526);
+            this.cbHour.Location = new System.Drawing.Point(149, 521);
             this.cbHour.Name = "cbHour";
             this.cbHour.Size = new System.Drawing.Size(50, 21);
             this.cbHour.TabIndex = 9;
@@ -194,7 +194,7 @@
             "57",
             "58",
             "59"});
-            this.cbMins.Location = new System.Drawing.Point(220, 526);
+            this.cbMins.Location = new System.Drawing.Point(219, 521);
             this.cbMins.Name = "cbMins";
             this.cbMins.Size = new System.Drawing.Size(51, 21);
             this.cbMins.TabIndex = 10;
@@ -202,23 +202,23 @@
             // dtOccurence
             // 
             this.dtOccurence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtOccurence.Location = new System.Drawing.Point(15, 526);
+            this.dtOccurence.Location = new System.Drawing.Point(15, 522);
             this.dtOccurence.Name = "dtOccurence";
             this.dtOccurence.Size = new System.Drawing.Size(120, 20);
             this.dtOccurence.TabIndex = 8;
             // 
             // tbLocationDesc
             // 
-            this.tbLocationDesc.Location = new System.Drawing.Point(17, 455);
+            this.tbLocationDesc.Location = new System.Drawing.Point(15, 455);
             this.tbLocationDesc.Multiline = true;
             this.tbLocationDesc.Name = "tbLocationDesc";
-            this.tbLocationDesc.Size = new System.Drawing.Size(399, 38);
+            this.tbLocationDesc.Size = new System.Drawing.Size(389, 38);
             this.tbLocationDesc.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 439);
+            this.label7.Location = new System.Drawing.Point(12, 439);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 13);
             this.label7.TabIndex = 20;
@@ -226,7 +226,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(231, 591);
+            this.btSave.Location = new System.Drawing.Point(208, 572);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 11;
@@ -236,7 +236,7 @@
             // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(346, 591);
+            this.btCancel.Location = new System.Drawing.Point(323, 572);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 12;
@@ -248,7 +248,7 @@
             // 
             this.clbImpactedVenues.CheckOnClick = true;
             this.clbImpactedVenues.FormattingEnabled = true;
-            this.clbImpactedVenues.Location = new System.Drawing.Point(231, 194);
+            this.clbImpactedVenues.Location = new System.Drawing.Point(219, 194);
             this.clbImpactedVenues.MultiColumn = true;
             this.clbImpactedVenues.Name = "clbImpactedVenues";
             this.clbImpactedVenues.Size = new System.Drawing.Size(185, 184);
@@ -258,7 +258,7 @@
             // 
             this.clbImpactedFuncs.CheckOnClick = true;
             this.clbImpactedFuncs.FormattingEnabled = true;
-            this.clbImpactedFuncs.Location = new System.Drawing.Point(18, 194);
+            this.clbImpactedFuncs.Location = new System.Drawing.Point(15, 194);
             this.clbImpactedFuncs.MultiColumn = true;
             this.clbImpactedFuncs.Name = "clbImpactedFuncs";
             this.clbImpactedFuncs.Size = new System.Drawing.Size(184, 184);
@@ -285,9 +285,9 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.tbTitle);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(18, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(437, 566);
+            this.groupBox1.Size = new System.Drawing.Size(420, 554);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New";
@@ -295,15 +295,15 @@
             // cbLeadFunc
             // 
             this.cbLeadFunc.FormattingEnabled = true;
-            this.cbLeadFunc.Location = new System.Drawing.Point(17, 407);
+            this.cbLeadFunc.Location = new System.Drawing.Point(15, 407);
             this.cbLeadFunc.Name = "cbLeadFunc";
-            this.cbLeadFunc.Size = new System.Drawing.Size(185, 21);
+            this.cbLeadFunc.Size = new System.Drawing.Size(184, 21);
             this.cbLeadFunc.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 389);
+            this.label9.Location = new System.Drawing.Point(12, 391);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 31;
@@ -312,15 +312,15 @@
             // cbLocation
             // 
             this.cbLocation.FormattingEnabled = true;
-            this.cbLocation.Location = new System.Drawing.Point(230, 407);
+            this.cbLocation.Location = new System.Drawing.Point(219, 407);
             this.cbLocation.Name = "cbLocation";
-            this.cbLocation.Size = new System.Drawing.Size(186, 21);
+            this.cbLocation.Size = new System.Drawing.Size(185, 21);
             this.cbLocation.TabIndex = 6;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(227, 391);
+            this.label8.Location = new System.Drawing.Point(216, 391);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 13);
             this.label8.TabIndex = 29;
@@ -329,7 +329,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(206, 530);
+            this.label2.Location = new System.Drawing.Point(204, 524);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 28;
@@ -338,16 +338,17 @@
             // tbDesc
             // 
             this.tbDesc.BackColor = System.Drawing.SystemColors.Info;
-            this.tbDesc.Location = new System.Drawing.Point(18, 86);
+            this.tbDesc.Location = new System.Drawing.Point(15, 86);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
-            this.tbDesc.Size = new System.Drawing.Size(398, 82);
+            this.tbDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbDesc.Size = new System.Drawing.Size(389, 82);
             this.tbDesc.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 70);
+            this.label1.Location = new System.Drawing.Point(12, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 26;
@@ -357,10 +358,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 621);
+            this.ClientSize = new System.Drawing.Size(446, 604);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.btCancel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddLog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Log";

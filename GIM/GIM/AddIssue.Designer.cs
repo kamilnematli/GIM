@@ -50,19 +50,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbMins = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chReportable = new System.Windows.Forms.CheckBox();
+            this.chDashboard = new System.Windows.Forms.CheckBox();
+            this.cbMin3 = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbHour3 = new System.Windows.Forms.ComboBox();
+            this.dtActualEnd = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tbLocationDesc = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cbLocation = new System.Windows.Forms.ComboBox();
             this.tbAttachment = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.cbMin3 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cbHour3 = new System.Windows.Forms.ComboBox();
-            this.dtActualEnd = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.chReportable = new System.Windows.Forms.CheckBox();
-            this.chDashboard = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +87,7 @@
             this.tbDesc.Location = new System.Drawing.Point(19, 81);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
+            this.tbDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbDesc.Size = new System.Drawing.Size(409, 79);
             this.tbDesc.TabIndex = 2;
             // 
@@ -379,54 +380,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New";
             // 
-            // label13
+            // chReportable
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 214);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 13);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "Location description";
+            this.chReportable.AutoSize = true;
+            this.chReportable.Location = new System.Drawing.Point(338, 541);
+            this.chReportable.Name = "chReportable";
+            this.chReportable.Size = new System.Drawing.Size(78, 17);
+            this.chReportable.TabIndex = 51;
+            this.chReportable.Text = "Reportable";
+            this.chReportable.UseVisualStyleBackColor = true;
             // 
-            // tbLocationDesc
+            // chDashboard
             // 
-            this.tbLocationDesc.Location = new System.Drawing.Point(19, 230);
-            this.tbLocationDesc.Name = "tbLocationDesc";
-            this.tbLocationDesc.Size = new System.Drawing.Size(409, 20);
-            this.tbLocationDesc.TabIndex = 32;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 169);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 13);
-            this.label12.TabIndex = 31;
-            this.label12.Text = "Location";
-            // 
-            // cbLocation
-            // 
-            this.cbLocation.FormattingEnabled = true;
-            this.cbLocation.Location = new System.Drawing.Point(19, 184);
-            this.cbLocation.Name = "cbLocation";
-            this.cbLocation.Size = new System.Drawing.Size(197, 21);
-            this.cbLocation.TabIndex = 30;
-            // 
-            // tbAttachment
-            // 
-            this.tbAttachment.Location = new System.Drawing.Point(19, 582);
-            this.tbAttachment.Name = "tbAttachment";
-            this.tbAttachment.Size = new System.Drawing.Size(409, 20);
-            this.tbAttachment.TabIndex = 28;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 566);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 13);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "Attachment";
+            this.chDashboard.AutoSize = true;
+            this.chDashboard.Location = new System.Drawing.Point(338, 504);
+            this.chDashboard.Name = "chDashboard";
+            this.chDashboard.Size = new System.Drawing.Size(78, 17);
+            this.chDashboard.TabIndex = 50;
+            this.chDashboard.Text = "Dashboard";
+            this.chDashboard.UseVisualStyleBackColor = true;
             // 
             // cbMin3
             // 
@@ -560,25 +532,54 @@
             this.label7.TabIndex = 45;
             this.label7.Text = "Actual end date/time";
             // 
-            // chReportable
+            // label13
             // 
-            this.chReportable.AutoSize = true;
-            this.chReportable.Location = new System.Drawing.Point(338, 541);
-            this.chReportable.Name = "chReportable";
-            this.chReportable.Size = new System.Drawing.Size(78, 17);
-            this.chReportable.TabIndex = 51;
-            this.chReportable.Text = "Reportable";
-            this.chReportable.UseVisualStyleBackColor = true;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(16, 214);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 13);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Location description";
             // 
-            // chDashboard
+            // tbLocationDesc
             // 
-            this.chDashboard.AutoSize = true;
-            this.chDashboard.Location = new System.Drawing.Point(338, 504);
-            this.chDashboard.Name = "chDashboard";
-            this.chDashboard.Size = new System.Drawing.Size(78, 17);
-            this.chDashboard.TabIndex = 50;
-            this.chDashboard.Text = "Dashboard";
-            this.chDashboard.UseVisualStyleBackColor = true;
+            this.tbLocationDesc.Location = new System.Drawing.Point(19, 230);
+            this.tbLocationDesc.Name = "tbLocationDesc";
+            this.tbLocationDesc.Size = new System.Drawing.Size(409, 20);
+            this.tbLocationDesc.TabIndex = 32;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(16, 169);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Location";
+            // 
+            // cbLocation
+            // 
+            this.cbLocation.FormattingEnabled = true;
+            this.cbLocation.Location = new System.Drawing.Point(19, 184);
+            this.cbLocation.Name = "cbLocation";
+            this.cbLocation.Size = new System.Drawing.Size(197, 21);
+            this.cbLocation.TabIndex = 30;
+            // 
+            // tbAttachment
+            // 
+            this.tbAttachment.Location = new System.Drawing.Point(19, 582);
+            this.tbAttachment.Name = "tbAttachment";
+            this.tbAttachment.Size = new System.Drawing.Size(409, 20);
+            this.tbAttachment.TabIndex = 28;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 566);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 13);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Attachment";
             // 
             // AddIssue
             // 
