@@ -81,7 +81,7 @@ namespace GIM
                 try
                 {
                     dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text.Replace("'", "''"), -1, -1, FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), -1, -1, "");
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), 0, 0, "");
 
                     MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
@@ -104,17 +104,25 @@ namespace GIM
             clbImpactedFuncs.DisplayMember = "FuncCode";
             clbImpactedFuncs.ValueMember = "ID";
 
-            cbLeadFunc.DataSource = dvFuncs;
+            DataSet dsLead = dba.GetTable("GIMfunc", 0);
+            DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+            cbLeadFunc.DataSource = dvLead;
             cbLeadFunc.DisplayMember = "FuncCode";
             cbLeadFunc.ValueMember = "ID";
 
-            DataSet dsLead = dba.GetTable("GIMvenue", 0);
-            DataView dvLead = new DataView(dsLead.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
-            clbImpactedVenues.DataSource = dvLead;
+            DataSet dsVenues = dba.GetTable("GIMvenue", 0);
+            DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+            clbImpactedVenues.DataSource = dvVenues;
             clbImpactedVenues.DisplayMember = "VenueCode";
             clbImpactedVenues.ValueMember = "ID";
 
-            cbLocation.DataSource = dvLead;
+            DataSet dsLocation = dba.GetTable("GIMvenue", 0);
+            DataRow rCT = dsLocation.Tables[0].NewRow();
+            rCT["ID"] = 0;
+            rCT["VenueCode"] = "";
+            dsLocation.Tables[0].Rows.Add(rCT);
+            DataView dvLocation = new DataView(dsLocation.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+            cbLocation.DataSource = dvLocation;
             cbLocation.DisplayMember = "VenueCode";
             cbLocation.ValueMember = "ID";
 
@@ -169,10 +177,6 @@ namespace GIM
         {
             this.Close();
         }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -68,8 +68,7 @@
             this.tbTitle.Location = new System.Drawing.Point(18, 42);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(398, 20);
-            this.tbTitle.TabIndex = 7;
-            this.tbTitle.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.tbTitle.TabIndex = 1;
             // 
             // label4
             // 
@@ -129,7 +128,7 @@
             this.cbHour.Location = new System.Drawing.Point(150, 526);
             this.cbHour.Name = "cbHour";
             this.cbHour.Size = new System.Drawing.Size(50, 21);
-            this.cbHour.TabIndex = 14;
+            this.cbHour.TabIndex = 9;
             // 
             // cbMins
             // 
@@ -198,7 +197,7 @@
             this.cbMins.Location = new System.Drawing.Point(220, 526);
             this.cbMins.Name = "cbMins";
             this.cbMins.Size = new System.Drawing.Size(51, 21);
-            this.cbMins.TabIndex = 15;
+            this.cbMins.TabIndex = 10;
             // 
             // dtOccurence
             // 
@@ -206,7 +205,7 @@
             this.dtOccurence.Location = new System.Drawing.Point(15, 526);
             this.dtOccurence.Name = "dtOccurence";
             this.dtOccurence.Size = new System.Drawing.Size(120, 20);
-            this.dtOccurence.TabIndex = 17;
+            this.dtOccurence.TabIndex = 8;
             // 
             // tbLocationDesc
             // 
@@ -214,7 +213,7 @@
             this.tbLocationDesc.Multiline = true;
             this.tbLocationDesc.Name = "tbLocationDesc";
             this.tbLocationDesc.Size = new System.Drawing.Size(399, 38);
-            this.tbLocationDesc.TabIndex = 19;
+            this.tbLocationDesc.TabIndex = 7;
             // 
             // label7
             // 
@@ -230,7 +229,7 @@
             this.btSave.Location = new System.Drawing.Point(231, 591);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
-            this.btSave.TabIndex = 21;
+            this.btSave.TabIndex = 11;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
@@ -240,28 +239,30 @@
             this.btCancel.Location = new System.Drawing.Point(346, 591);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
-            this.btCancel.TabIndex = 22;
+            this.btCancel.TabIndex = 12;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // clbImpactedVenues
             // 
+            this.clbImpactedVenues.CheckOnClick = true;
             this.clbImpactedVenues.FormattingEnabled = true;
             this.clbImpactedVenues.Location = new System.Drawing.Point(231, 194);
             this.clbImpactedVenues.MultiColumn = true;
             this.clbImpactedVenues.Name = "clbImpactedVenues";
             this.clbImpactedVenues.Size = new System.Drawing.Size(185, 184);
-            this.clbImpactedVenues.TabIndex = 24;
+            this.clbImpactedVenues.TabIndex = 4;
             // 
             // clbImpactedFuncs
             // 
+            this.clbImpactedFuncs.CheckOnClick = true;
             this.clbImpactedFuncs.FormattingEnabled = true;
             this.clbImpactedFuncs.Location = new System.Drawing.Point(18, 194);
             this.clbImpactedFuncs.MultiColumn = true;
             this.clbImpactedFuncs.Name = "clbImpactedFuncs";
             this.clbImpactedFuncs.Size = new System.Drawing.Size(184, 184);
-            this.clbImpactedFuncs.TabIndex = 25;
+            this.clbImpactedFuncs.TabIndex = 3;
             // 
             // groupBox1
             // 
@@ -297,7 +298,7 @@
             this.cbLeadFunc.Location = new System.Drawing.Point(17, 407);
             this.cbLeadFunc.Name = "cbLeadFunc";
             this.cbLeadFunc.Size = new System.Drawing.Size(185, 21);
-            this.cbLeadFunc.TabIndex = 32;
+            this.cbLeadFunc.TabIndex = 5;
             // 
             // label9
             // 
@@ -314,7 +315,7 @@
             this.cbLocation.Location = new System.Drawing.Point(230, 407);
             this.cbLocation.Name = "cbLocation";
             this.cbLocation.Size = new System.Drawing.Size(186, 21);
-            this.cbLocation.TabIndex = 30;
+            this.cbLocation.TabIndex = 6;
             // 
             // label8
             // 
@@ -341,7 +342,7 @@
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(398, 82);
-            this.tbDesc.TabIndex = 27;
+            this.tbDesc.TabIndex = 2;
             // 
             // label1
             // 
