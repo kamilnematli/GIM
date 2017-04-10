@@ -179,6 +179,22 @@ namespace GIM
             return ds;
         }
 
+        public DataSet GetDailyReport(int _userid, string DateMonth, int DateDay)
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = " SELECT * FROM [dbo].[GIMdailyReport] where [dbo].[GIMdailyReport].[UserID] = " + _userid +
+                " and [dbo].[GIMdailyReport].[DateMonth] = " + DateMonth + " and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
         public DataSet GetIssueImpcFuncs(int _id)
         {
             string _sql = "";
@@ -358,6 +374,30 @@ namespace GIM
             conn.Close();
         }
 
+        public void InsertDailyReport(int UserID, string ReportText, string ReportStat, string DateMonth, int DateDay)
+        {
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+
+            string _sql = "INSERT INTO [dbo].[GIMdailyReport] " +
+                          " ([ReportText]" +
+                          " ,[ReportStats]" +
+                          " ,[UserID]" +
+                          " ,[DateMonth]" +
+                          " ,[DateDay])" +
+                          " VALUES" +
+                          " ('" + ReportText +
+                          "','" + ReportStat +
+                          "'," + UserID +
+                          ",'" + DateMonth +
+                          "'," + DateDay + ")";
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
         #endregion
 
         #region Update data
@@ -478,6 +518,23 @@ namespace GIM
 
             string _sql = " UPDATE [dbo].[GIMusers] SET " +
                           " [UserPass] = '" + newPass + "' where ID = " + UserID;
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void UpdateDailyReport(int UserID, string ReportText, string ReportStat, string DateMonth, int DateDay)
+        {
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+
+            string _sql = " UPDATE [dbo].[GIMdailyReport] SET " +
+                          " [ReportText] = '" + ReportText + "'" +
+                          " [ReportStats] = '" + ReportStat + "'" +
+                          " where[dbo].[GIMdailyReport].[UserID] = " + UserID +
+                          " and [dbo].[GIMdailyReport].[DateMonth] = " + DateMonth + " and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();

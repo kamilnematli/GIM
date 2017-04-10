@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lbDailyReport = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -123,9 +124,9 @@
             // Updated
             // 
             this.Updated.DataPropertyName = "DateUpdated";
-            dataGridViewCellStyle1.Format = "d MMMM H:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Updated.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "d MMMM H:mm";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle3;
             this.Updated.HeaderText = "Updated";
             this.Updated.Name = "Updated";
             this.Updated.Width = 90;
@@ -154,8 +155,8 @@
             // Title
             // 
             this.Title.DataPropertyName = "Title";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Title.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle4;
             this.Title.HeaderText = "Title";
             this.Title.Name = "Title";
             this.Title.Width = 450;
@@ -542,11 +543,24 @@
             this.linkLabel1.Text = "Change password";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // lbDailyReport
+            // 
+            this.lbDailyReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDailyReport.AutoSize = true;
+            this.lbDailyReport.Location = new System.Drawing.Point(1278, 26);
+            this.lbDailyReport.Name = "lbDailyReport";
+            this.lbDailyReport.Size = new System.Drawing.Size(60, 13);
+            this.lbDailyReport.TabIndex = 29;
+            this.lbDailyReport.TabStop = true;
+            this.lbDailyReport.Text = "Daily report";
+            this.lbDailyReport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDailyReport_LinkClicked);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 701);
+            this.Controls.Add(this.lbDailyReport);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.splitter1);
@@ -629,6 +643,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lbDailyReport;
     }
 }
 

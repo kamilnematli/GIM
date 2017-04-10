@@ -149,8 +149,23 @@ namespace GIM
 
         private void btOpenIssue_Click(object sender, EventArgs e)
         {
-            EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), UserID);
-            frm.Show();
+            DBlayer dba = new DBlayer();
+            DataSet dsIssue = dba.GetTable("GIMissue", Convert.ToInt32(tbIssueID.Text));
+
+            try
+            {
+                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Type"]) == 1)
+                {
+                    EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), UserID);
+                    frm.Show();
+                }
+                else if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Type"]) == 2)
+                {
+                    AddLog fal = new AddLog(Convert.ToInt32(tbIssueID.Text), UserID);
+                    fal.ShowDialog();
+                }
+            }
+            catch { }        
         }
 
         private void gvIssues_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -251,6 +266,12 @@ namespace GIM
         {
             ChangePass fcp = new ChangePass(UserID);
             fcp.ShowDialog();
+        }
+
+        private void lbDailyReport_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DailyReport fdr = new GIM.DailyReport(UserID);
+            fdr.ShowDialog();
         }
     }
 }

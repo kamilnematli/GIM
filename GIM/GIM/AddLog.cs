@@ -128,7 +128,7 @@ namespace GIM
 
             if (IssueID > 0)
             {
-                this.Text = "Edit Issue";
+                this.Text = "Edit Log";
                 groupBox1.Text = "Edit";
 
                 DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
