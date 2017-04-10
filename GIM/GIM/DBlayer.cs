@@ -185,7 +185,7 @@ namespace GIM
             DataSet ds = new DataSet();
 
             _sql = " SELECT * FROM [dbo].[GIMdailyReport] where [dbo].[GIMdailyReport].[UserID] = " + _userid +
-                " and [dbo].[GIMdailyReport].[DateMonth] = " + DateMonth + " and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
+                " and [dbo].[GIMdailyReport].[DateMonth] = '" + DateMonth + "' and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
 
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -532,9 +532,9 @@ namespace GIM
 
             string _sql = " UPDATE [dbo].[GIMdailyReport] SET " +
                           " [ReportText] = '" + ReportText + "'" +
-                          " [ReportStats] = '" + ReportStat + "'" +
-                          " where[dbo].[GIMdailyReport].[UserID] = " + UserID +
-                          " and [dbo].[GIMdailyReport].[DateMonth] = " + DateMonth + " and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
+                          ",[ReportStats] = '" + ReportStat + "'" +
+                          " where [dbo].[GIMdailyReport].[UserID] = " + UserID +
+                          " and [dbo].[GIMdailyReport].[DateMonth] = '" + DateMonth + "' and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();

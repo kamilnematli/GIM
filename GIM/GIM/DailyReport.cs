@@ -34,14 +34,17 @@ namespace GIM
             DataSet dsReport = dba.GetDailyReport(UserID, DateMonth, DateDay);
             try
             {
-                if (dsReport.Tables.Count == 0)
+                if (dsReport.Tables.Count == 0 || dsReport.Tables[0].Rows.Count == 0)
                 {
-                    dba.InsertDailyReport(UserID, tbReportText.Text, tbReportStat.Text, DateMonth, DateDay);
+                    dba.InsertDailyReport(UserID, tbReportText.Text.Replace("'", "''"), tbReportStat.Text.Replace("'", "''"), DateMonth, DateDay);
                 }
                 else
                 {
-                    dba.UpdateDailyReport(UserID, tbReportText.Text, tbReportStat.Text, DateMonth, DateDay);
+                    dba.UpdateDailyReport(UserID, tbReportText.Text.Replace("'", "''"), tbReportStat.Text.Replace("'", "''"), DateMonth, DateDay);
                 }
+
+                MessageBox.Show("You have successfully submitted a daily report!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                this.Close();
             }
             catch
             {
