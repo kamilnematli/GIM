@@ -50,6 +50,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.chReportable = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -266,6 +267,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chReportable);
             this.groupBox1.Controls.Add(this.cbLeadFunc);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.cbLocation);
@@ -354,6 +356,16 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Description";
             // 
+            // chReportable
+            // 
+            this.chReportable.AutoSize = true;
+            this.chReportable.Location = new System.Drawing.Point(311, 524);
+            this.chReportable.Name = "chReportable";
+            this.chReportable.Size = new System.Drawing.Size(78, 17);
+            this.chReportable.TabIndex = 52;
+            this.chReportable.Text = "Reportable";
+            this.chReportable.UseVisualStyleBackColor = true;
+            // 
             // AddLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,5 +409,6 @@
         private System.Windows.Forms.ComboBox cbLeadFunc;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbLocation;
+        private System.Windows.Forms.CheckBox chReportable;
     }
 }

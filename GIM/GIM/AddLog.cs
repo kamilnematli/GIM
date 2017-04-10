@@ -77,11 +77,13 @@ namespace GIM
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
                 DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
 
+                int Reportable = 0;
+                if (chReportable.Checked) Reportable = 1;
 
                 try
                 {
-                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text.Replace("'", "''"), -1, -1, FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), 0, 0, "");
+                    dba.UpdateIssueDetails(IssueID, 2, tbTitle.Text.Replace("'", "''"), -1, -1, FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), 0, Reportable, "");
 
                     MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
@@ -137,6 +139,7 @@ namespace GIM
                 cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
                 tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
                 cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
+                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
 
                 DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
                 dtOccurence.Value = dtOcc.Date;
