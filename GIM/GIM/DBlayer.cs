@@ -413,7 +413,7 @@ namespace GIM
                           " [Type] = " + Type +
                           ",[Title] = '" + Title + "'";
 
-            if (IssueStatus == -1)
+            if (IssueStatus < 1)
             {
                 _sql += ", [IssueStatus] = null";
             }
@@ -422,7 +422,7 @@ namespace GIM
                 _sql += ", [IssueStatus] = " + IssueStatus;
             }
 
-            if (IssueSeverity == -1)
+            if (IssueSeverity < 1)
             {
                 _sql += ", [IssueSeverity] = null";
             }

@@ -142,14 +142,23 @@ namespace GIM
                     DataRowView castedItem = itemChecked as DataRowView;
                     ImpactedVenues += castedItem["ID"].ToString() + ",";
                 }
-               
+                ImpactedVenues += Convert.ToInt32(cbLocation.SelectedValue) + ",";
+
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
-                DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+                if (cbHour.Text != "" || cbMins.Text != "")
+                {
+                    DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+                }
+
+                int Dashboard = 0;
+                int Reportable = 0;
+                if (chReportable.Checked) Reportable = 1;
+                if (chDashboard.Checked) Dashboard = 1;
 
                 try
                 {
                     dba.InsertIssue(1, tbTitle.Text.Replace("'", "''"), Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", "", 0, 0, Environment.UserName.Replace("'", "''"), tbAttachment.Text, tbLocationDesc.Text.Replace("'", "''"));
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", "", Reportable, Dashboard, Environment.UserName.Replace("'", "''"), tbAttachment.Text, tbLocationDesc.Text.Replace("'", "''"));
 
                     MessageBox.Show("You have successfully created an issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
@@ -172,9 +181,13 @@ namespace GIM
                     DataRowView castedItem = itemChecked as DataRowView;
                     ImpactedVenues += castedItem["ID"].ToString() + ",";
                 }
+                ImpactedVenues += Convert.ToInt32(cbLocation.SelectedValue) + ",";
 
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
-                DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+                if (cbHour.Text != "" || cbMins.Text != "")
+                {
+                    DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+                }
 
                 string DateActualEnd = "";
                 DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");

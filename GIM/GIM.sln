@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIM", "GIM\GIM.csproj", "{302B4B8A-757A-4F34-9576-32D8AABB4A31}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GIMsetup", "GIMsetup\GIMsetup.vdproj", "{A73F44A9-221E-43D3-92BF-74B4A4ACF208}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{302B4B8A-757A-4F34-9576-32D8AABB4A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{302B4B8A-757A-4F34-9576-32D8AABB4A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{302B4B8A-757A-4F34-9576-32D8AABB4A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A73F44A9-221E-43D3-92BF-74B4A4ACF208}.Debug|Any CPU.ActiveCfg = Debug
+		{A73F44A9-221E-43D3-92BF-74B4A4ACF208}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
