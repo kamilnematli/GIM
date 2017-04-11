@@ -273,5 +273,15 @@ namespace GIM
             DailyReport fdr = new GIM.DailyReport(UserID);
             fdr.ShowDialog();
         }
+
+        private void clbImpactedVenues_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
+
+        private void btApplyFilter_Click_1(object sender, EventArgs e)
+        {
+            LoadIssueList();
+        }
     }
 }

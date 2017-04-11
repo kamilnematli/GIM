@@ -295,6 +295,7 @@
             this.btApplyFilter.TabIndex = 24;
             this.btApplyFilter.Text = "Apply";
             this.btApplyFilter.UseVisualStyleBackColor = true;
+            this.btApplyFilter.Click += new System.EventHandler(this.btApplyFilter_Click_1);
             // 
             // groupBox3
             // 
@@ -502,6 +503,7 @@
             this.clbImpactedVenues.Name = "clbImpactedVenues";
             this.clbImpactedVenues.Size = new System.Drawing.Size(92, 289);
             this.clbImpactedVenues.TabIndex = 26;
+            this.clbImpactedVenues.SelectedIndexChanged += new System.EventHandler(this.clbImpactedVenues_SelectedIndexChanged);
             // 
             // clbImpactedFuncs
             // 
