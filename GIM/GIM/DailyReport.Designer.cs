@@ -51,6 +51,36 @@
             // 
             this.cbDate.FormattingEnabled = true;
             this.cbDate.Items.AddRange(new object[] {
+            "1 April",
+            "2 April",
+            "3 April",
+            "4 April",
+            "5 April",
+            "6 April",
+            "7 April",
+            "8 April",
+            "9 April",
+            "10 April",
+            "11 April",
+            "12 April",
+            "13 April",
+            "14 April",
+            "15 April",
+            "16 April",
+            "17 April",
+            "18 April",
+            "19 April",
+            "20 April",
+            "21 April",
+            "22 April",
+            "23 April",
+            "24 April",
+            "25 April",
+            "26 April",
+            "27 April",
+            "28 April",
+            "29 April",
+            "30 April",
             "1 May",
             "2 May",
             "3 May",
@@ -102,23 +132,23 @@
             this.tbReportText.Location = new System.Drawing.Point(18, 69);
             this.tbReportText.Name = "tbReportText";
             this.tbReportText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.tbReportText.Size = new System.Drawing.Size(636, 173);
+            this.tbReportText.Size = new System.Drawing.Size(636, 201);
             this.tbReportText.TabIndex = 3;
             this.tbReportText.Text = "";
             // 
             // tbReportStat
             // 
-            this.tbReportStat.Location = new System.Drawing.Point(18, 273);
+            this.tbReportStat.Location = new System.Drawing.Point(18, 299);
             this.tbReportStat.Name = "tbReportStat";
             this.tbReportStat.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.tbReportStat.Size = new System.Drawing.Size(636, 173);
+            this.tbReportStat.Size = new System.Drawing.Size(636, 200);
             this.tbReportStat.TabIndex = 5;
             this.tbReportStat.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 257);
+            this.label3.Location = new System.Drawing.Point(15, 283);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 4;
@@ -127,7 +157,7 @@
             // btCancel
             // 
             this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(545, 452);
+            this.btCancel.Location = new System.Drawing.Point(545, 505);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 14;
@@ -137,7 +167,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(428, 452);
+            this.btSave.Location = new System.Drawing.Point(428, 505);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 13;
@@ -149,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 485);
+            this.ClientSize = new System.Drawing.Size(670, 537);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.tbReportStat);
@@ -159,8 +189,12 @@
             this.Controls.Add(this.cbDate);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(686, 576);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(686, 576);
             this.Name = "DailyReport";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Daily Report";
             this.Load += new System.EventHandler(this.DailyReport_Load);

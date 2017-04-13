@@ -43,6 +43,7 @@
             this.clbImpactedVenues = new System.Windows.Forms.CheckedListBox();
             this.clbImpactedFuncs = new System.Windows.Forms.CheckedListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chReportable = new System.Windows.Forms.CheckBox();
             this.cbLeadFunc = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbLocation = new System.Windows.Forms.ComboBox();
@@ -50,7 +51,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.chReportable = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -294,6 +294,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New";
             // 
+            // chReportable
+            // 
+            this.chReportable.AutoSize = true;
+            this.chReportable.Location = new System.Drawing.Point(311, 524);
+            this.chReportable.Name = "chReportable";
+            this.chReportable.Size = new System.Drawing.Size(78, 17);
+            this.chReportable.TabIndex = 52;
+            this.chReportable.Text = "Reportable";
+            this.chReportable.UseVisualStyleBackColor = true;
+            // 
             // cbLeadFunc
             // 
             this.cbLeadFunc.FormattingEnabled = true;
@@ -356,16 +366,6 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Description";
             // 
-            // chReportable
-            // 
-            this.chReportable.AutoSize = true;
-            this.chReportable.Location = new System.Drawing.Point(311, 524);
-            this.chReportable.Name = "chReportable";
-            this.chReportable.Size = new System.Drawing.Size(78, 17);
-            this.chReportable.TabIndex = 52;
-            this.chReportable.Text = "Reportable";
-            this.chReportable.UseVisualStyleBackColor = true;
-            // 
             // AddLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +377,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddLog";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Log";
             this.Load += new System.EventHandler(this.AddLog_Load);

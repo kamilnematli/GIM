@@ -84,6 +84,7 @@
             // 
             // SignIn
             // 
+            this.AcceptButton = this.tbEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -98,6 +99,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SignIn";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Games Issue Management - Sign In";
             this.Load += new System.EventHandler(this.SignIn_Load);

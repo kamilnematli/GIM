@@ -122,8 +122,8 @@ namespace GIM
             if (FiltStatus != "" && FiltStatus.Substring(0, 2) == "or") FiltStatus = FiltStatus.Substring(2);
             FiltStatus = "(" + FiltStatus + ")";
 
-            if (FiltSev != "()") filt += filt + "and " + FiltSev;
-            if (FiltStatus != "()") filt += filt + "and " + FiltStatus;
+            if (FiltSev != "()") filt += "and " + FiltSev;
+            if (FiltStatus != "()") filt += "and " + FiltStatus;
 
             if (filt != "" && filt.Substring(0, 4).Contains("and")) filt = filt.Substring(4);
 

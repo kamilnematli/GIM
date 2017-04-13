@@ -595,6 +595,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(490, 700);
             this.Name = "AddIssue";
+            this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Issue";

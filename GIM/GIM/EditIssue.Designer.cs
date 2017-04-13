@@ -599,6 +599,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditIssue";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Issue details";
             this.Load += new System.EventHandler(this.EditIssue_Load);

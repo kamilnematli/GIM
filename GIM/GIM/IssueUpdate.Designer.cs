@@ -44,7 +44,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(12, 274);
+            this.btSave.Location = new System.Drawing.Point(288, 274);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 62;
@@ -54,7 +54,7 @@
             // 
             // btDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(126, 274);
+            this.btDelete.Location = new System.Drawing.Point(402, 274);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(109, 23);
             this.btDelete.TabIndex = 63;
@@ -64,7 +64,7 @@
             // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(241, 274);
+            this.btCancel.Location = new System.Drawing.Point(517, 274);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 65;
@@ -160,6 +160,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "IssueUpdate";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Details";
             this.Load += new System.EventHandler(this.IssueUpdate_Load);

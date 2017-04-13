@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,9 +124,9 @@
             // Updated
             // 
             this.Updated.DataPropertyName = "DateUpdated";
-            dataGridViewCellStyle3.Format = "d MMMM H:mm";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Updated.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "d MMMM H:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle1;
             this.Updated.HeaderText = "Updated";
             this.Updated.Name = "Updated";
             this.Updated.Width = 90;
@@ -155,8 +155,8 @@
             // Title
             // 
             this.Title.DataPropertyName = "Title";
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Title.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle2;
             this.Title.HeaderText = "Title";
             this.Title.Name = "Title";
             this.Title.Width = 450;
@@ -574,6 +574,7 @@
             this.Controls.Add(this.tbIssueID);
             this.Controls.Add(this.gvIssues);
             this.Name = "MainWindow";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Games Issue Management System - Main window";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
