@@ -88,8 +88,15 @@ namespace GIM
                 cbMin3.Text = dtActEnd.Minute.ToString();
             }
 
-            if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1) chDashboard.Checked = true;
-            if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
+            if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1)
+                chDashboard.Checked = true;
+            else
+                chDashboard.Checked = false;
+
+            if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1)
+                chReportable.Checked = true;
+            else
+                chReportable.Checked = false;
 
             DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
             string impactedFuncs = "";

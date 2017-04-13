@@ -121,6 +121,7 @@
             this.tbUpdate.Location = new System.Drawing.Point(17, 32);
             this.tbUpdate.Multiline = true;
             this.tbUpdate.Name = "tbUpdate";
+            this.tbUpdate.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbUpdate.Size = new System.Drawing.Size(578, 153);
             this.tbUpdate.TabIndex = 53;
             // 
@@ -158,9 +159,12 @@
             this.Controls.Add(this.lbUpdateDate);
             this.Controls.Add(this.btSave);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(656, 344);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(656, 344);
             this.Name = "IssueUpdate";
             this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Details";
             this.Load += new System.EventHandler(this.IssueUpdate_Load);

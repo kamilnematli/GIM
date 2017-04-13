@@ -154,7 +154,7 @@
             // 
             // cbStatus
             // 
-            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Enabled = false;
             this.cbStatus.Location = new System.Drawing.Point(231, 274);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(197, 21);

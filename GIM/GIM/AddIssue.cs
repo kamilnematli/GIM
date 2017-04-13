@@ -70,6 +70,7 @@ namespace GIM
             {
                 this.Text = "Edit Issue";
                 groupBox1.Text = "Edit";
+                cbStatus.Enabled = true;
 
                 DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
                 tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
@@ -145,7 +146,7 @@ namespace GIM
                 ImpactedVenues += Convert.ToInt32(cbLocation.SelectedValue) + ",";
 
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
-                if (cbHour.Text != "" || cbMins.Text != "")
+                if (cbHour.Text != "" && cbMins.Text != "")
                 {
                     DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
                 }
