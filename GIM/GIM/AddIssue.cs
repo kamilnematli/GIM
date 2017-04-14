@@ -66,6 +66,12 @@ namespace GIM
             cbLocation.DisplayMember = "VenueCode";
             cbLocation.ValueMember = "ID";
 
+            if(FuncID != 1)
+            {
+                chReportable.Visible = false;
+                chDashboard.Visible = false;
+            }
+
             if(IssueID > 0)
             {
                 this.Text = "Edit Issue";
@@ -171,6 +177,15 @@ namespace GIM
             }
             else if (IssueID > 0)
             {
+                if (Convert.ToInt32(cbStatus.SelectedValue) == 4)
+                {
+                    if (cbHour3.Text == "" || cbMin3.Text == "")
+                    {
+                        MessageBox.Show("As you have closed the issue, you have to insert the actual end date/time!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    return;
+                }
+
                 foreach (object itemChecked in clbImpactedFuncs.CheckedItems)
                 {
                     DataRowView castedItem = itemChecked as DataRowView;
@@ -185,15 +200,14 @@ namespace GIM
                 ImpactedVenues += Convert.ToInt32(cbLocation.SelectedValue) + ",";
 
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
-                if (cbHour.Text != "" || cbMins.Text != "")
+                if (cbHour.Text != "" && cbMins.Text != "")
                 {
                     DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
                 }
-
+                
                 string DateActualEnd = "";
                 DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
-
-                if (cbHour3.Text != "" || cbMin3.Text != "")
+                if (cbHour3.Text != "" && cbMin3.Text != "")
                 {
                     DateActualEnd = DateActualEnd + " " + cbHour3.Text + ":" + cbMin3.Text;
                 }
@@ -238,6 +252,44 @@ namespace GIM
                 dtActualEnd.Enabled = false;
                 cbHour3.Enabled = false;
                 cbMin3.Enabled = false;
+            }
+        }
+
+        private void chAllFuncs_CheckedChanged(object sender, EventArgs e)
+        {
+            int i = 0;
+            if (chAllFuncs.Checked == true)
+            {
+                for (i = 0; i < clbImpactedFuncs.Items.Count; i++)
+                {
+                    clbImpactedFuncs.SetItemChecked(i, true);
+                }
+            }
+            else
+            {
+                for (i = 0; i < clbImpactedFuncs.Items.Count; i++)
+                {
+                    clbImpactedFuncs.SetItemChecked(i, false);
+                }
+            }
+        }
+
+        private void chAllVenues_CheckedChanged(object sender, EventArgs e)
+        {
+            int i = 0;
+            if (chAllVenues.Checked == true)
+            {
+                for (i = 0; i < clbImpactedVenues.Items.Count; i++)
+                {
+                    clbImpactedVenues.SetItemChecked(i, true);
+                }
+            }
+            else
+            {
+                for (i = 0; i < clbImpactedVenues.Items.Count; i++)
+                {
+                    clbImpactedVenues.SetItemChecked(i, false);
+                }
             }
         }
     }

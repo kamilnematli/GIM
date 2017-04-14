@@ -71,21 +71,21 @@ namespace GIM
             lblDoc.Text = dsIssue.Tables[0].Rows[0]["Attachment"].ToString();
 
             DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
-            dtOccurence.Value = dtOcc.Date;
-            cbHour.Text = dtOcc.Hour.ToString();
-            cbMins.Text = dtOcc.Minute.ToString();
+            tbDoccur.Text = dtOcc.Date.ToShortDateString();
+            tbHour.Text = dtOcc.Hour.ToString();
+            tbMin.Text = dtOcc.Minute.ToString();
 
             DateTime dtUpd = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateUpdated"].ToString());
-            dtUpdated.Value = dtUpd.Date;
-            cbHour2.Text = dtUpd.Hour.ToString();
-            cbMin2.Text = dtUpd.Minute.ToString();
+            tbDupdate.Text = dtUpd.Date.ToShortDateString();
+            tbHour2.Text = dtUpd.Hour.ToString();
+            tbMin2.Text = dtUpd.Minute.ToString();
 
             if (dsIssue.Tables[0].Rows[0]["DateActualEnd"].ToString() != "")
             {
                 DateTime dtActEnd = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateActualEnd"].ToString());
-                dtActualEnd.Value = dtActEnd.Date;
-                cbHour3.Text = dtActEnd.Hour.ToString();
-                cbMin3.Text = dtActEnd.Minute.ToString();
+                tbDactual.Text = dtActEnd.Date.ToShortDateString();
+                tbHour3.Text = dtActEnd.Hour.ToString();
+                tbMin3.Text = dtActEnd.Minute.ToString();
             }
 
             if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1)
@@ -155,35 +155,6 @@ namespace GIM
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            DBlayer dba = new DBlayer();
-            string DateActualEnd = "";
-            DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
-
-            if(cbHour3.Text == "" || cbMin3.Text == "")
-            {
-                DateActualEnd = DateActualEnd + " 00:01";
-            }
-            else
-            {
-                DateActualEnd = DateActualEnd + " " + cbHour3.Text + ":" + cbMin3.Text;
-            }
-            
-            int Dashboard = 0;
-            int Reportable = 0;
-            if (chReportable.Checked) Reportable = 1;
-            if (chDashboard.Checked) Dashboard = 1;
-
-            try
-            {
-                dba.UpdateIssue(IssueID, Convert.ToInt32(cbStatus.SelectedValue), Dashboard, Reportable, DateActualEnd);
-
-                MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                this.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Something went wrong. Please check the data that you have inserted, if everything seems ok please check your network connection!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btSubmitUpdate_Click(object sender, EventArgs e)

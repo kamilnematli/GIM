@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btDoc = new System.Windows.Forms.Button();
             this.tbEdit = new System.Windows.Forms.Button();
             this.cbLeadFunc = new System.Windows.Forms.ComboBox();
-            this.dtOccurence = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -41,12 +40,10 @@
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbTitle = new System.Windows.Forms.TextBox();
-            this.cbHour = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.cbMins = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbSeverity = new System.Windows.Forms.ComboBox();
@@ -57,15 +54,10 @@
             this.tbImpactedFuncs = new System.Windows.Forms.TextBox();
             this.tbImpactedVenues = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dtUpdated = new System.Windows.Forms.DateTimePicker();
-            this.dtActualEnd = new System.Windows.Forms.DateTimePicker();
             this.chDashboard = new System.Windows.Forms.CheckBox();
             this.chReportable = new System.Windows.Forms.CheckBox();
-            this.cbHour3 = new System.Windows.Forms.ComboBox();
-            this.cbHour2 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.cbMin2 = new System.Windows.Forms.ComboBox();
             this.gvUpdates = new System.Windows.Forms.DataGridView();
             this.UpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +65,6 @@
             this.FileUploaded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdateText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbMin3 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.lblDoc = new System.Windows.Forms.Label();
             this.tbUpdate = new System.Windows.Forms.TextBox();
@@ -82,6 +73,15 @@
             this.tbAttachment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btSubmitUpdate = new System.Windows.Forms.Button();
+            this.tbHour = new System.Windows.Forms.TextBox();
+            this.tbHour2 = new System.Windows.Forms.TextBox();
+            this.tbHour3 = new System.Windows.Forms.TextBox();
+            this.tbMin = new System.Windows.Forms.TextBox();
+            this.tbMin2 = new System.Windows.Forms.TextBox();
+            this.tbMin3 = new System.Windows.Forms.TextBox();
+            this.tbDoccur = new System.Windows.Forms.TextBox();
+            this.tbDupdate = new System.Windows.Forms.TextBox();
+            this.tbDactual = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvUpdates)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -108,19 +108,12 @@
             // 
             // cbLeadFunc
             // 
+            this.cbLeadFunc.Enabled = false;
             this.cbLeadFunc.FormattingEnabled = true;
             this.cbLeadFunc.Location = new System.Drawing.Point(19, 310);
             this.cbLeadFunc.Name = "cbLeadFunc";
             this.cbLeadFunc.Size = new System.Drawing.Size(197, 21);
             this.cbLeadFunc.TabIndex = 4;
-            // 
-            // dtOccurence
-            // 
-            this.dtOccurence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtOccurence.Location = new System.Drawing.Point(19, 487);
-            this.dtOccurence.Name = "dtOccurence";
-            this.dtOccurence.Size = new System.Drawing.Size(136, 20);
-            this.dtOccurence.TabIndex = 8;
             // 
             // label8
             // 
@@ -160,9 +153,11 @@
             // 
             // tbDesc
             // 
+            this.tbDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tbDesc.Location = new System.Drawing.Point(19, 121);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
+            this.tbDesc.ReadOnly = true;
             this.tbDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbDesc.Size = new System.Drawing.Size(409, 79);
             this.tbDesc.TabIndex = 2;
@@ -178,20 +173,14 @@
             // 
             // tbTitle
             // 
+            this.tbTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tbTitle.Location = new System.Drawing.Point(19, 38);
             this.tbTitle.Multiline = true;
             this.tbTitle.Name = "tbTitle";
+            this.tbTitle.ReadOnly = true;
             this.tbTitle.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbTitle.Size = new System.Drawing.Size(409, 63);
             this.tbTitle.TabIndex = 1;
-            // 
-            // cbHour
-            // 
-            this.cbHour.FormattingEnabled = true;
-            this.cbHour.Location = new System.Drawing.Point(170, 487);
-            this.cbHour.Name = "cbHour";
-            this.cbHour.Size = new System.Drawing.Size(46, 21);
-            this.cbHour.TabIndex = 9;
             // 
             // label1
             // 
@@ -222,19 +211,12 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.Enabled = false;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(231, 310);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(197, 21);
             this.cbStatus.TabIndex = 5;
-            // 
-            // cbMins
-            // 
-            this.cbMins.FormattingEnabled = true;
-            this.cbMins.Location = new System.Drawing.Point(231, 487);
-            this.cbMins.Name = "cbMins";
-            this.cbMins.Size = new System.Drawing.Size(46, 21);
-            this.cbMins.TabIndex = 10;
             // 
             // label11
             // 
@@ -256,6 +238,7 @@
             // 
             // cbSeverity
             // 
+            this.cbSeverity.Enabled = false;
             this.cbSeverity.FormattingEnabled = true;
             this.cbSeverity.Location = new System.Drawing.Point(231, 223);
             this.cbSeverity.Name = "cbSeverity";
@@ -264,6 +247,7 @@
             // 
             // cbLocation
             // 
+            this.cbLocation.Enabled = false;
             this.cbLocation.FormattingEnabled = true;
             this.cbLocation.Location = new System.Drawing.Point(19, 223);
             this.cbLocation.Name = "cbLocation";
@@ -281,8 +265,11 @@
             // 
             // tbLocationDesc
             // 
+            this.tbLocationDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbLocationDesc.Enabled = false;
             this.tbLocationDesc.Location = new System.Drawing.Point(19, 267);
             this.tbLocationDesc.Name = "tbLocationDesc";
+            this.tbLocationDesc.ReadOnly = true;
             this.tbLocationDesc.Size = new System.Drawing.Size(409, 20);
             this.tbLocationDesc.TabIndex = 32;
             // 
@@ -297,17 +284,21 @@
             // 
             // tbImpactedFuncs
             // 
+            this.tbImpactedFuncs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tbImpactedFuncs.Location = new System.Drawing.Point(19, 352);
             this.tbImpactedFuncs.Multiline = true;
             this.tbImpactedFuncs.Name = "tbImpactedFuncs";
+            this.tbImpactedFuncs.ReadOnly = true;
             this.tbImpactedFuncs.Size = new System.Drawing.Size(409, 46);
             this.tbImpactedFuncs.TabIndex = 34;
             // 
             // tbImpactedVenues
             // 
+            this.tbImpactedVenues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tbImpactedVenues.Location = new System.Drawing.Point(19, 419);
             this.tbImpactedVenues.Multiline = true;
             this.tbImpactedVenues.Name = "tbImpactedVenues";
+            this.tbImpactedVenues.ReadOnly = true;
             this.tbImpactedVenues.Size = new System.Drawing.Size(409, 46);
             this.tbImpactedVenues.TabIndex = 35;
             // 
@@ -320,25 +311,10 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Actual end date/time";
             // 
-            // dtUpdated
-            // 
-            this.dtUpdated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtUpdated.Location = new System.Drawing.Point(19, 532);
-            this.dtUpdated.Name = "dtUpdated";
-            this.dtUpdated.Size = new System.Drawing.Size(136, 20);
-            this.dtUpdated.TabIndex = 36;
-            // 
-            // dtActualEnd
-            // 
-            this.dtActualEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtActualEnd.Location = new System.Drawing.Point(19, 577);
-            this.dtActualEnd.Name = "dtActualEnd";
-            this.dtActualEnd.Size = new System.Drawing.Size(136, 20);
-            this.dtActualEnd.TabIndex = 41;
-            // 
             // chDashboard
             // 
             this.chDashboard.AutoSize = true;
+            this.chDashboard.Enabled = false;
             this.chDashboard.Location = new System.Drawing.Point(350, 491);
             this.chDashboard.Name = "chDashboard";
             this.chDashboard.Size = new System.Drawing.Size(78, 17);
@@ -349,28 +325,13 @@
             // chReportable
             // 
             this.chReportable.AutoSize = true;
+            this.chReportable.Enabled = false;
             this.chReportable.Location = new System.Drawing.Point(350, 534);
             this.chReportable.Name = "chReportable";
             this.chReportable.Size = new System.Drawing.Size(78, 17);
             this.chReportable.TabIndex = 21;
             this.chReportable.Text = "Reportable";
             this.chReportable.UseVisualStyleBackColor = true;
-            // 
-            // cbHour3
-            // 
-            this.cbHour3.FormattingEnabled = true;
-            this.cbHour3.Location = new System.Drawing.Point(170, 577);
-            this.cbHour3.Name = "cbHour3";
-            this.cbHour3.Size = new System.Drawing.Size(46, 21);
-            this.cbHour3.TabIndex = 42;
-            // 
-            // cbHour2
-            // 
-            this.cbHour2.FormattingEnabled = true;
-            this.cbHour2.Location = new System.Drawing.Point(170, 532);
-            this.cbHour2.Name = "cbHour2";
-            this.cbHour2.Size = new System.Drawing.Size(46, 21);
-            this.cbHour2.TabIndex = 37;
             // 
             // label14
             // 
@@ -389,14 +350,6 @@
             this.label15.Size = new System.Drawing.Size(10, 13);
             this.label15.TabIndex = 44;
             this.label15.Text = ":";
-            // 
-            // cbMin2
-            // 
-            this.cbMin2.FormattingEnabled = true;
-            this.cbMin2.Location = new System.Drawing.Point(231, 532);
-            this.cbMin2.Name = "cbMin2";
-            this.cbMin2.Size = new System.Drawing.Size(46, 21);
-            this.cbMin2.TabIndex = 38;
             // 
             // gvUpdates
             // 
@@ -423,9 +376,9 @@
             // UpdateDate
             // 
             this.UpdateDate.DataPropertyName = "DateUpdate";
-            dataGridViewCellStyle1.Format = "d MMMM H:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "d MMMM H:mm";
+            dataGridViewCellStyle5.NullValue = null;
+            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle5;
             this.UpdateDate.HeaderText = "Update date";
             this.UpdateDate.Name = "UpdateDate";
             this.UpdateDate.Width = 90;
@@ -461,19 +414,11 @@
             // UpdateText
             // 
             this.UpdateText.DataPropertyName = "UpdateContext";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle6;
             this.UpdateText.HeaderText = "Update description";
             this.UpdateText.Name = "UpdateText";
             this.UpdateText.Width = 550;
-            // 
-            // cbMin3
-            // 
-            this.cbMin3.FormattingEnabled = true;
-            this.cbMin3.Location = new System.Drawing.Point(231, 577);
-            this.cbMin3.Name = "cbMin3";
-            this.cbMin3.Size = new System.Drawing.Size(46, 21);
-            this.cbMin3.TabIndex = 43;
             // 
             // label16
             // 
@@ -529,6 +474,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbDactual);
+            this.groupBox1.Controls.Add(this.tbDupdate);
+            this.groupBox1.Controls.Add(this.tbDoccur);
+            this.groupBox1.Controls.Add(this.tbMin3);
+            this.groupBox1.Controls.Add(this.tbMin2);
+            this.groupBox1.Controls.Add(this.tbMin);
+            this.groupBox1.Controls.Add(this.tbHour3);
+            this.groupBox1.Controls.Add(this.tbHour2);
+            this.groupBox1.Controls.Add(this.tbHour);
             this.groupBox1.Controls.Add(this.btSubmitUpdate);
             this.groupBox1.Controls.Add(this.tbAttachment);
             this.groupBox1.Controls.Add(this.label18);
@@ -536,17 +490,11 @@
             this.groupBox1.Controls.Add(this.tbUpdate);
             this.groupBox1.Controls.Add(this.lblDoc);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.cbMin3);
             this.groupBox1.Controls.Add(this.gvUpdates);
-            this.groupBox1.Controls.Add(this.cbMin2);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.cbHour2);
-            this.groupBox1.Controls.Add(this.cbHour3);
             this.groupBox1.Controls.Add(this.chReportable);
             this.groupBox1.Controls.Add(this.chDashboard);
-            this.groupBox1.Controls.Add(this.dtActualEnd);
-            this.groupBox1.Controls.Add(this.dtUpdated);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tbImpactedVenues);
             this.groupBox1.Controls.Add(this.tbImpactedFuncs);
@@ -557,12 +505,10 @@
             this.groupBox1.Controls.Add(this.cbSeverity);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.cbMins);
             this.groupBox1.Controls.Add(this.cbStatus);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cbHour);
             this.groupBox1.Controls.Add(this.tbTitle);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbDesc);
@@ -570,7 +516,6 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.dtOccurence);
             this.groupBox1.Controls.Add(this.cbLeadFunc);
             this.groupBox1.Location = new System.Drawing.Point(12, 41);
             this.groupBox1.Name = "groupBox1";
@@ -587,6 +532,96 @@
             this.btSubmitUpdate.Text = "Submit";
             this.btSubmitUpdate.UseVisualStyleBackColor = true;
             this.btSubmitUpdate.Click += new System.EventHandler(this.btSubmitUpdate_Click);
+            // 
+            // tbHour
+            // 
+            this.tbHour.AccessibleName = "";
+            this.tbHour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbHour.Location = new System.Drawing.Point(170, 487);
+            this.tbHour.Name = "tbHour";
+            this.tbHour.ReadOnly = true;
+            this.tbHour.Size = new System.Drawing.Size(46, 20);
+            this.tbHour.TabIndex = 53;
+            // 
+            // tbHour2
+            // 
+            this.tbHour2.AccessibleName = "";
+            this.tbHour2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbHour2.Location = new System.Drawing.Point(170, 532);
+            this.tbHour2.Name = "tbHour2";
+            this.tbHour2.ReadOnly = true;
+            this.tbHour2.Size = new System.Drawing.Size(46, 20);
+            this.tbHour2.TabIndex = 54;
+            // 
+            // tbHour3
+            // 
+            this.tbHour3.AccessibleName = "";
+            this.tbHour3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbHour3.Location = new System.Drawing.Point(170, 577);
+            this.tbHour3.Name = "tbHour3";
+            this.tbHour3.ReadOnly = true;
+            this.tbHour3.Size = new System.Drawing.Size(46, 20);
+            this.tbHour3.TabIndex = 55;
+            // 
+            // tbMin
+            // 
+            this.tbMin.AccessibleName = "";
+            this.tbMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbMin.Location = new System.Drawing.Point(231, 487);
+            this.tbMin.Name = "tbMin";
+            this.tbMin.ReadOnly = true;
+            this.tbMin.Size = new System.Drawing.Size(46, 20);
+            this.tbMin.TabIndex = 56;
+            // 
+            // tbMin2
+            // 
+            this.tbMin2.AccessibleName = "";
+            this.tbMin2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbMin2.Location = new System.Drawing.Point(231, 532);
+            this.tbMin2.Name = "tbMin2";
+            this.tbMin2.ReadOnly = true;
+            this.tbMin2.Size = new System.Drawing.Size(46, 20);
+            this.tbMin2.TabIndex = 57;
+            // 
+            // tbMin3
+            // 
+            this.tbMin3.AccessibleName = "";
+            this.tbMin3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbMin3.Location = new System.Drawing.Point(231, 577);
+            this.tbMin3.Name = "tbMin3";
+            this.tbMin3.ReadOnly = true;
+            this.tbMin3.Size = new System.Drawing.Size(46, 20);
+            this.tbMin3.TabIndex = 58;
+            // 
+            // tbDoccur
+            // 
+            this.tbDoccur.AccessibleName = "";
+            this.tbDoccur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbDoccur.Location = new System.Drawing.Point(19, 487);
+            this.tbDoccur.Name = "tbDoccur";
+            this.tbDoccur.ReadOnly = true;
+            this.tbDoccur.Size = new System.Drawing.Size(136, 20);
+            this.tbDoccur.TabIndex = 59;
+            // 
+            // tbDupdate
+            // 
+            this.tbDupdate.AccessibleName = "";
+            this.tbDupdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbDupdate.Location = new System.Drawing.Point(19, 532);
+            this.tbDupdate.Name = "tbDupdate";
+            this.tbDupdate.ReadOnly = true;
+            this.tbDupdate.Size = new System.Drawing.Size(136, 20);
+            this.tbDupdate.TabIndex = 60;
+            // 
+            // tbDactual
+            // 
+            this.tbDactual.AccessibleName = "";
+            this.tbDactual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbDactual.Location = new System.Drawing.Point(19, 577);
+            this.tbDactual.Name = "tbDactual";
+            this.tbDactual.ReadOnly = true;
+            this.tbDactual.Size = new System.Drawing.Size(136, 20);
+            this.tbDactual.TabIndex = 61;
             // 
             // EditIssue
             // 
@@ -614,7 +649,6 @@
         private System.Windows.Forms.Button tbEdit;
         private System.Windows.Forms.Button btDoc;
         private System.Windows.Forms.ComboBox cbLeadFunc;
-        private System.Windows.Forms.DateTimePicker dtOccurence;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
@@ -622,12 +656,10 @@
         private System.Windows.Forms.TextBox tbDesc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbTitle;
-        private System.Windows.Forms.ComboBox cbHour;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.ComboBox cbMins;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbSeverity;
@@ -638,17 +670,11 @@
         private System.Windows.Forms.TextBox tbImpactedFuncs;
         private System.Windows.Forms.TextBox tbImpactedVenues;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtUpdated;
-        private System.Windows.Forms.DateTimePicker dtActualEnd;
         private System.Windows.Forms.CheckBox chDashboard;
         private System.Windows.Forms.CheckBox chReportable;
-        private System.Windows.Forms.ComboBox cbHour3;
-        private System.Windows.Forms.ComboBox cbHour2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox cbMin2;
         private System.Windows.Forms.DataGridView gvUpdates;
-        private System.Windows.Forms.ComboBox cbMin3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblDoc;
         private System.Windows.Forms.TextBox tbUpdate;
@@ -663,5 +689,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FileUploaded;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdateText;
+        private System.Windows.Forms.TextBox tbMin3;
+        private System.Windows.Forms.TextBox tbMin2;
+        private System.Windows.Forms.TextBox tbMin;
+        private System.Windows.Forms.TextBox tbHour3;
+        private System.Windows.Forms.TextBox tbHour2;
+        private System.Windows.Forms.TextBox tbHour;
+        private System.Windows.Forms.TextBox tbDoccur;
+        private System.Windows.Forms.TextBox tbDactual;
+        private System.Windows.Forms.TextBox tbDupdate;
     }
 }

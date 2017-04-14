@@ -75,6 +75,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lbDailyReport = new System.Windows.Forms.LinkLabel();
+            this.btClearFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -249,6 +250,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.btClearFilter);
             this.groupBox8.Controls.Add(this.groupBox5);
             this.groupBox8.Controls.Add(this.btApplyFilter);
             this.groupBox8.Controls.Add(this.groupBox3);
@@ -284,16 +286,15 @@
             this.chMyList.TabIndex = 5;
             this.chMyList.Text = "Raised by me";
             this.chMyList.UseVisualStyleBackColor = true;
-            this.chMyList.CheckedChanged += new System.EventHandler(this.chMyList_CheckedChanged);
             // 
             // btApplyFilter
             // 
             this.btApplyFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btApplyFilter.Location = new System.Drawing.Point(6, 654);
+            this.btApplyFilter.Location = new System.Drawing.Point(123, 654);
             this.btApplyFilter.Name = "btApplyFilter";
-            this.btApplyFilter.Size = new System.Drawing.Size(228, 21);
+            this.btApplyFilter.Size = new System.Drawing.Size(111, 21);
             this.btApplyFilter.TabIndex = 24;
-            this.btApplyFilter.Text = "Apply";
+            this.btApplyFilter.Text = "Apply filter";
             this.btApplyFilter.UseVisualStyleBackColor = true;
             this.btApplyFilter.Click += new System.EventHandler(this.btApplyFilter_Click_1);
             // 
@@ -317,7 +318,6 @@
             this.chIssue.TabIndex = 5;
             this.chIssue.Text = "Issues";
             this.chIssue.UseVisualStyleBackColor = true;
-            this.chIssue.CheckedChanged += new System.EventHandler(this.chIssue_CheckedChanged);
             // 
             // chLog
             // 
@@ -328,7 +328,6 @@
             this.chLog.TabIndex = 6;
             this.chLog.Text = "Logs";
             this.chLog.UseVisualStyleBackColor = true;
-            this.chLog.CheckedChanged += new System.EventHandler(this.chLog_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -351,7 +350,6 @@
             this.chLow.TabIndex = 7;
             this.chLow.Text = "Low";
             this.chLow.UseVisualStyleBackColor = true;
-            this.chLow.CheckedChanged += new System.EventHandler(this.chLow_CheckedChanged);
             // 
             // chMedium
             // 
@@ -362,7 +360,6 @@
             this.chMedium.TabIndex = 8;
             this.chMedium.Text = "Medium";
             this.chMedium.UseVisualStyleBackColor = true;
-            this.chMedium.CheckedChanged += new System.EventHandler(this.chMedium_CheckedChanged);
             // 
             // chHigh
             // 
@@ -373,7 +370,6 @@
             this.chHigh.TabIndex = 9;
             this.chHigh.Text = "High";
             this.chHigh.UseVisualStyleBackColor = true;
-            this.chHigh.CheckedChanged += new System.EventHandler(this.chHigh_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -396,7 +392,6 @@
             this.chNew.TabIndex = 10;
             this.chNew.Text = "New";
             this.chNew.UseVisualStyleBackColor = true;
-            this.chNew.CheckedChanged += new System.EventHandler(this.chNew_CheckedChanged);
             // 
             // chInprogress
             // 
@@ -407,7 +402,6 @@
             this.chInprogress.TabIndex = 11;
             this.chInprogress.Text = "In progress";
             this.chInprogress.UseVisualStyleBackColor = true;
-            this.chInprogress.CheckedChanged += new System.EventHandler(this.chInprogress_CheckedChanged);
             // 
             // chClosed
             // 
@@ -418,7 +412,6 @@
             this.chClosed.TabIndex = 12;
             this.chClosed.Text = "Closed";
             this.chClosed.UseVisualStyleBackColor = true;
-            this.chClosed.CheckedChanged += new System.EventHandler(this.chClosed_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -440,7 +433,6 @@
             this.chDashboard.TabIndex = 5;
             this.chDashboard.Text = "Dashboard";
             this.chDashboard.UseVisualStyleBackColor = true;
-            this.chDashboard.CheckedChanged += new System.EventHandler(this.chDashboard_CheckedChanged);
             // 
             // chReportable
             // 
@@ -451,7 +443,6 @@
             this.chReportable.TabIndex = 6;
             this.chReportable.Text = "Reportable";
             this.chReportable.UseVisualStyleBackColor = true;
-            this.chReportable.CheckedChanged += new System.EventHandler(this.chReportable_CheckedChanged);
             // 
             // groupBox7
             // 
@@ -471,7 +462,6 @@
             this.cbLead.Name = "cbLead";
             this.cbLead.Size = new System.Drawing.Size(51, 21);
             this.cbLead.TabIndex = 19;
-            this.cbLead.SelectedIndexChanged += new System.EventHandler(this.cbLead_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -503,7 +493,6 @@
             this.clbImpactedVenues.Name = "clbImpactedVenues";
             this.clbImpactedVenues.Size = new System.Drawing.Size(92, 289);
             this.clbImpactedVenues.TabIndex = 26;
-            this.clbImpactedVenues.SelectedIndexChanged += new System.EventHandler(this.clbImpactedVenues_SelectedIndexChanged);
             // 
             // clbImpactedFuncs
             // 
@@ -513,7 +502,6 @@
             this.clbImpactedFuncs.Name = "clbImpactedFuncs";
             this.clbImpactedFuncs.Size = new System.Drawing.Size(92, 289);
             this.clbImpactedFuncs.TabIndex = 25;
-            this.clbImpactedFuncs.SelectedIndexChanged += new System.EventHandler(this.clbImpactedFuncs_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -556,6 +544,17 @@
             this.lbDailyReport.TabStop = true;
             this.lbDailyReport.Text = "Daily report";
             this.lbDailyReport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDailyReport_LinkClicked);
+            // 
+            // btClearFilter
+            // 
+            this.btClearFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btClearFilter.Location = new System.Drawing.Point(6, 654);
+            this.btClearFilter.Name = "btClearFilter";
+            this.btClearFilter.Size = new System.Drawing.Size(111, 21);
+            this.btClearFilter.TabIndex = 25;
+            this.btClearFilter.Text = "Clear filter";
+            this.btClearFilter.UseVisualStyleBackColor = true;
+            this.btClearFilter.Click += new System.EventHandler(this.btClearFilter_Click);
             // 
             // MainWindow
             // 
@@ -647,6 +646,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel lbDailyReport;
+        private System.Windows.Forms.Button btClearFilter;
     }
 }
 

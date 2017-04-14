@@ -192,76 +192,6 @@ namespace GIM
             LoadIssueList();
         }
 
-        private void btApplyFilter_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chMyList_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void cbLead_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chIssue_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chLog_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chLow_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chMedium_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chHigh_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chNew_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chInprogress_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chClosed_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chDashboard_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void chReportable_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
-        private void clbImpactedFuncs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadIssueList();
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ChangePass fcp = new ChangePass(UserID);
@@ -274,14 +204,36 @@ namespace GIM
             fdr.ShowDialog();
         }
 
-        private void clbImpactedVenues_SelectedIndexChanged(object sender, EventArgs e)
+        private void btApplyFilter_Click_1(object sender, EventArgs e)
         {
             LoadIssueList();
         }
 
-        private void btApplyFilter_Click_1(object sender, EventArgs e)
+        private void btClearFilter_Click(object sender, EventArgs e)
         {
-            LoadIssueList();
+            chMyList.Checked = false;
+            cbLead.Text = "";
+            chIssue.Checked = false;
+            chLog.Checked = false;
+            chLow.Checked = false;
+            chMedium.Checked = false;
+            chHigh.Checked = false;
+            chNew.Checked = false;
+            chInprogress.Checked = false;
+            chClosed.Checked = false;
+            chDashboard.Checked = false;
+            chReportable.Checked = false;
+
+            int i = 0;
+            for (i = 0; i < clbImpactedFuncs.Items.Count; i++)
+            {
+                clbImpactedFuncs.SetItemChecked(i, false);
+            }
+
+            for (i = 0; i < clbImpactedVenues.Items.Count; i++)
+            {
+                clbImpactedVenues.SetItemChecked(i, false);
+            }
         }
     }
 }

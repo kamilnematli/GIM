@@ -44,7 +44,10 @@ namespace GIM
                 }
 
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
-                DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+                if (cbHour.Text != "" && cbMins.Text != "")
+                {
+                    DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+                }
 
                 try
                 {
@@ -60,7 +63,7 @@ namespace GIM
                 }
 
             }
-            else if (IssueID>0)
+            else if (IssueID > 0)
             {
                 foreach (object itemChecked in clbImpactedFuncs.CheckedItems)
                 {
@@ -75,7 +78,10 @@ namespace GIM
                 }
 
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
-                DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+                if (cbHour.Text != "" && cbMins.Text != "")
+                {
+                    DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
+                }
 
                 int Reportable = 0;
                 if (chReportable.Checked) Reportable = 1;
@@ -85,7 +91,7 @@ namespace GIM
                     dba.UpdateIssueDetails(IssueID, 2, tbTitle.Text.Replace("'", "''"), -1, -1, FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
                         ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), 0, Reportable, "");
 
-                    MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("You have successfully updated the log!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
                 }
                 catch
@@ -127,6 +133,11 @@ namespace GIM
             cbLocation.DataSource = dvLocation;
             cbLocation.DisplayMember = "VenueCode";
             cbLocation.ValueMember = "ID";
+
+            if (FuncID != 1)
+            {
+                chReportable.Visible = false;
+            }
 
             if (IssueID > 0)
             {
@@ -180,6 +191,43 @@ namespace GIM
         {
             this.Close();
         }
-        
+
+        private void chAllFuncs_CheckedChanged(object sender, EventArgs e)
+        {
+            int i = 0;
+            if (chAllFuncs.Checked == true)
+            {
+                for (i = 0; i < clbImpactedFuncs.Items.Count; i++)
+                {
+                    clbImpactedFuncs.SetItemChecked(i, true);
+                }
+            }
+            else
+            {
+                for (i = 0; i < clbImpactedFuncs.Items.Count; i++)
+                {
+                    clbImpactedFuncs.SetItemChecked(i, false);
+                }
+            }
+        }
+
+        private void chAllVenues_CheckedChanged(object sender, EventArgs e)
+        {
+            int i = 0;
+            if (chAllVenues.Checked == true)
+            {
+                for (i = 0; i < clbImpactedVenues.Items.Count; i++)
+                {
+                    clbImpactedVenues.SetItemChecked(i, true);
+                }
+            }
+            else
+            {
+                for (i = 0; i < clbImpactedVenues.Items.Count; i++)
+                {
+                    clbImpactedVenues.SetItemChecked(i, false);
+                }
+            }
+        }
     }
 }

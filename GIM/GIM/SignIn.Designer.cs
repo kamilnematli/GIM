@@ -48,6 +48,8 @@
             // 
             // cbUsers
             // 
+            this.cbUsers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbUsers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUsers.FormattingEnabled = true;
             this.cbUsers.Location = new System.Drawing.Point(367, 154);
             this.cbUsers.Name = "cbUsers";
