@@ -50,6 +50,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbMins = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chAllVenues = new System.Windows.Forms.CheckBox();
+            this.chAllFuncs = new System.Windows.Forms.CheckBox();
             this.chReportable = new System.Windows.Forms.CheckBox();
             this.chDashboard = new System.Windows.Forms.CheckBox();
             this.cbMin3 = new System.Windows.Forms.ComboBox();
@@ -63,8 +65,6 @@
             this.cbLocation = new System.Windows.Forms.ComboBox();
             this.tbAttachment = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.chAllFuncs = new System.Windows.Forms.CheckBox();
-            this.chAllVenues = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -386,6 +386,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New";
             // 
+            // chAllVenues
+            // 
+            this.chAllVenues.AutoSize = true;
+            this.chAllVenues.Location = new System.Drawing.Point(234, 324);
+            this.chAllVenues.Name = "chAllVenues";
+            this.chAllVenues.Size = new System.Drawing.Size(69, 17);
+            this.chAllVenues.TabIndex = 53;
+            this.chAllVenues.Text = "Select all";
+            this.chAllVenues.UseVisualStyleBackColor = true;
+            this.chAllVenues.CheckedChanged += new System.EventHandler(this.chAllVenues_CheckedChanged);
+            // 
+            // chAllFuncs
+            // 
+            this.chAllFuncs.AutoSize = true;
+            this.chAllFuncs.Location = new System.Drawing.Point(22, 324);
+            this.chAllFuncs.Name = "chAllFuncs";
+            this.chAllFuncs.Size = new System.Drawing.Size(69, 17);
+            this.chAllFuncs.TabIndex = 52;
+            this.chAllFuncs.Text = "Select all";
+            this.chAllFuncs.UseVisualStyleBackColor = true;
+            this.chAllFuncs.CheckedChanged += new System.EventHandler(this.chAllFuncs_CheckedChanged);
+            // 
             // chReportable
             // 
             this.chReportable.AutoSize = true;
@@ -588,28 +610,6 @@
             this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 27;
             this.label11.Text = "Attachment";
-            // 
-            // chAllFuncs
-            // 
-            this.chAllFuncs.AutoSize = true;
-            this.chAllFuncs.Location = new System.Drawing.Point(22, 324);
-            this.chAllFuncs.Name = "chAllFuncs";
-            this.chAllFuncs.Size = new System.Drawing.Size(69, 17);
-            this.chAllFuncs.TabIndex = 52;
-            this.chAllFuncs.Text = "Select all";
-            this.chAllFuncs.UseVisualStyleBackColor = true;
-            this.chAllFuncs.CheckedChanged += new System.EventHandler(this.chAllFuncs_CheckedChanged);
-            // 
-            // chAllVenues
-            // 
-            this.chAllVenues.AutoSize = true;
-            this.chAllVenues.Location = new System.Drawing.Point(234, 324);
-            this.chAllVenues.Name = "chAllVenues";
-            this.chAllVenues.Size = new System.Drawing.Size(69, 17);
-            this.chAllVenues.TabIndex = 53;
-            this.chAllVenues.Text = "Select all";
-            this.chAllVenues.UseVisualStyleBackColor = true;
-            this.chAllVenues.CheckedChanged += new System.EventHandler(this.chAllVenues_CheckedChanged);
             // 
             // AddIssue
             // 

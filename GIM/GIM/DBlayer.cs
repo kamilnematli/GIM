@@ -289,7 +289,7 @@ namespace GIM
                           " (" + Type +
                           ",'" + Title + "'";
 
-            if ( IssueStatus == -1)
+            if ( IssueStatus < 1)
             {
                 _sql += ", null";
             }
@@ -298,7 +298,7 @@ namespace GIM
                 _sql += "," + IssueStatus;
             }
 
-            if (IssueSeverity == -1)
+            if (IssueSeverity < 1)
             {
                 _sql += ", null";
             }
@@ -309,9 +309,18 @@ namespace GIM
 
             _sql += " ," + RaisedBy +
                     ",'" + Desc +
-                    "'," + LeadFunction +
-                    "," + Location +
-                    ",CONVERT(datetime,'" + DateOccurence +
+                    "'," + LeadFunction;
+
+            if (Location < 1)
+            {
+                _sql += ", null";
+            }
+            else
+            {
+                _sql += "," + Location;
+            }
+
+            _sql += ",CONVERT(datetime,'" + DateOccurence +
                     "'), null" +
                     ",'" + DateTime.Now +
                     "'," + Reportable +

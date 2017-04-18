@@ -235,5 +235,10 @@ namespace GIM
                 clbImpactedVenues.SetItemChecked(i, false);
             }
         }
+
+        private void gvIssues_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            gvIssues.Rows[0].Selected = false;
+        }
     }
 }

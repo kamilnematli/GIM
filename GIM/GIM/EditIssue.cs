@@ -88,6 +88,10 @@ namespace GIM
                 tbMin3.Text = dtActEnd.Minute.ToString();
             }
 
+            if (FuncID != 1)
+                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["RaisedBy"]) != FuncID)
+                    btEdit.Enabled = false;
+
             if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1)
                 chDashboard.Checked = true;
             else
@@ -146,17 +150,6 @@ namespace GIM
             }
         }
 
-        private void tbEdit_Click(object sender, EventArgs e)
-        {
-            AddIssue frm = new GIM.AddIssue(IssueID, FuncID);
-            frm.ShowDialog();
-            LoadEditIssue();
-        }
-
-        private void btSave_Click(object sender, EventArgs e)
-        {
-        }
-
         private void btSubmitUpdate_Click(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
@@ -179,6 +172,13 @@ namespace GIM
             DataSet dsUpdates = dba.GetUpdates(IssueID);
             DataView dvUpdates = dsUpdates.Tables[0].DefaultView;
             gvUpdates.DataSource = dvUpdates;
+        }
+
+        private void btEdit_Click(object sender, EventArgs e)
+        {
+            AddIssue frm = new GIM.AddIssue(IssueID, FuncID);
+            frm.ShowDialog();
+            LoadEditIssue();
         }
     }
 }

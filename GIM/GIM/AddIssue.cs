@@ -149,7 +149,11 @@ namespace GIM
                     DataRowView castedItem = itemChecked as DataRowView;
                     ImpactedVenues += castedItem["ID"].ToString() + ",";
                 }
-                ImpactedVenues += Convert.ToInt32(cbLocation.SelectedValue) + ",";
+
+                if (Convert.ToInt32(cbLocation.SelectedValue) > 0)
+                {
+                    ImpactedVenues += Convert.ToInt32(cbLocation.SelectedValue) + ",";
+                }
 
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
                 if (cbHour.Text != "" && cbMins.Text != "")

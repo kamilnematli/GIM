@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btDoc = new System.Windows.Forms.Button();
-            this.tbEdit = new System.Windows.Forms.Button();
+            this.btEdit = new System.Windows.Forms.Button();
             this.cbLeadFunc = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -72,16 +72,16 @@
             this.label18 = new System.Windows.Forms.Label();
             this.tbAttachment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btSubmitUpdate = new System.Windows.Forms.Button();
-            this.tbHour = new System.Windows.Forms.TextBox();
-            this.tbHour2 = new System.Windows.Forms.TextBox();
-            this.tbHour3 = new System.Windows.Forms.TextBox();
-            this.tbMin = new System.Windows.Forms.TextBox();
-            this.tbMin2 = new System.Windows.Forms.TextBox();
-            this.tbMin3 = new System.Windows.Forms.TextBox();
-            this.tbDoccur = new System.Windows.Forms.TextBox();
-            this.tbDupdate = new System.Windows.Forms.TextBox();
             this.tbDactual = new System.Windows.Forms.TextBox();
+            this.tbDupdate = new System.Windows.Forms.TextBox();
+            this.tbDoccur = new System.Windows.Forms.TextBox();
+            this.tbMin3 = new System.Windows.Forms.TextBox();
+            this.tbMin2 = new System.Windows.Forms.TextBox();
+            this.tbMin = new System.Windows.Forms.TextBox();
+            this.tbHour3 = new System.Windows.Forms.TextBox();
+            this.tbHour2 = new System.Windows.Forms.TextBox();
+            this.tbHour = new System.Windows.Forms.TextBox();
+            this.btSubmitUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvUpdates)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -96,15 +96,15 @@
             this.btDoc.UseVisualStyleBackColor = true;
             this.btDoc.Click += new System.EventHandler(this.btDoc_Click);
             // 
-            // tbEdit
+            // btEdit
             // 
-            this.tbEdit.Location = new System.Drawing.Point(153, 12);
-            this.tbEdit.Name = "tbEdit";
-            this.tbEdit.Size = new System.Drawing.Size(136, 23);
-            this.tbEdit.TabIndex = 32;
-            this.tbEdit.Text = "Edit issue";
-            this.tbEdit.UseVisualStyleBackColor = true;
-            this.tbEdit.Click += new System.EventHandler(this.tbEdit_Click);
+            this.btEdit.Location = new System.Drawing.Point(153, 12);
+            this.btEdit.Name = "btEdit";
+            this.btEdit.Size = new System.Drawing.Size(136, 23);
+            this.btEdit.TabIndex = 32;
+            this.btEdit.Text = "Edit issue";
+            this.btEdit.UseVisualStyleBackColor = true;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
             // cbLeadFunc
             // 
@@ -376,9 +376,9 @@
             // UpdateDate
             // 
             this.UpdateDate.DataPropertyName = "DateUpdate";
-            dataGridViewCellStyle5.Format = "d MMMM H:mm";
-            dataGridViewCellStyle5.NullValue = null;
-            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "d MMMM H:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.UpdateDate.DefaultCellStyle = dataGridViewCellStyle1;
             this.UpdateDate.HeaderText = "Update date";
             this.UpdateDate.Name = "UpdateDate";
             this.UpdateDate.Width = 90;
@@ -414,8 +414,8 @@
             // UpdateText
             // 
             this.UpdateText.DataPropertyName = "UpdateContext";
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UpdateText.DefaultCellStyle = dataGridViewCellStyle2;
             this.UpdateText.HeaderText = "Update description";
             this.UpdateText.Name = "UpdateText";
             this.UpdateText.Width = 550;
@@ -523,85 +523,15 @@
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             // 
-            // btSubmitUpdate
+            // tbDactual
             // 
-            this.btSubmitUpdate.Location = new System.Drawing.Point(1135, 576);
-            this.btSubmitUpdate.Name = "btSubmitUpdate";
-            this.btSubmitUpdate.Size = new System.Drawing.Size(109, 23);
-            this.btSubmitUpdate.TabIndex = 52;
-            this.btSubmitUpdate.Text = "Submit";
-            this.btSubmitUpdate.UseVisualStyleBackColor = true;
-            this.btSubmitUpdate.Click += new System.EventHandler(this.btSubmitUpdate_Click);
-            // 
-            // tbHour
-            // 
-            this.tbHour.AccessibleName = "";
-            this.tbHour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbHour.Location = new System.Drawing.Point(170, 487);
-            this.tbHour.Name = "tbHour";
-            this.tbHour.ReadOnly = true;
-            this.tbHour.Size = new System.Drawing.Size(46, 20);
-            this.tbHour.TabIndex = 53;
-            // 
-            // tbHour2
-            // 
-            this.tbHour2.AccessibleName = "";
-            this.tbHour2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbHour2.Location = new System.Drawing.Point(170, 532);
-            this.tbHour2.Name = "tbHour2";
-            this.tbHour2.ReadOnly = true;
-            this.tbHour2.Size = new System.Drawing.Size(46, 20);
-            this.tbHour2.TabIndex = 54;
-            // 
-            // tbHour3
-            // 
-            this.tbHour3.AccessibleName = "";
-            this.tbHour3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbHour3.Location = new System.Drawing.Point(170, 577);
-            this.tbHour3.Name = "tbHour3";
-            this.tbHour3.ReadOnly = true;
-            this.tbHour3.Size = new System.Drawing.Size(46, 20);
-            this.tbHour3.TabIndex = 55;
-            // 
-            // tbMin
-            // 
-            this.tbMin.AccessibleName = "";
-            this.tbMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbMin.Location = new System.Drawing.Point(231, 487);
-            this.tbMin.Name = "tbMin";
-            this.tbMin.ReadOnly = true;
-            this.tbMin.Size = new System.Drawing.Size(46, 20);
-            this.tbMin.TabIndex = 56;
-            // 
-            // tbMin2
-            // 
-            this.tbMin2.AccessibleName = "";
-            this.tbMin2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbMin2.Location = new System.Drawing.Point(231, 532);
-            this.tbMin2.Name = "tbMin2";
-            this.tbMin2.ReadOnly = true;
-            this.tbMin2.Size = new System.Drawing.Size(46, 20);
-            this.tbMin2.TabIndex = 57;
-            // 
-            // tbMin3
-            // 
-            this.tbMin3.AccessibleName = "";
-            this.tbMin3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbMin3.Location = new System.Drawing.Point(231, 577);
-            this.tbMin3.Name = "tbMin3";
-            this.tbMin3.ReadOnly = true;
-            this.tbMin3.Size = new System.Drawing.Size(46, 20);
-            this.tbMin3.TabIndex = 58;
-            // 
-            // tbDoccur
-            // 
-            this.tbDoccur.AccessibleName = "";
-            this.tbDoccur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbDoccur.Location = new System.Drawing.Point(19, 487);
-            this.tbDoccur.Name = "tbDoccur";
-            this.tbDoccur.ReadOnly = true;
-            this.tbDoccur.Size = new System.Drawing.Size(136, 20);
-            this.tbDoccur.TabIndex = 59;
+            this.tbDactual.AccessibleName = "";
+            this.tbDactual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbDactual.Location = new System.Drawing.Point(19, 577);
+            this.tbDactual.Name = "tbDactual";
+            this.tbDactual.ReadOnly = true;
+            this.tbDactual.Size = new System.Drawing.Size(136, 20);
+            this.tbDactual.TabIndex = 61;
             // 
             // tbDupdate
             // 
@@ -613,15 +543,85 @@
             this.tbDupdate.Size = new System.Drawing.Size(136, 20);
             this.tbDupdate.TabIndex = 60;
             // 
-            // tbDactual
+            // tbDoccur
             // 
-            this.tbDactual.AccessibleName = "";
-            this.tbDactual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbDactual.Location = new System.Drawing.Point(19, 577);
-            this.tbDactual.Name = "tbDactual";
-            this.tbDactual.ReadOnly = true;
-            this.tbDactual.Size = new System.Drawing.Size(136, 20);
-            this.tbDactual.TabIndex = 61;
+            this.tbDoccur.AccessibleName = "";
+            this.tbDoccur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbDoccur.Location = new System.Drawing.Point(19, 487);
+            this.tbDoccur.Name = "tbDoccur";
+            this.tbDoccur.ReadOnly = true;
+            this.tbDoccur.Size = new System.Drawing.Size(136, 20);
+            this.tbDoccur.TabIndex = 59;
+            // 
+            // tbMin3
+            // 
+            this.tbMin3.AccessibleName = "";
+            this.tbMin3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbMin3.Location = new System.Drawing.Point(231, 577);
+            this.tbMin3.Name = "tbMin3";
+            this.tbMin3.ReadOnly = true;
+            this.tbMin3.Size = new System.Drawing.Size(46, 20);
+            this.tbMin3.TabIndex = 58;
+            // 
+            // tbMin2
+            // 
+            this.tbMin2.AccessibleName = "";
+            this.tbMin2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbMin2.Location = new System.Drawing.Point(231, 532);
+            this.tbMin2.Name = "tbMin2";
+            this.tbMin2.ReadOnly = true;
+            this.tbMin2.Size = new System.Drawing.Size(46, 20);
+            this.tbMin2.TabIndex = 57;
+            // 
+            // tbMin
+            // 
+            this.tbMin.AccessibleName = "";
+            this.tbMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbMin.Location = new System.Drawing.Point(231, 487);
+            this.tbMin.Name = "tbMin";
+            this.tbMin.ReadOnly = true;
+            this.tbMin.Size = new System.Drawing.Size(46, 20);
+            this.tbMin.TabIndex = 56;
+            // 
+            // tbHour3
+            // 
+            this.tbHour3.AccessibleName = "";
+            this.tbHour3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbHour3.Location = new System.Drawing.Point(170, 577);
+            this.tbHour3.Name = "tbHour3";
+            this.tbHour3.ReadOnly = true;
+            this.tbHour3.Size = new System.Drawing.Size(46, 20);
+            this.tbHour3.TabIndex = 55;
+            // 
+            // tbHour2
+            // 
+            this.tbHour2.AccessibleName = "";
+            this.tbHour2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbHour2.Location = new System.Drawing.Point(170, 532);
+            this.tbHour2.Name = "tbHour2";
+            this.tbHour2.ReadOnly = true;
+            this.tbHour2.Size = new System.Drawing.Size(46, 20);
+            this.tbHour2.TabIndex = 54;
+            // 
+            // tbHour
+            // 
+            this.tbHour.AccessibleName = "";
+            this.tbHour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tbHour.Location = new System.Drawing.Point(170, 487);
+            this.tbHour.Name = "tbHour";
+            this.tbHour.ReadOnly = true;
+            this.tbHour.Size = new System.Drawing.Size(46, 20);
+            this.tbHour.TabIndex = 53;
+            // 
+            // btSubmitUpdate
+            // 
+            this.btSubmitUpdate.Location = new System.Drawing.Point(1135, 576);
+            this.btSubmitUpdate.Name = "btSubmitUpdate";
+            this.btSubmitUpdate.Size = new System.Drawing.Size(109, 23);
+            this.btSubmitUpdate.TabIndex = 52;
+            this.btSubmitUpdate.Text = "Submit";
+            this.btSubmitUpdate.UseVisualStyleBackColor = true;
+            this.btSubmitUpdate.Click += new System.EventHandler(this.btSubmitUpdate_Click);
             // 
             // EditIssue
             // 
@@ -629,7 +629,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 661);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tbEdit);
+            this.Controls.Add(this.btEdit);
             this.Controls.Add(this.btDoc);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -646,7 +646,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button tbEdit;
+        private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Button btDoc;
         private System.Windows.Forms.ComboBox cbLeadFunc;
         private System.Windows.Forms.Label label8;

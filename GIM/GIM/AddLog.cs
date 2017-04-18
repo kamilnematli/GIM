@@ -159,6 +159,10 @@ namespace GIM
 
                 DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
 
+                if (FuncID != 1)
+                    if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["RaisedBy"]) != FuncID)
+                        btSave.Enabled = false;
+
                 int i = 0, j = 0;
 
                 for (; i < clbImpactedFuncs.Items.Count; i++)

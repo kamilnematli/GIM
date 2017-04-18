@@ -48,6 +48,7 @@
             this.btRefresh = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.btClearFilter = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.chMyList = new System.Windows.Forms.CheckBox();
             this.btApplyFilter = new System.Windows.Forms.Button();
@@ -75,7 +76,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lbDailyReport = new System.Windows.Forms.LinkLabel();
-            this.btClearFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -114,6 +114,7 @@
             this.gvIssues.TabIndex = 0;
             this.gvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIssues_CellDoubleClick);
             this.gvIssues.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvIssues_CellFormatting);
+            this.gvIssues.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gvIssues_DataBindingComplete);
             // 
             // ID
             // 
@@ -266,6 +267,17 @@
             this.groupBox8.TabIndex = 27;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Filter";
+            // 
+            // btClearFilter
+            // 
+            this.btClearFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btClearFilter.Location = new System.Drawing.Point(6, 654);
+            this.btClearFilter.Name = "btClearFilter";
+            this.btClearFilter.Size = new System.Drawing.Size(111, 21);
+            this.btClearFilter.TabIndex = 25;
+            this.btClearFilter.Text = "Clear filter";
+            this.btClearFilter.UseVisualStyleBackColor = true;
+            this.btClearFilter.Click += new System.EventHandler(this.btClearFilter_Click);
             // 
             // groupBox5
             // 
@@ -544,17 +556,6 @@
             this.lbDailyReport.TabStop = true;
             this.lbDailyReport.Text = "Daily report";
             this.lbDailyReport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDailyReport_LinkClicked);
-            // 
-            // btClearFilter
-            // 
-            this.btClearFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btClearFilter.Location = new System.Drawing.Point(6, 654);
-            this.btClearFilter.Name = "btClearFilter";
-            this.btClearFilter.Size = new System.Drawing.Size(111, 21);
-            this.btClearFilter.TabIndex = 25;
-            this.btClearFilter.Text = "Clear filter";
-            this.btClearFilter.UseVisualStyleBackColor = true;
-            this.btClearFilter.Click += new System.EventHandler(this.btClearFilter_Click);
             // 
             // MainWindow
             // 
