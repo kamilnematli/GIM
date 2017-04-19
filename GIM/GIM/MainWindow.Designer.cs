@@ -31,15 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Severity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeadFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reportable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dashboard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btAddIssue = new System.Windows.Forms.Button();
             this.btAddLog = new System.Windows.Forms.Button();
             this.tbIssueID = new System.Windows.Forms.TextBox();
@@ -76,6 +67,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lbDailyReport = new System.Windows.Forms.LinkLabel();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Severity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeadFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reportable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dashboard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -103,6 +104,7 @@
             this.Status,
             this.Severity,
             this.Title,
+            this.Desc,
             this.LeadFunc,
             this.Reportable,
             this.Dashboard});
@@ -115,73 +117,6 @@
             this.gvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIssues_CellDoubleClick);
             this.gvIssues.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvIssues_CellFormatting);
             this.gvIssues.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gvIssues_DataBindingComplete);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 50;
-            // 
-            // Updated
-            // 
-            this.Updated.DataPropertyName = "DateUpdated";
-            dataGridViewCellStyle1.Format = "d MMMM H:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Updated.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Updated.HeaderText = "Updated";
-            this.Updated.Name = "Updated";
-            this.Updated.Width = 90;
-            // 
-            // IssueType
-            // 
-            this.IssueType.DataPropertyName = "Type";
-            this.IssueType.HeaderText = "Type";
-            this.IssueType.Name = "IssueType";
-            this.IssueType.Width = 80;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.Width = 75;
-            // 
-            // Severity
-            // 
-            this.Severity.DataPropertyName = "Severity";
-            this.Severity.HeaderText = "Severity";
-            this.Severity.Name = "Severity";
-            this.Severity.Width = 75;
-            // 
-            // Title
-            // 
-            this.Title.DataPropertyName = "Title";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Title.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            this.Title.Width = 450;
-            // 
-            // LeadFunc
-            // 
-            this.LeadFunc.DataPropertyName = "Lead function";
-            this.LeadFunc.HeaderText = "Lead Function";
-            this.LeadFunc.Name = "LeadFunc";
-            // 
-            // Reportable
-            // 
-            this.Reportable.DataPropertyName = "Reportable";
-            this.Reportable.HeaderText = "Reportable";
-            this.Reportable.Name = "Reportable";
-            this.Reportable.Width = 80;
-            // 
-            // Dashboard
-            // 
-            this.Dashboard.DataPropertyName = "Dashboard";
-            this.Dashboard.HeaderText = "Dashboard";
-            this.Dashboard.Name = "Dashboard";
-            this.Dashboard.Width = 80;
             // 
             // btAddIssue
             // 
@@ -557,6 +492,80 @@
             this.lbDailyReport.Text = "Daily report";
             this.lbDailyReport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDailyReport_LinkClicked);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 50;
+            // 
+            // Updated
+            // 
+            this.Updated.DataPropertyName = "DateUpdated";
+            dataGridViewCellStyle1.Format = "d MMMM H:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Updated.HeaderText = "Updated";
+            this.Updated.Name = "Updated";
+            this.Updated.Width = 90;
+            // 
+            // IssueType
+            // 
+            this.IssueType.DataPropertyName = "Type";
+            this.IssueType.HeaderText = "Type";
+            this.IssueType.Name = "IssueType";
+            this.IssueType.Width = 80;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.Width = 75;
+            // 
+            // Severity
+            // 
+            this.Severity.DataPropertyName = "Severity";
+            this.Severity.HeaderText = "Severity";
+            this.Severity.Name = "Severity";
+            this.Severity.Width = 75;
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "Title";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            this.Title.Width = 450;
+            // 
+            // Desc
+            // 
+            this.Desc.DataPropertyName = "Description";
+            this.Desc.HeaderText = "Description";
+            this.Desc.Name = "Desc";
+            this.Desc.Visible = false;
+            // 
+            // LeadFunc
+            // 
+            this.LeadFunc.DataPropertyName = "Lead function";
+            this.LeadFunc.HeaderText = "Lead Function";
+            this.LeadFunc.Name = "LeadFunc";
+            // 
+            // Reportable
+            // 
+            this.Reportable.DataPropertyName = "Reportable";
+            this.Reportable.HeaderText = "Reportable";
+            this.Reportable.Name = "Reportable";
+            this.Reportable.Width = 80;
+            // 
+            // Dashboard
+            // 
+            this.Dashboard.DataPropertyName = "Dashboard";
+            this.Dashboard.HeaderText = "Dashboard";
+            this.Dashboard.Name = "Dashboard";
+            this.Dashboard.Width = 80;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,6 +587,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Games Issue Management System - Main window";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).EndInit();
             this.groupBox8.ResumeLayout(false);
@@ -609,15 +619,6 @@
         private System.Windows.Forms.Button btOpenIssue;
         private System.Windows.Forms.Button btExport;
         private System.Windows.Forms.Button btRefresh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Updated;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IssueType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Severity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LeadFunc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Reportable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dashboard;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -648,6 +649,16 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel lbDailyReport;
         private System.Windows.Forms.Button btClearFilter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Updated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IssueType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Severity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LeadFunc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reportable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dashboard;
     }
 }
 

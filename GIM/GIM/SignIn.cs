@@ -20,6 +20,12 @@ namespace GIM
         private void SignIn_Load(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
+            if (dba.IsServerConnected() == false)
+            {
+                MessageBox.Show("Please check your connection!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
             DataSet dsUser = dba.GetUsers(0);
             DataRow rCT = dsUser.Tables[0].NewRow();
             rCT["ID"] = 0;
@@ -44,6 +50,7 @@ namespace GIM
             {
                 DataSet userDetails = dba.GetUsers(Convert.ToInt32(cbUsers.SelectedValue));
                 MainWindow frm = new MainWindow(Convert.ToInt32(cbUsers.SelectedValue), Convert.ToInt32(userDetails.Tables[0].Rows[0]["UserType"]));
+                this.Visible = false;
                 frm.ShowDialog();
             }
             else

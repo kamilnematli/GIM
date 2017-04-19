@@ -53,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblRaisedBy = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -229,7 +230,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(208, 626);
+            this.btSave.Location = new System.Drawing.Point(208, 645);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 11;
@@ -239,7 +240,7 @@
             // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(323, 626);
+            this.btCancel.Location = new System.Drawing.Point(323, 645);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(109, 23);
             this.btCancel.TabIndex = 12;
@@ -291,7 +292,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.tbTitle);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 31);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(420, 608);
             this.groupBox1.TabIndex = 26;
@@ -396,18 +397,27 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Description";
             // 
+            // lblRaisedBy
+            // 
+            this.lblRaisedBy.AutoSize = true;
+            this.lblRaisedBy.Location = new System.Drawing.Point(224, 12);
+            this.lblRaisedBy.Name = "lblRaisedBy";
+            this.lblRaisedBy.Size = new System.Drawing.Size(0, 13);
+            this.lblRaisedBy.TabIndex = 27;
+            // 
             // AddLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 661);
+            this.ClientSize = new System.Drawing.Size(446, 676);
+            this.Controls.Add(this.lblRaisedBy);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.btCancel);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(462, 700);
+            this.MaximumSize = new System.Drawing.Size(462, 715);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(462, 700);
+            this.MinimumSize = new System.Drawing.Size(462, 715);
             this.Name = "AddLog";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -417,6 +427,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -446,5 +457,6 @@
         private System.Windows.Forms.CheckBox chReportable;
         private System.Windows.Forms.CheckBox chAllVenues;
         private System.Windows.Forms.CheckBox chAllFuncs;
+        private System.Windows.Forms.Label lblRaisedBy;
     }
 }

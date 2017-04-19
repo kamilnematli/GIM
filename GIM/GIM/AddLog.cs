@@ -134,6 +134,9 @@ namespace GIM
             cbLocation.DisplayMember = "VenueCode";
             cbLocation.ValueMember = "ID";
 
+            DataSet dsUsers = dba.GetTable("GIMusers", FuncID);
+            lblRaisedBy.Text = "Creator: " + dsUsers.Tables[0].Rows[0]["Ucode"].ToString() + " (" + Environment.UserName + ")";
+
             if (FuncID != 1)
             {
                 chReportable.Visible = false;
@@ -151,6 +154,8 @@ namespace GIM
                 tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
                 cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
                 if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
+
+                lblRaisedBy.Text = "Created by: " + dsUsers.Tables[0].Rows[0]["Ucode"].ToString() + " (" + dsIssue.Tables[0].Rows[0]["Creator"].ToString() + ")";
 
                 DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
                 dtOccurence.Value = dtOcc.Date;

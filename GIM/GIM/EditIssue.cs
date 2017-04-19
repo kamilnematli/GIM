@@ -70,6 +70,9 @@ namespace GIM
             cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
             lblDoc.Text = dsIssue.Tables[0].Rows[0]["Attachment"].ToString();
 
+            DataSet dsUsers = dba.GetTable("GIMusers", FuncID);
+            lblRaisedBy.Text = "Raised by: " + dsUsers.Tables[0].Rows[0]["Ucode"].ToString() + " (" + dsIssue.Tables[0].Rows[0]["Creator"].ToString() + ")";
+
             DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
             tbDoccur.Text = dtOcc.Date.ToShortDateString();
             tbHour.Text = dtOcc.Hour.ToString();

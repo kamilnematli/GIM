@@ -25,6 +25,7 @@ namespace GIM
         private void MainWindow_Load(object sender, EventArgs e)
         {           
             //lbUsername.Text = Environment.UserName;
+
             DBlayer dba = new DBlayer();
 
             DataSet dsFunc = dba.GetTable("GIMfunc", 0);
@@ -239,6 +240,12 @@ namespace GIM
         private void gvIssues_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             gvIssues.Rows[0].Selected = false;
+        }
+
+        private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form fc = Application.OpenForms["SignIn"];
+            fc.Visible = true;
         }
     }
 }

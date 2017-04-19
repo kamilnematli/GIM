@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btCancel = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
+            this.btSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -167,7 +168,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(428, 505);
+            this.btSave.Location = new System.Drawing.Point(315, 505);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);
             this.btSave.TabIndex = 13;
@@ -175,11 +176,22 @@
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
+            // btSubmit
+            // 
+            this.btSubmit.Location = new System.Drawing.Point(430, 505);
+            this.btSubmit.Name = "btSubmit";
+            this.btSubmit.Size = new System.Drawing.Size(109, 23);
+            this.btSubmit.TabIndex = 15;
+            this.btSubmit.Text = "Submit";
+            this.btSubmit.UseVisualStyleBackColor = true;
+            this.btSubmit.Click += new System.EventHandler(this.btSubmit_Click);
+            // 
             // DailyReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 537);
+            this.Controls.Add(this.btSubmit);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.tbReportStat);
@@ -213,5 +225,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Button btSubmit;
     }
 }

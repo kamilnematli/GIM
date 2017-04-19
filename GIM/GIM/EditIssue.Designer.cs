@@ -82,6 +82,7 @@
             this.tbHour2 = new System.Windows.Forms.TextBox();
             this.tbHour = new System.Windows.Forms.TextBox();
             this.btSubmitUpdate = new System.Windows.Forms.Button();
+            this.lblRaisedBy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvUpdates)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -623,11 +624,20 @@
             this.btSubmitUpdate.UseVisualStyleBackColor = true;
             this.btSubmitUpdate.Click += new System.EventHandler(this.btSubmitUpdate_Click);
             // 
+            // lblRaisedBy
+            // 
+            this.lblRaisedBy.AutoSize = true;
+            this.lblRaisedBy.Location = new System.Drawing.Point(1042, 22);
+            this.lblRaisedBy.Name = "lblRaisedBy";
+            this.lblRaisedBy.Size = new System.Drawing.Size(0, 13);
+            this.lblRaisedBy.TabIndex = 47;
+            // 
             // EditIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.Controls.Add(this.lblRaisedBy);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btEdit);
             this.Controls.Add(this.btDoc);
@@ -642,6 +652,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -698,5 +709,6 @@
         private System.Windows.Forms.TextBox tbDoccur;
         private System.Windows.Forms.TextBox tbDactual;
         private System.Windows.Forms.TextBox tbDupdate;
+        private System.Windows.Forms.Label lblRaisedBy;
     }
 }

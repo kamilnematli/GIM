@@ -61,7 +61,7 @@ namespace GIM
 
             _sql = " Select dbo.GIMissue.[ID], [DateUpdated], case when [Type] = 1 then 'Issue' when [Type] = 2 then 'Log' end as [Type], dbo.GIMStatus.StatusName as [Status], " +
                    " dbo.GIMseverity.SeverityName as [Severity], [Title], dbo.GIMfunc.FuncCode as [Lead function], case when [Reportable] = 1 then 'Yes' else 'No' end as [Reportable], " +
-                   " case when [Dashboard] = 1 then 'Yes' else 'No' end as [Dashboard] " +
+                   " case when [Dashboard] = 1 then 'Yes' else 'No' end as [Dashboard], dbo.GIMissue.[Description] " +
                     " FROM dbo.GIMissue LEFT OUTER JOIN " +
                     " dbo.GIMseverity ON dbo.GIMissue.IssueSeverity = dbo.GIMseverity.ID LEFT OUTER JOIN " +
                     " dbo.GIMStatus ON dbo.GIMissue.IssueStatus = dbo.GIMstatus.ID LEFT OUTER JOIN " +
@@ -383,7 +383,7 @@ namespace GIM
             conn.Close();
         }
 
-        public void InsertDailyReport(int UserID, string ReportText, string ReportStat, string DateMonth, int DateDay)
+        public void InsertDailyReport(int UserID, string ReportText, string ReportStat, string DateMonth, int DateDay, int Finished)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -394,13 +394,15 @@ namespace GIM
                           " ,[ReportStats]" +
                           " ,[UserID]" +
                           " ,[DateMonth]" +
-                          " ,[DateDay])" +
+                          " ,[DateDay]" +
+                          " ,[Finished])" +
                           " VALUES" +
                           " ('" + ReportText +
                           "','" + ReportStat +
                           "'," + UserID +
                           ",'" + DateMonth +
-                          "'," + DateDay + ")";
+                          "'," + DateDay +
+                          "," + Finished + ")";
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();
@@ -533,7 +535,7 @@ namespace GIM
             conn.Close();
         }
 
-        public void UpdateDailyReport(int UserID, string ReportText, string ReportStat, string DateMonth, int DateDay)
+        public void UpdateDailyReport(int UserID, string ReportText, string ReportStat, string DateMonth, int DateDay, int Finished)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -542,6 +544,7 @@ namespace GIM
             string _sql = " UPDATE [dbo].[GIMdailyReport] SET " +
                           " [ReportText] = '" + ReportText + "'" +
                           ",[ReportStats] = '" + ReportStat + "'" +
+                          ",[Finished] = " + Finished + 
                           " where [dbo].[GIMdailyReport].[UserID] = " + UserID +
                           " and [dbo].[GIMdailyReport].[DateMonth] = '" + DateMonth + "' and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
 
