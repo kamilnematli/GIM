@@ -13,13 +13,13 @@ namespace GIM
     public partial class AddIssue : Form
     {
         private int IssueID;
-        private int FuncID;
+        private int UserID;
 
-        public AddIssue(int _issueid, int _funcid)
+        public AddIssue(int _issueid, int _userid)
         {
             InitializeComponent();
             IssueID = _issueid;
-            FuncID = _funcid;
+            UserID = _userid;
         }
 
         private void AddIssue_Load(object sender, EventArgs e)
@@ -31,12 +31,6 @@ namespace GIM
             cbSeverity.DataSource = dvSeverity;
             cbSeverity.DisplayMember = "SeverityName";
             cbSeverity.ValueMember = "ID";
-
-            DataSet dsStatus = dba.GetTable("GIMStatus", 0);
-            DataView dvStatus = new DataView(dsStatus.Tables[0], "", "ID", DataViewRowState.CurrentRows);
-            cbStatus.DataSource = dvStatus;
-            cbStatus.DisplayMember = "StatusName";
-            cbStatus.ValueMember = "ID";
 
             DataSet dsFuncs = dba.GetTable("GIMfunc", 0);
             DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
@@ -66,24 +60,42 @@ namespace GIM
             cbLocation.DisplayMember = "VenueCode";
             cbLocation.ValueMember = "ID";
 
-            if(FuncID != 1)
+            if (UserID != 1)
             {
                 chReportable.Visible = false;
                 chDashboard.Visible = false;
             }
 
-            if(IssueID > 0)
+            tbStatus.Visible = true;
+
+            if (IssueID > 0)
             {
                 this.Text = "Edit Issue";
                 groupBox1.Text = "Edit";
-                cbStatus.Enabled = true;
+                cbStatus.Visible = true;
+                tbStatus.Visible = false;
+
+                DataSet dsStatus = dba.GetStatus(0);
+                DataView dvStatus = new DataView(dsStatus.Tables[0], "", "ID", DataViewRowState.CurrentRows);
+                cbStatus.DataSource = dvStatus;
+                cbStatus.DisplayMember = "StatusName";
+                cbStatus.ValueMember = "ID";
 
                 DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
                 tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
                 tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
                 cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
                 cbSeverity.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueSeverity"];
-                cbStatus.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueStatus"];
+
+                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["IssueStatus"]) < 4)
+                {
+                    cbStatus.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueStatus"];
+                }
+                else if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["IssueStatus"]) == 4)
+                {
+                    cbStatus.Text = "Closed";
+                }
+
                 tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
                 cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
                 tbAttachment.Text = dsIssue.Tables[0].Rows[0]["Attachment"].ToString();
@@ -99,7 +111,7 @@ namespace GIM
 
                 int i = 0, j = 0;
 
-                for ( ; i < clbImpactedFuncs.Items.Count; i++)
+                for (; i < clbImpactedFuncs.Items.Count; i++)
                 {
                     for (j = 0; j < impFuncs.Tables[0].Rows.Count; j++)
                     {
@@ -168,7 +180,7 @@ namespace GIM
 
                 try
                 {
-                    dba.InsertIssue(1, tbTitle.Text.Replace("'", "''"), Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                    dba.InsertIssue(1, tbTitle.Text.Replace("'", "''"), 1, Convert.ToInt32(cbSeverity.SelectedValue), UserID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
                         ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", "", Reportable, Dashboard, Environment.UserName.Replace("'", "''"), tbAttachment.Text, tbLocationDesc.Text.Replace("'", "''"));
 
                     MessageBox.Show("You have successfully created an issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -181,15 +193,6 @@ namespace GIM
             }
             else if (IssueID > 0)
             {
-                if (Convert.ToInt32(cbStatus.SelectedValue) == 4)
-                {
-                    if (cbHour3.Text == "" || cbMin3.Text == "")
-                    {
-                        MessageBox.Show("As you have closed the issue, you have to insert the actual end date/time!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    return;
-                }
-
                 foreach (object itemChecked in clbImpactedFuncs.CheckedItems)
                 {
                     DataRowView castedItem = itemChecked as DataRowView;
@@ -208,13 +211,6 @@ namespace GIM
                 {
                     DateOccurence = DateOccurence + " " + cbHour.Text + ":" + cbMins.Text;
                 }
-                
-                string DateActualEnd = "";
-                DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
-                if (cbHour3.Text != "" && cbMin3.Text != "")
-                {
-                    DateActualEnd = DateActualEnd + " " + cbHour3.Text + ":" + cbMin3.Text;
-                }
 
                 int Dashboard = 0;
                 int Reportable = 0;
@@ -223,8 +219,8 @@ namespace GIM
 
                 try
                 {
-                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text.Replace("'", "''"), Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, tbAttachment.Text, tbLocationDesc.Text.Replace("'", "''"), Dashboard, Reportable, DateActualEnd);
+                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text.Replace("'", "''"), Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), UserID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, tbAttachment.Text, tbLocationDesc.Text.Replace("'", "''"), Dashboard, Reportable);
 
                     MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
@@ -241,22 +237,6 @@ namespace GIM
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
             tbAttachment.Text = ofd.FileName;
-        }
-
-        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbStatus.Text == "Closed")
-            {
-                dtActualEnd.Enabled = true;
-                cbHour3.Enabled = true;
-                cbMin3.Enabled = true;
-            }
-            else
-            {
-                dtActualEnd.Enabled = false;
-                cbHour3.Enabled = false;
-                cbMin3.Enabled = false;
-            }
         }
 
         private void chAllFuncs_CheckedChanged(object sender, EventArgs e)

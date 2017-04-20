@@ -201,8 +201,16 @@ namespace GIM
 
         private void lbDailyReport_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            DailyReport fdr = new GIM.DailyReport(UserID);
-            fdr.ShowDialog();
+            if(UserID == 1)
+            {
+                ReportList rList = new GIM.ReportList();
+                rList.ShowDialog();
+            }
+            else
+            {
+                DailyReport fdr = new GIM.DailyReport(UserID);
+                fdr.ShowDialog();
+            }        
         }
 
         private void btApplyFilter_Click_1(object sender, EventArgs e)

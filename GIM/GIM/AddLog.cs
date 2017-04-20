@@ -89,7 +89,7 @@ namespace GIM
                 try
                 {
                     dba.UpdateIssueDetails(IssueID, 2, tbTitle.Text.Replace("'", "''"), -1, -1, FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), 0, Reportable, "");
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), 0, Reportable);
 
                     MessageBox.Show("You have successfully updated the log!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();

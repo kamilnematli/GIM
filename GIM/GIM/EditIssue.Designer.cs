@@ -83,6 +83,7 @@
             this.tbHour = new System.Windows.Forms.TextBox();
             this.btSubmitUpdate = new System.Windows.Forms.Button();
             this.lblRaisedBy = new System.Windows.Forms.Label();
+            this.btCloseIssue = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvUpdates)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -632,11 +633,22 @@
             this.lblRaisedBy.Size = new System.Drawing.Size(0, 13);
             this.lblRaisedBy.TabIndex = 47;
             // 
+            // btCloseIssue
+            // 
+            this.btCloseIssue.Location = new System.Drawing.Point(295, 12);
+            this.btCloseIssue.Name = "btCloseIssue";
+            this.btCloseIssue.Size = new System.Drawing.Size(136, 23);
+            this.btCloseIssue.TabIndex = 48;
+            this.btCloseIssue.Text = "Close issue";
+            this.btCloseIssue.UseVisualStyleBackColor = true;
+            this.btCloseIssue.Click += new System.EventHandler(this.btCloseIssue_Click);
+            // 
             // EditIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.Controls.Add(this.btCloseIssue);
             this.Controls.Add(this.lblRaisedBy);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btEdit);
@@ -710,5 +722,6 @@
         private System.Windows.Forms.TextBox tbDactual;
         private System.Windows.Forms.TextBox tbDupdate;
         private System.Windows.Forms.Label lblRaisedBy;
+        private System.Windows.Forms.Button btCloseIssue;
     }
 }

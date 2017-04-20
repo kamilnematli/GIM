@@ -84,6 +84,12 @@
     <Compile Include="ChangePass.Designer.cs">
       <DependentUpon>ChangePass.cs</DependentUpon>
     </Compile>
+    <Compile Include="CloseIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloseIssue.Designer.cs">
+      <DependentUpon>CloseIssue.cs</DependentUpon>
+    </Compile>
     <Compile Include="DailyReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ReportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportList.Designer.cs">
+      <DependentUpon>ReportList.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePass.resx">
       <DependentUpon>ChangePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloseIssue.resx">
+      <DependentUpon>CloseIssue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DailyReport.resx">
       <DependentUpon>DailyReport.cs</DependentUpon>
@@ -147,6 +162,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportList.resx">
+      <DependentUpon>ReportList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>

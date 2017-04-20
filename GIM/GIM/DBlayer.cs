@@ -159,6 +159,30 @@ namespace GIM
             return ds;
         }
 
+        public DataSet GetStatus(int _id)
+        {
+            string _sql = "";
+            DataSet ds = new DataSet();
+
+            _sql = "Select * from dbo.GIMstatus";
+
+            if (_id > 0)
+            {
+                _sql += " where [ID] = " + _id;
+            }
+            else
+            {
+                _sql += " where [ID] < 4 ";
+            }
+
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(_sql, conn);
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
         public DataSet GetUsers(int _userid)
         {
             string _sql = "";
@@ -184,8 +208,14 @@ namespace GIM
             string _sql = "";
             DataSet ds = new DataSet();
 
-            _sql = " SELECT * FROM [dbo].[GIMdailyReport] where [dbo].[GIMdailyReport].[UserID] = " + _userid +
-                " and [dbo].[GIMdailyReport].[DateMonth] = '" + DateMonth + "' and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
+            _sql = " select [dbo].[GIMdailyReport].ID, [dbo].[GIMdailyReport].ReportText, [dbo].[GIMdailyReport].ReportStats, UserID, Ucode, DateMonth, DateDay, case when Finished = 1 then 'Yes' else 'No' end as [Finished] " +
+                   " from gimdailyreport inner join gimusers on gimdailyreport.userid = gimusers.id " +
+                   " WHERE [dbo].[GIMdailyReport].[DateMonth] = '" + DateMonth + "' and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
+
+            if (_userid > 0)
+            {
+                _sql += " AND [dbo].[GIMdailyReport].[UserID] = " + _userid;
+            }
 
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -414,7 +444,7 @@ namespace GIM
         #region Update data
 
         public void UpdateIssueDetails(int IssueID, int Type, string Title, int IssueStatus, int IssueSeverity, int RaisedBy, string Desc, int LeadFunction, string ImpactedFuncs, int Location,
-            string ImpactedVenues, string DateOccurence, string Attch, string LocDesc, int Dashboard, int Reportable, string DateActualEnd)
+            string ImpactedVenues, string DateOccurence, string Attch, string LocDesc, int Dashboard, int Reportable)
         {
             SqlConnection conn = new SqlConnection(@connectionString);
             conn.Open();
@@ -451,7 +481,6 @@ namespace GIM
                     " ,[Attachment] = '" + Attch + "'" +
                     " ,[Reportable] = " + Reportable +
                     " ,[Dashboard] = " + Dashboard +
-                    " ,[DateActualEnd] = CONVERT(datetime, '" + DateActualEnd + "')" +
                     " ,[LocationDesc] = '" + LocDesc + "' where ID = " + IssueID;
 
             cmd.CommandText = _sql;
@@ -485,6 +514,20 @@ namespace GIM
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();
 
+            conn.Close();
+        }
+
+        public void UpdateStatus(int IssueID, string DateActualEnd)
+        {
+            SqlConnection conn = new SqlConnection(@connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+
+            string _sql = " UPDATE [dbo].[GIMissue] SET " +
+                          " [IssueStatus] = 4, [DateActualEnd] = CONVERT(datetime, '" + DateActualEnd + "')" + " where ID = " + IssueID;
+
+            cmd.CommandText = _sql;
+            cmd.ExecuteNonQuery();
             conn.Close();
         }
 

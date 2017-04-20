@@ -13,13 +13,13 @@ namespace GIM
     public partial class EditIssue : Form
     {
         private int IssueID;
-        private int FuncID;
+        private int UserID;
 
-        public EditIssue(int _issueId, int _funcId)
+        public EditIssue(int _issueId, int _userId)
         {
             InitializeComponent();
             IssueID = _issueId;
-            FuncID = _funcId;
+            UserID = _userId;
         }
 
         private void EditIssue_Load(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace GIM
             cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
             lblDoc.Text = dsIssue.Tables[0].Rows[0]["Attachment"].ToString();
 
-            DataSet dsUsers = dba.GetTable("GIMusers", FuncID);
+            DataSet dsUsers = dba.GetTable("GIMusers", Convert.ToInt32(dsIssue.Tables[0].Rows[0]["RaisedBy"]));
             lblRaisedBy.Text = "Raised by: " + dsUsers.Tables[0].Rows[0]["Ucode"].ToString() + " (" + dsIssue.Tables[0].Rows[0]["Creator"].ToString() + ")";
 
             DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
@@ -83,17 +83,25 @@ namespace GIM
             tbHour2.Text = dtUpd.Hour.ToString();
             tbMin2.Text = dtUpd.Minute.ToString();
 
-            if (dsIssue.Tables[0].Rows[0]["DateActualEnd"].ToString() != "")
+            if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["IssueStatus"]) == 4)
             {
-                DateTime dtActEnd = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateActualEnd"].ToString());
-                tbDactual.Text = dtActEnd.Date.ToShortDateString();
-                tbHour3.Text = dtActEnd.Hour.ToString();
-                tbMin3.Text = dtActEnd.Minute.ToString();
+                if (dsIssue.Tables[0].Rows[0]["DateActualEnd"].ToString() != "")
+                {
+                    DateTime dtActEnd = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateActualEnd"].ToString());
+                    tbDactual.Text = dtActEnd.Date.ToShortDateString();
+                    tbHour3.Text = dtActEnd.Hour.ToString();
+                    tbMin3.Text = dtActEnd.Minute.ToString();
+                }
             }
 
-            if (FuncID != 1)
-                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["RaisedBy"]) != FuncID)
+            if (UserID != 1)
+            {
+                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["RaisedBy"]) != UserID)
+                {
                     btEdit.Enabled = false;
+                    btCloseIssue.Visible = false;
+                }
+            }
 
             if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1)
                 chDashboard.Checked = true;
@@ -156,7 +164,7 @@ namespace GIM
         private void btSubmitUpdate_Click(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-            dba.InsertUpdate(IssueID, FuncID, Environment.UserName, tbUpdate.Text.Replace("'", "''"), "", tbAttachment.Text);
+            dba.InsertUpdate(IssueID, UserID, Environment.UserName, tbUpdate.Text.Replace("'", "''"), "", tbAttachment.Text);
             tbUpdate.Text = "";
             tbAttachment.Text = "";
 
@@ -167,7 +175,7 @@ namespace GIM
 
         private void gvUpdates_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            IssueUpdate frm = new IssueUpdate(FuncID, Convert.ToInt32(gvUpdates.SelectedRows[0].Cells[0].Value), gvUpdates.SelectedRows[0].Cells["UpdatedBy"].Value.ToString(), 
+            IssueUpdate frm = new IssueUpdate(UserID, Convert.ToInt32(gvUpdates.SelectedRows[0].Cells[0].Value), gvUpdates.SelectedRows[0].Cells["UpdatedBy"].Value.ToString(), 
                 gvUpdates.SelectedRows[0].Cells[4].Value.ToString(), gvUpdates.SelectedRows[0].Cells[2].Value.ToString(), gvUpdates.SelectedRows[0].Cells["FileUploaded"].Value.ToString());
             frm.ShowDialog();
 
@@ -179,8 +187,15 @@ namespace GIM
 
         private void btEdit_Click(object sender, EventArgs e)
         {
-            AddIssue frm = new GIM.AddIssue(IssueID, FuncID);
+            AddIssue frm = new GIM.AddIssue(IssueID, UserID);
             frm.ShowDialog();
+            LoadEditIssue();
+        }
+
+        private void btCloseIssue_Click(object sender, EventArgs e)
+        {
+            CloseIssue fci = new GIM.CloseIssue(IssueID, UserID);
+            fci.ShowDialog();
             LoadEditIssue();
         }
     }

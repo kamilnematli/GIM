@@ -49,7 +49,7 @@ namespace GIM
                 tbReportText.Text = dsReport.Tables[0].Rows[0]["ReportText"].ToString();
                 tbReportStat.Text = dsReport.Tables[0].Rows[0]["ReportStats"].ToString();
 
-                if (Convert.ToInt32(dsReport.Tables[0].Rows[0]["Finished"]) == 1)
+                if (dsReport.Tables[0].Rows[0]["Finished"].ToString() == "Yes")
                 {
                     tbReportStat.ReadOnly = true;
                     tbReportText.ReadOnly = true;
