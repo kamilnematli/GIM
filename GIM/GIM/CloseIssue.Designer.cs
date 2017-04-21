@@ -98,7 +98,6 @@
             // 
             // btSave
             // 
-            this.btSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btSave.Location = new System.Drawing.Point(477, 345);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(109, 23);

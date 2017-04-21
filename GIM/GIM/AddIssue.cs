@@ -25,114 +25,120 @@ namespace GIM
         private void AddIssue_Load(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-
-            DataSet dsSeverity = dba.GetTable("GIMSeverity", 0);
-            DataView dvSeverity = new DataView(dsSeverity.Tables[0], "", "ID", DataViewRowState.CurrentRows);
-            cbSeverity.DataSource = dvSeverity;
-            cbSeverity.DisplayMember = "SeverityName";
-            cbSeverity.ValueMember = "ID";
-
-            DataSet dsFuncs = dba.GetTable("GIMfunc", 0);
-            DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
-            clbImpactedFuncs.DataSource = dvFuncs;
-            clbImpactedFuncs.DisplayMember = "FuncCode";
-            clbImpactedFuncs.ValueMember = "ID";
-
-            DataSet dsLead = dba.GetTable("GIMfunc", 0);
-            DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
-            cbLeadFunc.DataSource = dvLead;
-            cbLeadFunc.DisplayMember = "FuncCode";
-            cbLeadFunc.ValueMember = "ID";
-
-            DataSet dsVenues = dba.GetTable("GIMvenue", 0);
-            DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
-            clbImpactedVenues.DataSource = dvVenues;
-            clbImpactedVenues.DisplayMember = "VenueCode";
-            clbImpactedVenues.ValueMember = "ID";
-
-            DataSet dsLocation = dba.GetTable("GIMvenue", 0);
-            DataRow rCT = dsLocation.Tables[0].NewRow();
-            rCT["ID"] = 0;
-            rCT["VenueCode"] = "";
-            dsLocation.Tables[0].Rows.Add(rCT);
-            DataView dvLocation = new DataView(dsLocation.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
-            cbLocation.DataSource = dvLocation;
-            cbLocation.DisplayMember = "VenueCode";
-            cbLocation.ValueMember = "ID";
-
-            if (UserID != 1)
+            try
             {
-                chReportable.Visible = false;
-                chDashboard.Visible = false;
+                DataSet dsSeverity = dba.GetTable("GIMSeverity", 0);
+                DataView dvSeverity = new DataView(dsSeverity.Tables[0], "", "ID", DataViewRowState.CurrentRows);
+                cbSeverity.DataSource = dvSeverity;
+                cbSeverity.DisplayMember = "SeverityName";
+                cbSeverity.ValueMember = "ID";
+
+                DataSet dsFuncs = dba.GetTable("GIMfunc", 0);
+                DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+                clbImpactedFuncs.DataSource = dvFuncs;
+                clbImpactedFuncs.DisplayMember = "FuncCode";
+                clbImpactedFuncs.ValueMember = "ID";
+
+                DataSet dsLead = dba.GetTable("GIMfunc", 0);
+                DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+                cbLeadFunc.DataSource = dvLead;
+                cbLeadFunc.DisplayMember = "FuncCode";
+                cbLeadFunc.ValueMember = "ID";
+
+                DataSet dsVenues = dba.GetTable("GIMvenue", 0);
+                DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+                clbImpactedVenues.DataSource = dvVenues;
+                clbImpactedVenues.DisplayMember = "VenueCode";
+                clbImpactedVenues.ValueMember = "ID";
+
+                DataSet dsLocation = dba.GetTable("GIMvenue", 0);
+                DataRow rCT = dsLocation.Tables[0].NewRow();
+                rCT["ID"] = 0;
+                rCT["VenueCode"] = "";
+                dsLocation.Tables[0].Rows.Add(rCT);
+                DataView dvLocation = new DataView(dsLocation.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+                cbLocation.DataSource = dvLocation;
+                cbLocation.DisplayMember = "VenueCode";
+                cbLocation.ValueMember = "ID";
+
+                if (UserID != 1)
+                {
+                    chReportable.Visible = false;
+                    chDashboard.Visible = false;
+                }
+
+                tbStatus.Visible = true;
+
+                if (IssueID > 0)
+                {
+                    this.Text = "Edit Issue";
+                    groupBox1.Text = "Edit";
+                    cbStatus.Visible = true;
+                    tbStatus.Visible = false;
+
+                    DataSet dsStatus = dba.GetStatus(0);
+                    DataView dvStatus = new DataView(dsStatus.Tables[0], "", "ID", DataViewRowState.CurrentRows);
+                    cbStatus.DataSource = dvStatus;
+                    cbStatus.DisplayMember = "StatusName";
+                    cbStatus.ValueMember = "ID";
+
+                    DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
+                    tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
+                    tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
+                    cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
+                    cbSeverity.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueSeverity"];
+
+                    if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["IssueStatus"]) < 4)
+                    {
+                        cbStatus.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueStatus"];
+                    }
+                    else if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["IssueStatus"]) == 4)
+                    {
+                        cbStatus.Text = "Closed";
+                    }
+
+                    tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
+                    cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
+                    tbAttachment.Text = dsIssue.Tables[0].Rows[0]["Attachment"].ToString();
+                    if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1) chDashboard.Checked = true;
+                    if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
+
+                    DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
+                    dtOccurence.Value = dtOcc.Date;
+                    cbHour.Text = dtOcc.Hour.ToString();
+                    cbMins.Text = dtOcc.Minute.ToString();
+
+                    DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
+
+                    int i = 0, j = 0;
+
+                    for (; i < clbImpactedFuncs.Items.Count; i++)
+                    {
+                        for (j = 0; j < impFuncs.Tables[0].Rows.Count; j++)
+                        {
+                            if (((System.Data.DataRowView)(clbImpactedFuncs.Items[i])).Row.ItemArray[0].ToString() == impFuncs.Tables[0].Rows[j]["ID"].ToString())
+                            {
+                                clbImpactedFuncs.SetItemCheckState(i, CheckState.Checked);
+                            }
+                        }
+                    }
+
+                    DataSet impVenues = dba.GetIssueImpcVenues(IssueID);
+                    for (i = 0; i < clbImpactedVenues.Items.Count; i++)
+                    {
+                        for (j = 0; j < impVenues.Tables[0].Rows.Count; j++)
+                        {
+                            if (((System.Data.DataRowView)(clbImpactedVenues.Items[i])).Row.ItemArray[0].ToString() == impVenues.Tables[0].Rows[j]["VenueID"].ToString())
+                            {
+                                clbImpactedVenues.SetItemCheckState(i, CheckState.Checked);
+                            }
+                        }
+                    }
+                }
             }
-
-            tbStatus.Visible = true;
-
-            if (IssueID > 0)
+            catch
             {
-                this.Text = "Edit Issue";
-                groupBox1.Text = "Edit";
-                cbStatus.Visible = true;
-                tbStatus.Visible = false;
 
-                DataSet dsStatus = dba.GetStatus(0);
-                DataView dvStatus = new DataView(dsStatus.Tables[0], "", "ID", DataViewRowState.CurrentRows);
-                cbStatus.DataSource = dvStatus;
-                cbStatus.DisplayMember = "StatusName";
-                cbStatus.ValueMember = "ID";
-
-                DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
-                tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
-                tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
-                cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
-                cbSeverity.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueSeverity"];
-
-                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["IssueStatus"]) < 4)
-                {
-                    cbStatus.SelectedValue = dsIssue.Tables[0].Rows[0]["IssueStatus"];
-                }
-                else if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["IssueStatus"]) == 4)
-                {
-                    cbStatus.Text = "Closed";
-                }
-
-                tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
-                cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
-                tbAttachment.Text = dsIssue.Tables[0].Rows[0]["Attachment"].ToString();
-                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Dashboard"]) == 1) chDashboard.Checked = true;
-                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
-
-                DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
-                dtOccurence.Value = dtOcc.Date;
-                cbHour.Text = dtOcc.Hour.ToString();
-                cbMins.Text = dtOcc.Minute.ToString();
-
-                DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
-
-                int i = 0, j = 0;
-
-                for (; i < clbImpactedFuncs.Items.Count; i++)
-                {
-                    for (j = 0; j < impFuncs.Tables[0].Rows.Count; j++)
-                    {
-                        if (((System.Data.DataRowView)(clbImpactedFuncs.Items[i])).Row.ItemArray[0].ToString() == impFuncs.Tables[0].Rows[j]["ID"].ToString())
-                        {
-                            clbImpactedFuncs.SetItemCheckState(i, CheckState.Checked);
-                        }
-                    }
-                }
-
-                DataSet impVenues = dba.GetIssueImpcVenues(IssueID);
-                for (i = 0; i < clbImpactedVenues.Items.Count; i++)
-                {
-                    for (j = 0; j < impVenues.Tables[0].Rows.Count; j++)
-                    {
-                        if (((System.Data.DataRowView)(clbImpactedVenues.Items[i])).Row.ItemArray[0].ToString() == impVenues.Tables[0].Rows[j]["VenueID"].ToString())
-                        {
-                            clbImpactedVenues.SetItemCheckState(i, CheckState.Checked);
-                        }
-                    }
-                }
             }
         }
 

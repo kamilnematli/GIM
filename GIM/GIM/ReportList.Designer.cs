@@ -33,7 +33,6 @@
             this.cbDate = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gvReports = new System.Windows.Forms.DataGridView();
-            this.btExport = new System.Windows.Forms.Button();
             this.reportid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reporttext = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +41,8 @@
             this.datemonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usertype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvReports)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +130,7 @@
             // 
             this.gvReports.AllowUserToAddRows = false;
             this.gvReports.AllowUserToDeleteRows = false;
+            this.gvReports.BackgroundColor = System.Drawing.Color.Azure;
             this.gvReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvReports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.reportid,
@@ -138,22 +140,13 @@
             this.finished,
             this.datemonth,
             this.dateday,
-            this.userid});
+            this.userid,
+            this.usertype});
             this.gvReports.Location = new System.Drawing.Point(12, 48);
             this.gvReports.Name = "gvReports";
             this.gvReports.RowHeadersVisible = false;
             this.gvReports.Size = new System.Drawing.Size(960, 601);
             this.gvReports.TabIndex = 4;
-            // 
-            // btExport
-            // 
-            this.btExport.Location = new System.Drawing.Point(860, 10);
-            this.btExport.Name = "btExport";
-            this.btExport.Size = new System.Drawing.Size(112, 23);
-            this.btExport.TabIndex = 18;
-            this.btExport.Text = "Export to Excel";
-            this.btExport.UseVisualStyleBackColor = true;
-            this.btExport.Click += new System.EventHandler(this.btExport_Click);
             // 
             // reportid
             // 
@@ -215,6 +208,23 @@
             this.userid.Name = "userid";
             this.userid.Visible = false;
             // 
+            // usertype
+            // 
+            this.usertype.DataPropertyName = "UserType";
+            this.usertype.HeaderText = "User Type";
+            this.usertype.Name = "usertype";
+            this.usertype.Visible = false;
+            // 
+            // btExport
+            // 
+            this.btExport.Location = new System.Drawing.Point(860, 10);
+            this.btExport.Name = "btExport";
+            this.btExport.Size = new System.Drawing.Size(112, 23);
+            this.btExport.TabIndex = 18;
+            this.btExport.Text = "Export to Excel";
+            this.btExport.UseVisualStyleBackColor = true;
+            this.btExport.Click += new System.EventHandler(this.btExport_Click);
+            // 
             // ReportList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,9 +235,12 @@
             this.Controls.Add(this.cbDate);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1000, 700);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "ReportList";
             this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Daily Report List";
             this.Load += new System.EventHandler(this.ReportList_Load);
@@ -251,5 +264,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datemonth;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateday;
         private System.Windows.Forms.DataGridViewTextBoxColumn userid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usertype;
     }
 }

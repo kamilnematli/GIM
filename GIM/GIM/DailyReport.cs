@@ -38,13 +38,13 @@ namespace GIM
         }
 
         private void cbDate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string DateMonth = cbDate.Text.Split(' ')[1].ToString();
-            int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
-            DBlayer dba = new GIM.DBlayer();
-            
+        {           
+            DBlayer dba = new GIM.DBlayer();            
             try
             {
+                string DateMonth = cbDate.Text.Split(' ')[1].ToString();
+                int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
+
                 DataSet dsReport = dba.GetDailyReport(UserID, DateMonth, DateDay);
                 tbReportText.Text = dsReport.Tables[0].Rows[0]["ReportText"].ToString();
                 tbReportStat.Text = dsReport.Tables[0].Rows[0]["ReportStats"].ToString();
@@ -77,12 +77,12 @@ namespace GIM
         private void btSave_Click(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-
-            string DateMonth = cbDate.Text.Split(' ')[1].ToString();
-            int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
-            DataSet dsReport = dba.GetDailyReport(UserID, DateMonth, DateDay);
             try
             {
+                string DateMonth = cbDate.Text.Split(' ')[1].ToString();
+                int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
+                DataSet dsReport = dba.GetDailyReport(UserID, DateMonth, DateDay);
+
                 if (dsReport.Tables.Count == 0 || dsReport.Tables[0].Rows.Count == 0)
                 {
                     dba.InsertDailyReport(UserID, tbReportText.Text.Replace("'", "''"), tbReportStat.Text.Replace("'", "''"), DateMonth, DateDay, 0);
@@ -101,12 +101,12 @@ namespace GIM
         private void btSubmit_Click(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-
-            string DateMonth = cbDate.Text.Split(' ')[1].ToString();
-            int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
-            DataSet dsReport = dba.GetDailyReport(UserID, DateMonth, DateDay);
             try
             {
+                string DateMonth = cbDate.Text.Split(' ')[1].ToString();
+                int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
+                DataSet dsReport = dba.GetDailyReport(UserID, DateMonth, DateDay);
+
                 DialogResult dResult = MessageBox.Show("Daily report is complete and I want to submit it!", "Are you sure", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
 
                 if (dResult == DialogResult.Yes)

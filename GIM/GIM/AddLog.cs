@@ -13,13 +13,13 @@ namespace GIM
     public partial class AddLog : Form
     {
         private int IssueID;
-        private int FuncID;
+        private int UserID;
 
-        public AddLog(int _logid, int _funcid)
+        public AddLog(int _logid, int _userid)
         {
             InitializeComponent();
             IssueID = _logid;
-            FuncID = _funcid;
+            UserID = _userid;
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -51,8 +51,8 @@ namespace GIM
 
                 try
                 {
-                    dba.InsertIssue(2, tbTitle.Text, -1, -1, FuncID, tbDesc.Text, Convert.ToInt32(cbLeadFunc.SelectedValue),
-                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", "", 0, 0, Environment.UserName, " ", tbLocationDesc.Text);
+                    dba.InsertIssue(2, tbTitle.Text, -1, -1, UserID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                        ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", "", 0, 0, Environment.UserName.Replace("'", "''"), " ", tbLocationDesc.Text.Replace("'", "''"));
 
                     MessageBox.Show("You have successfully created a log!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
@@ -88,7 +88,7 @@ namespace GIM
 
                 try
                 {
-                    dba.UpdateIssueDetails(IssueID, 2, tbTitle.Text.Replace("'", "''"), -1, -1, FuncID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                    dba.UpdateIssueDetails(IssueID, 2, tbTitle.Text.Replace("'", "''"), -1, -1, UserID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
                         ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, "", tbLocationDesc.Text.Replace("'", "''"), 0, Reportable);
 
                     MessageBox.Show("You have successfully updated the log!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -105,95 +105,109 @@ namespace GIM
         private void AddLog_Load(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-
-            DataSet dsFuncs = dba.GetTable("GIMfunc", 0);
-            DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
-            clbImpactedFuncs.DataSource = dvFuncs;
-            clbImpactedFuncs.DisplayMember = "FuncCode";
-            clbImpactedFuncs.ValueMember = "ID";
-
-            DataSet dsLead = dba.GetTable("GIMfunc", 0);
-            DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
-            cbLeadFunc.DataSource = dvLead;
-            cbLeadFunc.DisplayMember = "FuncCode";
-            cbLeadFunc.ValueMember = "ID";
-
-            DataSet dsVenues = dba.GetTable("GIMvenue", 0);
-            DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
-            clbImpactedVenues.DataSource = dvVenues;
-            clbImpactedVenues.DisplayMember = "VenueCode";
-            clbImpactedVenues.ValueMember = "ID";
-
-            DataSet dsLocation = dba.GetTable("GIMvenue", 0);
-            DataRow rCT = dsLocation.Tables[0].NewRow();
-            rCT["ID"] = 0;
-            rCT["VenueCode"] = "";
-            dsLocation.Tables[0].Rows.Add(rCT);
-            DataView dvLocation = new DataView(dsLocation.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
-            cbLocation.DataSource = dvLocation;
-            cbLocation.DisplayMember = "VenueCode";
-            cbLocation.ValueMember = "ID";
-
-            DataSet dsUsers = dba.GetTable("GIMusers", FuncID);
-            lblRaisedBy.Text = "Creator: " + dsUsers.Tables[0].Rows[0]["Ucode"].ToString() + " (" + Environment.UserName + ")";
-
-            if (FuncID != 1)
+            try
             {
-                chReportable.Visible = false;
-            }
+                DataSet dsFuncs = dba.GetTable("GIMfunc", 0);
+                DataView dvFuncs = new DataView(dsFuncs.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+                clbImpactedFuncs.DataSource = dvFuncs;
+                clbImpactedFuncs.DisplayMember = "FuncCode";
+                clbImpactedFuncs.ValueMember = "ID";
 
-            if (IssueID > 0)
-            {
-                this.Text = "Edit Log";
-                groupBox1.Text = "Edit";
+                DataSet dsLead = dba.GetTable("GIMfunc", 0);
+                DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+                cbLeadFunc.DataSource = dvLead;
+                cbLeadFunc.DisplayMember = "FuncCode";
+                cbLeadFunc.ValueMember = "ID";
 
-                DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
-                tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
-                tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
-                cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
-                tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
-                cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
-                if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
+                DataSet dsVenues = dba.GetTable("GIMvenue", 0);
+                DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+                clbImpactedVenues.DataSource = dvVenues;
+                clbImpactedVenues.DisplayMember = "VenueCode";
+                clbImpactedVenues.ValueMember = "ID";
 
-                lblRaisedBy.Text = "Created by: " + dsUsers.Tables[0].Rows[0]["Ucode"].ToString() + " (" + dsIssue.Tables[0].Rows[0]["Creator"].ToString() + ")";
+                DataSet dsLocation = dba.GetTable("GIMvenue", 0);
+                DataRow rCT = dsLocation.Tables[0].NewRow();
+                rCT["ID"] = 0;
+                rCT["VenueCode"] = "";
+                dsLocation.Tables[0].Rows.Add(rCT);
+                DataView dvLocation = new DataView(dsLocation.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+                cbLocation.DataSource = dvLocation;
+                cbLocation.DisplayMember = "VenueCode";
+                cbLocation.ValueMember = "ID";
 
-                DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
-                dtOccurence.Value = dtOcc.Date;
-                cbHour.Text = dtOcc.Hour.ToString();
-                cbMins.Text = dtOcc.Minute.ToString();
+                DataSet dsUsers = dba.GetTable("GIMusers", UserID);
+                lblRaisedBy.Text = "Creator: " + dsUsers.Tables[0].Rows[0]["Ucode"].ToString() + " (" + Environment.UserName + ")";
 
-                DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
-
-                if (FuncID != 1)
-                    if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["RaisedBy"]) != FuncID)
-                        btSave.Enabled = false;
-
-                int i = 0, j = 0;
-
-                for (; i < clbImpactedFuncs.Items.Count; i++)
+                btSave.Visible = true;
+                if (UserID != 1)
                 {
-                    for (j = 0; j < impFuncs.Tables[0].Rows.Count; j++)
+                    chReportable.Visible = false;
+                }
+
+                if (IssueID > 0)
+                {
+                    this.Text = "Edit Log";
+                    groupBox1.Text = "Edit";
+
+                    DataSet dsIssue = dba.GetTable("GIMissue", IssueID);
+                    tbTitle.Text = dsIssue.Tables[0].Rows[0]["Title"].ToString();
+                    tbDesc.Text = dsIssue.Tables[0].Rows[0]["Description"].ToString();
+                    cbLocation.SelectedValue = dsIssue.Tables[0].Rows[0]["Location"];
+                    tbLocationDesc.Text = dsIssue.Tables[0].Rows[0]["LocationDesc"].ToString();
+                    cbLeadFunc.SelectedValue = dsIssue.Tables[0].Rows[0]["LeadFunction"];
+                    if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Reportable"]) == 1) chReportable.Checked = true;
+
+                    dsUsers = dba.GetTable("GIMusers", Convert.ToInt32(dsIssue.Tables[0].Rows[0]["RaisedBy"]));
+                    lblRaisedBy.Text = "Created by: " + dsUsers.Tables[0].Rows[0]["Ucode"].ToString() + " (" + dsIssue.Tables[0].Rows[0]["Creator"].ToString() + ")";
+
+                    DateTime dtOcc = Convert.ToDateTime(dsIssue.Tables[0].Rows[0]["DateOccurence"].ToString());
+                    dtOccurence.Value = dtOcc.Date;
+                    cbHour.Text = dtOcc.Hour.ToString();
+                    cbMins.Text = dtOcc.Minute.ToString();
+
+                    DataSet impFuncs = dba.GetIssueImpcFuncs(IssueID);
+
+                    if (UserID == 1 || Convert.ToInt32(dsIssue.Tables[0].Rows[0]["RaisedBy"]) == UserID)
                     {
-                        if (((System.Data.DataRowView)(clbImpactedFuncs.Items[i])).Row.ItemArray[0].ToString() == impFuncs.Tables[0].Rows[j]["ID"].ToString())
+                        btSave.Visible = true;
+                        btClose.Visible = true;
+                    }
+                    else
+                    {
+                        btSave.Visible = false;
+                        btClose.Visible = false;
+                    }     
+
+                    int i = 0, j = 0;
+
+                    for (; i < clbImpactedFuncs.Items.Count; i++)
+                    {
+                        for (j = 0; j < impFuncs.Tables[0].Rows.Count; j++)
                         {
-                            clbImpactedFuncs.SetItemCheckState(i, CheckState.Checked);
+                            if (((System.Data.DataRowView)(clbImpactedFuncs.Items[i])).Row.ItemArray[0].ToString() == impFuncs.Tables[0].Rows[j]["ID"].ToString())
+                            {
+                                clbImpactedFuncs.SetItemCheckState(i, CheckState.Checked);
+                            }
+                        }
+                    }
+
+                    DataSet impVenues = dba.GetIssueImpcVenues(IssueID);
+                    for (i = 0; i < clbImpactedVenues.Items.Count; i++)
+                    {
+                        for (j = 0; j < impVenues.Tables[0].Rows.Count; j++)
+                        {
+                            if (((System.Data.DataRowView)(clbImpactedVenues.Items[i])).Row.ItemArray[0].ToString() == impVenues.Tables[0].Rows[j]["VenueID"].ToString())
+                            {
+                                clbImpactedVenues.SetItemCheckState(i, CheckState.Checked);
+                            }
                         }
                     }
                 }
-
-                DataSet impVenues = dba.GetIssueImpcVenues(IssueID);
-                for (i = 0; i < clbImpactedVenues.Items.Count; i++)
-                {
-                    for (j = 0; j < impVenues.Tables[0].Rows.Count; j++)
-                    {
-                        if (((System.Data.DataRowView)(clbImpactedVenues.Items[i])).Row.ItemArray[0].ToString() == impVenues.Tables[0].Rows[j]["VenueID"].ToString())
-                        {
-                            clbImpactedVenues.SetItemCheckState(i, CheckState.Checked);
-                        }
-                    }
-                }
             }
+            catch
+            {
 
+            }
         }
 
         private void btCancel_Click(object sender, EventArgs e)
@@ -237,6 +251,13 @@ namespace GIM
                     clbImpactedVenues.SetItemChecked(i, false);
                 }
             }
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            DBlayer dba = new GIM.DBlayer();
+            dba.UpdateStatus(IssueID, "");
+            this.Close();
         }
     }
 }

@@ -54,6 +54,7 @@
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblRaisedBy = new System.Windows.Forms.Label();
+            this.btClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -236,6 +237,7 @@
             this.btSave.TabIndex = 11;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Visible = false;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // btCancel
@@ -400,16 +402,28 @@
             // lblRaisedBy
             // 
             this.lblRaisedBy.AutoSize = true;
-            this.lblRaisedBy.Location = new System.Drawing.Point(224, 12);
+            this.lblRaisedBy.Location = new System.Drawing.Point(16, 10);
             this.lblRaisedBy.Name = "lblRaisedBy";
             this.lblRaisedBy.Size = new System.Drawing.Size(0, 13);
             this.lblRaisedBy.TabIndex = 27;
+            // 
+            // btClose
+            // 
+            this.btClose.Location = new System.Drawing.Point(93, 645);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(109, 23);
+            this.btClose.TabIndex = 28;
+            this.btClose.Text = "Close log";
+            this.btClose.UseVisualStyleBackColor = true;
+            this.btClose.Visible = false;
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // AddLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(446, 676);
+            this.Controls.Add(this.btClose);
             this.Controls.Add(this.lblRaisedBy);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btSave);
@@ -458,5 +472,6 @@
         private System.Windows.Forms.CheckBox chAllVenues;
         private System.Windows.Forms.CheckBox chAllFuncs;
         private System.Windows.Forms.Label lblRaisedBy;
+        private System.Windows.Forms.Button btClose;
     }
 }

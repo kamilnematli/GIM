@@ -33,22 +33,36 @@ namespace GIM
             }
             cbDate.Text = DateTime.Now.Day + " " + DateMonth;
 
-            DateMonth = cbDate.Text.Split(' ')[1].ToString();
-            int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
-            DBlayer dba = new DBlayer();
-            DataSet dsReport = dba.GetDailyReport(0, DateMonth, DateDay);
-            DataView dvReport = dsReport.Tables[0].DefaultView;
-            gvReports.DataSource = dvReport;
+            try
+            {
+                DateMonth = cbDate.Text.Split(' ')[1].ToString();
+                int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
+                DBlayer dba = new DBlayer();
+                DataSet dsReport = dba.GetDailyReport(0, DateMonth, DateDay);
+                DataView dvReport = dsReport.Tables[0].DefaultView;
+                gvReports.DataSource = dvReport;
+            }
+            catch
+            {
+
+            }
         }
 
         private void cbDate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string DateMonth = cbDate.Text.Split(' ')[1].ToString();
-            int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
-            DBlayer dba = new GIM.DBlayer();
-            DataSet dsReport = dba.GetDailyReport(0, DateMonth, DateDay);
-            DataView dvReport = dsReport.Tables[0].DefaultView;
-            gvReports.DataSource = dvReport;
+            try
+            {
+                string DateMonth = cbDate.Text.Split(' ')[1].ToString();
+                int DateDay = Convert.ToInt32(cbDate.Text.Split(' ')[0]);
+                DBlayer dba = new GIM.DBlayer();
+                DataSet dsReport = dba.GetDailyReport(0, DateMonth, DateDay);
+                DataView dvReport = dsReport.Tables[0].DefaultView;
+                gvReports.DataSource = dvReport;
+            }
+            catch
+            {
+
+            }
         }
 
         private void btExport_Click(object sender, EventArgs e)
@@ -63,14 +77,14 @@ namespace GIM
                 worksheet = workbook.ActiveSheet;
                 worksheet.Name = "ReportList";
 
-                for (int i = 1; i < gvReports.Columns.Count + 1; i++)
+                for (int i = 1; i < gvReports.Columns.Count - 2; i++)
                 {
                     worksheet.Cells[1, i] = gvReports.Columns[i - 1].HeaderText;
                 }
 
                 for (int i = 0; i < gvReports.Rows.Count; i++)
                 {
-                    for (int j = 0; j < gvReports.Columns.Count; j++)
+                    for (int j = 0; j < gvReports.Columns.Count-3; j++)
                     {
                         worksheet.Cells[i + 2, j + 1] = gvReports.Rows[i].Cells[j].Value.ToString();
                     }

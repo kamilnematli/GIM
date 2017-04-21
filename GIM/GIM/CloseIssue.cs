@@ -22,39 +22,47 @@ namespace GIM
             UserID = _userid;
         }
 
+        private void CloseIssue_Load(object sender, EventArgs e)
+        {
+            DateTime dActual = DateTime.Now;
+            cbH.Text = dActual.Hour.ToString();
+            cbM.Text = dActual.Minute.ToString();
+        }
+
         private void btSave_Click(object sender, EventArgs e)
         {
-            try
+            if (tbCloseText.Text == "")
             {
-                string DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
-                if (cbH.Text != "" && cbM.Text != "")
-                {
-                    DateActualEnd = DateActualEnd + " " + cbH.Text + ":" + cbM.Text;
-                }
-
-                DBlayer dba = new GIM.DBlayer();
-                dba.UpdateStatus(IssueID, DateActualEnd);
-                dba.InsertUpdate(IssueID, UserID, Environment.UserName, "The issue is now CLOSED -- " + tbCloseText.Text, "", "");
-
-                MessageBox.Show("You have successfully closed the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                this.Close();
+                MessageBox.Show("Please insert closing comment!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch
+            else
             {
+                try
+                {
+                    string DateActualEnd = dtActualEnd.Value.ToString("yyyy-MM-dd");
+                    if (cbH.Text != "" && cbM.Text != "")
+                    {
+                        DateActualEnd = DateActualEnd + " " + cbH.Text + ":" + cbM.Text;
+                    }
 
+                    DBlayer dba = new GIM.DBlayer();
+                    dba.UpdateStatus(IssueID, DateActualEnd);
+                    dba.InsertUpdate(IssueID, UserID, Environment.UserName, "The issue is now CLOSED -- " + tbCloseText.Text, "", "");
+
+                    MessageBox.Show("You have successfully closed the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    this.Close();
+
+                }
+                catch
+                {
+
+                }
             }
         }
 
         private void btCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void CloseIssue_Load(object sender, EventArgs e)
-        {
-            DateTime dActual = DateTime.Now;
-            cbH.Text = dActual.Hour.ToString();
-            cbM.Text = dActual.Minute.ToString();
         }
     }
 }

@@ -111,19 +111,33 @@ namespace GIM
             if (_Medium == true) FiltSev += "or IssueSeverity = 2 ";
             if (_High == true) FiltSev += "or IssueSeverity = 3 ";
 
-            if (FiltSev != "" && FiltSev.Substring(0, 2) == "or") FiltSev = FiltSev.Substring(2);
-            FiltSev = "(" + FiltSev + ")";
+            if (FiltSev != "" && FiltSev.Substring(0, 2) == "or")
+            {
+                FiltSev = FiltSev.Substring(2);
+                FiltSev = "(" + FiltSev + " or IssueSeverity is null)";
+            }
+            else if (FiltSev != "" && FiltSev.Substring(0, 2) != "or")
+            {
+                FiltSev = "(" + FiltSev + " or IssueSeverity is null)";
+            }
 
             string FiltStatus = "";
             if (_New == true) FiltStatus += "IssueStatus = 1 ";
             if (_InProgress == true) FiltStatus += "or IssueStatus = 2 ";
             if (_Closed == true) FiltStatus += "or IssueStatus = 4 ";
 
-            if (FiltStatus != "" && FiltStatus.Substring(0, 2) == "or") FiltStatus = FiltStatus.Substring(2);
-            FiltStatus = "(" + FiltStatus + ")";
+            if (FiltStatus != "" && FiltStatus.Substring(0, 2) == "or")
+            {
+                FiltStatus = FiltStatus.Substring(2);
+                FiltStatus = "(" + FiltStatus + " or IssueStatus is null)";
+            }
+            else if (FiltStatus != "" && FiltStatus.Substring(0, 2) != "or")
+            {
+                FiltStatus = "(" + FiltStatus + " or IssueStatus is null)";
+            }
 
-            if (FiltSev != "()") filt += "and " + FiltSev;
-            if (FiltStatus != "()") filt += "and " + FiltStatus;
+            if (FiltSev != "") filt += " and " + FiltSev;
+            if (FiltStatus != "") filt += " and " + FiltStatus;
 
             if (filt != "" && filt.Substring(0, 4).Contains("and")) filt = filt.Substring(4);
 
@@ -208,7 +222,8 @@ namespace GIM
             string _sql = "";
             DataSet ds = new DataSet();
 
-            _sql = " select [dbo].[GIMdailyReport].ID, [dbo].[GIMdailyReport].ReportText, [dbo].[GIMdailyReport].ReportStats, UserID, Ucode, DateMonth, DateDay, case when Finished = 1 then 'Yes' else 'No' end as [Finished] " +
+            _sql = " select [dbo].[GIMdailyReport].ID, [dbo].[GIMdailyReport].ReportText, [dbo].[GIMdailyReport].ReportStats, case when UserType = 1 then 'Function' else 'Venue' end as [UserType], " +
+                   " Ucode, case when Finished = 1 then 'Yes' else 'No' end as [Finished], UserID, DateMonth, DateDay" +
                    " from gimdailyreport inner join gimusers on gimdailyreport.userid = gimusers.id " +
                    " WHERE [dbo].[GIMdailyReport].[DateMonth] = '" + DateMonth + "' and [dbo].[GIMdailyReport].[DateDay] = " + DateDay;
 
@@ -523,8 +538,16 @@ namespace GIM
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
 
-            string _sql = " UPDATE [dbo].[GIMissue] SET " +
-                          " [IssueStatus] = 4, [DateActualEnd] = CONVERT(datetime, '" + DateActualEnd + "')" + " where ID = " + IssueID;
+            string _sql = "";
+
+            if (DateActualEnd != "")
+            {
+                _sql = " UPDATE [dbo].[GIMissue] SET [IssueStatus] = 4, [DateActualEnd] = CONVERT(datetime, '" + DateActualEnd + "')" + " where ID = " + IssueID;
+            }
+            else
+            {
+                _sql = " UPDATE [dbo].[GIMissue] SET [IssueStatus] = 4, [DateActualEnd] = NULL where ID = " + IssueID;
+            }
 
             cmd.CommandText = _sql;
             cmd.ExecuteNonQuery();

@@ -28,9 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvIssues = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Severity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeadFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reportable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dashboard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btAddIssue = new System.Windows.Forms.Button();
             this.btAddLog = new System.Windows.Forms.Button();
             this.tbIssueID = new System.Windows.Forms.TextBox();
@@ -67,16 +77,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lbDailyReport = new System.Windows.Forms.LinkLabel();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Severity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeadFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reportable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dashboard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvIssues)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -96,6 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gvIssues.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.gvIssues.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gvIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvIssues.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -110,6 +111,7 @@
             this.Dashboard});
             this.gvIssues.Location = new System.Drawing.Point(270, 49);
             this.gvIssues.Name = "gvIssues";
+            this.gvIssues.ReadOnly = true;
             this.gvIssues.RowHeadersVisible = false;
             this.gvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvIssues.Size = new System.Drawing.Size(1068, 639);
@@ -118,9 +120,95 @@
             this.gvIssues.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvIssues_CellFormatting);
             this.gvIssues.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gvIssues_DataBindingComplete);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
+            // Updated
+            // 
+            this.Updated.DataPropertyName = "DateUpdated";
+            dataGridViewCellStyle9.Format = "d MMMM H:mm";
+            dataGridViewCellStyle9.NullValue = null;
+            this.Updated.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Updated.HeaderText = "Updated";
+            this.Updated.Name = "Updated";
+            this.Updated.ReadOnly = true;
+            this.Updated.Width = 90;
+            // 
+            // IssueType
+            // 
+            this.IssueType.DataPropertyName = "Type";
+            this.IssueType.HeaderText = "Type";
+            this.IssueType.Name = "IssueType";
+            this.IssueType.ReadOnly = true;
+            this.IssueType.Width = 80;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 75;
+            // 
+            // Severity
+            // 
+            this.Severity.DataPropertyName = "Severity";
+            this.Severity.HeaderText = "Severity";
+            this.Severity.Name = "Severity";
+            this.Severity.ReadOnly = true;
+            this.Severity.Width = 75;
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "Title";
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Width = 450;
+            // 
+            // Desc
+            // 
+            this.Desc.DataPropertyName = "Description";
+            this.Desc.HeaderText = "Description";
+            this.Desc.Name = "Desc";
+            this.Desc.ReadOnly = true;
+            this.Desc.Visible = false;
+            // 
+            // LeadFunc
+            // 
+            this.LeadFunc.DataPropertyName = "Lead function";
+            this.LeadFunc.HeaderText = "Lead Function";
+            this.LeadFunc.Name = "LeadFunc";
+            this.LeadFunc.ReadOnly = true;
+            // 
+            // Reportable
+            // 
+            this.Reportable.DataPropertyName = "Reportable";
+            this.Reportable.HeaderText = "Reportable";
+            this.Reportable.Name = "Reportable";
+            this.Reportable.ReadOnly = true;
+            this.Reportable.Width = 80;
+            // 
+            // Dashboard
+            // 
+            this.Dashboard.DataPropertyName = "Dashboard";
+            this.Dashboard.HeaderText = "Dashboard";
+            this.Dashboard.Name = "Dashboard";
+            this.Dashboard.ReadOnly = true;
+            this.Dashboard.Width = 80;
+            // 
             // btAddIssue
             // 
+            this.btAddIssue.BackColor = System.Drawing.Color.Honeydew;
             this.btAddIssue.Location = new System.Drawing.Point(270, 12);
+            this.btAddIssue.Margin = new System.Windows.Forms.Padding(0);
             this.btAddIssue.Name = "btAddIssue";
             this.btAddIssue.Size = new System.Drawing.Size(111, 23);
             this.btAddIssue.TabIndex = 1;
@@ -177,6 +265,7 @@
             // 
             // splitter1
             // 
+            this.splitter1.BackColor = System.Drawing.Color.LightYellow;
             this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
@@ -186,6 +275,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.BackColor = System.Drawing.Color.LightYellow;
             this.groupBox8.Controls.Add(this.btClearFilter);
             this.groupBox8.Controls.Add(this.groupBox5);
             this.groupBox8.Controls.Add(this.btApplyFilter);
@@ -472,9 +562,10 @@
             // 
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(1246, 7);
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(1231, 7);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(92, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(107, 13);
             this.linkLabel1.TabIndex = 28;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Change password";
@@ -484,92 +575,20 @@
             // 
             this.lbDailyReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbDailyReport.AutoSize = true;
-            this.lbDailyReport.Location = new System.Drawing.Point(1278, 26);
+            this.lbDailyReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDailyReport.Location = new System.Drawing.Point(1266, 26);
             this.lbDailyReport.Name = "lbDailyReport";
-            this.lbDailyReport.Size = new System.Drawing.Size(60, 13);
+            this.lbDailyReport.Size = new System.Drawing.Size(72, 13);
             this.lbDailyReport.TabIndex = 29;
             this.lbDailyReport.TabStop = true;
             this.lbDailyReport.Text = "Daily report";
             this.lbDailyReport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDailyReport_LinkClicked);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 50;
-            // 
-            // Updated
-            // 
-            this.Updated.DataPropertyName = "DateUpdated";
-            dataGridViewCellStyle1.Format = "d MMMM H:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Updated.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Updated.HeaderText = "Updated";
-            this.Updated.Name = "Updated";
-            this.Updated.Width = 90;
-            // 
-            // IssueType
-            // 
-            this.IssueType.DataPropertyName = "Type";
-            this.IssueType.HeaderText = "Type";
-            this.IssueType.Name = "IssueType";
-            this.IssueType.Width = 80;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.Width = 75;
-            // 
-            // Severity
-            // 
-            this.Severity.DataPropertyName = "Severity";
-            this.Severity.HeaderText = "Severity";
-            this.Severity.Name = "Severity";
-            this.Severity.Width = 75;
-            // 
-            // Title
-            // 
-            this.Title.DataPropertyName = "Title";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Title.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            this.Title.Width = 450;
-            // 
-            // Desc
-            // 
-            this.Desc.DataPropertyName = "Description";
-            this.Desc.HeaderText = "Description";
-            this.Desc.Name = "Desc";
-            this.Desc.Visible = false;
-            // 
-            // LeadFunc
-            // 
-            this.LeadFunc.DataPropertyName = "Lead function";
-            this.LeadFunc.HeaderText = "Lead Function";
-            this.LeadFunc.Name = "LeadFunc";
-            // 
-            // Reportable
-            // 
-            this.Reportable.DataPropertyName = "Reportable";
-            this.Reportable.HeaderText = "Reportable";
-            this.Reportable.Name = "Reportable";
-            this.Reportable.Width = 80;
-            // 
-            // Dashboard
-            // 
-            this.Dashboard.DataPropertyName = "Dashboard";
-            this.Dashboard.HeaderText = "Dashboard";
-            this.Dashboard.Name = "Dashboard";
-            this.Dashboard.Width = 80;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(1350, 701);
             this.Controls.Add(this.lbDailyReport);
             this.Controls.Add(this.linkLabel1);

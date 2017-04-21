@@ -46,7 +46,7 @@ namespace GIM
                 return;
             }
 
-            if (dba.CheckPassword(Convert.ToInt32(cbUsers.SelectedIndex), tbPass.Text))
+            if (dba.CheckPassword(Convert.ToInt32(cbUsers.SelectedValue), tbPass.Text))
             {
                 DataSet userDetails = dba.GetUsers(Convert.ToInt32(cbUsers.SelectedValue));
                 MainWindow frm = new MainWindow(Convert.ToInt32(cbUsers.SelectedValue), Convert.ToInt32(userDetails.Tables[0].Rows[0]["UserType"]));

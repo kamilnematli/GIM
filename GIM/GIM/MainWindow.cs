@@ -27,29 +27,45 @@ namespace GIM
             //lbUsername.Text = Environment.UserName;
 
             DBlayer dba = new DBlayer();
+            try
+            {
+                DataSet dsFunc = dba.GetTable("GIMfunc", 0);
+                DataView dvFunc = new DataView(dsFunc.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+                clbImpactedFuncs.DataSource = dvFunc;
+                clbImpactedFuncs.DisplayMember = "FuncCode";
+                clbImpactedFuncs.ValueMember = "ID";
 
-            DataSet dsFunc = dba.GetTable("GIMfunc", 0);
-            DataView dvFunc = new DataView(dsFunc.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
-            clbImpactedFuncs.DataSource = dvFunc;
-            clbImpactedFuncs.DisplayMember = "FuncCode";
-            clbImpactedFuncs.ValueMember = "ID";
+                DataSet dsLead = dba.GetTable("GIMfunc", 0);
+                DataRow rLead = dsLead.Tables[0].NewRow();
+                rLead["ID"] = 0;
+                rLead["FuncCode"] = "";
+                dsLead.Tables[0].Rows.Add(rLead);
+                DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
+                cbLead.DataSource = dvLead;
+                cbLead.DisplayMember = "FuncCode";
+                cbLead.ValueMember = "ID";
 
-            DataSet dsLead = dba.GetTable("GIMfunc", 0);
-            DataRow rLead = dsLead.Tables[0].NewRow();
-            rLead["ID"] = 0;
-            rLead["FuncCode"] = "";
-            dsLead.Tables[0].Rows.Add(rLead);
-            DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
-            cbLead.DataSource = dvLead;
-            cbLead.DisplayMember = "FuncCode";
-            cbLead.ValueMember = "ID";
+                DataSet dsVenues = dba.GetTable("GIMvenue", 0);
+                DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
+                clbImpactedVenues.DataSource = dvVenues;
+                clbImpactedVenues.DisplayMember = "VenueCode";
+                clbImpactedVenues.ValueMember = "ID";
+            }
+            catch
+            {
 
-            DataSet dsVenues = dba.GetTable("GIMvenue", 0);
-            DataView dvVenues = new DataView(dsVenues.Tables[0], "", "VenueCode", DataViewRowState.CurrentRows);
-            clbImpactedVenues.DataSource = dvVenues;
-            clbImpactedVenues.DisplayMember = "VenueCode";
-            clbImpactedVenues.ValueMember = "ID";
+            }
 
+            LoadIssueList();
+
+            Timer timer = new Timer();
+            timer.Interval = (120 * 1000); // 120 secs
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
             LoadIssueList();
         }
 
@@ -247,7 +263,10 @@ namespace GIM
 
         private void gvIssues_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            gvIssues.Rows[0].Selected = false;
+            if (gvIssues.Rows.Count > 0)
+            {
+                gvIssues.Rows[0].Selected = false;
+            }
         }
 
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
