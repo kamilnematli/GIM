@@ -255,9 +255,13 @@ namespace GIM
 
         private void btClose_Click(object sender, EventArgs e)
         {
-            DBlayer dba = new GIM.DBlayer();
-            dba.UpdateStatus(IssueID, "");
-            this.Close();
+            try
+            {
+                DBlayer dba = new GIM.DBlayer();
+                dba.UpdateStatus(IssueID, "");
+                this.Close();
+            }
+            catch { }
         }
     }
 }

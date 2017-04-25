@@ -23,17 +23,20 @@ namespace GIM
         private void btSave_Click(object sender, EventArgs e)
         {
             DBlayer dba = new GIM.DBlayer();
-            
-            if(tbPass.Text == tbPass2.Text)
+            try
             {
-                dba.UpdateUserPassword(UserID, tbPass.Text);
-                MessageBox.Show("You have successfully updated the password!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                this.Close();
+                if (tbPass.Text == tbPass2.Text)
+                {
+                    dba.UpdateUserPassword(UserID, tbPass.Text);
+                    MessageBox.Show("You have successfully updated the password!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("The passwords are not matching. Please check!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("The passwords are not matching. Please check!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            catch { }
         }
     }
 }

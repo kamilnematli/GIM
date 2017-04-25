@@ -64,16 +64,24 @@ namespace GIM
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            DBlayer dba = new GIM.DBlayer();
-            dba.UpdateComment(UpdateID, tbUpdate.Text, tbAttachment.Text);
-            this.Close();
+            try
+            {
+                DBlayer dba = new GIM.DBlayer();
+                dba.UpdateComment(UpdateID, tbUpdate.Text, tbAttachment.Text);
+                this.Close();
+            }
+            catch { }
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            DBlayer dba = new GIM.DBlayer();
-            dba.DeleteComment(UpdateID);
-            this.Close();
+            try
+            {
+                DBlayer dba = new GIM.DBlayer();
+                dba.DeleteComment(UpdateID);
+                this.Close();
+            }
+            catch { }
         }
     }
 }

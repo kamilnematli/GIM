@@ -71,38 +71,45 @@ namespace GIM
 
         private void LoadIssueList()
         {
-            DBlayer dba = new DBlayer();
-            DataSet dsIssues = new DataSet();
-            string ImpactedFuncs = "";
-            string ImpactedVenues = "";
-
-            foreach (object itemChecked in clbImpactedFuncs.CheckedItems)
-            {
-                DataRowView castedItem = itemChecked as DataRowView;
-                ImpactedFuncs += castedItem["ID"].ToString() + ",";
-            }
-            if (ImpactedFuncs != "")  ImpactedFuncs = ImpactedFuncs.Substring(0, ImpactedFuncs.Length - 1);
-
-            foreach (object itemChecked in clbImpactedVenues.CheckedItems)
-            {
-                DataRowView castedItem = itemChecked as DataRowView;
-                ImpactedVenues += castedItem["ID"].ToString() + ",";
-            }
-            if(ImpactedVenues != "") ImpactedVenues = ImpactedVenues.Substring(0, ImpactedVenues.Length - 1);
-
             try
             {
-                dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
-                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, ImpactedFuncs, ImpactedVenues, Convert.ToInt32(cbLead.SelectedValue));
+                DBlayer dba = new DBlayer();
+                DataSet dsIssues = new DataSet();
+                string ImpactedFuncs = "";
+                string ImpactedVenues = "";
+
+                foreach (object itemChecked in clbImpactedFuncs.CheckedItems)
+                {
+                    DataRowView castedItem = itemChecked as DataRowView;
+                    ImpactedFuncs += castedItem["ID"].ToString() + ",";
+                }
+                if (ImpactedFuncs != "") ImpactedFuncs = ImpactedFuncs.Substring(0, ImpactedFuncs.Length - 1);
+
+                foreach (object itemChecked in clbImpactedVenues.CheckedItems)
+                {
+                    DataRowView castedItem = itemChecked as DataRowView;
+                    ImpactedVenues += castedItem["ID"].ToString() + ",";
+                }
+                if (ImpactedVenues != "") ImpactedVenues = ImpactedVenues.Substring(0, ImpactedVenues.Length - 1);
+
+                try
+                {
+                    dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked,
+                        chDashboard.Checked, chReportable.Checked, chMyList.Checked, ImpactedFuncs, ImpactedVenues, Convert.ToInt32(cbLead.SelectedValue));
+                }
+                catch
+                {
+                    dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked,
+                        chDashboard.Checked, chReportable.Checked, chMyList.Checked, "", "", -1);
+                }
+
+                DataView dvIssues = dsIssues.Tables[0].DefaultView;
+                gvIssues.DataSource = dvIssues;
             }
             catch
             {
-                dsIssues = dba.GetIssues(UserID, UserType, chIssue.Checked, chLog.Checked, chLow.Checked, chMedium.Checked, chHigh.Checked, chNew.Checked, chInprogress.Checked, chClosed.Checked, 
-                    chDashboard.Checked, chReportable.Checked, chMyList.Checked, "", "", -1);
-            }
 
-            DataView dvIssues = dsIssues.Tables[0].DefaultView;
-            gvIssues.DataSource = dvIssues;
+            }
         }
 
         private void AddIssue_Click(object sender, EventArgs e)
@@ -166,11 +173,11 @@ namespace GIM
 
         private void btOpenIssue_Click(object sender, EventArgs e)
         {
-            DBlayer dba = new DBlayer();
-            DataSet dsIssue = dba.GetTable("GIMissue", Convert.ToInt32(tbIssueID.Text));
+            DBlayer dba = new DBlayer();          
 
             try
             {
+                DataSet dsIssue = dba.GetTable("GIMissue", Convert.ToInt32(tbIssueID.Text));
                 if (Convert.ToInt32(dsIssue.Tables[0].Rows[0]["Type"]) == 1)
                 {
                     EditIssue frm = new GIM.EditIssue(Convert.ToInt32(tbIssueID.Text), UserID);
@@ -187,21 +194,25 @@ namespace GIM
 
         private void gvIssues_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.gvIssues.Columns[e.ColumnIndex].Name == "Severity")
+            try
             {
-                if (e.Value.ToString() == "High")
+                if (this.gvIssues.Columns[e.ColumnIndex].Name == "Severity")
                 {
-                    e.CellStyle.BackColor = Color.Red;
-                }
-                else if (e.Value.ToString() == "Medium")
-                {
-                    e.CellStyle.BackColor = Color.Orange;
-                }
-                else if (e.Value.ToString() == "Low")
-                {
-                    e.CellStyle.BackColor = Color.Yellow;
+                    if (e.Value.ToString() == "High")
+                    {
+                        e.CellStyle.BackColor = Color.Red;
+                    }
+                    else if (e.Value.ToString() == "Medium")
+                    {
+                        e.CellStyle.BackColor = Color.Orange;
+                    }
+                    else if (e.Value.ToString() == "Low")
+                    {
+                        e.CellStyle.BackColor = Color.Yellow;
+                    }
                 }
             }
+            catch { }
         }
 
         private void btRefresh_Click(object sender, EventArgs e)
