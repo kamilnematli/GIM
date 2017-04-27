@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.tbEnter = new System.Windows.Forms.Button();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -84,6 +85,16 @@
             this.tbEnter.UseVisualStyleBackColor = true;
             this.tbEnter.Click += new System.EventHandler(this.tbEnter_Click);
             // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.BackColor = System.Drawing.Color.Transparent;
+            this.lblVersion.Location = new System.Drawing.Point(12, 277);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(94, 13);
+            this.lblVersion.TabIndex = 5;
+            this.lblVersion.Text = "GIM version: 2.0.0";
+            // 
             // SignIn
             // 
             this.AcceptButton = this.tbEnter;
@@ -93,6 +104,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(705, 396);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.tbEnter);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.label2);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.Button tbEnter;
+        private System.Windows.Forms.Label lblVersion;
     }
 }

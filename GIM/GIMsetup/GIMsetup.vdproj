@@ -94,6 +94,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
     }
@@ -222,15 +230,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GIMsetup"
-        "ProductCode" = "8:{069F03EE-568C-49A7-A268-345D191835E2}"
-        "PackageCode" = "8:{9CB69BA3-C9F2-4B39-AA92-CCB17ABD553C}"
+        "ProductCode" = "8:{34ED2A52-B113-4A4B-B614-3E8C5771507E}"
+        "PackageCode" = "8:{BE5B5598-05EB-493A-AB0D-1DB78CCB0AA0}"
         "UpgradeCode" = "8:{B15987AE-B0B7-4935-985F-1CE9C23588CF}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.6.0"
+        "ProductVersion" = "8:2.0.0"
         "Manufacturer" = "8:GDM"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

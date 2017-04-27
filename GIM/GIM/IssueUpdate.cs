@@ -14,28 +14,36 @@ namespace GIM
     {
         private int UserID;
         private int UpdateID;
-        private string UpdatedBy;
-        private string UpdateDate;
-        private string UpdateText;
-        private string Attchment;
 
-        public IssueUpdate(int _userid, int _updateid, string _updatedby, string _updatedate, string _updatetext, string _attch)
+        public IssueUpdate(int _userid, int _updateid)
         {
             InitializeComponent();
             UserID = _userid;
             UpdateID = _updateid;
-            UpdatedBy = _updatedby;
-            UpdateDate = _updatedate;
-            UpdateText = _updatetext;
-            Attchment = _attch;
         }
 
         private void IssueUpdate_Load(object sender, EventArgs e)
         {
-            lbUpdateDate.Text += " " + UpdateDate;
-            lbUpdatedBy.Text += " " + UpdatedBy;
-            tbUpdate.Text = UpdateText;
-            tbAttachment.Text = Attchment;
+            DBlayer dba = new GIM.DBlayer();
+
+            try
+            {
+                DataSet dUpdate = dba.GetTable("GIMupdateLog", UpdateID);
+                lbUpdateDate.Text += " " + dUpdate.Tables[0].Rows[0]["DateUpdate"].ToString();
+                lbUpdatedBy.Text += " " + dUpdate.Tables[0].Rows[0]["Creator"].ToString();
+                tbUpdate.Text = dUpdate.Tables[0].Rows[0]["UpdateContext"].ToString();
+                tbAttachment.Text = dUpdate.Tables[0].Rows[0]["FileUploaded"].ToString();
+                
+                if(UserID == 1 || UserID == Convert.ToInt32(dUpdate.Tables[0].Rows[0]["UpdatedBy"]))
+                {
+                    btDelete.Enabled = true;
+                }
+                else
+                {
+                    btDelete.Enabled = false;
+                }  
+            }
+            catch { }
         }
 
         private void btAttachment_Click(object sender, EventArgs e)

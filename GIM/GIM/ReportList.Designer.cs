@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbDate = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gvReports = new System.Windows.Forms.DataGridView();
@@ -130,6 +130,7 @@
             // 
             this.gvReports.AllowUserToAddRows = false;
             this.gvReports.AllowUserToDeleteRows = false;
+            this.gvReports.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gvReports.BackgroundColor = System.Drawing.Color.Azure;
             this.gvReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvReports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -165,8 +166,8 @@
             // reporttext
             // 
             this.reporttext.DataPropertyName = "ReportText";
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reporttext.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reporttext.DefaultCellStyle = dataGridViewCellStyle1;
             this.reporttext.HeaderText = "Report Text";
             this.reporttext.Name = "reporttext";
             this.reporttext.Width = 395;
@@ -174,8 +175,8 @@
             // reportstat
             // 
             this.reportstat.DataPropertyName = "ReportStats";
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reportstat.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reportstat.DefaultCellStyle = dataGridViewCellStyle2;
             this.reportstat.HeaderText = "Report statistics";
             this.reportstat.Name = "reportstat";
             this.reportstat.Width = 395;

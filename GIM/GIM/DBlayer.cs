@@ -367,7 +367,7 @@ namespace GIM
 
             _sql += ",CONVERT(datetime,'" + DateOccurence +
                     "'), null" +
-                    ",'" + DateTime.Now +
+                    ",'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") +
                     "'," + Reportable +
                     " ," + Dashboard +
                     " ,'" + Creator + 
@@ -420,7 +420,7 @@ namespace GIM
                           ",'" + Creator +
                           "','" + UpdateText +
                           "','" + UpdateType +
-                          "','" + DateTime.Now + 
+                          "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + 
                           "','" + FileUploaded + "')";
 
             cmd.CommandText = _sql;
@@ -489,10 +489,19 @@ namespace GIM
 
 
             _sql += " ,[Description] = '" + Desc + "'" +
-                    " ,[LeadFunction] = " + LeadFunction +
-                    " ,[Location] = " + Location +
-                    " ,[DateOccurence] = CONVERT(datetime, '" + DateOccurence + "')" +
-                    " ,[DateUpdated] = '" + DateTime.Now + "'" +
+                    " ,[LeadFunction] = " + LeadFunction;
+
+            if (Location < 1)
+            {
+                _sql += ", [Location] = null";
+            }
+            else
+            {
+                _sql += ", [Location] =" + Location;
+            }
+
+            _sql += " ,[DateOccurence] = CONVERT(datetime, '" + DateOccurence + "')" +
+                    " ,[DateUpdated] = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "'" +
                     " ,[Attachment] = '" + Attch + "'" +
                     " ,[Reportable] = " + Reportable +
                     " ,[Dashboard] = " + Dashboard +
@@ -512,18 +521,15 @@ namespace GIM
             string[] funcs = ImpactedFuncs.Split(',');
             string[] venues = ImpactedVenues.Split(',');
 
-            _sql = " Declare @lRow as int; " +
-                   " set @lRow = dbo.GetIssueLastRow(); ";
-
             int i = 0;
             for (; i < funcs.Length - 1; i++)
             {
-                _sql += " INSERT INTO [dbo].[GIMimpactedFuncs] ([Issue], [Func]) VALUES (@lRow, " + funcs[i] + "); ";
+                _sql += " INSERT INTO [dbo].[GIMimpactedFuncs] ([Issue], [Func]) VALUES (" + IssueID + ", " + funcs[i] + "); ";
             }
 
             for (i = 0; i < venues.Length - 1; i++)
             {
-                _sql += " INSERT INTO [dbo].[GIMimpactedVenues] ([Issue], [Venue]) VALUES (@lRow, " + venues[i] + "); ";
+                _sql += " INSERT INTO [dbo].[GIMimpactedVenues] ([Issue], [Venue]) VALUES (" + IssueID + ", " + venues[i] + "); ";
             }
 
             cmd.CommandText = _sql;
@@ -579,7 +585,7 @@ namespace GIM
 
             string _sql = " UPDATE [dbo].[GIMupdateLog] SET " +
                           " [UpdateContext] = '" + UpdateContext + "'" +
-                          ",[DateUpdate] = '" + DateTime.Now + "'" + 
+                          ",[DateUpdate] = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "'" + 
                           ",[FileUploaded] = '" + FileUploaded + "' where ID = " + UpdateID;
 
             cmd.CommandText = _sql;

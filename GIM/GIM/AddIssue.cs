@@ -40,6 +40,10 @@ namespace GIM
                 clbImpactedFuncs.ValueMember = "ID";
 
                 DataSet dsLead = dba.GetTable("GIMfunc", 0);
+                DataRow rLead = dsLead.Tables[0].NewRow();
+                rLead["ID"] = 0;
+                rLead["FuncCode"] = "";
+                dsLead.Tables[0].Rows.Add(rLead);
                 DataView dvLead = new DataView(dsLead.Tables[0], "", "FuncCode", DataViewRowState.CurrentRows);
                 cbLeadFunc.DataSource = dvLead;
                 cbLeadFunc.DisplayMember = "FuncCode";
@@ -154,6 +158,12 @@ namespace GIM
             string ImpactedVenues = "";
             string DateOccurence = "";
 
+            if(cbLeadFunc.Text == "")
+            {
+                MessageBox.Show("Please select Lead Function!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (IssueID == 0)
             {
                 foreach (object itemChecked in clbImpactedFuncs.CheckedItems)
@@ -210,7 +220,10 @@ namespace GIM
                     DataRowView castedItem = itemChecked as DataRowView;
                     ImpactedVenues += castedItem["ID"].ToString() + ",";
                 }
-                ImpactedVenues += Convert.ToInt32(cbLocation.SelectedValue) + ",";
+                if (cbLocation.Text != "")
+                {
+                    ImpactedVenues += Convert.ToInt32(cbLocation.SelectedValue) + ",";
+                }
 
                 DateOccurence = dtOccurence.Value.ToString("yyyy-MM-dd");
                 if (cbHour.Text != "" && cbMins.Text != "")
@@ -223,9 +236,20 @@ namespace GIM
                 if (chReportable.Checked) Reportable = 1;
                 if (chDashboard.Checked) Dashboard = 1;
 
+                int IssueStatus = 0;
+
+                if(cbStatus.Text == "Closed")
+                {
+                    IssueStatus = 4;
+                }
+                else
+                {
+                    IssueStatus = Convert.ToInt32(cbStatus.SelectedValue);
+                }
+
                 try
                 {
-                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text.Replace("'", "''"), Convert.ToInt32(cbStatus.SelectedValue), Convert.ToInt32(cbSeverity.SelectedValue), UserID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
+                    dba.UpdateIssueDetails(IssueID, 1, tbTitle.Text.Replace("'", "''"), IssueStatus, Convert.ToInt32(cbSeverity.SelectedValue), UserID, tbDesc.Text.Replace("'", "''"), Convert.ToInt32(cbLeadFunc.SelectedValue),
                         ImpactedFuncs, Convert.ToInt32(cbLocation.SelectedValue), ImpactedVenues, DateOccurence, tbAttachment.Text, tbLocationDesc.Text.Replace("'", "''"), Dashboard, Reportable);
 
                     MessageBox.Show("You have successfully updated the issue!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

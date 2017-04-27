@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,22 +20,29 @@ namespace GIM
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            DBlayer dba = new GIM.DBlayer();
-            if (dba.IsServerConnected() == false)
+            try
             {
-                MessageBox.Show("Please check your connection!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                DBlayer dba = new GIM.DBlayer();
+                if (dba.IsServerConnected() == false)
+                {
+                    MessageBox.Show("Please check your connection!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DataSet dsUser = dba.GetUsers(0);
+                DataRow rCT = dsUser.Tables[0].NewRow();
+                rCT["ID"] = 0;
+                rCT["Ucode"] = "Select";
+                dsUser.Tables[0].Rows.Add(rCT);
+                DataView dvFunc = new DataView(dsUser.Tables[0], "", "ID", DataViewRowState.CurrentRows);
+                cbUsers.DataSource = dvFunc;
+                cbUsers.DisplayMember = "Ucode";
+                cbUsers.ValueMember = "ID";
             }
-          
-            DataSet dsUser = dba.GetUsers(0);
-            DataRow rCT = dsUser.Tables[0].NewRow();
-            rCT["ID"] = 0;
-            rCT["Ucode"] = "Select";
-            dsUser.Tables[0].Rows.Add(rCT);
-            DataView dvFunc = new DataView(dsUser.Tables[0], "", "ID", DataViewRowState.CurrentRows);
-            cbUsers.DataSource = dvFunc;
-            cbUsers.DisplayMember = "Ucode";
-            cbUsers.ValueMember = "ID";
+            catch
+            {
+
+            }
         }
 
         private void tbEnter_Click(object sender, EventArgs e)

@@ -187,8 +187,7 @@ namespace GIM
 
         private void gvUpdates_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            IssueUpdate frm = new IssueUpdate(UserID, Convert.ToInt32(gvUpdates.SelectedRows[0].Cells[0].Value), gvUpdates.SelectedRows[0].Cells["UpdatedBy"].Value.ToString(), 
-                gvUpdates.SelectedRows[0].Cells[4].Value.ToString(), gvUpdates.SelectedRows[0].Cells[2].Value.ToString(), gvUpdates.SelectedRows[0].Cells["FileUploaded"].Value.ToString());
+            IssueUpdate frm = new IssueUpdate(UserID, Convert.ToInt32(gvUpdates.SelectedRows[0].Cells[0].Value));
             frm.ShowDialog();
 
             try
